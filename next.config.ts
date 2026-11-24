@@ -9,6 +9,9 @@ const withSerwist = withSerwistInit({
 
 const nextConfig: NextConfig = {
   turbopack: {},
+  outputFileTracingIncludes: {
+    "/api/**/*": ["./data/**/*"],
+  },
   async headers() {
     return [
       {
