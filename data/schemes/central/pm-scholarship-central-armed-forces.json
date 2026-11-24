@@ -1,0 +1,31 @@
+{
+  "id": "pm-scholarship-central-armed-forces",
+  "name": {
+    "hi": "प्रधानमंत्री छात्रवृत्ति योजना (सीएपीएफ एवं असम राइफल्स)",
+    "en": "Prime Minister's Scholarship Scheme (CAPFs & Assam Rifles)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://www.warb-mha.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "occupation", "operator": "includes", "value": ["student"] }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "सशस्त्र बलों के शहीदों/पूर्व सैनिकों के बच्चों को बालकों हेतु ₹3,000/माह एवं बालिकाओं हेतु ₹3,600/माह की छात्रवृत्ति",
+    "summary_en": "Monthly scholarship of ₹3,000 (boys) and ₹3,600 (girls) for wards of CAPF personnel",
+    "amount_inr": 43200,
+    "frequency": "annual",
+    "mode": "DBT"
+  },
+  "documents_required": [
+    "विद्यार्थी का आधार कार्ड",
+    "माता/पिता का सेवा प्रमाण पत्र (WARB/Discharge Certificate)",
+    "12वीं की मार्कशीट",
+    "बैंक खाता पासबुक"
+  ],
+  "apply_url": "https://scholarships.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

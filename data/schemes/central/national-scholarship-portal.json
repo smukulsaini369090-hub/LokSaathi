@@ -1,0 +1,33 @@
+{
+  "id": "national-scholarship-portal",
+  "name": {
+    "hi": "राष्ट्रीय छात्रवृत्ति पोर्टल - प्री और पोस्ट मैट्रिक छात्रवृत्ति",
+    "en": "National Scholarship Portal - Pre & Post Matric Scholarships"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://scholarships.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "occupation", "operator": "includes", "value": ["student"] },
+      { "field": "annual_income_inr", "operator": "lte", "value": 250000 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "स्कूल और कॉलेज छात्रों को ₹10,000 से ₹20,000 प्रति वर्ष की वित्तीय छात्रवृत्ति",
+    "summary_en": "Financial scholarship of ₹10,000 to ₹20,000 per year for school and college students",
+    "amount_inr": 20000,
+    "frequency": "annual",
+    "mode": "DBT to Student Account"
+  },
+  "documents_required": [
+    "विद्यार्थी का आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "संस्थान का बोनाफाइड प्रमाण पत्र"
+  ],
+  "apply_url": "https://scholarships.gov.in",
+  "deadline": "2026-12-31",
+  "confidence": "verified"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "national-social-assistance",
+  "name": {
+    "hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम - इंदिरा गांधी वृद्धावस्था पेंशन",
+    "en": "National Social Assistance Programme - IGNOAPS"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://nsap.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "age", "operator": "gte", "value": 60 },
+      { "field": "is_bpl", "operator": "eq", "value": true }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "बीपीएल वृद्धजनों को ₹1,000 से ₹1,500 प्रति माह की सामाजिक पेंशन (केंद्र व राज्य का संयुक्त अंश)",
+    "summary_en": "Monthly old age pension of ₹1,000 to ₹1,500 for senior citizens below poverty line",
+    "amount_inr": 12000,
+    "frequency": "annual",
+    "mode": "Monthly DBT"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र",
+    "बीपीएल राशन कार्ड",
+    "बैंक खाता पासबुक"
+  ],
+  "apply_url": "https://nsap.nic.in",
+  "deadline": null,
+  "confidence": "verified"
+}

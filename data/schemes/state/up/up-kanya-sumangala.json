@@ -1,0 +1,35 @@
+{
+  "id": "up-kanya-sumangala",
+  "name": {
+    "hi": "मुख्यमंत्री कन्या सुमंगला योजना (उत्तर प्रदेश)",
+    "en": "Mukhyamantri Kanya Sumangala Yojana (Uttar Pradesh)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://mksy.up.gov.in",
+  "state": "up",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "gender", "operator": "eq", "value": "female" },
+      { "field": "state", "operator": "eq", "value": "up" },
+      { "field": "annual_income_inr", "operator": "lte", "value": 300000 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "बालिका के जन्म से लेकर स्नातक में प्रवेश तक 6 किश्तों में कुल ₹25,000 की वित्तीय सहायता (बढ़ाया गया अनुदान)",
+    "summary_en": "Financial grant of ₹25,000 in 6 stages from birth to graduation for daughters of UP residents",
+    "amount_inr": 25000,
+    "frequency": "milestone",
+    "mode": "DBT Installments"
+  },
+  "documents_required": [
+    "बच्ची और माता-पिता का आधार कार्ड",
+    "उत्तर प्रदेश का निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र (अधिकतम ₹3 लाख)",
+    "बैंक खाता पासबुक",
+    "स्कूल/कॉलेज प्रवेश रसीद"
+  ],
+  "apply_url": "https://mksy.up.gov.in/app/index.php",
+  "deadline": null,
+  "confidence": "verified"
+}

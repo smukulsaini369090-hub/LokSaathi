@@ -1,0 +1,34 @@
+{
+  "id": "pm-awas-yojana-gramin",
+  "name": {
+    "hi": "प्रधानमंत्री आवास योजना (ग्रामीण)",
+    "en": "Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://pmayg.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "annual_income_inr", "operator": "lte", "value": 200000 }
+    ],
+    "must_match_none": [
+      { "field": "owns_pucca_house", "operator": "eq", "value": true },
+      { "field": "is_government_employee", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "पक्का मकान बनाने के लिए मैदानी क्षेत्रों में ₹1.20 लाख और पहाड़ी क्षेत्रों में ₹1.30 लाख की वित्तीय सहायता",
+    "summary_en": "Financial assistance of ₹1.20 Lakh (plains) or ₹1.30 Lakh (hilly areas) for pucca house",
+    "amount_inr": 120000,
+    "frequency": "one_time",
+    "mode": "DBT"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "बैंक खाता पासबुक",
+    "जॉब कार्ड (मनरेगा)",
+    "जमीन का मालिकाना प्रमाण"
+  ],
+  "apply_url": "https://pmayg.nic.in/netiayHome/home.aspx",
+  "deadline": null,
+  "confidence": "verified"
+}

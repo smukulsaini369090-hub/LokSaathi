@@ -1,0 +1,31 @@
+{
+  "id": "mudra-loan",
+  "name": {
+    "hi": "प्रधानमंत्री मुद्रा योजना (PMMY)",
+    "en": "Pradhan Mantri MUDRA Yojana (PMMY)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://www.mudra.org.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "age", "operator": "gte", "value": 18 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "बिना किसी गारंटी (कोलेटरल-फ्री) के ₹50,000 से लेकर ₹20 लाख तक का व्यवसाय ऋण (शिशु, किशोर, तरुण श्रेणियां)",
+    "summary_en": "Collateral-free business loans up to ₹20 Lakh under Shishu, Kishore, and Tarun categories",
+    "amount_inr": 1000000,
+    "frequency": "one_time",
+    "mode": "Bank Term Loan / Working Capital"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पैन कार्ड",
+    "व्यवसाय का प्रमाण / कोटेशन",
+    "पिछले 6 महीने का बैंक स्टेटमेंट"
+  ],
+  "apply_url": "https://www.udyamimitra.in",
+  "deadline": null,
+  "confidence": "verified"
+}

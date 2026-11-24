@@ -1,0 +1,28 @@
+{
+  "id": "anganwadi-services",
+  "name": {
+    "hi": "आंगनवाड़ी सेवाएं - सक्षम आंगनवाड़ी और पोषण 2.0",
+    "en": "Anganwadi Services - Saksham Anganwadi & Poshan 2.0"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://wcd.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "age", "operator": "lte", "value": 6 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "6 वर्ष से कम उम्र के बच्चों और गर्भवती/धात्री माताओं को पूरक पोषाहार, मुफ्त टीकाकरण और शाला-पूर्व अनौपचारिक शिक्षा",
+    "summary_en": "Supplementary nutrition, immunization and non-formal preschool education for children under 6 and mothers",
+    "frequency": "ongoing",
+    "mode": "In-kind Nutrition & Health Services"
+  },
+  "documents_required": [
+    "बच्चे का जन्म प्रमाण पत्र या माता-पिता का आधार कार्ड",
+    "टीकाकरण कार्ड (MCH Card)"
+  ],
+  "apply_url": "https://poshantracker.in",
+  "deadline": null,
+  "confidence": "verified"
+}

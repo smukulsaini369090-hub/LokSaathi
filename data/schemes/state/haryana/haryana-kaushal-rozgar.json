@@ -1,0 +1,33 @@
+{
+  "id": "haryana-kaushal-rozgar",
+  "name": {
+    "hi": "हरियाणा कौशल रोजगार निगम (HKRN)",
+    "en": "Haryana Kaushal Rozgar Nigam (HKRN)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://hkrnl.itiharyana.gov.in",
+  "state": "haryana",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "haryana" },
+      { "field": "age", "operator": "gte", "value": 18 },
+      { "field": "age", "operator": "lte", "value": 42 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "हरियाणा सरकार के विभिन्न विभागों, बोर्डों और निगमों में अनुबंध आधार पर पारदर्शी रोजगार, ईपीएफ और ईएसआई लाभ",
+    "summary_en": "Contractual recruitment in Haryana Govt departments based on merit points via Family ID",
+    "frequency": "ongoing",
+    "mode": "Direct Government Contract Employment"
+  },
+  "documents_required": [
+    "परिवार पहचान पत्र (PPP - Parivar Pehchan Patra)",
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "अनुभव प्रमाण पत्र (यदि हो)"
+  ],
+  "apply_url": "https://hkrnl.itiharyana.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

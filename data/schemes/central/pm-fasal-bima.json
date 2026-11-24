@@ -1,0 +1,31 @@
+{
+  "id": "pm-fasal-bima",
+  "name": {
+    "hi": "प्रधानमंत्री फसल बीमा योजना (पीएमएफबीवाई)",
+    "en": "Pradhan Mantri Fasal Bima Yojana (PMFBY)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://pmfby.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "occupation", "operator": "includes", "value": ["farmer"] }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "प्राकृतिक आपदाओं, कीटों और रोगों से फसल नुकसान पर न्यूनतम प्रीमियम (1.5% से 2%) पर व्यापक बीमा सुरक्षा",
+    "summary_en": "Comprehensive crop insurance against natural calamities and pest damage at subsidized premium",
+    "amount_inr": 50000,
+    "frequency": "seasonal",
+    "mode": "Direct Insurance Claim Settlement"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खसरा/खतौनी)",
+    "बैंक खाता पासबुक",
+    "फसल बुवाई का प्रमाण पत्र (पटवारी/पंचायत द्वारा)"
+  ],
+  "apply_url": "https://pmfby.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

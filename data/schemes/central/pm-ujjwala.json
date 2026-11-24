@@ -1,0 +1,35 @@
+{
+  "id": "pm-ujjwala",
+  "name": {
+    "hi": "प्रधानमंत्री उज्ज्वला योजना 2.0",
+    "en": "Pradhan Mantri Ujjwala Yojana 2.0 (PMUY)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://www.pmuy.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "gender", "operator": "eq", "value": "female" },
+      { "field": "age", "operator": "gte", "value": 18 },
+      { "field": "is_bpl", "operator": "eq", "value": true }
+    ],
+    "must_match_none": [
+      { "field": "has_lpg_connection", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "मुफ्त एलपीजी गैस कनेक्शन, पहला भरा हुआ सिलेंडर और गैस चूल्हा निशुल्क",
+    "summary_en": "Free LPG connection with first cylinder and hotplate free of cost",
+    "amount_inr": 1600,
+    "frequency": "one_time",
+    "mode": "In-kind / Free Connection"
+  },
+  "documents_required": [
+    "महिला का आधार कार्ड",
+    "राशन कार्ड (बीपीएल/अंत्योदय)",
+    "बैंक खाता पासबुक",
+    "पासपोर्ट साइज फोटो"
+  ],
+  "apply_url": "https://www.pmuy.gov.in/ujjwala2.html",
+  "deadline": null,
+  "confidence": "verified"
+}

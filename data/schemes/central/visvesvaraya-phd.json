@@ -1,0 +1,31 @@
+{
+  "id": "visvesvaraya-phd",
+  "name": {
+    "hi": "विश्वेश्वरैया पीएचडी योजना (इलेक्ट्रॉनिक्स और आईटी)",
+    "en": "Visvesvaraya PhD Scheme for Electronics and IT"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://phd.digitalindiacorporation.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "occupation", "operator": "includes", "value": ["student", "researcher"] }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "पूर्णकालिक पीएचडी शोधार्थियों को ₹38,750 से ₹43,750 प्रति माह की फैलोशिप + वार्षिक आकस्मिक अनुदान",
+    "summary_en": "Monthly fellowship of ₹38,750 to ₹43,750 plus annual contingency grant for ESDM and IT research",
+    "amount_inr": 500000,
+    "frequency": "annual",
+    "mode": "Institutional Fellowship Transfer"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "गेट/नेट स्कोरकार्ड",
+    "मास्टर डिग्री मार्कशीट",
+    "मान्यता प्राप्त संस्थान में शोध प्रवेश पत्र"
+  ],
+  "apply_url": "https://phd.digitalindiacorporation.in",
+  "deadline": null,
+  "confidence": "verified"
+}

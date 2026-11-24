@@ -1,0 +1,35 @@
+{
+  "id": "pm-kisan-maan-dhan",
+  "name": {
+    "hi": "प्रधानमंत्री किसान मानधन योजना (पीएम-केएमवाई)",
+    "en": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://maandhan.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "occupation", "operator": "includes", "value": ["farmer"] },
+      { "field": "age", "operator": "gte", "value": 18 },
+      { "field": "age", "operator": "lte", "value": 40 },
+      { "field": "land_owned_acres", "operator": "lte", "value": 5 }
+    ],
+    "must_match_none": [
+      { "field": "is_government_employee", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "60 वर्ष की आयु के बाद ₹3,000 प्रति माह की निश्चित सामाजिक सुरक्षा पेंशन",
+    "summary_en": "Assured pension of ₹3,000 per month after attaining 60 years of age",
+    "amount_inr": 36000,
+    "frequency": "annual",
+    "mode": "Monthly DBT Pension"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "बचत बैंक खाता पासबुक / जन धन खाता",
+    "भूमि के कागजात"
+  ],
+  "apply_url": "https://maandhan.in/pmkmy",
+  "deadline": null,
+  "confidence": "verified"
+}

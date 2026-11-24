@@ -1,0 +1,34 @@
+{
+  "id": "e-shram",
+  "name": {
+    "hi": "ई-श्रम - असंगठित कामगार राष्ट्रीय डेटाबेस",
+    "en": "e-Shram - National Database of Unorganised Workers"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://eshram.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "age", "operator": "gte", "value": 16 },
+      { "field": "age", "operator": "lte", "value": 59 }
+    ],
+    "must_match_none": [
+      { "field": "is_epfo_esic_member", "operator": "eq", "value": true },
+      { "field": "is_income_tax_payer", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN), ₹2 लाख का दुर्घटना बीमा कवर और सभी केंद्रीय/राज्य कल्याणकारी योजनाओं का सीधा लाभ",
+    "summary_en": "Universal Account Number (UAN), ₹2 Lakh accidental insurance cover and direct social security benefits",
+    "amount_inr": 200000,
+    "frequency": "ongoing",
+    "mode": "UAN Card & Social Security Access"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आधार से लिंक मोबाइल नंबर",
+    "बचत बैंक खाता विवरण"
+  ],
+  "apply_url": "https://eshram.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "up-vridha-pension",
+  "name": {
+    "hi": "वृद्धावस्था पेंशन योजना (उत्तर प्रदेश)",
+    "en": "Old Age Pension Scheme (Uttar Pradesh)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://sspy-up.gov.in",
+  "state": "up",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "up" },
+      { "field": "age", "operator": "gte", "value": 60 },
+      { "field": "annual_income_inr", "operator": "lte", "value": 56460 }
+    ],
+    "must_match_none": [
+      { "field": "has_other_pension", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "60 वर्ष या उससे अधिक आयु के पात्र वृद्धजनों को ₹1,000 प्रति माह (त्रैमासिक ₹3,000) सीधे बैंक खाते में",
+    "summary_en": "Monthly pension of ₹1,000 (disbursed quarterly as ₹3,000) directly to bank account",
+    "amount_inr": 12000,
+    "frequency": "annual",
+    "mode": "Quarterly DBT"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र / वोटर कार्ड",
+    "तहसीलदार द्वारा जारी आय प्रमाण पत्र (ग्रामीण: ₹46,080 / शहरी: ₹56,460 से कम)",
+    "बैंक पासबुक (आधार एनपीसीआई लिंक)"
+  ],
+  "apply_url": "https://sspy-up.gov.in/HindiPages/oldage_h.aspx",
+  "deadline": null,
+  "confidence": "verified"
+}

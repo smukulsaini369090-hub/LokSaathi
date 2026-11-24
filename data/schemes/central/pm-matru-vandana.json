@@ -1,0 +1,33 @@
+{
+  "id": "pm-matru-vandana",
+  "name": {
+    "hi": "प्रधानमंत्री मातृ वंदना योजना (PMMVY)",
+    "en": "Pradhan Mantri Matru Vandana Yojana (PMMVY)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://pmmvy.wcd.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "gender", "operator": "eq", "value": "female" },
+      { "field": "age", "operator": "gte", "value": 19 }
+    ],
+    "must_match_none": [
+      { "field": "is_government_employee", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "गर्भवती और स्तनपान कराने वाली माताओं को पहले बच्चे पर ₹5,000 और दूसरी कन्या संतान पर ₹6,000 की मातृत्व सहायता",
+    "summary_en": "Maternity incentive of ₹5,000 (first child) and ₹6,000 (second child if girl) via DBT",
+    "amount_inr": 5000,
+    "frequency": "one_time",
+    "mode": "DBT Installments"
+  },
+  "documents_required": [
+    "माता और पति का आधार कार्ड",
+    "एमसीपी कार्ड (मातृ एवं शिशु सुरक्षा कार्ड)",
+    "महिला का व्यक्तिगत बैंक खाता पासबुक"
+  ],
+  "apply_url": "https://pmmvy.wcd.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

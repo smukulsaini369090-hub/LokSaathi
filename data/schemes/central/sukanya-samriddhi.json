@@ -1,0 +1,31 @@
+{
+  "id": "sukanya-samriddhi",
+  "name": {
+    "hi": "सुकन्या समृद्धि योजना (एसएसवाई)",
+    "en": "Sukanya Samriddhi Yojana (SSY)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://www.indiapost.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "gender", "operator": "eq", "value": "female" },
+      { "field": "age", "operator": "lte", "value": 10 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "बालिका की उच्च शिक्षा और विवाह के लिए 8.2% की उच्चतम ब्याज दर और पूर्ण आयकर छूट (80C)",
+    "summary_en": "High interest rate savings scheme (8.2%) with triple tax exemption for girl child",
+    "frequency": "long_term",
+    "mode": "Post Office / Bank Deposit"
+  },
+  "documents_required": [
+    "बच्ची का जन्म प्रमाण पत्र",
+    "माता-पिता / अभिभावक का आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "पासपोर्ट साइज फोटो"
+  ],
+  "apply_url": "https://www.indiapost.gov.in/Financial/Pages/Content/Sukanya-Samriddhi-Account.aspx",
+  "deadline": null,
+  "confidence": "verified"
+}

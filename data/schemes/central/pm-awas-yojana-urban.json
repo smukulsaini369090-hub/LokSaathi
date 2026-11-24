@@ -1,0 +1,33 @@
+{
+  "id": "pm-awas-yojana-urban",
+  "name": {
+    "hi": "प्रधानमंत्री आवास योजना (शहरी 2.0)",
+    "en": "Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://pmay-urban.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "annual_income_inr", "operator": "lte", "value": 300000 }
+    ],
+    "must_match_none": [
+      { "field": "owns_pucca_house", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "शहरी क्षेत्रों में पक्के घर के निर्माण/खरीद पर ₹2.50 लाख तक की ब्याज सब्सिडी या अनुदान",
+    "summary_en": "Subsidy or assistance up to ₹2.50 Lakh for urban pucca house construction/purchase",
+    "amount_inr": 250000,
+    "frequency": "one_time",
+    "mode": "Direct Subsidy / DBT"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "निवास प्रमाण पत्र"
+  ],
+  "apply_url": "https://pmay-urban.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

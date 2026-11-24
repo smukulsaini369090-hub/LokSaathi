@@ -1,0 +1,36 @@
+{
+  "id": "up-divyang-pension",
+  "name": {
+    "hi": "दिव्यांग पेंशन योजना (उत्तर प्रदेश)",
+    "en": "Divyang Pension Scheme (Uttar Pradesh)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://sspy-up.gov.in",
+  "state": "up",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "up" },
+      { "field": "is_disabled", "operator": "eq", "value": true },
+      { "field": "annual_income_inr", "operator": "lte", "value": 56460 }
+    ],
+    "must_match_none": [
+      { "field": "has_other_pension", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "न्यूनतम 40% दिव्यांगता वाले पात्र व्यक्तियों को ₹1,000 प्रति माह की आर्थिक पेंशन सहायता",
+    "summary_en": "Monthly pension of ₹1,000 for persons with at least 40% disability",
+    "amount_inr": 12000,
+    "frequency": "annual",
+    "mode": "Quarterly DBT"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "सीएमओ (मुख्य चिकित्सा अधिकारी) द्वारा जारी दिव्यांगता प्रमाण पत्र (न्यूनतम 40%)",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "apply_url": "https://sspy-up.gov.in/HindiPages/handicap_h.aspx",
+  "deadline": null,
+  "confidence": "verified"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "pmegp",
+  "name": {
+    "hi": "प्रधानमंत्री रोजगार सृजन कार्यक्रम (PMEGP)",
+    "en": "Prime Minister's Employment Generation Programme (PMEGP)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://www.kviconline.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "age", "operator": "gte", "value": 18 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "विनिर्माण में ₹50 लाख और सेवा क्षेत्र में ₹20 लाख तक के ऋण पर 15% से 35% तक सरकारी सब्सिडी (मार्जिन मनी)",
+    "summary_en": "15% to 35% government subsidy on bank loans up to ₹50 Lakh for starting enterprise",
+    "amount_inr": 5000000,
+    "frequency": "one_time",
+    "mode": "Credit-linked Capital Subsidy"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पैन कार्ड",
+    "परियोजना रिपोर्ट (Project Report)",
+    "शैक्षणिक योग्यता प्रमाण पत्र (8वीं पास यदि परियोजना 10 लाख से अधिक हो)",
+    "जाति प्रमाण पत्र (यदि लागू हो)"
+  ],
+  "apply_url": "https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp",
+  "deadline": null,
+  "confidence": "verified"
+}
