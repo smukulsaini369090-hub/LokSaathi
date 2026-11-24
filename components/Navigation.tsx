@@ -17,7 +17,7 @@ export function Header() {
           <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
             लो
           </div>
-          <div>
+          <div translate="no" className="notranslate">
             <span className="font-extrabold text-base tracking-tight text-gray-900 block leading-tight">
               लोकसाथी <span className="text-blue-600 font-semibold text-xs">LokSaathi</span>
             </span>

@@ -37,8 +37,8 @@ export default function SchemesPage() {
                   ? "आपके लिए उपयुक्त योजनाएं"
                   : "Schemes You Qualify For"
                 : language === "hi"
-                ? "योजना पात्रता खोज"
-                : "Discover Scheme Eligibility"}
+                ? "सरकारी योजना पात्रता सहायक"
+                : "Government Scheme Eligibility Guide"}
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">
               {matches

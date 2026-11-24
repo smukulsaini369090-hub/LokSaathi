@@ -61,6 +61,7 @@ export async function POST(request: NextRequest) {
       intent: "scheme_query",
       extracted_profile_updates: profileResult.profile_updates,
       next_question: profileResult.next_question,
+      suggested_chips: profileResult.suggested_chips || [],
       is_profile_complete: profileResult.is_complete,
     });
   } catch (error) {
@@ -74,6 +75,10 @@ export async function POST(request: NextRequest) {
           language === "hi"
             ? "माफ़ कीजिए, तकनीकी समस्या आई। क्या आप अपनी बात फिर से दोहरा सकते हैं?"
             : "Sorry, a technical error occurred. Could you please repeat that?",
+        suggested_chips:
+          language === "hi"
+            ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "छात्र", "मजदूर"]
+            : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student", "Labourer"],
         is_profile_complete: false,
       },
       { status: 200 }

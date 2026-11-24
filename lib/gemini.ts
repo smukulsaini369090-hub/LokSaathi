@@ -57,15 +57,19 @@ function cleanJsonResponse(rawText: string): string {
   return cleaned.trim();
 }
 
+export interface ProfileExtractionResult {
+  profile_updates: Partial<UserProfile>;
+  acknowledgment?: string;
+  next_question: string;
+  suggested_chips?: string[];
+  is_complete: boolean;
+}
+
 export async function extractUserProfile(
   transcript: string,
   history: Array<{ role: "user" | "model"; text: string }>,
   language: "hi" | "en" = "hi"
-): Promise<{
-  profile_updates: Partial<UserProfile>;
-  next_question: string;
-  is_complete: boolean;
-}> {
+): Promise<ProfileExtractionResult> {
   const client = getGeminiClient();
   const model = client.getGenerativeModel({ model: getModelName() });
 
@@ -92,15 +96,36 @@ Extract profile updates and ask the next question in ${language === "hi" ? "Hind
   const cleaned = cleanJsonResponse(text);
 
   try {
-    return JSON.parse(cleaned);
+    const parsed = JSON.parse(cleaned);
+    let questionText = (parsed.next_question || "").trim();
+    const ack = (parsed.acknowledgment || "").trim();
+    if (ack && !questionText.includes(ack)) {
+      questionText = `${ack}\n\n${questionText}`;
+    }
+
+    return {
+      profile_updates: parsed.profile_updates || {},
+      acknowledgment: ack,
+      next_question:
+        questionText ||
+        (language === "hi"
+          ? "आप किस राज्य में रहते हैं और आपकी उम्र क्या है?"
+          : "Which state do you live in and what is your age?"),
+      suggested_chips: Array.isArray(parsed.suggested_chips) ? parsed.suggested_chips : [],
+      is_complete: Boolean(parsed.is_complete),
+    };
   } catch (err) {
     console.error("Failed to parse Gemini JSON for profile extraction:", text);
     return {
       profile_updates: {},
       next_question:
         language === "hi"
-          ? "माफ़ कीजिए, मैं समझ नहीं पाया। क्या आप दोबारा बता सकते हैं?"
-          : "Sorry, I could not understand. Could you please repeat that?",
+          ? "माफ़ कीजिए, मैं ठीक से समझ नहीं पाया। क्या आप अपनी बात फिर से बता सकते हैं?"
+          : "Sorry, I could not understand clearly. Could you please repeat that?",
+      suggested_chips:
+        language === "hi"
+          ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी / छात्र"]
+          : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
       is_complete: false,
     };
   }
