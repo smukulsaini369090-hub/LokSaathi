@@ -34,16 +34,37 @@ export function getModelName(apiKey?: string): string {
 
   // If user provided a standard Google AI Studio key (starts with AIzaSy)
   if (effectiveKey.startsWith("AIzaSy")) {
-    return process.env.GEMINI_PUBLIC_MODEL || configured || "gemini-2.0-flash";
+    return process.env.GEMINI_PUBLIC_MODEL || configured || "gemini-3.5-flash";
   }
 
-  // Prevent deprecated, invalid, or throttled preview models (like gemini-3.5-flash-lite)
-  if (configured && !configured.toLowerCase().includes("3.5") && !configured.toLowerCase().includes("lite")) {
+  // If model is explicitly configured in environment (e.g. gemini-3.5-flash, gemini-3.5-flash-lite)
+  if (configured) {
     return configured;
   }
 
-  // Default to stable, fast free-tier Gemini 2.0 Flash
-  return "gemini-2.0-flash";
+  // Default to fast, stable Gemini 3.5 Flash
+  return "gemini-3.5-flash";
+}
+
+export function parseBase64Image(dataUriOrBase64: string): { data: string; mimeType: string } {
+  const trimmed = dataUriOrBase64.trim();
+  const match = trimmed.match(/^data:([^;]+);base64,([\s\S]+)$/);
+  if (match) {
+    const declaredMime = match[1].toLowerCase();
+    const rawData = match[2].trim();
+    if (rawData.startsWith("/9j/")) return { data: rawData, mimeType: "image/jpeg" };
+    if (rawData.startsWith("iVBORw0KGgo")) return { data: rawData, mimeType: "image/png" };
+    if (rawData.startsWith("UklGR")) return { data: rawData, mimeType: "image/webp" };
+    return { data: rawData, mimeType: declaredMime || "image/jpeg" };
+  }
+
+  let mimeType = "image/jpeg";
+  if (trimmed.startsWith("iVBORw0KGgo")) {
+    mimeType = "image/png";
+  } else if (trimmed.startsWith("UklGR")) {
+    mimeType = "image/webp";
+  }
+  return { data: trimmed, mimeType };
 }
 
 export function getGeminiClient(customApiKey?: string): GoogleGenerativeAI {
@@ -65,6 +86,16 @@ async function generateWithRetry(model: any, content: any, maxAttempts = 2): Pro
     } catch (err: any) {
       lastError = err;
       const msg = err?.message || String(err);
+      // Non-retryable auth errors
+      if (
+        msg.includes("401") ||
+        msg.includes("API key not valid") ||
+        msg.includes("ACCESS_TOKEN_TYPE_UNSUPPORTED") ||
+        msg.includes("UNAUTHENTICATED") ||
+        msg.includes("API_KEY_INVALID")
+      ) {
+        throw err;
+      }
       const isRetryable =
         msg.includes("503") ||
         msg.includes("Service Unavailable") ||
@@ -81,15 +112,48 @@ async function generateWithRetry(model: any, content: any, maxAttempts = 2): Pro
   throw lastError;
 }
 
+async function generateWithModelFallback(
+  client: GoogleGenerativeAI,
+  preferredModel: string,
+  content: any
+): Promise<any> {
+  const candidates = Array.from(
+    new Set([preferredModel, "gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash", "gemini-1.5-flash"])
+  ).filter(Boolean);
+
+  let lastError: any = null;
+  for (const modelName of candidates) {
+    try {
+      const model = client.getGenerativeModel({ model: modelName });
+      return await generateWithRetry(model, content, 2);
+    } catch (err: any) {
+      lastError = err;
+      const msg = err?.message || String(err);
+      // If auth failure, stop trying other models immediately
+      if (
+        msg.includes("401") ||
+        msg.includes("API key not valid") ||
+        msg.includes("ACCESS_TOKEN_TYPE_UNSUPPORTED") ||
+        msg.includes("UNAUTHENTICATED") ||
+        msg.includes("API_KEY_INVALID")
+      ) {
+        throw err;
+      }
+      console.warn(`Model candidate '${modelName}' failed, trying fallback:`, msg);
+    }
+  }
+  throw lastError;
+}
+
 export function extractRuleBasedProfile(text: string): Partial<UserProfile> {
   const lower = text.toLowerCase().trim();
   const updates: Partial<UserProfile> = {};
 
-  // State
+  // State: Use word boundaries so "upsc", "group", "super", "startup" do NOT trigger "up"
   if (lower.includes("delhi") || lower.includes("दिल्ली")) updates.state = "delhi";
-  else if (lower.includes("haryana") || lower.includes("हरियाणा") || lower.includes("hr")) updates.state = "haryana";
-  else if (lower.includes("uttar pradesh") || lower.includes("up") || lower.includes("उत्तर प्रदेश") || lower.includes("यूपी")) updates.state = "up";
-  else if (lower.includes("punjab") || lower.includes("पंजाब") || lower.includes("pb")) updates.state = "punjab";
+  else if (lower.includes("haryana") || lower.includes("हरियाणा") || /\bhr\b/.test(lower)) updates.state = "haryana";
+  else if (lower.includes("uttar pradesh") || lower.includes("उत्तर प्रदेश") || lower.includes("यूपी") || /\bup\b/.test(lower)) updates.state = "up";
+  else if (lower.includes("punjab") || lower.includes("पंजाब") || /\bpb\b/.test(lower)) updates.state = "punjab";
 
   // Occupation
   const occ: string[] = [];
@@ -112,11 +176,11 @@ export function extractRuleBasedProfile(text: string): Partial<UserProfile> {
     if (parsedAge >= 10 && parsedAge <= 100) updates.age = parsedAge;
   }
 
-  // Category
-  if (lower.includes("general") || lower.includes("सामान्य")) updates.category = "general";
-  else if (lower.includes("obc") || lower.includes("ओबीसी") || lower.includes("पिछड़ा")) updates.category = "obc";
-  else if (lower.includes("sc") || lower.includes("अनुसूचित जाति")) updates.category = "sc";
-  else if (lower.includes("st") || lower.includes("अनुसूचित जनजाति")) updates.category = "st";
+  // Category: Use word boundaries so "student" does NOT match "st", "scholarship" does NOT match "sc"
+  if (/\bgeneral\b/i.test(lower) || lower.includes("सामान्य")) updates.category = "general";
+  else if (/\bobc\b/i.test(lower) || lower.includes("ओबीसी") || lower.includes("पिछड़ा")) updates.category = "obc";
+  else if (/\bsc\b/i.test(lower) || lower.includes("अनुसूचित जाति")) updates.category = "sc";
+  else if (/\bst\b/i.test(lower) || lower.includes("अनुसूचित जनजाति")) updates.category = "st";
 
   // Income
   if (lower.includes("1 lakh") || lower.includes("1 लाख") || lower.includes("कम") || lower.includes("kam")) updates.annual_income_inr = 80000;
@@ -192,7 +256,7 @@ export async function extractUserProfile(
   }
 
   const client = getGeminiClient(customApiKey);
-  const model = client.getGenerativeModel({ model: getModelName(effectiveKey) });
+  const preferredModel = getModelName(effectiveKey);
 
   const systemInstruction = loadPrompt("scheme-system.txt");
 
@@ -213,7 +277,7 @@ Citizen's latest input:
 Extract profile updates and ask the next question in ${language === "hi" ? "Hindi" : "English"}:`;
 
   try {
-    const result = await generateWithRetry(model, prompt);
+    const result = await generateWithModelFallback(client, preferredModel, prompt);
     const text = result.response.text();
     const cleaned = cleanJsonResponse(text);
     const parsed = JSON.parse(cleaned);
@@ -237,6 +301,12 @@ Extract profile updates and ask the next question in ${language === "hi" ? "Hind
   } catch (err: any) {
     console.error("Gemini text profile extraction fallback triggered:", err?.message || err);
     const errMsg = err?.message || String(err);
+    const isAuthError =
+      errMsg.includes("401") ||
+      errMsg.includes("API key not valid") ||
+      errMsg.includes("ACCESS_TOKEN_TYPE_UNSUPPORTED") ||
+      errMsg.includes("UNAUTHENTICATED") ||
+      errMsg.includes("API_KEY_INVALID");
     const isRateLimit =
       errMsg.includes("429") ||
       errMsg.includes("quota") ||
@@ -249,7 +319,16 @@ Extract profile updates and ask the next question in ${language === "hi" ? "Hind
     let fallbackQuestion = "";
     let fallbackChips: string[] = [];
 
-    if (isRateLimit) {
+    if (isAuthError) {
+      fallbackQuestion =
+        language === "hi"
+          ? "आपकी दर्ज की गई Gemini API Key अमान्य है। Google AI Studio की सही कुंजी 'AIzaSy' से शुरू होती है। कृपया ऊपर 🔑 आइकॉन पर क्लिक करके सही कुंजी जोड़ें, या नीचे दिए गए विकल्पों में से चुनें:"
+          : "The Gemini API Key entered is invalid or expired. Google AI Studio keys must start with 'AIzaSy'. Please update your key via the 🔑 icon above, or select an option below:";
+      fallbackChips =
+        language === "hi"
+          ? ["पंजाब", "उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी"]
+          : ["Punjab", "Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"];
+    } else if (isRateLimit) {
       fallbackQuestion =
         language === "hi"
           ? "सर्वर पर अभी अधिक लोड है या Gemini API की सीमा समाप्त हो गई है। कृपया कुछ सेकंड बाद पुनः प्रयास करें, या ऊपर 🔑 आइकॉन पर क्लिक करके अपनी निःशुल्क API Key जोड़ें। आप नीचे दिए गए विकल्पों में से चुन सकते हैं:"
@@ -465,7 +544,7 @@ export async function explainDocument(
 ): Promise<DocExplanation> {
   const effectiveKey = customApiKey?.trim() || process.env.GEMINI_API_KEY;
   const client = getGeminiClient(customApiKey);
-  const model = client.getGenerativeModel({ model: getModelName(effectiveKey) });
+  const preferredModel = getModelName(effectiveKey);
 
   const promptFile = mode === "form_guide" ? "form-guide-system.txt" : "doc-system.txt";
   const systemInstruction = loadPrompt(promptFile);
@@ -480,13 +559,13 @@ ${
     : "Analyze the attached document and produce the structured JSON response:"
 }`;
 
-  const mimeType = imageBase64.startsWith("/9j/") ? "image/jpeg" : "image/png";
+  const { data, mimeType } = parseBase64Image(imageBase64);
 
-  const result = await model.generateContent([
+  const result = await generateWithModelFallback(client, preferredModel, [
     prompt,
     {
       inlineData: {
-        data: imageBase64.replace(/^data:image\/\w+;base64,/, ""),
+        data,
         mimeType,
       },
     },

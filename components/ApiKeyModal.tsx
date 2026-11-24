@@ -18,6 +18,7 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
   const [maskedPreview, setMaskedPreview] = useState("");
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
 
   useEffect(() => {
     const refresh = () => {
@@ -42,7 +43,21 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
 
   if (!isOpen) return null;
 
-  const handleSave = () => {
+  const handleSaveDirectly = (keyToSave: string) => {
+    setStoredApiKey(keyToSave);
+    setStatusMessage(
+      language === "hi"
+        ? "✅ आपकी API Key सुरक्षित रूप से सहेज ली गई है!"
+        : "✅ Your private API Key was saved successfully!"
+    );
+    setIsSuccess(true);
+    setTimeout(() => {
+      setStatusMessage(null);
+      onClose();
+    }, 1200);
+  };
+
+  const handleVerifyAndSave = async () => {
     const trimmed = apiKey.trim();
     if (!trimmed) {
       clearStoredApiKey();
@@ -55,27 +70,48 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
       return;
     }
 
-    if (trimmed.length < 15) {
+    if (!trimmed.startsWith("AIzaSy")) {
       setStatusMessage(
         language === "hi"
-          ? "अमान्य API Key! कृपया Google AI Studio से पूरी कुंजी कॉपी करें।"
-          : "Invalid API Key! Please copy the complete key from Google AI Studio."
+          ? "अमान्य प्रारूप! Google AI Studio API Keys 'AIzaSy' से शुरू होती हैं (39 अक्षर)। यदि आपकी कुंजी 'AQ.' से शुरू होती है तो वह OAuth टोकन है। कृपया aistudio.google.com से मुफ्त कुंजी लें।"
+          : "Invalid format! Google AI Studio keys must start with 'AIzaSy' (39 characters). Strings starting with 'AQ.' or other OAuth tokens are not valid API keys."
       );
       setIsSuccess(false);
       return;
     }
 
-    setStoredApiKey(trimmed);
+    setIsVerifying(true);
     setStatusMessage(
-      language === "hi"
-        ? "✅ आपकी API Key सुरक्षित रूप से सहेज ली गई है!"
-        : "✅ Your private API Key was saved successfully!"
+      language === "hi" ? "Google AI सर्वर से कुंजी सत्यापित हो रही है..." : "Verifying key with Google AI..."
     );
-    setIsSuccess(true);
-    setTimeout(() => {
-      setStatusMessage(null);
-      onClose();
-    }, 1200);
+
+    try {
+      const res = await fetch("/api/verify-key", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ api_key: trimmed }),
+      });
+      const data = await res.json();
+
+      if (data.valid) {
+        setIsSuccess(true);
+        setStatusMessage(language === "hi" ? data.message_hi : data.message_en);
+        setStoredApiKey(trimmed);
+        setTimeout(() => {
+          setStatusMessage(null);
+          setIsVerifying(false);
+          onClose();
+        }, 1200);
+      } else {
+        setIsSuccess(false);
+        setStatusMessage(language === "hi" ? data.message_hi : data.message_en);
+        setIsVerifying(false);
+      }
+    } catch {
+      // Fallback: save based on valid AIzaSy syntax
+      handleSaveDirectly(trimmed);
+      setIsVerifying(false);
+    }
   };
 
   const handleClear = () => {
@@ -176,7 +212,7 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
                 type={showKey ? "text" : "password"}
                 value={apiKey}
                 onChange={(e) => setApiKey(e.target.value)}
-                placeholder="AIzaSy... or AQ.Ab8..."
+                placeholder="AIzaSy... (39 characters from Google AI Studio)"
                 className="w-full pl-3.5 pr-10 py-2.5 text-sm font-mono border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
               />
               <button
@@ -188,6 +224,11 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
                 {showKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
+            <p className="text-[11px] text-gray-500">
+              {language === "hi"
+                ? "💡 Google AI Studio की Key हमेशा 'AIzaSy' से शुरू होती है।"
+                : "💡 Google AI Studio keys always start with 'AIzaSy'."}
+            </p>
           </div>
 
           {/* Alert / Feedback message */}
@@ -224,16 +265,29 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-200 rounded-xl transition-colors"
+              disabled={isVerifying}
+              className="px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-200 rounded-xl transition-colors disabled:opacity-50"
             >
               {language === "hi" ? "रद्द करें" : "Cancel"}
             </button>
             <button
               type="button"
-              onClick={handleSave}
-              className="px-5 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-sm transition-all"
+              onClick={handleVerifyAndSave}
+              disabled={isVerifying}
+              className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-sm transition-all disabled:opacity-75"
             >
-              {language === "hi" ? "सहेजें (Save)" : "Save Key"}
+              {isVerifying && (
+                <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              )}
+              <span>
+                {isVerifying
+                  ? language === "hi"
+                    ? "जाँच जारी..."
+                    : "Verifying..."
+                  : language === "hi"
+                  ? "जाँचें और सहेजें (Verify & Save)"
+                  : "Verify & Save Key"}
+              </span>
             </button>
           </div>
         </div>

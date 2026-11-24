@@ -97,4 +97,50 @@ describe("Gemini Client & AI Service", () => {
 
     expect(text).toBe("पीएम-किसान योजना के तहत आपको ₹6,000 वार्षिक मिलेंगे।");
   });
+
+  it("parseBase64Image correctly parses JPEG data URLs and magic bytes", async () => {
+    const { parseBase64Image } = await import("@/lib/gemini");
+
+    // JPEG data URL from canvas
+    const sampleJpegDataUrl = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP...";
+    const parsed1 = parseBase64Image(sampleJpegDataUrl);
+    expect(parsed1.mimeType).toBe("image/jpeg");
+    expect(parsed1.data.startsWith("/9j/")).toBe(true);
+
+    // PNG data URL
+    const samplePngDataUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAE...";
+    const parsed2 = parseBase64Image(samplePngDataUrl);
+    expect(parsed2.mimeType).toBe("image/png");
+    expect(parsed2.data.startsWith("iVBORw0KGgo")).toBe(true);
+  });
+
+  it("extractRuleBasedProfile does NOT misclassify 'student' as 'st' category or 'upsc' as 'up' state", async () => {
+    const { extractRuleBasedProfile } = await import("@/lib/gemini");
+
+    // "student" should only extract occupation, NEVER category: "st"
+    const result1 = extractRuleBasedProfile("I am a student");
+    expect(result1.occupation).toContain("student");
+    expect(result1.category).toBeUndefined();
+
+    // "upsc student in delhi" should extract state: "delhi", NOT "up"
+    const result2 = extractRuleBasedProfile("I am preparing for UPSC in Delhi");
+    expect(result2.state).toBe("delhi");
+    expect(result2.category).toBeUndefined();
+
+    // Actual "ST" or "SC" with boundary works properly
+    const result3 = extractRuleBasedProfile("I belong to ST category and live in Punjab");
+    expect(result3.category).toBe("st");
+    expect(result3.state).toBe("punjab");
+  });
+
+  it("getModelName respects configured models like gemini-3.5-flash-lite", async () => {
+    const { getModelName } = await import("@/lib/gemini");
+    const prev = process.env.GEMINI_MODEL;
+    try {
+      process.env.GEMINI_MODEL = "gemini-3.5-flash-lite";
+      expect(getModelName()).toBe("gemini-3.5-flash-lite");
+    } finally {
+      process.env.GEMINI_MODEL = prev;
+    }
+  });
 });

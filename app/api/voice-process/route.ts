@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { extractUserProfile, extractUserProfileFromAudio } from "@/lib/gemini";
+import { extractUserProfile, extractUserProfileFromAudio, extractRuleBasedProfile } from "@/lib/gemini";
 
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -91,22 +91,40 @@ export async function POST(request: NextRequest) {
       suggested_chips: profileResult.suggested_chips || [],
       is_profile_complete: profileResult.is_complete,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Voice process error:", error);
+    const localUpdates = transcript ? extractRuleBasedProfile(transcript) : {};
+    const errMsg = error?.message || String(error);
+    const isAuthError =
+      errMsg.includes("401") ||
+      errMsg.includes("API key not valid") ||
+      errMsg.includes("ACCESS_TOKEN_TYPE_UNSUPPORTED") ||
+      errMsg.includes("UNAUTHENTICATED") ||
+      errMsg.includes("API_KEY_INVALID");
+
+    let question =
+      language === "hi"
+        ? "माफ़ कीजिए, तकनीकी समस्या आई। क्या आप अपनी बात फिर से दोहरा सकते हैं?"
+        : "Sorry, a temporary issue occurred. Could you please select an option below?";
+
+    if (isAuthError) {
+      question =
+        language === "hi"
+          ? "आपकी दर्ज की गई Gemini API Key अमान्य है। Google AI Studio की सही कुंजी 'AIzaSy' से शुरू होती है। कृपया ऊपर 🔑 आइकॉन से सही कुंजी जोड़ें।"
+          : "The Gemini API Key entered is invalid. Valid keys start with 'AIzaSy'. Please click the Key 🔑 icon above to update it.";
+    }
+
     return NextResponse.json(
       {
         transcript:
           transcript || (language === "hi" ? "आवाज संदेश" : "Voice input"),
-        intent: "general_info",
-        extracted_profile_updates: {},
-        next_question:
-          language === "hi"
-            ? "माफ़ कीजिए, तकनीकी समस्या आई। क्या आप अपनी बात फिर से दोहरा सकते हैं?"
-            : "Sorry, a technical error occurred. Could you please repeat that?",
+        intent: "scheme_query",
+        extracted_profile_updates: localUpdates,
+        next_question: question,
         suggested_chips:
           language === "hi"
-            ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "छात्र", "मजदूर"]
-            : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student", "Labourer"],
+            ? ["पंजाब", "उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी"]
+            : ["Punjab", "Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
         is_profile_complete: false,
       },
       { status: 200 }

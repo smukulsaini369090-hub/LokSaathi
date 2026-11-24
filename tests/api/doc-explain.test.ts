@@ -105,6 +105,37 @@ describe("POST /api/doc-explain", () => {
     expect(body.warnings[0]).toContain("रोशनी");
   });
 
+  it("handles 401 unauthorized gracefully and returns actionable API key error", async () => {
+    const { checkRateLimit } = await import("@/lib/rate-limit");
+    vi.mocked(checkRateLimit).mockResolvedValueOnce({
+      success: true,
+      remaining: 18,
+    });
+
+    const { explainDocument } = await import("@/lib/gemini");
+    vi.mocked(explainDocument).mockRejectedValueOnce(
+      new Error("[401 Unauthorized] API key not valid. ACCESS_TOKEN_TYPE_UNSUPPORTED")
+    );
+
+    const req = new NextRequest("http://localhost/api/doc-explain", {
+      method: "POST",
+      body: JSON.stringify({
+        image_base64: "data:image/jpeg;base64,validphoto",
+        language: "en",
+      }),
+      headers: {
+        "content-type": "application/json",
+        "x-forwarded-for": "1.2.3.4",
+      },
+    });
+
+    const res = await POST(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.document_type).toBe("Invalid API Key");
+    expect(body.summary).toContain("AIzaSy");
+  });
+
   it("handles mode: 'form_guide' correctly and passes mode to explainDocument", async () => {
     const { checkRateLimit } = await import("@/lib/rate-limit");
     vi.mocked(checkRateLimit).mockResolvedValueOnce({
