@@ -70,6 +70,7 @@ export function VoiceInterview({
   } = useVoiceRecorder(language);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inFlightRef = useRef(false);
 
   // Sync greeting and chips if language changes while conversation hasn't started yet
   useEffect(() => {
@@ -174,21 +175,25 @@ export function VoiceInterview({
     }
   };
 
-  const handleTurnError = () => {
+  const handleTurnError = (isTimeout = false) => {
     setMessages((prev) => [
       ...prev,
       {
         role: "model",
-        text:
-          language === "hi"
-            ? "तकनीकी समस्या आई। कृपया अपनी बात दोबारा बताएं या नीचे से त्वरित विकल्प चुनें।"
-            : "A technical issue occurred. Please repeat or choose an option below.",
+        text: isTimeout
+          ? language === "hi"
+            ? "सर्वर पर अधिक लोड के कारण उत्तर में देरी हुई। कृपया नीचे दिए गए विकल्पों में से चुनें या दोबारा भेजें।"
+            : "The server took too long to respond. Please choose a quick option below or try again."
+          : language === "hi"
+          ? "तकनीकी समस्या आई। कृपया अपनी बात दोबारा बताएं या नीचे से त्वरित विकल्प चुनें।"
+          : "A technical issue occurred. Please repeat or choose an option below.",
       },
     ]);
   };
 
   const handleAudioSubmit = async (audioBlob: Blob, mimeType: string) => {
-    if (isProcessing) return;
+    if (inFlightRef.current || isProcessing) return;
+    inFlightRef.current = true;
     setIsProcessing(true);
 
     const placeholderText =
@@ -201,11 +206,15 @@ export function VoiceInterview({
     try {
       const reader = new FileReader();
       reader.onloadend = async () => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 14000);
+
         try {
           const base64Audio = reader.result as string;
           const storedKey = getStoredApiKey();
           const res = await fetch("/api/voice-process", {
             method: "POST",
+            signal: controller.signal,
             headers: {
               "Content-Type": "application/json",
               ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
@@ -218,6 +227,7 @@ export function VoiceInterview({
               ...(storedKey ? { user_api_key: storedKey } : {}),
             }),
           });
+          clearTimeout(timeoutId);
 
           if (!res.ok) throw new Error("Voice processing request failed");
           const data = await res.json();
@@ -240,7 +250,8 @@ export function VoiceInterview({
           });
 
           await processProfileResponse(data);
-        } catch (err) {
+        } catch (err: any) {
+          clearTimeout(timeoutId);
           console.error("Audio API error:", err);
           // Always clear placeholder so it does not stay stuck in (processing...)
           setMessages((prev) => {
@@ -254,8 +265,9 @@ export function VoiceInterview({
             }
             return copy;
           });
-          handleTurnError();
+          handleTurnError(err?.name === "AbortError");
         } finally {
+          inFlightRef.current = false;
           setIsProcessing(false);
         }
       };
@@ -263,13 +275,15 @@ export function VoiceInterview({
     } catch (err) {
       console.error("Audio read error:", err);
       handleTurnError();
+      inFlightRef.current = false;
       setIsProcessing(false);
     }
   };
 
   const handleUserSubmit = async (text: string) => {
     const trimmed = text.trim();
-    if (!trimmed || isProcessing) return;
+    if (!trimmed || inFlightRef.current || isProcessing) return;
+    inFlightRef.current = true;
 
     // Add user message to conversation
     const newMessages: Message[] = [...messages, { role: "user", text: trimmed }];
@@ -277,11 +291,15 @@ export function VoiceInterview({
     setTypedInput("");
     setIsProcessing(true);
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 14000);
+
     try {
       // 1. Process voice / text input with Gemini
       const storedKey = getStoredApiKey();
       const res = await fetch("/api/voice-process", {
         method: "POST",
+        signal: controller.signal,
         headers: {
           "Content-Type": "application/json",
           ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
@@ -293,6 +311,7 @@ export function VoiceInterview({
           ...(storedKey ? { user_api_key: storedKey } : {}),
         }),
       });
+      clearTimeout(timeoutId);
 
       if (!res.ok) {
         throw new Error("Voice processing request failed");
@@ -300,10 +319,12 @@ export function VoiceInterview({
 
       const data = await res.json();
       await processProfileResponse(data);
-    } catch (err) {
+    } catch (err: any) {
+      clearTimeout(timeoutId);
       console.error("Error during voice interview turn:", err);
-      handleTurnError();
+      handleTurnError(err?.name === "AbortError");
     } finally {
+      inFlightRef.current = false;
       setIsProcessing(false);
     }
   };
@@ -400,13 +421,17 @@ export function VoiceInterview({
         ))}
 
         {isProcessing && (
-          <div className="flex justify-start">
-            <div className="bg-blue-50 text-blue-800 rounded-2xl px-4 py-2.5 text-sm border border-blue-100 flex items-center gap-2 shadow-xs">
-              <Sparkles className="w-4 h-4 text-blue-600 animate-spin" />
-              <span className="font-medium">
+          <div className="flex justify-start animate-fade-in">
+            <div className="bg-white border border-slate-200 text-slate-700 rounded-2xl rounded-tl-none px-4 py-3 text-sm shadow-xs flex items-center gap-3">
+              <div className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+              <span className="text-xs font-medium text-slate-600">
                 {language === "hi"
-                  ? "लोकसाथी समझ रहा है... कृपया प्रतीक्षा करें"
-                  : "LokSaathi is thinking... please wait"}
+                  ? "लोकसाथी विश्लेषण कर रहा है..."
+                  : "LokSaathi is thinking..."}
               </span>
             </div>
           </div>
