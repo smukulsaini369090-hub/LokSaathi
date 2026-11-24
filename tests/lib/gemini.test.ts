@@ -133,12 +133,16 @@ describe("Gemini Client & AI Service", () => {
     expect(result3.state).toBe("punjab");
   });
 
-  it("getModelName respects configured models like gemini-3.5-flash-lite", async () => {
+  it("getModelName respects configured models like gemini-3.5-flash-lite and ignores accidental API keys in GEMINI_MODEL", async () => {
     const { getModelName } = await import("@/lib/gemini");
     const prev = process.env.GEMINI_MODEL;
     try {
       process.env.GEMINI_MODEL = "gemini-3.5-flash-lite";
       expect(getModelName()).toBe("gemini-3.5-flash-lite");
+
+      // Accidental key in GEMINI_MODEL must default to gemini-3.5-flash
+      process.env.GEMINI_MODEL = "AIzaSyFakeKey1234567890abcdef";
+      expect(getModelName()).toBe("gemini-3.5-flash");
     } finally {
       process.env.GEMINI_MODEL = prev;
     }

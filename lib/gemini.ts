@@ -29,17 +29,17 @@ export interface DocExplanation {
 let geminiClient: GoogleGenerativeAI | null = null;
 
 export function getModelName(apiKey?: string): string {
-  const effectiveKey = apiKey?.trim() || process.env.GEMINI_API_KEY || "";
   const configured = (process.env.GEMINI_MODEL || "").replace(/^["']|["']$/g, "").trim();
 
-  // If user provided a standard Google AI Studio key (starts with AIzaSy)
-  if (effectiveKey.startsWith("AIzaSy")) {
-    return process.env.GEMINI_PUBLIC_MODEL || configured || "gemini-3.5-flash";
+  // Validate that configured model is actually a valid model name (must start with "gemini-")
+  // This safeguards against cases where an API key (like AIzaSy...) was pasted into GEMINI_MODEL
+  if (configured && configured.toLowerCase().startsWith("gemini-")) {
+    return configured;
   }
 
-  // If model is explicitly configured in environment (e.g. gemini-3.5-flash, gemini-3.5-flash-lite)
-  if (configured) {
-    return configured;
+  const publicModel = (process.env.GEMINI_PUBLIC_MODEL || "").replace(/^["']|["']$/g, "").trim();
+  if (publicModel && publicModel.toLowerCase().startsWith("gemini-")) {
+    return publicModel;
   }
 
   // Default to fast, stable Gemini 3.5 Flash
