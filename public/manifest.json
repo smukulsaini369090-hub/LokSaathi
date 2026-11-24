@@ -1,0 +1,28 @@
+{
+  "name": "LokSaathi — सरकारी योजना सहायक",
+  "short_name": "LokSaathi",
+  "description": "सरकारी योजनाओं की जानकारी और दस्तावेज़ सहायक",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a56db",
+  "lang": "hi",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
