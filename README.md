@@ -17,6 +17,7 @@
 - 📜 **30+ Verified Central & State Welfare Schemes**: Direct links to official `.gov.in` application portals (PM-KISAN, Ayushman Bharat, PM Awas, Ladli Behna, etc.) with zero hallucinated URLs.
 - 🛡️ **DPDP Act 2023 Compliant On-Device Redaction**: Aadhaar (12-digit UID) and PAN numbers are automatically blurred in-browser via HTML5 Canvas before image compression. Zero server-side image storage.
 - 📱 **Universal Progressive Web App (PWA)**: Works offline, installs on Android, iOS, Windows, macOS, and Linux with 1-tap home-screen access.
+- 🔑 **Bring Your Own Key (BYOK) Support**: Anyone using LokSaathi can plug in their own free Google Gemini API key via the in-app 🔑 modal. Keys are saved 100% locally in browser localStorage with zero server storage, granting unlimited personal usage.
 - 💰 **₹0 / Free-Tier Architecture**: Powered entirely by Gemini Flash free tier, Vercel free hosting, and client-side IndexedDB.
 
 ---
