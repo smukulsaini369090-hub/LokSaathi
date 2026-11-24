@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { extractUserProfile } from "@/lib/gemini";
+import { extractUserProfile, extractUserProfileFromAudio } from "@/lib/gemini";
 
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -52,9 +52,29 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    // If text transcript exists (from browser Web Speech API or typed input), process with Gemini
-    const textToProcess = transcript || "User submitted voice audio input";
-    const profileResult = await extractUserProfile(textToProcess, history, language);
+    let textToProcess = transcript;
+    let profileResult: {
+      profile_updates: any;
+      next_question: string;
+      suggested_chips?: string[];
+      is_complete: boolean;
+      transcript?: string;
+    };
+
+    if (transcript) {
+      profileResult = await extractUserProfile(transcript, history, language);
+    } else if (audioBase64) {
+      const audioResult = await extractUserProfileFromAudio(
+        audioBase64,
+        body?.mime_type || "audio/webm",
+        history,
+        language
+      );
+      textToProcess = audioResult.transcript;
+      profileResult = audioResult;
+    } else {
+      throw new Error("No transcript or audio provided");
+    }
 
     return NextResponse.json({
       transcript: textToProcess,

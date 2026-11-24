@@ -8,6 +8,7 @@ vi.mock("@/lib/rate-limit", () => ({
 
 vi.mock("@/lib/gemini", () => ({
   extractUserProfile: vi.fn(),
+  extractUserProfileFromAudio: vi.fn(),
 }));
 
 describe("POST /api/voice-process", () => {
@@ -66,5 +67,40 @@ describe("POST /api/voice-process", () => {
 
     const res = await POST(req);
     expect(res.status).toBe(400);
+  });
+
+  it("returns 200 with extracted profile from audio_base64 when transcript is empty (Brave/fallback path)", async () => {
+    const { checkRateLimit } = await import("@/lib/rate-limit");
+    vi.mocked(checkRateLimit).mockResolvedValueOnce({
+      success: true,
+      remaining: 18,
+    });
+
+    const { extractUserProfileFromAudio } = await import("@/lib/gemini");
+    vi.mocked(extractUserProfileFromAudio).mockResolvedValueOnce({
+      transcript: "मैं किसान हूँ",
+      profile_updates: { occupation: ["farmer"] },
+      next_question: "आपकी उम्र क्या है?",
+      is_complete: false,
+    });
+
+    const req = new NextRequest("http://localhost/api/voice-process", {
+      method: "POST",
+      body: JSON.stringify({
+        audio_base64: "dGVzdC1hdWRpby1kYXRh",
+        mime_type: "audio/webm",
+        language: "hi",
+      }),
+      headers: {
+        "content-type": "application/json",
+        "x-forwarded-for": "1.2.3.4",
+      },
+    });
+
+    const res = await POST(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.transcript).toBe("मैं किसान हूँ");
+    expect(body.extracted_profile_updates.occupation).toContain("farmer");
   });
 });

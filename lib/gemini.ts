@@ -131,6 +131,98 @@ Extract profile updates and ask the next question in ${language === "hi" ? "Hind
   }
 }
 
+export async function extractUserProfileFromAudio(
+  audioBase64: string,
+  mimeType: string,
+  history: Array<{ role: "user" | "model"; text: string }>,
+  language: "hi" | "en" = "hi"
+): Promise<ProfileExtractionResult & { transcript: string }> {
+  const client = getGeminiClient();
+  const model = client.getGenerativeModel({ model: getModelName() });
+
+  const systemInstruction = loadPrompt("scheme-system.txt");
+
+  const conversationContext = history
+    .map((msg) => `${msg.role === "user" ? "Citizen" : "LokSaathi"}: ${msg.text}`)
+    .join("\n");
+
+  const prompt = `${systemInstruction}
+
+Conversation Language: ${language === "hi" ? "Hindi (Devanagari/Hinglish)" : "English"}
+
+Previous conversation:
+${conversationContext || "None"}
+
+The citizen submitted a voice recording.
+Tasks:
+1. Accurately transcribe what the citizen spoke into the "transcript" field (in Hindi or English as spoken).
+2. Extract profile updates from their speech.
+3. Formulate the next question and dynamic suggested_chips in ${language === "hi" ? "Hindi" : "English"}.
+
+Expected JSON output structure:
+{
+  "transcript": "<exact words spoken by citizen>",
+  "profile_updates": { ... },
+  "acknowledgment": "...",
+  "next_question": "...",
+  "suggested_chips": [ ... ],
+  "is_complete": false
+}`;
+
+  const cleanAudio = audioBase64.replace(/^data:audio\/\w+;base64,/, "");
+  const normalizedMimeType = (mimeType && mimeType.split(";")[0]) || "audio/webm";
+
+  const result = await model.generateContent([
+    prompt,
+    {
+      inlineData: {
+        data: cleanAudio,
+        mimeType: normalizedMimeType,
+      },
+    },
+  ]);
+
+  const text = result.response.text();
+  const cleaned = cleanJsonResponse(text);
+
+  try {
+    const parsed = JSON.parse(cleaned);
+    let questionText = (parsed.next_question || "").trim();
+    const ack = (parsed.acknowledgment || "").trim();
+    if (ack && !questionText.includes(ack)) {
+      questionText = `${ack}\n\n${questionText}`;
+    }
+
+    return {
+      transcript: (parsed.transcript || "").trim() || (language === "hi" ? "आवाज संदेश प्राप्त हुआ" : "Voice message received"),
+      profile_updates: parsed.profile_updates || {},
+      acknowledgment: ack,
+      next_question:
+        questionText ||
+        (language === "hi"
+          ? "आप किस राज्य में रहते हैं और आपकी उम्र क्या है?"
+          : "Which state do you live in and what is your age?"),
+      suggested_chips: Array.isArray(parsed.suggested_chips) ? parsed.suggested_chips : [],
+      is_complete: Boolean(parsed.is_complete),
+    };
+  } catch (err) {
+    console.error("Failed to parse Gemini audio profile extraction JSON:", text);
+    return {
+      transcript: language === "hi" ? "आवाज संदेश" : "Voice audio",
+      profile_updates: {},
+      next_question:
+        language === "hi"
+          ? "माफ़ कीजिए, आवाज स्पष्ट नहीं थी। क्या आप दोबारा बोल सकते हैं या लिखकर बता सकते हैं?"
+          : "Sorry, the voice was not clear. Could you please repeat or type it?",
+      suggested_chips:
+        language === "hi"
+          ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "छात्र"]
+          : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
+      is_complete: false,
+    };
+  }
+}
+
 export async function explainDocument(
   imageBase64: string,
   language: "hi" | "en" = "hi"

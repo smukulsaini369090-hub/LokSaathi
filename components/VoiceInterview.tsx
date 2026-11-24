@@ -93,7 +93,14 @@ export function VoiceInterview({
 
   const handleMicClick = async () => {
     if (isRecording) {
-      await stopRecording();
+      const result = await stopRecording();
+      if (result) {
+        if (result.transcript && result.transcript.trim()) {
+          handleUserSubmit(result.transcript.trim());
+        } else if (result.audioBlob) {
+          handleAudioSubmit(result.audioBlob, result.mimeType);
+        }
+      }
     } else {
       stop(); // Stop any audio playback when citizen begins speaking
       await startRecording();
@@ -102,6 +109,126 @@ export function VoiceInterview({
 
   const cleanSpeechText = (text: string) => {
     return text.replace(/[*#_~`]/g, "").replace(/\n+/g, " ").trim();
+  };
+
+  const processProfileResponse = async (data: any) => {
+    const updatedProfile: Partial<UserProfile> = {
+      ...profile,
+      ...(data.extracted_profile_updates || {}),
+    };
+    setProfile(updatedProfile);
+
+    // Update dynamic chips if provided
+    if (Array.isArray(data.suggested_chips) && data.suggested_chips.length > 0) {
+      setSuggestedChips(data.suggested_chips);
+    }
+
+    const nextQuestion =
+      data.next_question ||
+      (language === "hi"
+        ? "आपकी पारिवारिक आय या व्यवसाय के बारे में कुछ और बताएं?"
+        : "Could you tell me more about your income or occupation?");
+
+    // Add AI response
+    setMessages((prev) => [...prev, { role: "model", text: nextQuestion }]);
+
+    // Check if profile is complete or ready for scheme matching
+    const profileFieldCount = Object.keys(updatedProfile).filter(
+      (k) => (updatedProfile as Record<string, unknown>)[k] !== undefined
+    ).length;
+
+    if (data.is_profile_complete || profileFieldCount >= 4) {
+      // Query scheme matches
+      const matchRes = await fetch("/api/scheme-match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_profile: updatedProfile,
+          language,
+        }),
+      });
+
+      if (matchRes.ok) {
+        const matchData = await matchRes.json();
+        if (matchData.matched_schemes && matchData.matched_schemes.length > 0) {
+          onProfileComplete(
+            updatedProfile as UserProfile,
+            matchData.matched_schemes
+          );
+        }
+      }
+    }
+  };
+
+  const handleTurnError = () => {
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "model",
+        text:
+          language === "hi"
+            ? "तकनीकी समस्या आई। कृपया अपनी बात दोबारा बताएं या नीचे से त्वरित विकल्प चुनें।"
+            : "A technical issue occurred. Please repeat or choose an option below.",
+      },
+    ]);
+  };
+
+  const handleAudioSubmit = async (audioBlob: Blob, mimeType: string) => {
+    if (isProcessing) return;
+    setIsProcessing(true);
+
+    const placeholderText =
+      language === "hi"
+        ? "🎙️ आवाज इनपुट (प्रोसेस हो रहा है...)"
+        : "🎙️ Voice audio (processing...)";
+
+    setMessages((prev) => [...prev, { role: "user", text: placeholderText }]);
+
+    try {
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        try {
+          const base64Audio = reader.result as string;
+          const res = await fetch("/api/voice-process", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              audio_base64: base64Audio,
+              mime_type: mimeType || audioBlob.type || "audio/webm",
+              conversation_history: messages,
+              language,
+            }),
+          });
+
+          if (!res.ok) throw new Error("Voice processing request failed");
+          const data = await res.json();
+
+          // Replace placeholder text with real transcribed text from Gemini
+          if (data.transcript) {
+            setMessages((prev) => {
+              const copy = [...prev];
+              const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
+              if (lastUserIdx !== -1) {
+                copy[lastUserIdx] = { role: "user", text: data.transcript };
+              }
+              return copy;
+            });
+          }
+
+          await processProfileResponse(data);
+        } catch (err) {
+          console.error("Audio API error:", err);
+          handleTurnError();
+        } finally {
+          setIsProcessing(false);
+        }
+      };
+      reader.readAsDataURL(audioBlob);
+    } catch (err) {
+      console.error("Audio read error:", err);
+      handleTurnError();
+      setIsProcessing(false);
+    }
   };
 
   const handleUserSubmit = async (text: string) => {
@@ -131,64 +258,10 @@ export function VoiceInterview({
       }
 
       const data = await res.json();
-      const updatedProfile: Partial<UserProfile> = {
-        ...profile,
-        ...(data.extracted_profile_updates || {}),
-      };
-      setProfile(updatedProfile);
-
-      // Update dynamic chips if provided
-      if (Array.isArray(data.suggested_chips) && data.suggested_chips.length > 0) {
-        setSuggestedChips(data.suggested_chips);
-      }
-
-      const nextQuestion =
-        data.next_question ||
-        (language === "hi"
-          ? "आपकी पारिवारिक आय या व्यवसाय के बारे में कुछ और बताएं?"
-          : "Could you tell me more about your income or occupation?");
-
-      // Add AI response
-      setMessages((prev) => [...prev, { role: "model", text: nextQuestion }]);
-
-      // Check if profile is complete or ready for scheme matching
-      const profileFieldCount = Object.keys(updatedProfile).filter(
-        (k) => (updatedProfile as Record<string, unknown>)[k] !== undefined
-      ).length;
-
-      if (data.is_profile_complete || profileFieldCount >= 4) {
-        // Query scheme matches
-        const matchRes = await fetch("/api/scheme-match", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            user_profile: updatedProfile,
-            language,
-          }),
-        });
-
-        if (matchRes.ok) {
-          const matchData = await matchRes.json();
-          if (matchData.matched_schemes && matchData.matched_schemes.length > 0) {
-            onProfileComplete(
-              updatedProfile as UserProfile,
-              matchData.matched_schemes
-            );
-          }
-        }
-      }
+      await processProfileResponse(data);
     } catch (err) {
       console.error("Error during voice interview turn:", err);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "model",
-          text:
-            language === "hi"
-              ? "तकनीकी समस्या आई। कृपया अपनी बात दोबारा बताएं या नीचे से त्वरित विकल्प चुनें।"
-              : "A technical issue occurred. Please repeat or choose an option below.",
-        },
-      ]);
+      handleTurnError();
     } finally {
       setIsProcessing(false);
     }
