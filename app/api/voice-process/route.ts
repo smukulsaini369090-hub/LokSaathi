@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { extractUserProfile, extractUserProfileFromAudio, extractRuleBasedProfile } from "@/lib/gemini";
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
   const realIp = request.headers.get("x-real-ip");

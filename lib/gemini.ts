@@ -118,14 +118,14 @@ async function generateWithModelFallback(
   content: any
 ): Promise<any> {
   const candidates = Array.from(
-    new Set([preferredModel, "gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash", "gemini-1.5-flash"])
+    new Set([preferredModel, "gemini-3.5-flash-lite", "gemini-3.5-flash"])
   ).filter(Boolean);
 
   let lastError: any = null;
   for (const modelName of candidates) {
     try {
       const model = client.getGenerativeModel({ model: modelName });
-      return await generateWithRetry(model, content, 2);
+      return await generateWithRetry(model, content, 1);
     } catch (err: any) {
       lastError = err;
       const msg = err?.message || String(err);

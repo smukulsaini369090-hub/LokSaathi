@@ -3,6 +3,8 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { explainDocument, type DocExplanation } from "@/lib/gemini";
 import { getCachedDocExplanation, setCachedDocExplanation } from "@/lib/doc-cache";
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
   const realIp = request.headers.get("x-real-ip");
