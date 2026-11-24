@@ -19,13 +19,14 @@ export interface DocExplanation {
 let geminiClient: GoogleGenerativeAI | null = null;
 
 export function getModelName(): string {
-  return process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+  const model = (process.env.GEMINI_MODEL || "gemini-3.5-flash-lite").replace(/^["']|["']$/g, "").trim();
+  return model || "gemini-3.5-flash-lite";
 }
 
 export function getGeminiClient(): GoogleGenerativeAI {
   if (geminiClient) return geminiClient;
-  const apiKey = process.env.GEMINI_API_KEY || "dummy-key-for-test";
-  geminiClient = new GoogleGenerativeAI(apiKey);
+  const rawKey = (process.env.GEMINI_API_KEY || "dummy-key-for-test").replace(/^["']|["']$/g, "").trim();
+  geminiClient = new GoogleGenerativeAI(rawKey || "dummy-key-for-test");
   return geminiClient;
 }
 
@@ -43,6 +44,11 @@ function loadPrompt(filename: string): string {
 
 function cleanJsonResponse(rawText: string): string {
   let cleaned = rawText.trim();
+  const firstBrace = cleaned.indexOf("{");
+  const lastBrace = cleaned.lastIndexOf("}");
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+    return cleaned.slice(firstBrace, lastBrace + 1);
+  }
   if (cleaned.startsWith("```json")) {
     cleaned = cleaned.replace(/^```json\s*/, "").replace(/```$/, "");
   } else if (cleaned.startsWith("```")) {

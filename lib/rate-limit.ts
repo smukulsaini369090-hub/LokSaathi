@@ -6,14 +6,17 @@ let ratelimit: Ratelimit | null = null;
 function getRateLimiter(): Ratelimit | null {
   if (ratelimit) return ratelimit;
 
-  const url =
+  const rawUrl =
     process.env.UPSTASH_REDIS_REST_URL ||
-    (process.env.NODE_ENV === "test" ? "https://mock.upstash.io" : null);
-  const token =
+    (process.env.NODE_ENV === "test" ? "https://mock.upstash.io" : "");
+  const rawToken =
     process.env.UPSTASH_REDIS_REST_TOKEN ||
-    (process.env.NODE_ENV === "test" ? "mock-token" : null);
+    (process.env.NODE_ENV === "test" ? "mock-token" : "");
 
-  if (!url || !token) {
+  const url = rawUrl.replace(/^["']|["']$/g, "").trim();
+  const token = rawToken.replace(/^["']|["']$/g, "").trim();
+
+  if (!url || !token || !url.startsWith("http")) {
     return null;
   }
 
