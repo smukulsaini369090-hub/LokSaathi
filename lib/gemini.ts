@@ -18,6 +18,10 @@ export interface DocExplanation {
 
 let geminiClient: GoogleGenerativeAI | null = null;
 
+export function getModelName(): string {
+  return process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+}
+
 export function getGeminiClient(): GoogleGenerativeAI {
   if (geminiClient) return geminiClient;
   const apiKey = process.env.GEMINI_API_KEY || "dummy-key-for-test";
@@ -57,7 +61,7 @@ export async function extractUserProfile(
   is_complete: boolean;
 }> {
   const client = getGeminiClient();
-  const model = client.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = client.getGenerativeModel({ model: getModelName() });
 
   const systemInstruction = loadPrompt("scheme-system.txt");
 
@@ -101,7 +105,7 @@ export async function explainDocument(
   language: "hi" | "en" = "hi"
 ): Promise<DocExplanation> {
   const client = getGeminiClient();
-  const model = client.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = client.getGenerativeModel({ model: getModelName() });
 
   const systemInstruction = loadPrompt("doc-system.txt");
 
@@ -154,7 +158,7 @@ export async function* generateSchemeExplanation(
   language: "hi" | "en" = "hi"
 ): AsyncGenerator<string> {
   const client = getGeminiClient();
-  const model = client.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = client.getGenerativeModel({ model: getModelName() });
 
   const schemeSummaries = matches
     .map(
