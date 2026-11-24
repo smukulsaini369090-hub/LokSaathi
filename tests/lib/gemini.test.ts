@@ -140,9 +140,9 @@ describe("Gemini Client & AI Service", () => {
       process.env.GEMINI_MODEL = "gemini-3.5-flash-lite";
       expect(getModelName()).toBe("gemini-3.5-flash-lite");
 
-      // Accidental key in GEMINI_MODEL must default to gemini-3.5-flash
+      // Accidental key in GEMINI_MODEL must default to high-availability gemini-3.5-flash-lite
       process.env.GEMINI_MODEL = "AIzaSyFakeKey1234567890abcdef";
-      expect(getModelName()).toBe("gemini-3.5-flash");
+      expect(getModelName()).toBe("gemini-3.5-flash-lite");
     } finally {
       process.env.GEMINI_MODEL = prev;
     }

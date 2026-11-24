@@ -42,8 +42,8 @@ export function getModelName(apiKey?: string): string {
     return publicModel;
   }
 
-  // Default to fast, stable Gemini 3.5 Flash
-  return "gemini-3.5-flash";
+  // Default to fast, stable, high-availability Gemini 3.5 Flash Lite
+  return "gemini-3.5-flash-lite";
 }
 
 export function parseBase64Image(dataUriOrBase64: string): { data: string; mimeType: string } {
