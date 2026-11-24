@@ -8,6 +8,70 @@ export interface VoiceRecordingResult {
   mimeType: string;
 }
 
+function writeString(view: DataView, offset: number, string: string) {
+  for (let i = 0; i < string.length; i++) {
+    view.setUint8(offset + i, string.charCodeAt(i));
+  }
+}
+
+function encodeWAV(samples: Float32Array, sampleRate: number): Blob {
+  const buffer = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buffer);
+
+  // RIFF identifier
+  writeString(view, 0, "RIFF");
+  view.setUint32(4, 36 + samples.length * 2, true);
+  writeString(view, 8, "WAVE");
+  writeString(view, 12, "fmt ");
+  view.setUint32(16, 16, true); // SubChunk1Size (16 for PCM)
+  view.setUint16(20, 1, true); // AudioFormat (1 for PCM)
+  view.setUint16(22, 1, true); // NumChannels (1 for mono)
+  view.setUint32(24, sampleRate, true); // SampleRate
+  view.setUint32(28, sampleRate * 2, true); // ByteRate (SampleRate * NumChannels * BitsPerSample/8)
+  view.setUint16(32, 2, true); // BlockAlign (NumChannels * BitsPerSample/8)
+  view.setUint16(34, 16, true); // BitsPerSample (16 bits)
+  writeString(view, 36, "data");
+  view.setUint32(40, samples.length * 2, true);
+
+  // Write 16-bit PCM samples
+  let offset = 44;
+  for (let i = 0; i < samples.length; i++, offset += 2) {
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+  }
+
+  return new Blob([buffer], { type: "audio/wav" });
+}
+
+function downsampleBuffer(
+  buffer: Float32Array,
+  inputSampleRate: number,
+  outputSampleRate: number = 16000
+): Float32Array {
+  if (outputSampleRate >= inputSampleRate) {
+    return buffer;
+  }
+  const sampleRateRatio = inputSampleRate / outputSampleRate;
+  const newLength = Math.round(buffer.length / sampleRateRatio);
+  const result = new Float32Array(newLength);
+  let offsetResult = 0;
+  let offsetBuffer = 0;
+
+  while (offsetResult < result.length) {
+    const nextOffsetBuffer = Math.round((offsetResult + 1) * sampleRateRatio);
+    let accum = 0;
+    let count = 0;
+    for (let i = offsetBuffer; i < nextOffsetBuffer && i < buffer.length; i++) {
+      accum += buffer[i];
+      count++;
+    }
+    result[offsetResult] = count > 0 ? accum / count : buffer[offsetBuffer];
+    offsetResult++;
+    offsetBuffer = nextOffsetBuffer;
+  }
+  return result;
+}
+
 export function useVoiceRecorder(language: "hi" | "en" = "hi") {
   const [isRecording, setIsRecording] = useState(false);
   const [isSupported, setIsSupported] = useState(true);
@@ -15,9 +79,10 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
   const [error, setError] = useState<string | null>(null);
 
   const recognitionRef = useRef<any>(null);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const processorRef = useRef<ScriptProcessorNode | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
-  const audioChunksRef = useRef<Blob[]>([]);
+  const pcmBuffersRef = useRef<Float32Array[]>([]);
   const transcriptRef = useRef<string>("");
 
   useEffect(() => {
@@ -50,8 +115,7 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
           };
 
           recognition.onerror = (event: any) => {
-            console.warn("Speech recognition notice (falling back to audio capture):", event.error);
-            // Don't kill recording if it's network/no-speech — MediaRecorder is running
+            console.warn("Speech recognition notice (falling back to direct WAV audio):", event.error);
             if (event.error === "not-allowed") {
               setError("माइक की अनुमति नहीं मिली। कृपया ब्राउज़र में माइक चालू करें।");
               setIsRecording(false);
@@ -59,8 +123,7 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
           };
 
           recognition.onend = () => {
-            // Only stop if MediaRecorder is also stopped
-            if (!mediaRecorderRef.current || mediaRecorderRef.current.state === "inactive") {
+            if (!audioContextRef.current || audioContextRef.current.state === "closed") {
               setIsRecording(false);
             }
           };
@@ -77,14 +140,14 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
     setError(null);
     setTranscript("");
     transcriptRef.current = "";
-    audioChunksRef.current = [];
+    pcmBuffersRef.current = [];
 
-    // 1. Always start MediaRecorder for 100% audio reliability (Brave, Safari, mobile)
-    let stream: MediaStream | null = null;
-    if (navigator.mediaDevices?.getUserMedia && typeof MediaRecorder !== "undefined") {
+    // 1. Start Web Audio PCM recorder (100% universal: Brave, Safari, Chrome, Edge)
+    if (navigator.mediaDevices?.getUserMedia) {
       try {
-        stream = await navigator.mediaDevices.getUserMedia({
+        const stream = await navigator.mediaDevices.getUserMedia({
           audio: {
+            channelCount: 1,
             echoCancellation: true,
             noiseSuppression: true,
             autoGainControl: true,
@@ -92,37 +155,34 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
         });
         streamRef.current = stream;
 
-        // Choose supported mimeType
-        const mimeType = MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
-          ? "audio/webm;codecs=opus"
-          : MediaRecorder.isTypeSupported("audio/webm")
-          ? "audio/webm"
-          : MediaRecorder.isTypeSupported("audio/mp4")
-          ? "audio/mp4"
-          : "";
+        const AudioContextClass =
+          window.AudioContext || (window as any).webkitAudioContext;
+        const audioContext = new AudioContextClass();
+        audioContextRef.current = audioContext;
 
-        const mediaRecorder = mimeType
-          ? new MediaRecorder(stream, { mimeType })
-          : new MediaRecorder(stream);
+        const source = audioContext.createMediaStreamSource(stream);
+        // ScriptProcessorNode buffer size 4096
+        const processor = audioContext.createScriptProcessor(4096, 1, 1);
+        processorRef.current = processor;
 
-        mediaRecorder.ondataavailable = (e) => {
-          if (e.data && e.data.size > 0) {
-            audioChunksRef.current.push(e.data);
-          }
+        processor.onaudioprocess = (e) => {
+          const inputData = e.inputBuffer.getChannelData(0);
+          pcmBuffersRef.current.push(new Float32Array(inputData));
         };
 
-        mediaRecorder.start(200); // 200ms slice
-        mediaRecorderRef.current = mediaRecorder;
+        source.connect(processor);
+        processor.connect(audioContext.destination);
+
         setIsRecording(true);
       } catch (err: any) {
-        console.warn("getUserMedia failed or denied:", err);
+        console.warn("Microphone access error:", err);
         setError("माइक की अनुमति नहीं मिली। कृपया ब्राउज़र सेटिंग्स में माइक चालू करें।");
         setIsRecording(false);
         return;
       }
     }
 
-    // 2. Also start client SpeechRecognition if available (Chrome / Edge fast path)
+    // 2. Also start client SpeechRecognition if available
     if (recognitionRef.current) {
       try {
         recognitionRef.current.lang = language === "hi" ? "hi-IN" : "en-IN";
@@ -147,40 +207,48 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
 
       const currentTranscript = transcriptRef.current;
 
-      // Stop media recorder
-      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
-        const recorder = mediaRecorderRef.current;
-        const recordedMimeType = recorder.mimeType || "audio/webm";
+      // Disconnect processor & audioContext
+      if (processorRef.current) {
+        try {
+          processorRef.current.disconnect();
+          processorRef.current = null;
+        } catch {}
+      }
 
-        recorder.onstop = () => {
-          const blob = new Blob(audioChunksRef.current, { type: recordedMimeType });
+      let wavBlob: Blob | null = null;
+      if (audioContextRef.current && pcmBuffersRef.current.length > 0) {
+        const sampleRate = audioContextRef.current.sampleRate;
+        try {
+          audioContextRef.current.close();
+        } catch {}
+        audioContextRef.current = null;
 
-          // Release mic stream tracks
-          if (streamRef.current) {
-            streamRef.current.getTracks().forEach((track) => track.stop());
-            streamRef.current = null;
-          }
-
-          resolve({
-            transcript: currentTranscript,
-            audioBlob: blob.size > 0 ? blob : null,
-            mimeType: recordedMimeType,
-          });
-        };
-
-        recorder.stop();
-      } else {
-        if (streamRef.current) {
-          streamRef.current.getTracks().forEach((track) => track.stop());
-          streamRef.current = null;
+        // Concatenate all PCM chunks
+        const totalLength = pcmBuffersRef.current.reduce((acc, b) => acc + b.length, 0);
+        const concatenated = new Float32Array(totalLength);
+        let offset = 0;
+        for (const buffer of pcmBuffersRef.current) {
+          concatenated.set(buffer, offset);
+          offset += buffer.length;
         }
 
-        resolve({
-          transcript: currentTranscript,
-          audioBlob: null,
-          mimeType: "audio/webm",
-        });
+        // Downsample to 16kHz for speech recognition
+        const downsampled = downsampleBuffer(concatenated, sampleRate, 16000);
+        // Encode to standard audio/wav
+        wavBlob = encodeWAV(downsampled, 16000);
       }
+
+      // Stop mic tracks
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
+      }
+
+      resolve({
+        transcript: currentTranscript,
+        audioBlob: wavBlob,
+        mimeType: "audio/wav",
+      });
     });
   }, []);
 

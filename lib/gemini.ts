@@ -169,8 +169,12 @@ Expected JSON output structure:
   "is_complete": false
 }`;
 
-  const cleanAudio = audioBase64.replace(/^data:audio\/\w+;base64,/, "");
-  const normalizedMimeType = (mimeType && mimeType.split(";")[0]) || "audio/webm";
+  const base64Index = audioBase64.indexOf(";base64,");
+  const cleanAudio =
+    base64Index !== -1
+      ? audioBase64.slice(base64Index + 8)
+      : audioBase64.replace(/^data:[^;]+;base64,/, "").trim();
+  const normalizedMimeType = (mimeType && mimeType.split(";")[0]) || "audio/wav";
 
   const result = await model.generateContent([
     prompt,
