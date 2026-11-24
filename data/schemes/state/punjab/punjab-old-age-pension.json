@@ -34,5 +34,18 @@
   ],
   "apply_url": "https://connect.punjab.gov.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "fee_label_hi": "₹0 (पंजाब सरकार द्वारा आवेदन पूर्णतः निःशुल्क)",
+    "fee_label_en": "₹0 (Application is completely free by Punjab Government)",
+    "max_csc_fee_inr": 30,
+    "csc_fee_note_hi": "अधिकतम ₹30–₹50 (सेवा केंद्र / Sewa Kendra ऑपरेटर फीस)",
+    "csc_fee_note_en": "Max ₹30–₹50 (standard Sewa Kendra operator fee)",
+    "timeline_hi": "30 कार्य दिवस (पंजाब राइट टू सर्विस RTS कानून अनुसार)",
+    "timeline_en": "30 working days (Under Punjab Right to Service RTS Act)",
+    "receipt_rule_hi": "सेवा केंद्र पर आवेदन के तुरंत बाद 16 अंकों की RTS ट्रैकिंग रसीद ज़रूर लें। बिना रसीद कोई अतिरिक्त राशि न दें।",
+    "receipt_rule_en": "Collect 16-digit RTS tracking receipt immediately from Sewa Kendra.",
+    "helpline": "1100"
+  }
 }

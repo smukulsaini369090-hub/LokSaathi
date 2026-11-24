@@ -6,6 +6,7 @@ import { join } from "path";
 import { ArrowLeft, ExternalLink, ShieldCheck, FileText, Calendar, Share2, Sparkles } from "lucide-react";
 import { EligibilityBadge } from "@/components/EligibilityBadge";
 import { EligibilityChecker } from "@/components/EligibilityChecker";
+import { AntiDalalShield } from "@/components/AntiDalalShield";
 import type { Scheme } from "@/lib/scheme-types";
 
 function loadAllSchemes(): Scheme[] {
@@ -151,6 +152,11 @@ export default async function SchemeDetailPage({
         {/* Interactive Eligibility Checker */}
         <div className="pt-2">
           <EligibilityChecker id="eligibility-check" scheme={scheme} allSchemes={allSchemes} />
+        </div>
+
+        {/* Anti-Dalal Transparency & Zero-Middleman Citizen Shield */}
+        <div className="pt-2">
+          <AntiDalalShield scheme={scheme} />
         </div>
 
         {/* Non-Government Trust Disclaimer */}

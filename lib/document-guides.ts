@@ -15,6 +15,8 @@ export interface DocumentAcquisitionGuide {
   estimated_days: { hi: string; en: string };
   steps: { hi: string[]; en: string[] };
   important_note?: { hi: string; en: string };
+  official_fee?: { hi: string; en: string };
+  anti_dalal_tip?: { hi: string; en: string };
 }
 
 export type SupportedState = "delhi" | "haryana" | "up" | "punjab" | "central";
@@ -681,45 +683,43 @@ export function getDocumentGuide(docString: string, state?: string): DocumentAcq
       ? state
       : "central";
 
+  let guide: DocumentAcquisitionGuide;
+
   // 1. Income Certificate matches
   if (norm.includes("आय") || norm.includes("income")) {
-    return INCOME_GUIDES[cleanState] || INCOME_GUIDES.central;
+    guide = INCOME_GUIDES[cleanState] || INCOME_GUIDES.central;
   }
-
   // 2. Residence / Domicile matches
-  if (
+  else if (
     norm.includes("निवास") ||
     norm.includes("अधिवास") ||
     norm.includes("domicile") ||
     norm.includes("residence")
   ) {
-    return RESIDENCE_GUIDES[cleanState] || RESIDENCE_GUIDES.central;
+    guide = RESIDENCE_GUIDES[cleanState] || RESIDENCE_GUIDES.central;
   }
-
   // 3. Caste / EWS matches
-  if (
+  else if (
     norm.includes("जाति") ||
     norm.includes("caste") ||
     norm.includes("ews") ||
     norm.includes("ईडब्ल्यूएस") ||
     /\b(sc|st|obc)\b/i.test(norm)
   ) {
-    return CASTE_EWS_GUIDES[cleanState] || CASTE_EWS_GUIDES.central;
+    guide = CASTE_EWS_GUIDES[cleanState] || CASTE_EWS_GUIDES.central;
   }
-
   // 4. Ration Card / Family ID / PPP matches
-  if (
+  else if (
     norm.includes("राशन") ||
     norm.includes("ration") ||
     norm.includes("ppp") ||
     norm.includes("परिवार पहचान") ||
     norm.includes("family id")
   ) {
-    return RATION_GUIDES[cleanState] || RATION_GUIDES.central;
+    guide = RATION_GUIDES[cleanState] || RATION_GUIDES.central;
   }
-
   // 5. Land Records / Khatauni / Jamabandi matches
-  if (
+  else if (
     norm.includes("खतौनी") ||
     norm.includes("जमाबंदी") ||
     norm.includes("भूमि") ||
@@ -728,11 +728,10 @@ export function getDocumentGuide(docString: string, state?: string): DocumentAcq
     norm.includes("jamabandi") ||
     norm.includes("land")
   ) {
-    return LAND_GUIDES[cleanState] || LAND_GUIDES.central;
+    guide = LAND_GUIDES[cleanState] || LAND_GUIDES.central;
   }
-
   // 6. Bank Account & DBT Seeding matches
-  if (
+  else if (
     norm.includes("बैंक") ||
     norm.includes("bank") ||
     norm.includes("dbt") ||
@@ -740,24 +739,35 @@ export function getDocumentGuide(docString: string, state?: string): DocumentAcq
     norm.includes("passbook") ||
     norm.includes("सीडिंग")
   ) {
-    return DBT_BANKING_GUIDE;
+    guide = DBT_BANKING_GUIDE;
   }
-
   // 7. Disability / UDID matches
-  if (
+  else if (
     norm.includes("दिव्यांग") ||
     norm.includes("विकलांग") ||
     norm.includes("disability") ||
     norm.includes("udid")
   ) {
-    return DISABILITY_UDID_GUIDE;
+    guide = DISABILITY_UDID_GUIDE;
   }
-
   // 8. Aadhaar Card / Identity matches
-  if (norm.includes("आधार") || norm.includes("aadhaar")) {
-    return AADHAAR_UPDATE_GUIDE;
+  else if (norm.includes("आधार") || norm.includes("aadhaar")) {
+    guide = AADHAAR_UPDATE_GUIDE;
+  }
+  // Default fallback for any other document
+  else {
+    guide = getGenericDocumentGuide(docString);
   }
 
-  // Default fallback for any other document
-  return getGenericDocumentGuide(docString);
+  return {
+    ...guide,
+    official_fee: guide.official_fee || {
+      hi: "सरकारी पोर्टल फीस: ₹0 से ₹30 (पोर्टल पर निःशुल्क या न्यूनतम सरकारी शुल्क)",
+      en: "Official Statutory Fee: ₹0 to ₹30 max (Free on portal or nominal fee)",
+    },
+    anti_dalal_tip: guide.anti_dalal_tip || {
+      hi: "दलालों से सावधान: तहसील या केंद्र के बाहर किसी बिचौलिए को ₹300-₹500 न दें। ऑनलाइन आवेदन खुद करें या आधिकारिक रसीद लेकर ही ₹30 दें।",
+      en: "Anti-Middleman Alert: Do not pay extra cash to middlemen outside offices. Apply directly or pay only the statutory fee with a valid receipt.",
+    },
+  };
 }

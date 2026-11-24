@@ -32,5 +32,18 @@
   ],
   "apply_url": "https://sspy-up.gov.in/HindiPages/oldage_h.aspx",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "fee_label_hi": "₹0 (उत्तर प्रदेश समाज कल्याण पोर्टल पर आवेदन निःशुल्क)",
+    "fee_label_en": "₹0 (Free application on UP Social Welfare portal)",
+    "max_csc_fee_inr": 30,
+    "csc_fee_note_hi": "अधिकतम ₹30 (अधिकृत जन सेवा केंद्र CSC सेवा शुल्क)",
+    "csc_fee_note_en": "Max ₹30 (authorized Jan Seva Kendra service fee)",
+    "timeline_hi": "21 से 30 कार्य दिवस (ई-डिस्ट्रिक्ट सिटीजन चार्टर अनुसार)",
+    "timeline_en": "21 to 30 working days (Under e-District Citizen Charter)",
+    "receipt_rule_hi": "जन सेवा केंद्र पर फॉर्म सबमिट कराकर कंप्यूटर जनरेटेड पावती रसीद व आवेदन क्रमांक ज़रूर लें। बिना रसीद अतिरिक्त पैसे न दें।",
+    "receipt_rule_en": "Collect computer-generated acknowledgement receipt with application reference ID from CSC.",
+    "helpline": "1076"
+  }
 }

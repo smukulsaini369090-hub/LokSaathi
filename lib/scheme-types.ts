@@ -4,6 +4,26 @@ export interface EligibilityRule {
   value: string | number | boolean | string[];
 }
 
+export interface AntiDalalRules {
+  official_fee_inr?: number;
+  fee_label_hi?: string;
+  fee_label_en?: string;
+  max_csc_fee_inr?: number;
+  csc_fee_note_hi?: string;
+  csc_fee_note_en?: string;
+  processing_days?: string;
+  timeline_hi?: string;
+  timeline_en?: string;
+  receipt_rule_hi?: string;
+  receipt_rule_en?: string;
+  anti_dalal_warning_hi?: string;
+  anti_dalal_warning_en?: string;
+  helpline?: string;
+  center_name_hi?: string;
+  center_name_en?: string;
+  center_search_query?: string;
+}
+
 export interface Scheme {
   id: string;
   name: {
@@ -28,4 +48,5 @@ export interface Scheme {
   deadline?: string | null;
   confidence: "verified" | "web-grounded";
   state?: "delhi" | "haryana" | "up" | "punjab"; // absent = central/all-India
+  anti_dalal?: AntiDalalRules;
 }

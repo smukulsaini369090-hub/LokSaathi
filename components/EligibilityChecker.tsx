@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
+import { AntiDalalShield } from "@/components/AntiDalalShield";
 import type { Scheme } from "@/lib/scheme-types";
 import type { UserProfile } from "@/lib/scheme-matcher";
 import {
@@ -703,6 +704,23 @@ export function EligibilityChecker({
                       {language === "hi" ? guide.offline_option.hi : guide.offline_option.en}
                     </div>
 
+                    {guide.official_fee && (
+                      <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-[11px] text-emerald-950">
+                        <strong>{language === "hi" ? "सरकारी फीस:" : "Official Fee:"}</strong>{" "}
+                        {language === "hi" ? guide.official_fee.hi : guide.official_fee.en}
+                      </div>
+                    )}
+
+                    {guide.anti_dalal_tip && (
+                      <div className="p-2 bg-amber-50 border border-amber-200 rounded-lg text-[11px] text-amber-950 flex items-start gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-amber-700 shrink-0 mt-0.5" />
+                        <div>
+                          <strong>{language === "hi" ? "दलाल अलर्ट:" : "Middleman Alert:"}</strong>{" "}
+                          {language === "hi" ? guide.anti_dalal_tip.hi : guide.anti_dalal_tip.en}
+                        </div>
+                      </div>
+                    )}
+
                     <div>
                       <p className="font-bold text-[11px] text-slate-700 mb-1">
                         {language === "hi" ? "आवेदन के मुख्य कदम:" : "Step-by-step Procedure:"}
@@ -775,6 +793,11 @@ export function EligibilityChecker({
           </div>
         </div>
       )}
+
+      {/* Anti-Dalal Transparency & Citizen Protection Shield */}
+      <div className="pt-2">
+        <AntiDalalShield scheme={scheme} compact />
+      </div>
 
       {/* Official Apply Action Footer */}
       <div className="pt-2 flex flex-col sm:flex-row gap-3">

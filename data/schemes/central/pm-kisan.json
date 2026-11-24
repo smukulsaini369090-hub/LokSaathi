@@ -30,5 +30,18 @@
   ],
   "apply_url": "https://pmkisan.gov.in/registrationform.aspx",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "fee_label_hi": "₹0 (निःशुल्क - pmkisan.gov.in पोर्टल पर कोई फीस नहीं)",
+    "fee_label_en": "₹0 (Free - No fee on official pmkisan.gov.in portal)",
+    "max_csc_fee_inr": 30,
+    "csc_fee_note_hi": "अधिकतम ₹30–₹50 (यदि सीएससी जन सेवा केंद्र से ऑनलाइन आवेदन कराएं)",
+    "csc_fee_note_en": "Max ₹30–₹50 (nominal operator fee only if applying via CSC)",
+    "timeline_hi": "15 से 30 कार्य दिवस (सत्यापन उपरांत अगली किश्त में DBT)",
+    "timeline_en": "15 to 30 working days (DBT credit in next installment post verification)",
+    "receipt_rule_hi": "आवेदन के बाद ऑपरेटर से रजिस्ट्रेशन नंबर युक्त पावती रसीद (Acknowledgement Receipt) अवश्य लें। बिना रसीद किसी को भी पैसे न दें।",
+    "receipt_rule_en": "Always collect official acknowledgement slip with Registration ID after submission. Never pay without receipt.",
+    "helpline": "155261"
+  }
 }

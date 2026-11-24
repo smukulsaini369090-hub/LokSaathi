@@ -460,3 +460,36 @@ export const OS_SETUP_GUIDES = {
     },
   },
 };
+
+export const ANTI_DALAL_I18N = {
+  hi: {
+    shieldTitle: "एंटी-दलाल सुरक्षा कवच",
+    zeroMiddlemanBadge: "दलाल मुक्त सेवा",
+    verifiedBadge: "100% सत्यापित",
+    officialFeeLabel: "आधिकारिक पोर्टल फीस:",
+    cscFeeLabel: "केंद्र (CSC/सेवा केंद्र) ऑपरेटर शुल्क:",
+    middlemenWarningTitle: "दलालों से सख्त चेतावनी:",
+    expectedTimeline: "मानक समय-सीमा:",
+    helplineLabel: "शिकायत हेल्पलाइन:",
+    receiptChecklistTitle: "पक्की रसीद (Acknowledgement Slip) सुरक्षा चेकलिस्ट",
+    openPortalBtn: "आधिकारिक सरकारी पोर्टल खोलें (.gov.in)",
+    findCenterBtn: "नजदीकी केंद्र खोजें (Maps)",
+    listenBtn: "नियम सुनें",
+    shareBtn: "शेयर करें",
+  },
+  en: {
+    shieldTitle: "Anti-Dalal Citizen Shield",
+    zeroMiddlemanBadge: "Zero Middleman",
+    verifiedBadge: "100% Verified",
+    officialFeeLabel: "Official Portal Fee:",
+    cscFeeLabel: "Center Facilitation Fee:",
+    middlemenWarningTitle: "Middlemen Alert:",
+    expectedTimeline: "Expected Timeline:",
+    helplineLabel: "Helpline:",
+    receiptChecklistTitle: "Mandatory Receipt & Tracking Checklist",
+    openPortalBtn: "Open Official Portal (.gov.in)",
+    findCenterBtn: "Find Nearest Center (Maps)",
+    listenBtn: "Listen",
+    shareBtn: "Share",
+  },
+};
