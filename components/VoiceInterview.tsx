@@ -97,8 +97,19 @@ export function VoiceInterview({
       if (result) {
         if (result.transcript && result.transcript.trim()) {
           handleUserSubmit(result.transcript.trim());
-        } else if (result.audioBlob) {
+        } else if (result.audioBlob && result.audioBlob.size > 1000) {
           handleAudioSubmit(result.audioBlob, result.mimeType);
+        } else {
+          setMessages((prev) => [
+            ...prev,
+            {
+              role: "model",
+              text:
+                language === "hi"
+                  ? "माइक बहुत जल्दी बंद हो गया। कृपया माइक दबाकर अपनी बात पूरी कहें।"
+                  : "Recording was too short. Please tap the mic and speak your sentence.",
+            },
+          ]);
         }
       }
     } else {
@@ -194,7 +205,7 @@ export function VoiceInterview({
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               audio_base64: base64Audio,
-              mime_type: mimeType || audioBlob.type || "audio/webm",
+              mime_type: mimeType || audioBlob.type || "audio/wav",
               conversation_history: messages,
               language,
             }),
@@ -203,21 +214,38 @@ export function VoiceInterview({
           if (!res.ok) throw new Error("Voice processing request failed");
           const data = await res.json();
 
-          // Replace placeholder text with real transcribed text from Gemini
-          if (data.transcript) {
-            setMessages((prev) => {
-              const copy = [...prev];
-              const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
-              if (lastUserIdx !== -1) {
-                copy[lastUserIdx] = { role: "user", text: data.transcript };
-              }
-              return copy;
-            });
-          }
+          // Replace placeholder text with real transcribed text from Gemini or fallback
+          const finalTranscript =
+            data.transcript && data.transcript.trim()
+              ? data.transcript.trim()
+              : language === "hi"
+              ? "🎙️ आवाज संदेश"
+              : "🎙️ Voice message";
+
+          setMessages((prev) => {
+            const copy = [...prev];
+            const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
+            if (lastUserIdx !== -1) {
+              copy[lastUserIdx] = { role: "user", text: finalTranscript };
+            }
+            return copy;
+          });
 
           await processProfileResponse(data);
         } catch (err) {
           console.error("Audio API error:", err);
+          // Always clear placeholder so it does not stay stuck in (processing...)
+          setMessages((prev) => {
+            const copy = [...prev];
+            const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
+            if (lastUserIdx !== -1) {
+              copy[lastUserIdx] = {
+                role: "user",
+                text: language === "hi" ? "🎙️ आवाज संदेश" : "🎙️ Voice message",
+              };
+            }
+            return copy;
+          });
           handleTurnError();
         } finally {
           setIsProcessing(false);

@@ -91,11 +91,10 @@ Citizen's latest input:
 
 Extract profile updates and ask the next question in ${language === "hi" ? "Hindi" : "English"}:`;
 
-  const result = await model.generateContent(prompt);
-  const text = result.response.text();
-  const cleaned = cleanJsonResponse(text);
-
   try {
+    const result = await model.generateContent(prompt);
+    const text = result.response.text();
+    const cleaned = cleanJsonResponse(text);
     const parsed = JSON.parse(cleaned);
     let questionText = (parsed.next_question || "").trim();
     const ack = (parsed.acknowledgment || "").trim();
@@ -115,7 +114,7 @@ Extract profile updates and ask the next question in ${language === "hi" ? "Hind
       is_complete: Boolean(parsed.is_complete),
     };
   } catch (err) {
-    console.error("Failed to parse Gemini JSON for profile extraction:", text);
+    console.error("Failed Gemini text profile extraction:", err);
     return {
       profile_updates: {},
       next_question:
@@ -176,20 +175,37 @@ Expected JSON output structure:
       : audioBase64.replace(/^data:[^;]+;base64,/, "").trim();
   const normalizedMimeType = (mimeType && mimeType.split(";")[0]) || "audio/wav";
 
-  const result = await model.generateContent([
-    prompt,
-    {
-      inlineData: {
-        data: cleanAudio,
-        mimeType: normalizedMimeType,
-      },
-    },
-  ]);
-
-  const text = result.response.text();
-  const cleaned = cleanJsonResponse(text);
+  // Check if audio data is missing, empty, or too short (< 500 characters, less than ~0.05s)
+  if (!cleanAudio || cleanAudio.length < 500) {
+    return {
+      transcript: language === "hi" ? "आवाज नहीं आई" : "Voice not detected",
+      profile_updates: {},
+      acknowledgment: "",
+      next_question:
+        language === "hi"
+          ? "माइक से आवाज बहुत छोटी या शांत थी। कृपया माइक दबाकर अपनी बात फिर से बोलें।"
+          : "The audio was too short or silent. Please tap the mic and speak clearly.",
+      suggested_chips:
+        language === "hi"
+          ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "छात्र", "मजदूर"]
+          : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student", "Labourer"],
+      is_complete: false,
+    };
+  }
 
   try {
+    const result = await model.generateContent([
+      prompt,
+      {
+        inlineData: {
+          data: cleanAudio,
+          mimeType: normalizedMimeType,
+        },
+      },
+    ]);
+
+    const text = result.response.text();
+    const cleaned = cleanJsonResponse(text);
     const parsed = JSON.parse(cleaned);
     let questionText = (parsed.next_question || "").trim();
     const ack = (parsed.acknowledgment || "").trim();
@@ -198,7 +214,9 @@ Expected JSON output structure:
     }
 
     return {
-      transcript: (parsed.transcript || "").trim() || (language === "hi" ? "आवाज संदेश प्राप्त हुआ" : "Voice message received"),
+      transcript:
+        (parsed.transcript || "").trim() ||
+        (language === "hi" ? "आवाज संदेश प्राप्त हुआ" : "Voice message received"),
       profile_updates: parsed.profile_updates || {},
       acknowledgment: ack,
       next_question:
@@ -209,15 +227,16 @@ Expected JSON output structure:
       suggested_chips: Array.isArray(parsed.suggested_chips) ? parsed.suggested_chips : [],
       is_complete: Boolean(parsed.is_complete),
     };
-  } catch (err) {
-    console.error("Failed to parse Gemini audio profile extraction JSON:", text);
+  } catch (err: any) {
+    console.error("Gemini audio extraction error:", err?.message || err);
     return {
-      transcript: language === "hi" ? "आवाज संदेश" : "Voice audio",
+      transcript: language === "hi" ? "आवाज संदेश" : "Voice message",
       profile_updates: {},
+      acknowledgment: "",
       next_question:
         language === "hi"
-          ? "माफ़ कीजिए, आवाज स्पष्ट नहीं थी। क्या आप दोबारा बोल सकते हैं या लिखकर बता सकते हैं?"
-          : "Sorry, the voice was not clear. Could you please repeat or type it?",
+          ? "माफ़ कीजिए, आवाज स्पष्ट नहीं थी। क्या आप दोबारा बोल सकते हैं या नीचे से विकल्प चुन सकते हैं?"
+          : "Sorry, the voice was not clear. Could you please repeat or select an option below?",
       suggested_chips:
         language === "hi"
           ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "छात्र"]

@@ -88,7 +88,8 @@ export async function POST(request: NextRequest) {
     console.error("Voice process error:", error);
     return NextResponse.json(
       {
-        transcript: transcript || "",
+        transcript:
+          transcript || (language === "hi" ? "आवाज संदेश" : "Voice input"),
         intent: "general_info",
         extracted_profile_updates: {},
         next_question:

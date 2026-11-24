@@ -160,6 +160,12 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
         const audioContext = new AudioContextClass();
         audioContextRef.current = audioContext;
 
+        if (audioContext.state === "suspended") {
+          try {
+            await audioContext.resume();
+          } catch {}
+        }
+
         const source = audioContext.createMediaStreamSource(stream);
         // ScriptProcessorNode buffer size 4096
         const processor = audioContext.createScriptProcessor(4096, 1, 1);
@@ -225,17 +231,19 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
 
         // Concatenate all PCM chunks
         const totalLength = pcmBuffersRef.current.reduce((acc, b) => acc + b.length, 0);
-        const concatenated = new Float32Array(totalLength);
-        let offset = 0;
-        for (const buffer of pcmBuffersRef.current) {
-          concatenated.set(buffer, offset);
-          offset += buffer.length;
-        }
+        if (totalLength >= 3200) {
+          const concatenated = new Float32Array(totalLength);
+          let offset = 0;
+          for (const buffer of pcmBuffersRef.current) {
+            concatenated.set(buffer, offset);
+            offset += buffer.length;
+          }
 
-        // Downsample to 16kHz for speech recognition
-        const downsampled = downsampleBuffer(concatenated, sampleRate, 16000);
-        // Encode to standard audio/wav
-        wavBlob = encodeWAV(downsampled, 16000);
+          // Downsample to 16kHz for speech recognition
+          const downsampled = downsampleBuffer(concatenated, sampleRate, 16000);
+          // Encode to standard audio/wav
+          wavBlob = encodeWAV(downsampled, 16000);
+        }
       }
 
       // Stop mic tracks
