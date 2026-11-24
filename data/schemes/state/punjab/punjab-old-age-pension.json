@@ -1,0 +1,38 @@
+{
+  "id": "punjab-old-age-pension",
+  "name": {
+    "hi": "पंजाब वृद्धावस्था पेंशन योजना",
+    "en": "Punjab Old Age Pension Scheme"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://socialsecurity.punjab.gov.in",
+  "state": "punjab",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "punjab" },
+      { "field": "age", "operator": "gte", "value": 58 },
+      { "field": "annual_income_inr", "operator": "lte", "value": 60000 }
+    ],
+    "must_match_none": [
+      { "field": "has_other_pension", "operator": "eq", "value": true },
+      { "field": "is_government_employee", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के वरिष्ठ नागरिकों (महिलाएं 58+ वर्ष, पुरुष 65+ वर्ष) को प्रतिमाह ₹1,500 की सीधी वित्तीय पेंशन सहायता",
+    "summary_en": "Monthly financial pension of ₹1,500 deposited directly into bank accounts of eligible senior citizens in Punjab",
+    "amount_inr": 1500,
+    "frequency": "monthly",
+    "mode": "Direct Benefit Transfer (DBT)"
+  },
+  "documents_required": [
+    "आधार कार्ड या मतदाता पहचान पत्र",
+    "उम्र प्रमाण पत्र (आयु 58 वर्ष या अधिक)",
+    "पंजाब में न्यूनतम 5 वर्ष का निवास प्रमाण",
+    "पारिवारिक आय प्रमाण पत्र (वार्षिक ₹60,000 से कम)",
+    "बैंक खाता पासबुक"
+  ],
+  "apply_url": "https://connect.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

@@ -81,11 +81,16 @@ describe("PII Redaction & Compression (lib/redaction.ts)", () => {
       type: "image/jpeg",
     });
 
-    const result = await redactAndCompress(fakeFile, { maxSizeKb: 800 });
+    const result = await redactAndCompress(fakeFile, {
+      maxSizeKb: 800,
+      masks: [{ x: 0.1, y: 0.2, width: 0.3, height: 0.05 }],
+    });
 
     expect(result).toHaveProperty("base64");
     expect(typeof result.base64).toBe("string");
     expect(result.base64).toContain("mockedbase64content");
     expect(result.finalSizeKb).toBeGreaterThan(0);
+    expect(result.redactedCount).toBe(1);
+    expect(mockFillRect).toHaveBeenCalled();
   });
 });

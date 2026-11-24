@@ -1,7 +1,7 @@
 import type { Scheme, EligibilityRule } from "@/lib/scheme-types";
 
 export interface UserProfile {
-  state: "delhi" | "haryana" | "up" | "other";
+  state: "delhi" | "haryana" | "up" | "punjab" | "other";
   age: number;
   gender: "male" | "female" | "other";
   occupation: string[];

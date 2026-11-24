@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { explainDocument, type DocExplanation } from "@/lib/gemini";
+import { getCachedDocExplanation, setCachedDocExplanation } from "@/lib/doc-cache";
 
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -50,21 +51,48 @@ export async function POST(request: NextRequest) {
   }
 
   const language = body.language === "en" ? "en" : "hi";
+  const mode = body.mode === "form_guide" ? "form_guide" : "explain";
+
+  // Check Upstash Redis cache (isolated by mode + language + image sha256)
+  try {
+    const cached = await getCachedDocExplanation(body.image_base64, mode, language);
+    if (cached) {
+      return NextResponse.json(cached);
+    }
+  } catch {
+    // Non-fatal, proceed with AI analysis
+  }
 
   try {
     const explanation: DocExplanation = await explainDocument(
       body.image_base64,
       language,
-      customApiKey
+      customApiKey,
+      mode
     );
+
+    // Persist to Redis cache asynchronously
+    setCachedDocExplanation(body.image_base64, mode, language, explanation).catch(() => {});
+
     return NextResponse.json(explanation);
   } catch (error) {
     console.error("Doc explanation error (returning graceful fallback):", error);
     // Review Focus 2: Never return 500 on unreadable/degraded images
     const fallbackResponse: DocExplanation = {
-      document_type: language === "hi" ? "अज्ञात दस्तावेज़" : "Unknown Document",
+      document_type:
+        mode === "form_guide"
+          ? language === "hi"
+            ? "आवेदन फॉर्म (Application Form)"
+            : "Application Form"
+          : language === "hi"
+          ? "अज्ञात दस्तावेज़"
+          : "Unknown Document",
       summary:
-        language === "hi"
+        mode === "form_guide"
+          ? language === "hi"
+            ? "आवेदन फॉर्म की जानकारी स्पष्ट रूप से नहीं पढ़ी जा सकी।"
+            : "The application form details could not be clearly read."
+          : language === "hi"
           ? "दस्तावेज़ की जानकारी स्पष्ट रूप से नहीं पढ़ी जा सकी।"
           : "The document could not be clearly read.",
       key_fields: [],
@@ -78,6 +106,7 @@ export async function POST(request: NextRequest) {
         language === "hi"
           ? "कृपया सुनिश्चित करें कि दस्तावेज़ के सभी अक्षर साफ़ दिखाई दे रहे हों और दोबारा फोटो खींचें।"
           : "Please ensure all letters are clear and take another photo.",
+      mode,
     };
 
     return NextResponse.json(fallbackResponse);

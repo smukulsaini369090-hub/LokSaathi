@@ -15,6 +15,24 @@ export function isTTSSupported(): boolean {
 let activeUtterance: SpeechSynthesisUtterance | null = null;
 let keepAliveTimer: NodeJS.Timeout | null = null;
 let cachedVoices: SpeechSynthesisVoice[] = [];
+let isPrewarmed = false;
+
+/**
+ * Pre-warms Web Speech API on iOS Safari synchronously on first user gesture.
+ * Without this, async speech calls after network fetch are silently blocked on iOS.
+ */
+export function prewarmTTS(): void {
+  if (!isTTSSupported() || isPrewarmed) return;
+  try {
+    const silent = new SpeechSynthesisUtterance(" ");
+    silent.volume = 0.01;
+    silent.rate = 10;
+    window.speechSynthesis.speak(silent);
+    isPrewarmed = true;
+  } catch {
+    // Non-fatal if blocked
+  }
+}
 
 // Initialize & cache available voices
 if (typeof window !== "undefined" && "speechSynthesis" in window) {

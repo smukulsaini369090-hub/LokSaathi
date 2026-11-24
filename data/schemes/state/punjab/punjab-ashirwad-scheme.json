@@ -1,0 +1,37 @@
+{
+  "id": "punjab-ashirwad-scheme",
+  "name": {
+    "hi": "पंजाब आशीर्वाद योजना (शगुन योजना)",
+    "en": "Punjab Ashirwad Scheme (Shagun Scheme)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://welfare.punjab.gov.in",
+  "state": "punjab",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "punjab" },
+      { "field": "gender", "operator": "eq", "value": "female" },
+      { "field": "age", "operator": "gte", "value": 18 },
+      { "field": "annual_income_inr", "operator": "lte", "value": 32790 }
+    ],
+    "must_match_none": []
+  },
+  "benefit": {
+    "summary_hi": "अनुसूचित जाति, पिछड़ा वर्ग और आर्थिक रूप से कमजोर परिवारों की बेटियों के विवाह हेतु ₹51,000 की एकमुश्त वित्तीय सहायता",
+    "summary_en": "One-time financial grant of ₹51,000 for marriage of daughters from SC, BC, and EWS families in Punjab",
+    "amount_inr": 51000,
+    "frequency": "one_time",
+    "mode": "Direct Benefit Transfer (DBT)"
+  },
+  "documents_required": [
+    "दुल्हन का आधार कार्ड",
+    "उम्र प्रमाण पत्र (18 वर्ष या अधिक)",
+    "पंजाब स्थायी निवास प्रमाण पत्र",
+    "जाति प्रमाण पत्र (SC/BC) या BPL प्रमाण पत्र",
+    "पारिवारिक आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "apply_url": "https://ashirwad.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

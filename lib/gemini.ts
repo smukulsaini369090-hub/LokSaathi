@@ -7,6 +7,14 @@ import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import type { UserProfile, SchemeMatch } from "@/lib/scheme-matcher";
 
+export interface FormGuideStep {
+  step_number: number;
+  box_title: string;
+  what_to_write: string;
+  source_document: string;
+  is_optional: boolean;
+}
+
 export interface DocExplanation {
   document_type: string;
   summary: string;
@@ -14,18 +22,28 @@ export interface DocExplanation {
   action_items: Array<{ task: string; deadline?: string; urgency: "high" | "medium" | "low" }>;
   warnings: string[];
   full_explanation: string;
+  mode?: "explain" | "form_guide";
+  form_guide_steps?: FormGuideStep[];
 }
 
 let geminiClient: GoogleGenerativeAI | null = null;
 
 export function getModelName(apiKey?: string): string {
   const effectiveKey = apiKey?.trim() || process.env.GEMINI_API_KEY || "";
+  const configured = (process.env.GEMINI_MODEL || "").replace(/^["']|["']$/g, "").trim();
+
   // If user provided a standard Google AI Studio key (starts with AIzaSy)
   if (effectiveKey.startsWith("AIzaSy")) {
-    return process.env.GEMINI_PUBLIC_MODEL || "gemini-2.0-flash";
+    return process.env.GEMINI_PUBLIC_MODEL || configured || "gemini-2.0-flash";
   }
-  const model = (process.env.GEMINI_MODEL || "gemini-3.5-flash-lite").replace(/^["']|["']$/g, "").trim();
-  return model || "gemini-3.5-flash-lite";
+
+  // Prevent deprecated, invalid, or throttled preview models (like gemini-3.5-flash-lite)
+  if (configured && !configured.toLowerCase().includes("3.5") && !configured.toLowerCase().includes("lite")) {
+    return configured;
+  }
+
+  // Default to stable, fast free-tier Gemini 2.0 Flash
+  return "gemini-2.0-flash";
 }
 
 export function getGeminiClient(customApiKey?: string): GoogleGenerativeAI {
@@ -71,6 +89,7 @@ export function extractRuleBasedProfile(text: string): Partial<UserProfile> {
   if (lower.includes("delhi") || lower.includes("दिल्ली")) updates.state = "delhi";
   else if (lower.includes("haryana") || lower.includes("हरियाणा") || lower.includes("hr")) updates.state = "haryana";
   else if (lower.includes("uttar pradesh") || lower.includes("up") || lower.includes("उत्तर प्रदेश") || lower.includes("यूपी")) updates.state = "up";
+  else if (lower.includes("punjab") || lower.includes("पंजाब") || lower.includes("pb")) updates.state = "punjab";
 
   // Occupation
   const occ: string[] = [];
@@ -78,7 +97,13 @@ export function extractRuleBasedProfile(text: string): Partial<UserProfile> {
   if (lower.includes("student") || lower.includes("छात्र") || lower.includes("विद्यार्थी") || lower.includes("study") || lower.includes("पढ़ाई")) occ.push("student");
   if (lower.includes("labor") || lower.includes("labour") || lower.includes("मजदूर") || lower.includes("श्रमिक") || lower.includes("दिहाड़ी")) occ.push("laborer");
   if (lower.includes("vendor") || lower.includes("दुकान") || lower.includes("रेहड़ी") || lower.includes("व्यापारी")) occ.push("street_vendor");
+  if (lower.includes("unemployed") || lower.includes("बेरोजगार") || lower.includes("नौकरी")) occ.push("unemployed");
+  if (lower.includes("artisan") || lower.includes("कारीगर") || lower.includes("हस्तशिल्प")) occ.push("artisan");
   if (occ.length > 0) updates.occupation = occ;
+
+  // Gender
+  if (lower.includes("mahila") || lower.includes("महिला") || lower.includes("female") || lower.includes("aurat") || lower.includes("औरत")) updates.gender = "female";
+  else if (lower.includes("purush") || lower.includes("पुरुष") || lower.includes("male") || lower.includes("aadmi") || lower.includes("आदमी")) updates.gender = "male";
 
   // Age (digits between 10 and 99)
   const ageMatch = text.match(/\b([1-9][0-9])\s*(?:साल|वर्ष|years?|yr|age)?\b/i);
@@ -89,9 +114,14 @@ export function extractRuleBasedProfile(text: string): Partial<UserProfile> {
 
   // Category
   if (lower.includes("general") || lower.includes("सामान्य")) updates.category = "general";
-  else if (lower.includes("obc") || lower.includes("ओबीसी")) updates.category = "obc";
+  else if (lower.includes("obc") || lower.includes("ओबीसी") || lower.includes("पिछड़ा")) updates.category = "obc";
   else if (lower.includes("sc") || lower.includes("अनुसूचित जाति")) updates.category = "sc";
   else if (lower.includes("st") || lower.includes("अनुसूचित जनजाति")) updates.category = "st";
+
+  // Income
+  if (lower.includes("1 lakh") || lower.includes("1 लाख") || lower.includes("कम") || lower.includes("kam")) updates.annual_income_inr = 80000;
+  else if (lower.includes("2.5 lakh") || lower.includes("2.5 लाख")) updates.annual_income_inr = 200000;
+  else if (lower.includes("5 lakh") || lower.includes("5 लाख")) updates.annual_income_inr = 450000;
 
   return updates;
 }
@@ -204,39 +234,82 @@ Extract profile updates and ask the next question in ${language === "hi" ? "Hind
       suggested_chips: Array.isArray(parsed.suggested_chips) ? parsed.suggested_chips : [],
       is_complete: Boolean(parsed.is_complete),
     };
-  } catch (err) {
-    console.error("Gemini text profile extraction fallback triggered:", err);
-    // Intelligent local fallback so LokSaathi never stops responding
+  } catch (err: any) {
+    console.error("Gemini text profile extraction fallback triggered:", err?.message || err);
+    const errMsg = err?.message || String(err);
+    const isRateLimit =
+      errMsg.includes("429") ||
+      errMsg.includes("quota") ||
+      errMsg.includes("RESOURCE_EXHAUSTED");
+
+    // Intelligent local fallback so LokSaathi never traps the user in a dead-end loop
     const localUpdates = extractRuleBasedProfile(transcript);
     const hasAnyField = Object.keys(localUpdates).length > 0;
 
-    let fallbackQuestion = language === "hi"
-      ? "माफ़ कीजिए, मैं ठीक से समझ नहीं पाया। क्या आप अपनी बात फिर से बता सकते हैं?"
-      : "Sorry, I could not understand clearly. Could you please repeat that?";
-    let fallbackChips = language === "hi"
-      ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी / छात्र"]
-      : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"];
+    let fallbackQuestion = "";
+    let fallbackChips: string[] = [];
 
-    if (localUpdates.state && !localUpdates.occupation) {
-      fallbackQuestion = language === "hi"
-        ? `बहुत बढ़िया! मैंने आपका राज्य दर्ज कर लिया है। कृपया बताइए आपकी उम्र क्या है और आप क्या काम या पढ़ाई करते हैं?`
-        : `Great! I have recorded your state. Could you please tell me your age and occupation or study?`;
-      fallbackChips = language === "hi"
-        ? ["22 साल", "25 साल", "किसान भाई", "छात्र / विद्यार्थी", "मज़दूर / श्रमिक"]
-        : ["22 years", "25 years", "Farmer", "Student", "Labourer"];
+    if (isRateLimit) {
+      fallbackQuestion =
+        language === "hi"
+          ? "सर्वर पर अभी अधिक लोड है या Gemini API की सीमा समाप्त हो गई है। कृपया कुछ सेकंड बाद पुनः प्रयास करें, या ऊपर 🔑 आइकॉन पर क्लिक करके अपनी निःशुल्क API Key जोड़ें। आप नीचे दिए गए विकल्पों में से चुन सकते हैं:"
+          : "The server is experiencing high traffic or the Gemini API rate limit was reached. Please retry in a few seconds, or click the Key 🔑 icon above to use your own free API Key. You can proceed below:";
+      fallbackChips =
+        language === "hi"
+          ? ["पंजाब", "उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी"]
+          : ["Punjab", "Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"];
+    } else if (localUpdates.state && !localUpdates.occupation) {
+      const stateLabel =
+        localUpdates.state === "punjab"
+          ? "पंजाब"
+          : localUpdates.state === "up"
+          ? "उत्तर प्रदेश"
+          : localUpdates.state === "delhi"
+          ? "दिल्ली"
+          : "हरियाणा";
+      fallbackQuestion =
+        language === "hi"
+          ? `बहुत बढ़िया! मैंने आपका राज्य (${stateLabel}) दर्ज कर लिया है। कृपया बताइए आपकी उम्र क्या है और आप क्या काम या पढ़ाई करते हैं?`
+          : `Great! I have recorded your state (${localUpdates.state.toUpperCase()}). Could you please tell me your age and occupation or study?`;
+      fallbackChips =
+        language === "hi"
+          ? ["22 साल", "25 साल", "किसान भाई", "छात्र / विद्यार्थी", "मज़दूर / श्रमिक"]
+          : ["22 years", "25 years", "Farmer", "Student", "Labourer"];
     } else if (localUpdates.occupation && !localUpdates.annual_income_inr) {
-      fallbackQuestion = language === "hi"
-        ? `धन्यवाद! आपकी लगभग वार्षिक पारिवारिक आय कितनी है?`
-        : `Thank you! What is your approximate annual family income?`;
-      fallbackChips = language === "hi"
-        ? ["₹1 लाख से कम", "₹1-2.5 लाख", "₹2.5-5 लाख", "₹5 लाख से अधिक"]
-        : ["Below ₹1 Lakh", "₹1-2.5 Lakhs", "₹2.5-5 Lakhs", "Above ₹5 Lakhs"];
+      fallbackQuestion =
+        language === "hi"
+          ? "धन्यवाद! मैंने आपका पेशा नोट कर लिया है। आपकी लगभग वार्षिक पारिवारिक आय कितनी है?"
+          : "Thank you! What is your approximate annual family income?";
+      fallbackChips =
+        language === "hi"
+          ? ["₹1 लाख से कम", "₹1-2.5 लाख", "₹2.5-5 लाख", "₹5 लाख से अधिक"]
+          : ["Below ₹1 Lakh", "₹1-2.5 Lakhs", "₹2.5-5 Lakhs", "Above ₹5 Lakhs"];
+    } else if (localUpdates.annual_income_inr || localUpdates.age) {
+      fallbackQuestion =
+        language === "hi"
+          ? "विवरण नोट हो गया है! क्या आप अपनी सामाजिक श्रेणी (General, OBC, SC, ST) भी बताना चाहेंगे?"
+          : "Details noted! Would you like to share your category (General, OBC, SC, ST)?";
+      fallbackChips =
+        language === "hi"
+          ? ["General", "OBC", "SC", "ST", "योजनाएं दिखाएं"]
+          : ["General", "OBC", "SC", "ST", "Show Schemes"];
+    } else {
+      fallbackQuestion =
+        language === "hi"
+          ? "नमस्ते! कृपया मुझे अपना राज्य, उम्र या पेशा बताएं (जैसे: 'मैं पंजाब का किसान हूँ') या नीचे दिए गए विकल्पों में से चुनें:"
+          : "Hello! Please tell me your state, age, or occupation (e.g. 'I am a student in Delhi') or choose an option below:";
+      fallbackChips =
+        language === "hi"
+          ? ["पंजाब", "उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी / छात्र"]
+          : ["Punjab", "Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"];
     }
 
     return {
       profile_updates: localUpdates,
       acknowledgment: hasAnyField
-        ? (language === "hi" ? "नमस्ते! मैंने आपका विवरण नोट कर लिया है।" : "Understood, I have noted that.")
+        ? language === "hi"
+          ? "नमस्ते! मैंने आपका विवरण नोट कर लिया है।"
+          : "Understood, I have noted that."
         : "",
       next_question: fallbackQuestion,
       suggested_chips: fallbackChips,
@@ -387,19 +460,25 @@ Expected JSON output structure:
 export async function explainDocument(
   imageBase64: string,
   language: "hi" | "en" = "hi",
-  customApiKey?: string
+  customApiKey?: string,
+  mode: "explain" | "form_guide" = "explain"
 ): Promise<DocExplanation> {
   const effectiveKey = customApiKey?.trim() || process.env.GEMINI_API_KEY;
   const client = getGeminiClient(customApiKey);
   const model = client.getGenerativeModel({ model: getModelName(effectiveKey) });
 
-  const systemInstruction = loadPrompt("doc-system.txt");
+  const promptFile = mode === "form_guide" ? "form-guide-system.txt" : "doc-system.txt";
+  const systemInstruction = loadPrompt(promptFile);
 
   const prompt = `${systemInstruction}
 
 Target Language for explanation: ${language === "hi" ? "Hindi (हिंदी)" : "English"}
 
-Analyze the attached document and produce the structured JSON response:`;
+${
+  mode === "form_guide"
+    ? "Analyze the blank form image and generate the field-by-field form-filling guide JSON:"
+    : "Analyze the attached document and produce the structured JSON response:"
+}`;
 
   const mimeType = imageBase64.startsWith("/9j/") ? "image/jpeg" : "image/png";
 
@@ -417,11 +496,20 @@ Analyze the attached document and produce the structured JSON response:`;
   const cleaned = cleanJsonResponse(text);
 
   try {
-    return JSON.parse(cleaned);
+    const parsed = JSON.parse(cleaned);
+    parsed.mode = mode;
+    return parsed;
   } catch (err) {
     console.error("Failed to parse Gemini doc explanation JSON:", text);
     return {
-      document_type: language === "hi" ? "दस्तावेज़" : "Document",
+      document_type:
+        mode === "form_guide"
+          ? language === "hi"
+            ? "आवेदन फॉर्म (Application Form)"
+            : "Application Form"
+          : language === "hi"
+          ? "दस्तावेज़"
+          : "Document",
       summary:
         language === "hi"
           ? "दस्तावेज़ की जानकारी सफलतापूर्वक नहीं पढ़ी जा सकी। कृपया साफ फोटो दोबारा अपलोड करें।"
@@ -434,6 +522,7 @@ Analyze the attached document and produce the structured JSON response:`;
           : "Image might be blurry or illegible. Please try again with better lighting.",
       ],
       full_explanation: text,
+      mode,
     };
   }
 }

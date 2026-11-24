@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   Bookmark,
   BookmarkCheck,
@@ -65,25 +66,14 @@ export function SchemeCard({
   };
 
   const handleWhatsAppShare = () => {
+    const detailUrl = `https://lok-saathi.vercel.app/schemes/${scheme.id}`;
     const shareText =
       language === "hi"
-        ? `🏛️ ${scheme.name.hi}\n💰 लाभ: ${scheme.benefit.summary_hi}\n📄 ज़रूरी कागज़: ${scheme.documents_required.join(", ")}\n🌐 आवेदन लिंक: ${scheme.apply_url}\n\n✅ लोकसाथी ऐप से अपनी पात्रता जांचें:`
-        : `🏛️ ${scheme.name.en}\n💰 Benefit: ${scheme.benefit.summary_en}\n📄 Required Documents: ${scheme.documents_required.join(", ")}\n🌐 Apply: ${scheme.apply_url}\n\n✅ Check your scheme eligibility on LokSaathi:`;
+        ? `🏛️ *${scheme.name.hi}*\n💰 *लाभ:* ${scheme.benefit.summary_hi}\n📄 *ज़रूरी कागज़:* ${scheme.documents_required.join(", ")}\n\n✅ *लोकसाथी पर पात्रता और आवेदन देखें:*\n${detailUrl}`
+        : `🏛️ *${scheme.name.en}*\n💰 *Benefit:* ${scheme.benefit.summary_en}\n📄 *Required Documents:* ${scheme.documents_required.join(", ")}\n\n✅ *Check eligibility & apply on LokSaathi:*\n${detailUrl}`;
 
-    if (navigator.share) {
-      navigator
-        .share({
-          title: schemeName,
-          text: shareText,
-          url: scheme.apply_url,
-        })
-        .catch(() => {});
-    } else {
-      const waUrl = `https://wa.me/?text=${encodeURIComponent(
-        shareText + " " + scheme.apply_url
-      )}`;
-      window.open(waUrl, "_blank", "noopener,noreferrer");
-    }
+    const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -103,9 +93,11 @@ export function SchemeCard({
                 </span>
               )}
             </div>
-            <h3 className="text-lg font-bold text-gray-900 leading-snug">
-              {schemeName}
-            </h3>
+            <Link href={`/schemes/${scheme.id}`} className="hover:text-blue-600 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 leading-snug">
+                {schemeName}
+              </h3>
+            </Link>
           </div>
 
           <div className="flex items-center gap-1 shrink-0">

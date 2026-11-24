@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "in.loksaathi.app",
+      "sha256_cert_fingerprints": [
+        "14:6D:E9:7F:0F:7B:88:42:01:CA:58:65:21:42:4E:9F:8B:17:74:64:14:7B:FF:47:64:82:1D:9B:F4:74:9E:5F"
+      ]
+    }
+  }
+]

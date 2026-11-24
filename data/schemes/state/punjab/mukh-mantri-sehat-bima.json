@@ -1,0 +1,35 @@
+{
+  "id": "punjab-mukh-mantri-sehat-bima",
+  "name": {
+    "hi": "मुख्यमंत्री सेहत बीमा योजना (सरबत सेहत बीमा)",
+    "en": "Mukh Mantri Sehat Bima Yojana (Sarbat Sehat Bima)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://sha.punjab.gov.in",
+  "state": "punjab",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "punjab" },
+      { "field": "annual_income_inr", "operator": "lte", "value": 250000 }
+    ],
+    "must_match_none": [
+      { "field": "is_government_employee", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के परिवारों को सरकारी व सूचीबद्ध निजी अस्पतालों में प्रति परिवार प्रति वर्ष ₹5 लाख तक का निःशुल्क कैशलेस इलाज",
+    "summary_en": "Annual cashless secondary and tertiary healthcare coverage of up to ₹5,00,000 per family in Punjab",
+    "amount_inr": 500000,
+    "frequency": "annual",
+    "mode": "Cashless Hospital Treatment"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पंजाब निवास प्रमाण पत्र (Domicile)",
+    "राशन कार्ड या किसान J-फॉर्म",
+    "परिवार पहचान दस्तावेज"
+  ],
+  "apply_url": "https://sha.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}

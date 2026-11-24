@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { speakText, stopSpeech, isTTSSupported } from "@/lib/tts";
+import { speakText, stopSpeech, isTTSSupported, prewarmTTS } from "@/lib/tts";
 
 export function useSpeechSynthesis() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -10,13 +10,26 @@ export function useSpeechSynthesis() {
   useEffect(() => {
     setIsSupported(isTTSSupported());
 
+    // Pre-warm speech synthesis synchronously on the very first touch/click
+    const handleFirstTouch = () => {
+      prewarmTTS();
+      window.removeEventListener("touchstart", handleFirstTouch);
+      window.removeEventListener("click", handleFirstTouch);
+    };
+
+    window.addEventListener("touchstart", handleFirstTouch, { passive: true });
+    window.addEventListener("click", handleFirstTouch, { passive: true });
+
     return () => {
       stopSpeech();
+      window.removeEventListener("touchstart", handleFirstTouch);
+      window.removeEventListener("click", handleFirstTouch);
     };
   }, []);
 
   const speak = useCallback(
     (text: string, lang: "hi" | "en" = "hi") => {
+      prewarmTTS();
       if (!isTTSSupported()) return;
 
       setIsPlaying(true);
@@ -35,5 +48,5 @@ export function useSpeechSynthesis() {
     setIsPlaying(false);
   }, []);
 
-  return { speak, stop, isPlaying, isSupported };
+  return { speak, stop, isPlaying, isSupported, prewarmTTS };
 }

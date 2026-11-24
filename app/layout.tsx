@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { Header, BottomNav } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 
 export const metadata: Metadata = {
   title: "LokSaathi — सरकारी योजना एवं दस्तावेज़ सहायक",
@@ -35,6 +37,8 @@ export default function RootLayout({
           <main className="max-w-2xl mx-auto min-h-[calc(100vh-3.5rem)]">
             {children}
           </main>
+          <Footer />
+          <PWAInstallBanner />
           <BottomNav />
         </LanguageProvider>
       </body>

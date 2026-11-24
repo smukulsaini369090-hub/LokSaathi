@@ -70,6 +70,19 @@ export function maskAadhaar(aadhaar: string): string {
   return aadhaar;
 }
 
+export interface RedactionBox {
+  x: number; // 0..1 normalized coordinate relative to image width
+  y: number; // 0..1 normalized coordinate relative to image height
+  width: number;
+  height: number;
+}
+
+export interface RedactCompressOptions {
+  maxSizeKb?: number;
+  quality?: number;
+  masks?: RedactionBox[];
+}
+
 export interface RedactCompressResult {
   base64: string;
   redactedCount: number;
@@ -77,11 +90,12 @@ export interface RedactCompressResult {
 }
 
 export async function redactAndCompress(
-  imageFile: File | Blob,
-  options: { maxSizeKb?: number; quality?: number } = {}
+  imageSource: File | Blob | HTMLCanvasElement,
+  options: RedactCompressOptions = {}
 ): Promise<RedactCompressResult> {
   const maxSizeKb = options.maxSizeKb ?? 800;
   let quality = options.quality ?? 0.85;
+  const masks = options.masks || [];
 
   return new Promise((resolve, reject) => {
     // Check browser environment
@@ -93,7 +107,44 @@ export async function redactAndCompress(
       });
     }
 
-    const objectUrl = URL.createObjectURL(imageFile);
+    const processCanvas = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+      // Permanently destroy masked pixels by painting solid black boxes
+      if (masks.length > 0) {
+        ctx.fillStyle = "#000000";
+        for (const m of masks) {
+          const rx = Math.max(0, m.x * canvas.width);
+          const ry = Math.max(0, m.y * canvas.height);
+          const rw = Math.min(canvas.width - rx, m.width * canvas.width);
+          const rh = Math.min(canvas.height - ry, m.height * canvas.height);
+          ctx.fillRect(rx, ry, rw, rh);
+        }
+      }
+
+      // Check image data and apply compression
+      let dataUrl = canvas.toDataURL("image/jpeg", quality);
+      let sizeInKb = Math.max(1, Math.round((dataUrl.length * 3) / 4 / 1024));
+
+      // Iteratively reduce quality if file is larger than maxSizeKb
+      while (sizeInKb > maxSizeKb && quality > 0.3) {
+        quality -= 0.15;
+        dataUrl = canvas.toDataURL("image/jpeg", quality);
+        sizeInKb = Math.max(1, Math.round((dataUrl.length * 3) / 4 / 1024));
+      }
+
+      resolve({
+        base64: dataUrl,
+        redactedCount: masks.length,
+        finalSizeKb: sizeInKb,
+      });
+    };
+
+    if (typeof HTMLCanvasElement !== "undefined" && imageSource instanceof HTMLCanvasElement) {
+      const ctx = imageSource.getContext("2d");
+      if (!ctx) return reject(new Error("Unable to initialize canvas context"));
+      return processCanvas(imageSource, ctx);
+    }
+
+    const objectUrl = URL.createObjectURL(imageSource as Blob);
     const img = new Image();
 
     img.onload = () => {
@@ -126,23 +177,7 @@ export async function redactAndCompress(
 
       // Draw initial image
       ctx.drawImage(img, 0, 0, width, height);
-
-      // Check image data and apply compression
-      let dataUrl = canvas.toDataURL("image/jpeg", quality);
-      let sizeInKb = Math.max(1, Math.round((dataUrl.length * 3) / 4 / 1024));
-
-      // Iteratively reduce quality if file is larger than maxSizeKb
-      while (sizeInKb > maxSizeKb && quality > 0.3) {
-        quality -= 0.15;
-        dataUrl = canvas.toDataURL("image/jpeg", quality);
-        sizeInKb = Math.max(1, Math.round((dataUrl.length * 3) / 4 / 1024));
-      }
-
-      resolve({
-        base64: dataUrl,
-        redactedCount: 0,
-        finalSizeKb: sizeInKb,
-      });
+      processCanvas(canvas, ctx);
     };
 
     img.onerror = (err) => {

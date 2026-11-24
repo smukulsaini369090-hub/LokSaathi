@@ -131,16 +131,56 @@ describe("matchSchemes Rule Engine", () => {
     expect(matches[0].match_confidence).toBe("high");
   });
 
-  it("returns empty array for non-matching occupation and income", () => {
-    const itWorker = {
-      occupation: ["software_engineer"],
-      state: "delhi" as const,
-      age: 28,
-      gender: "male" as const,
-      annual_income_inr: 1200000,
-      category: "general" as const,
+  it("correctly matches Punjab welfare schemes and enforces Punjab state isolation", () => {
+    const punjabAshirwad: Scheme = {
+      id: "punjab-ashirwad-scheme",
+      name: { hi: "पंजाब आशीर्वाद योजना", en: "Punjab Ashirwad Scheme" },
+      last_verified: "2026-11-24",
+      source_url: "https://welfare.punjab.gov.in",
+      state: "punjab",
+      eligibility: {
+        must_match_all: [
+          { field: "state", operator: "eq", value: "punjab" },
+          { field: "gender", operator: "eq", value: "female" },
+          { field: "age", operator: "gte", value: 18 },
+          { field: "annual_income_inr", operator: "lte", value: 32790 },
+        ],
+        must_match_none: [],
+      },
+      benefit: {
+        summary_hi: "₹51,000 सहायता",
+        summary_en: "₹51,000 grant",
+        amount_inr: 51000,
+      },
+      documents_required: ["Aadhaar", "Income Certificate"],
+      apply_url: "https://ashirwad.punjab.gov.in",
+      confidence: "verified",
     };
-    const matches = matchSchemes(itWorker, [pmKisan]);
-    expect(matches).toHaveLength(0);
+
+    const punjabGirl = {
+      state: "punjab" as const,
+      gender: "female" as const,
+      age: 21,
+      annual_income_inr: 25000,
+      category: "sc" as const,
+      occupation: ["unemployed"],
+    };
+
+    const haryanaGirl = {
+      state: "haryana" as const,
+      gender: "female" as const,
+      age: 21,
+      annual_income_inr: 25000,
+      category: "sc" as const,
+      occupation: ["unemployed"],
+    };
+
+    const punjabMatches = matchSchemes(punjabGirl, [punjabAshirwad]);
+    expect(punjabMatches).toHaveLength(1);
+    expect(punjabMatches[0].scheme.id).toBe("punjab-ashirwad-scheme");
+    expect(punjabMatches[0].match_confidence).toBe("high");
+
+    const haryanaMatches = matchSchemes(haryanaGirl, [punjabAshirwad]);
+    expect(haryanaMatches).toHaveLength(0);
   });
 });

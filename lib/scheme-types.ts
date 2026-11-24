@@ -27,5 +27,5 @@ export interface Scheme {
   apply_url: string;
   deadline?: string | null;
   confidence: "verified" | "web-grounded";
-  state?: "delhi" | "haryana" | "up"; // absent = central/all-India
+  state?: "delhi" | "haryana" | "up" | "punjab"; // absent = central/all-India
 }

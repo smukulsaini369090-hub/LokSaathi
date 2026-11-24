@@ -1,0 +1,35 @@
+{
+  "id": "punjab-smart-ration-card",
+  "name": {
+    "hi": "पंजाब स्मार्ट राशन कार्ड योजना (NFSA)",
+    "en": "Punjab Smart Ration Card Scheme (NFSA)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://epos.punjab.gov.in",
+  "state": "punjab",
+  "eligibility": {
+    "must_match_all": [
+      { "field": "state", "operator": "eq", "value": "punjab" },
+      { "field": "annual_income_inr", "operator": "lte", "value": 60000 }
+    ],
+    "must_match_none": [
+      { "field": "is_income_tax_payer", "operator": "eq", "value": true },
+      { "field": "is_government_employee", "operator": "eq", "value": true }
+    ]
+  },
+  "benefit": {
+    "summary_hi": "पात्र परिवारों को प्रति सदस्य 5 किग्रा गेहूं निःशुल्क या अत्यंत रियायती दर (₹2/किग्रा) पर बायोमेट्रिक स्मार्ट कार्ड से वितरण",
+    "summary_en": "Subsidized or free 5kg foodgrains per member per month through biometric Smart Ration Card across Punjab",
+    "frequency": "monthly",
+    "mode": "Fair Price Shop e-POS Distribution"
+  },
+  "documents_required": [
+    "परिवार के सभी सदस्यों के आधार कार्ड",
+    "पंजाब निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र / स्व-घोषणा पत्र",
+    "बिजली बिल / मकान का पता प्रमाण"
+  ],
+  "apply_url": "https://connect.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified"
+}
