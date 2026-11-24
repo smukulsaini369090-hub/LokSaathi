@@ -68,12 +68,13 @@ export function VoiceInterview({
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Sync default chips if language changes
+  // Sync greeting and chips if language changes while conversation hasn't started yet
   useEffect(() => {
     if (messages.length === 1) {
+      setMessages([{ role: "model", text: initialQuestion }]);
       setSuggestedChips(getDefaultChips(language));
     }
-  }, [language, messages.length]);
+  }, [language, initialQuestion]);
 
   // Auto-scroll chat
   useEffect(() => {

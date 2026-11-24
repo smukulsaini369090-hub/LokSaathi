@@ -1,22 +1,41 @@
 "use client";
 
 import React from "react";
-import { Languages } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 
 export function LanguageSwitcher() {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   return (
-    <button
-      type="button"
-      onClick={toggleLanguage}
-      aria-label="भाषा बदलें / Change Language"
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gray-100 hover:bg-gray-200 text-gray-800 transition-colors border border-gray-200"
-      title={language === "hi" ? "Switch to English" : "हिंदी में बदलें"}
+    <div
+      role="group"
+      aria-label="भाषा चुनें / Select Language"
+      className="inline-flex items-center p-0.5 bg-slate-100 rounded-full border border-slate-200 shadow-2xs"
     >
-      <Languages className="w-3.5 h-3.5 text-blue-600" />
-      <span>{language === "hi" ? "EN" : "हिन्दी"}</span>
-    </button>
+      <button
+        type="button"
+        onClick={() => setLanguage("hi")}
+        aria-pressed={language === "hi"}
+        className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
+          language === "hi"
+            ? "bg-blue-600 text-white shadow-xs"
+            : "text-slate-600 hover:text-slate-900"
+        }`}
+      >
+        हिन्दी
+      </button>
+      <button
+        type="button"
+        onClick={() => setLanguage("en")}
+        aria-pressed={language === "en"}
+        className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
+          language === "en"
+            ? "bg-blue-600 text-white shadow-xs"
+            : "text-slate-600 hover:text-slate-900"
+        }`}
+      >
+        English
+      </button>
+    </div>
   );
 }
