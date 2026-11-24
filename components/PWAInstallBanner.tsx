@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Download, X, Share, PlusSquare } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
+import { ONBOARDING_STORAGE_KEY } from "@/components/OnboardingGuide";
 
 export function PWAInstallBanner() {
   const { language } = useLanguage();
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const deferredPromptRef = useRef<any>(null);
   const [showBanner, setShowBanner] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const isIOSRef = useRef(false);
   const [showIOSGuide, setShowIOSGuide] = useState(false);
 
   useEffect(() => {
@@ -26,34 +29,67 @@ export function PWAInstallBanner() {
     const ua = window.navigator.userAgent.toLowerCase();
     const isIOSDevice = /iphone|ipad|ipod/.test(ua);
     setIsIOS(isIOSDevice);
+    isIOSRef.current = isIOSDevice;
 
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
+      deferredPromptRef.current = e;
       setDeferredPrompt(e);
-      setShowBanner(true);
+
+      // Do NOT show banner while user has not finished onboarding (prevents screen overlap)
+      const isOnboardingDone = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
+      if (isOnboardingDone) {
+        setShowBanner(true);
+      }
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
-    // If iOS and not standalone, show after a 3 second delay
+    // If iOS and not standalone, show after delay only if onboarding is done
+    let timer: NodeJS.Timeout | undefined;
     if (isIOSDevice && !isStandalone) {
-      const timer = setTimeout(() => setShowBanner(true), 3000);
-      return () => clearTimeout(timer);
+      timer = setTimeout(() => {
+        const isOnboardingDone = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
+        if (isOnboardingDone) {
+          setShowBanner(true);
+        }
+      }, 3000);
     }
+
+    // When onboarding finishes, show banner if installable and not dismissed
+    const handleOnboardingCompleted = () => {
+      if (sessionStorage.getItem("loksaathi_install_dismissed") === "true") return;
+      if (deferredPromptRef.current || isIOSRef.current) {
+        setShowBanner(true);
+      }
+    };
+
+    // When onboarding opens/replays, hide banner to avoid small screen collision
+    const handleOnboardingOpened = () => {
+      setShowBanner(false);
+    };
+
+    window.addEventListener("loksaathi_onboarding_completed", handleOnboardingCompleted);
+    window.addEventListener("loksaathi_open_onboarding", handleOnboardingOpened);
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener("loksaathi_onboarding_completed", handleOnboardingCompleted);
+      window.removeEventListener("loksaathi_open_onboarding", handleOnboardingOpened);
+      if (timer) clearTimeout(timer);
     };
   }, []);
 
   const handleInstallClick = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
+    const prompt = deferredPrompt || deferredPromptRef.current;
+    if (prompt) {
+      prompt.prompt();
+      const { outcome } = await prompt.userChoice;
       if (outcome === "accepted") {
         setShowBanner(false);
       }
       setDeferredPrompt(null);
+      deferredPromptRef.current = null;
     } else if (isIOS) {
       setShowIOSGuide(true);
     }

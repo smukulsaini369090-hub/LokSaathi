@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Search, FileText, Bookmark, KeyRound } from "lucide-react";
+import { Home, Search, FileText, Bookmark, KeyRound, HelpCircle } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ApiKeyModal } from "@/components/ApiKeyModal";
@@ -64,6 +64,14 @@ export function Header() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               )}
             </button>
+            <Link
+              href="/help"
+              className="p-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors"
+              title={language === "hi" ? "मदद व डिवाइस सेटअप" : "Help & Device Setup"}
+              aria-label={language === "hi" ? "मदद केंद्र" : "Help Center"}
+            >
+              <HelpCircle className="w-5 h-5" />
+            </Link>
             <LanguageSwitcher />
           </div>
         </div>

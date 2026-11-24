@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/components/LanguageContext";
 import { Header, BottomNav } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PWAInstallBanner } from "@/components/PWAInstallBanner";
+import { OnboardingGuide } from "@/components/OnboardingGuide";
 
 export const metadata: Metadata = {
   title: "LokSaathi — सरकारी योजना एवं दस्तावेज़ सहायक",
@@ -39,6 +40,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <PWAInstallBanner />
+          <OnboardingGuide />
           <BottomNav />
         </LanguageProvider>
       </body>
