@@ -1,6 +1,6 @@
 # LokSaathi Phase 1 (MVP) Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Build and deploy a production-ready PWA that lets Hindi-speaking users discover government scheme eligibility via conversational voice/text profiling and understand government documents via AI-powered photo scanning — with zero hallucination, privacy-first document handling, and offline saved scheme cards.
 
@@ -56,7 +56,7 @@ The following failure modes are most likely to bite a real user and are not full
 **Interfaces:**
 - Produces: working `next dev` server, passing empty test suite, `next build` with no errors
 
-- [ ] **Step 1: Initialise Next.js 15 project**
+- [x] **Step 1: Initialise Next.js 15 project**
 
   ```bash
   npx create-next-app@latest loksaathi \
@@ -65,7 +65,7 @@ The following failure modes are most likely to bite a real user and are not full
   cd loksaathi
   ```
 
-- [ ] **Step 2: Install all Phase 1 dependencies**
+- [x] **Step 2: Install all Phase 1 dependencies**
 
   ```bash
   npm install @google/generative-ai @upstash/redis @upstash/ratelimit \
@@ -77,7 +77,7 @@ The following failure modes are most likely to bite a real user and are not full
     @testing-library/jest-dom @playwright/test
   ```
 
-- [ ] **Step 3: Configure `next.config.ts` with Serwist PWA + security headers**
+- [x] **Step 3: Configure `next.config.ts` with Serwist PWA + security headers**
 
   ```typescript
   // next.config.ts
@@ -100,7 +100,7 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 4: Create `public/manifest.json`**
+- [x] **Step 4: Create `public/manifest.json`**
 
   ```json
   {
@@ -120,15 +120,15 @@ The following failure modes are most likely to bite a real user and are not full
   }
   ```
 
-- [ ] **Step 5: Create `app/sw.ts` (Serwist service worker)**
+- [x] **Step 5: Create `app/sw.ts` (Serwist service worker)**
 
   Use Serwist's `defaultCache` presets. App shell → `CacheFirst`. `/data/` static files → `CacheFirst`. `/api/*` → `NetworkFirst` with 5-second timeout. Images → `CacheFirst` with 30-day expiry.
 
-- [ ] **Step 6: Configure `vitest.config.ts`** to use `@vitejs/plugin-react`, `jsdom` environment, `@testing-library/jest-dom` setup file.
+- [x] **Step 6: Configure `vitest.config.ts`** to use `@vitejs/plugin-react`, `jsdom` environment, `@testing-library/jest-dom` setup file.
 
-- [ ] **Step 7: Configure `playwright.config.ts`** targeting `http://localhost:3000`, Chromium only for Phase 1.
+- [x] **Step 7: Configure `playwright.config.ts`** targeting `http://localhost:3000`, Chromium only for Phase 1.
 
-- [ ] **Step 8: Create `.env.local.example`**
+- [x] **Step 8: Create `.env.local.example`**
 
   ```
   GEMINI_API_KEY=
@@ -137,11 +137,11 @@ The following failure modes are most likely to bite a real user and are not full
   DATABASE_URL=
   ```
 
-- [ ] **Step 9: Run `next build` and `npx vitest run`**
+- [x] **Step 9: Run `next build` and `npx vitest run`**
 
   Expected: build succeeds, 0 tests run, 0 failures.
 
-- [ ] **Step 10: Commit**
+- [x] **Step 10: Commit**
 
   ```bash
   git init && git add -A
@@ -189,7 +189,7 @@ The following failure modes are most likely to bite a real user and are not full
 **Interfaces:**
 - Produces: `Scheme` type exported from `lib/scheme-types.ts`; all JSON files validate against it
 
-- [ ] **Step 1: Write failing schema validation test**
+- [x] **Step 1: Write failing schema validation test**
 
   ```typescript
   // tests/data/scheme-schema.test.ts
@@ -240,13 +240,13 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL** (`getAllSchemeFiles returns 0 files`)
+- [x] **Step 2: Run test — expect FAIL** (`getAllSchemeFiles returns 0 files`)
 
   ```bash
   npx vitest run tests/data/scheme-schema.test.ts
   ```
 
-- [ ] **Step 3: Define `Scheme` type in `lib/scheme-types.ts`**
+- [x] **Step 3: Define `Scheme` type in `lib/scheme-types.ts`**
 
   ```typescript
   export interface EligibilityRule {
@@ -279,17 +279,17 @@ The following failure modes are most likely to bite a real user and are not full
   }
   ```
 
-- [ ] **Step 4: Implement `getAllSchemeFiles` recursion in test file** to walk `data/schemes/central/` and `data/schemes/state/` subdirectories.
+- [x] **Step 4: Implement `getAllSchemeFiles` recursion in test file** to walk `data/schemes/central/` and `data/schemes/state/` subdirectories.
 
-- [ ] **Step 5: Create all 30 scheme JSON files** — manually verified against `myscheme.gov.in` and official `.gov.in` portals. Each file must pass schema validation. Use the `Scheme` interface as the strict template. Set `last_verified` to today's date and `confidence: "verified"`.
+- [x] **Step 5: Create all 30 scheme JSON files** — manually verified against `myscheme.gov.in` and official `.gov.in` portals. Each file must pass schema validation. Use the `Scheme` interface as the strict template. Set `last_verified` to today's date and `confidence: "verified"`.
 
-- [ ] **Step 6: Run tests — expect all PASS**
+- [x] **Step 6: Run tests — expect all PASS**
 
   ```bash
   npx vitest run tests/data/scheme-schema.test.ts
   ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add data/ lib/scheme-types.ts tests/data/
@@ -312,7 +312,7 @@ The following failure modes are most likely to bite a real user and are not full
 - Produces: `checkRateLimit(ip: string): Promise<{ success: boolean; remaining: number }>` from `lib/rate-limit.ts`
 - Produces: Next.js middleware that returns 429 JSON `{ error: "rate_limit_exceeded", message_hi: "थोड़ी देर बाद कोशिश करें" }` when limit is hit
 
-- [ ] **Step 1: Write failing rate-limit test**
+- [x] **Step 1: Write failing rate-limit test**
 
   ```typescript
   // tests/middleware/rate-limit.test.ts
@@ -350,34 +350,34 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL** (module not found)
+- [x] **Step 2: Run test — expect FAIL** (module not found)
 
   ```bash
   npx vitest run tests/middleware/rate-limit.test.ts
   ```
 
-- [ ] **Step 3: Implement `lib/rate-limit.ts`**
+- [x] **Step 3: Implement `lib/rate-limit.ts`**
 
   Use `@upstash/ratelimit` with `slidingWindow(20, "1 h")`. Export `checkRateLimit(ip: string): Promise<{ success: boolean; remaining: number }>`. Read `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` from `process.env`.
 
-- [ ] **Step 4: Implement `middleware.ts`**
+- [x] **Step 4: Implement `middleware.ts`**
 
   For requests to `/api/*`: call `checkRateLimit(ip)`. On failure, return `NextResponse.json({ error: "rate_limit_exceeded", message_hi: "थोड़ी देर बाद कोशिश करें", message_en: "Too many requests. Please try again shortly." }, { status: 429 })`. Add `next-intl` routing for locales `["hi", "en"]`, default locale `"hi"`.
 
-- [ ] **Step 5: Create stub `messages/hi.json` and `messages/en.json`**
+- [x] **Step 5: Create stub `messages/hi.json` and `messages/en.json`**
 
   ```json
   // hi.json — add keys as needed in later tasks
   { "home": { "title": "LokSaathi", "subtitle": "सरकारी योजना सहायक" } }
   ```
 
-- [ ] **Step 6: Run test — expect PASS**
+- [x] **Step 6: Run test — expect PASS**
 
   ```bash
   npx vitest run tests/middleware/rate-limit.test.ts
   ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add lib/rate-limit.ts middleware.ts messages/ i18n.ts tests/middleware/
@@ -422,7 +422,7 @@ The following failure modes are most likely to bite a real user and are not full
   function matchSchemes(profile: Partial<UserProfile>, schemes: Scheme[]): SchemeMatch[]
   ```
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
   ```typescript
   // tests/lib/scheme-matcher.test.ts
@@ -497,23 +497,23 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL** (`matchSchemes` not found)
+- [x] **Step 2: Run test — expect FAIL** (`matchSchemes` not found)
 
   ```bash
   npx vitest run tests/lib/scheme-matcher.test.ts
   ```
 
-- [ ] **Step 3: Implement `lib/scheme-matcher.ts`**
+- [x] **Step 3: Implement `lib/scheme-matcher.ts`**
 
   `evaluateRule(rule, profile)`: returns `"pass" | "fail" | "unknown"` — "unknown" when the profile field is undefined. `matchSchemes(profile, schemes)`: for each scheme, evaluate all `must_match_all` rules (any "fail" → exclude; any "unknown" → medium confidence, add field to `missing_fields`), then all `must_match_none` rules (any "pass" → exclude). Return `SchemeMatch[]` sorted by match_confidence desc.
 
-- [ ] **Step 4: Run test — expect all PASS**
+- [x] **Step 4: Run test — expect all PASS**
 
   ```bash
   npx vitest run tests/lib/scheme-matcher.test.ts
   ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add lib/scheme-matcher.ts tests/lib/
@@ -541,7 +541,7 @@ The following failure modes are most likely to bite a real user and are not full
   async function generateSchemeExplanation(matches: SchemeMatch[], profile: Partial<UserProfile>, language: "hi"|"en"): AsyncGenerator<string>
   ```
 
-- [ ] **Step 1: Write failing tests** (mock Gemini SDK)
+- [x] **Step 1: Write failing tests** (mock Gemini SDK)
 
   ```typescript
   // tests/lib/gemini.test.ts
@@ -575,35 +575,35 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
   ```bash
   npx vitest run tests/lib/gemini.test.ts
   ```
 
-- [ ] **Step 3: Write `data/prompts/scheme-system.txt`**
+- [x] **Step 3: Write `data/prompts/scheme-system.txt`**
 
   Instruct Gemini to: (1) parse the user transcript into the `UserProfile` JSON schema fields, (2) ask exactly one follow-up question in the specified language to gather missing fields, (3) set `is_complete: true` only when state, age, gender, occupation, annual_income_inr, and category are all known, (4) output ONLY valid JSON matching the specified schema — no prose, no markdown. Include the `UserProfile` field definitions in the prompt.
 
-- [ ] **Step 4: Write `data/prompts/doc-system.txt`**
+- [x] **Step 4: Write `data/prompts/doc-system.txt`**
 
   Instruct Gemini to: (1) identify the document type, (2) extract key fields in a structured JSON array, (3) list action items with deadlines, (4) write the `full_explanation` in simple conversational Hindi/English (as specified), (5) never invent deadlines or amounts not visible in the image, (6) if image is illegible say so explicitly in the JSON rather than guessing.
 
-- [ ] **Step 5: Write `data/prompts/voice-system.txt`**
+- [x] **Step 5: Write `data/prompts/voice-system.txt`**
 
   Instruct Gemini audio model to: (1) transcribe the audio, (2) classify intent, (3) extract any UserProfile fields mentioned, (4) produce the structured JSON output format.
 
-- [ ] **Step 6: Implement `lib/gemini.ts`**
+- [x] **Step 6: Implement `lib/gemini.ts`**
 
   Singleton `getGeminiClient()` using `GEMINI_API_KEY`. `extractUserProfile()`: calls `gemini-2.0-flash` with scheme-system prompt + conversation history + transcript, parses JSON response. `explainDocument()`: calls `gemini-2.0-flash` vision with doc-system prompt + image. `generateSchemeExplanation()`: uses `generateContentStream()`, yields text chunks. Add `"use server"` directive comment at top; note in JSDoc that this file must never be imported in client components.
 
-- [ ] **Step 7: Run test — expect PASS**
+- [x] **Step 7: Run test — expect PASS**
 
   ```bash
   npx vitest run tests/lib/gemini.test.ts
   ```
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
   ```bash
   git add lib/gemini.ts data/prompts/ tests/lib/gemini.test.ts
@@ -627,7 +627,7 @@ The following failure modes are most likely to bite a real user and are not full
   ): Promise<{ base64: string; redactedCount: number; finalSizeKb: number }>
   ```
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
   ```typescript
   // tests/lib/redaction.test.ts
@@ -676,23 +676,23 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
   ```bash
   npx vitest run tests/lib/redaction.test.ts
   ```
 
-- [ ] **Step 3: Implement `lib/redaction.ts`**
+- [x] **Step 3: Implement `lib/redaction.ts`**
 
   `findPIIRegions(text)`: regex scan for Aadhaar (`\d{4}\s?\d{4}\s?\d{4}`), PAN (`[A-Z]{5}[0-9]{4}[A-Z]`), Indian phone (`[6-9]\d{9}`). Returns `Array<{ type, start, end }>`. `redactAndCompress(imageFile, options)`: draw image to offscreen Canvas, run OCR-free blur strategy (blur rectangular regions of canvas where PII patterns are found via `getImageData`), then `canvas.toBlob()` with `quality: 0.8`, return base64. If canvas produces file > `maxSizeKb` (default 800), reduce quality iteratively to 0.6, 0.5. Never throw — return `{ base64, redactedCount: 0, finalSizeKb }` if no PII found.
 
-- [ ] **Step 4: Run test — expect PASS**
+- [x] **Step 4: Run test — expect PASS**
 
   ```bash
   npx vitest run tests/lib/redaction.test.ts
   ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add lib/redaction.ts tests/lib/redaction.test.ts
@@ -714,7 +714,7 @@ The following failure modes are most likely to bite a real user and are not full
 - Consumes: `matchSchemes` from Task 3; `extractUserProfile`, `explainDocument`, `generateSchemeExplanation` from Task 4; `checkRateLimit` from Task 2; `Scheme` JSON files
 - Produces: HTTP endpoints per API contracts in `ARCHITECTURE.md`
 
-- [ ] **Step 1: Write failing tests for `/api/scheme-match`**
+- [x] **Step 1: Write failing tests for `/api/scheme-match`**
 
   ```typescript
   // tests/api/scheme-match.test.ts
@@ -777,31 +777,31 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
   ```bash
   npx vitest run tests/api/scheme-match.test.ts
   ```
 
-- [ ] **Step 3: Implement `app/api/scheme-match/route.ts`**
+- [x] **Step 3: Implement `app/api/scheme-match/route.ts`**
 
   Validate body (400 on missing `user_profile`). Check rate limit (429 on failure, with Hindi+English error message). **Cache check:** compute a cache key from sorted `user_profile` JSON + language; check Upstash Redis (`GET cache:scheme-match:<key>`); if hit, return cached JSON directly (skip Gemini + matcher). Load all scheme JSONs from `data/schemes/` (use `fs.readdirSync` — this runs server-side). Call `matchSchemes(profile, allSchemes)`. **Cache write:** `SET cache:scheme-match:<key> <json> EX 3600` (1-hour TTL). Return `{ matched_schemes, missing_fields, language_detected }`. Use `zod` for request body validation.
 
-- [ ] **Step 4: Implement `app/api/doc-explain/route.ts`**
+- [x] **Step 4: Implement `app/api/doc-explain/route.ts`**
 
   Validate body (400 on missing `image_base64`). Check rate limit. Call `explainDocument(image_base64, language)`. Return JSON response. On Gemini error or empty response, return `{ document_type: "unknown", summary: "...", key_fields: [], action_items: [], warnings: ["इमेज स्पष्ट नहीं थी। बेहतर रोशनी में फिर से फोटो लें।"] }` — never 500.
 
-- [ ] **Step 5: Implement `app/api/voice-process/route.ts`**
+- [x] **Step 5: Implement `app/api/voice-process/route.ts`**
 
   Accept `audio_base64` + `conversation_history`. Call Gemini with voice-system prompt + audio data. Return structured JSON. On empty audio blob, return 400 with Hindi message.
 
-- [ ] **Step 6: Run tests — expect PASS**
+- [x] **Step 6: Run tests — expect PASS**
 
   ```bash
   npx vitest run tests/api/
   ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add app/api/ tests/api/
@@ -825,7 +825,7 @@ The following failure modes are most likely to bite a real user and are not full
   async function isSchémeSaved(schemeId: string): Promise<boolean>
   ```
 
-- [ ] **Step 1: Write failing tests** (use `idb` mock or fake IndexedDB via `fake-indexeddb`)
+- [x] **Step 1: Write failing tests** (use `idb` mock or fake IndexedDB via `fake-indexeddb`)
 
   Install: `npm install -D fake-indexeddb`
 
@@ -870,13 +870,13 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
-- [ ] **Step 3: Implement `lib/offline.ts`** using `idb` package. DB name: `loksaathi-db`, version 1. Object store: `saved-schemes`, keyPath: `scheme.id`. Export `saveScheme`, `getSavedSchemes`, `removeScheme`, `isSchemeSaved`, `clearAllSchemes` (test helper only).
+- [x] **Step 3: Implement `lib/offline.ts`** using `idb` package. DB name: `loksaathi-db`, version 1. Object store: `saved-schemes`, keyPath: `scheme.id`. Export `saveScheme`, `getSavedSchemes`, `removeScheme`, `isSchemeSaved`, `clearAllSchemes` (test helper only).
 
-- [ ] **Step 4: Run test — expect PASS**
+- [x] **Step 4: Run test — expect PASS**
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add lib/offline.ts tests/lib/offline.test.ts
@@ -905,7 +905,7 @@ The following failure modes are most likely to bite a real user and are not full
   export function VoiceInterview(props: Props): JSX.Element
   ```
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
   ```typescript
   // tests/components/VoiceInterview.test.tsx
@@ -954,27 +954,27 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
-- [ ] **Step 3: Implement `hooks/useVoiceRecorder.ts`**
+- [x] **Step 3: Implement `hooks/useVoiceRecorder.ts`**
 
   Wraps `MediaRecorder` API. `startRecording()`, `stopRecording(): Promise<Blob>`. Detects if `MediaRecorder` or mic permission unavailable — returns `{ isSupported: boolean }`. On unsupported, `stopRecording()` returns empty Blob.
 
-- [ ] **Step 4: Implement `hooks/useSpeechSynthesis.ts`**
+- [x] **Step 4: Implement `hooks/useSpeechSynthesis.ts`**
 
   Wraps `window.speechSynthesis`. `speak(text, lang)`: selects best available Hindi/English voice (prefers `hi-IN`). `cancel()`. Returns `{ isSupported: boolean }`.
 
-- [ ] **Step 5: Implement `components/VoiceInterview.tsx`**
+- [x] **Step 5: Implement `components/VoiceInterview.tsx`**
 
   State machine: `idle → listening → processing → responding → idle`. Large circular mic button (primary CTA, 72px diameter, accessible `aria-label`). Text input always visible alongside mic (never hidden) for fallback. Conversation history displayed as chat bubbles. AI question spoken via `useSpeechSynthesis`. On `is_profile_complete: true`, call `/api/scheme-match` with accumulated profile, then call `onProfileComplete(profile, matches)`.
 
-- [ ] **Step 6: Run tests — expect PASS**
+- [x] **Step 6: Run tests — expect PASS**
 
   ```bash
   npx vitest run tests/components/VoiceInterview.test.tsx
   ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add components/VoiceInterview.tsx hooks/ tests/components/
@@ -1002,7 +1002,7 @@ The following failure modes are most likely to bite a real user and are not full
   export function SchemeCard(props: Props): JSX.Element
   ```
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
   ```typescript
   // tests/components/SchemeCard.test.tsx
@@ -1058,17 +1058,17 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
-- [ ] **Step 3: Implement `components/EligibilityBadge.tsx`** — renders `✅ Verified` / `🔍 Web-sourced` / `⚠️ Needs verification` based on `confidence` field. High contrast, accessible.
+- [x] **Step 3: Implement `components/EligibilityBadge.tsx`** — renders `✅ Verified` / `🔍 Web-sourced` / `⚠️ Needs verification` based on `confidence` field. High contrast, accessible.
 
-- [ ] **Step 4: Implement `components/SchemeCard.tsx`**
+- [x] **Step 4: Implement `components/SchemeCard.tsx`**
 
   Card layout: scheme name (large, in selected language), `EligibilityBadge`, benefit summary, documents required as chips, match reason in plain language, "Apply" button (opens `apply_url` in new tab), bookmark button (calls `saveScheme` + toggles icon), WhatsApp share button (uses `navigator.share` with fallback to `https://wa.me/?text=...`). `last_verified` shown as "Verified: Nov 2026" with warning icon if >90 days old.
 
-- [ ] **Step 5: Run tests — expect PASS**
+- [x] **Step 5: Run tests — expect PASS**
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
   ```bash
   git add components/SchemeCard.tsx components/EligibilityBadge.tsx tests/components/
@@ -1094,7 +1094,7 @@ The following failure modes are most likely to bite a real user and are not full
   export function DocumentScanner(props: Props): JSX.Element
   ```
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
   ```typescript
   // tests/components/DocumentScanner.test.tsx
@@ -1123,15 +1123,15 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run test — expect FAIL**
+- [x] **Step 2: Run test — expect FAIL**
 
-- [ ] **Step 3: Implement `components/DocumentScanner.tsx`**
+- [x] **Step 3: Implement `components/DocumentScanner.tsx`**
 
   Primary CTA: large camera button (uses `<input type="file" capture="environment" accept="image/*">`). Secondary: file upload (same input without `capture`). On file selected: show thumbnail preview → show redaction notice ("Aadhaar/PAN हटाया जा रहा है...") → call `redactAndCompress()` → POST to `/api/doc-explain` → call `onResult(response)`. Show spinner during processing with time estimate ("10–15 सेकंड"). Privacy text: "आपका दस्तावेज़ हमारे सर्वर पर सेव नहीं होता" always visible below button.
 
-- [ ] **Step 4: Run tests — expect PASS**
+- [x] **Step 4: Run tests — expect PASS**
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add components/DocumentScanner.tsx tests/components/
@@ -1157,7 +1157,7 @@ The following failure modes are most likely to bite a real user and are not full
 **Interfaces:**
 - Consumes: All components from Tasks 8–10; `getSavedSchemes` from Task 7
 
-- [ ] **Step 1: Write failing Playwright E2E test**
+- [x] **Step 1: Write failing Playwright E2E test**
 
   ```typescript
   // tests/e2e/navigation.spec.ts
@@ -1195,45 +1195,45 @@ The following failure modes are most likely to bite a real user and are not full
   });
   ```
 
-- [ ] **Step 2: Run Playwright — expect FAIL** (pages don't exist)
+- [x] **Step 2: Run Playwright — expect FAIL** (pages don't exist)
 
   ```bash
   npx playwright test tests/e2e/navigation.spec.ts
   ```
 
-- [ ] **Step 3: Implement `app/layout.tsx`**
+- [x] **Step 3: Implement `app/layout.tsx`**
 
   Load `Noto Sans Devanagari` (Google Fonts, next/font, `display: swap`). Global nav: LokSaathi wordmark + `LanguageSwitcher`. Link manifest and theme-color meta. Set `lang` attribute from locale.
 
-- [ ] **Step 4: Implement `components/LanguageSwitcher.tsx`**
+- [x] **Step 4: Implement `components/LanguageSwitcher.tsx`**
 
   Toggle button: "हिं / EN". Persists choice to `localStorage`. Triggers `next-intl` locale switch without page reload where possible.
 
-- [ ] **Step 5: Implement `app/page.tsx`** (Home)
+- [x] **Step 5: Implement `app/page.tsx`** (Home)
 
   3 large hero tap-cards with icons: 🔍 "योजना खोजें" → `/schemes`, 📄 "दस्तावेज़ स्कैन करें" → `/document`, 🔖 "सहेजी गई योजनाएं" → `/saved`. Simple tagline in Hindi. No auth prompts, no onboarding modal on first visit.
 
-- [ ] **Step 6: Implement `app/schemes/page.tsx`**
+- [x] **Step 6: Implement `app/schemes/page.tsx`**
 
   Renders `<VoiceInterview>`. On profile complete, renders list of `<SchemeCard>` components. Shows "कोई योजना नहीं मिली" with helpful next-step text if 0 matches.
 
-- [ ] **Step 7: Implement `app/document/page.tsx`**
+- [x] **Step 7: Implement `app/document/page.tsx`**
 
   Renders `<DocumentScanner>`. On result, renders structured explanation: document type, key fields table, action items list (sorted by urgency), warnings.
 
-- [ ] **Step 8: Implement `app/saved/page.tsx`**
+- [x] **Step 8: Implement `app/saved/page.tsx`**
 
   Loads from `getSavedSchemes()` (IndexedDB). Renders `<SchemeCard>` for each. Empty state: illustration + "अभी कोई योजना सहेजी नहीं है।" Works in airplane mode.
 
-- [ ] **Step 9: Complete `messages/hi.json` and `messages/en.json`** with all UI strings used in steps above.
+- [x] **Step 9: Complete `messages/hi.json` and `messages/en.json`** with all UI strings used in steps above.
 
-- [ ] **Step 10: Run Playwright — expect all PASS**
+- [x] **Step 10: Run Playwright — expect all PASS**
 
   ```bash
   npx playwright test tests/e2e/navigation.spec.ts
   ```
 
-- [ ] **Step 11: Commit**
+- [x] **Step 11: Commit**
 
   ```bash
   git add app/ components/LanguageSwitcher.tsx messages/
@@ -1252,7 +1252,7 @@ The following failure modes are most likely to bite a real user and are not full
 **Interfaces:**
 - Consumes: all prior tasks; deployed Vercel project with env vars set
 
-- [ ] **Step 1: Create `vercel.json`**
+- [x] **Step 1: Create `vercel.json`**
 
   ```json
   {
@@ -1263,9 +1263,9 @@ The following failure modes are most likely to bite a real user and are not full
   }
   ```
 
-- [ ] **Step 2: Create `.github/workflows/ci.yml`** — runs `npx vitest run` and `npx playwright test` on push to `main`.
+- [x] **Step 2: Create `.github/workflows/ci.yml`** — runs `npx vitest run` and `npx playwright test` on push to `main`.
 
-- [ ] **Step 3: Write `scripts/check-scheme-links.ts`** — reads all scheme JSONs, GETs each `apply_url`, logs any that return non-200. Run before deploy.
+- [x] **Step 3: Write `scripts/check-scheme-links.ts`** — reads all scheme JSONs, GETs each `apply_url`, logs any that return non-200. Run before deploy.
 
   ```bash
   npx tsx scripts/check-scheme-links.ts
