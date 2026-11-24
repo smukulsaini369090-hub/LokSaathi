@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { redactAndCompress } from "@/lib/redaction";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
+import { getStoredApiKey } from "@/lib/client-api-key";
 import type { DocExplanation } from "@/lib/gemini";
 
 interface DocumentScannerProps {
@@ -65,12 +66,17 @@ export function DocumentScanner({
           : "Analyzing document (10-15 seconds)..."
       );
 
+      const storedKey = getStoredApiKey();
       const res = await fetch("/api/doc-explain", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
+        },
         body: JSON.stringify({
           image_base64: compressed.base64,
           language,
+          ...(storedKey ? { user_api_key: storedKey } : {}),
         }),
       });
 

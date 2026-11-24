@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Mic, MicOff, Send, Volume2, Square, Sparkles, CheckCircle2 } from "lucide-react";
 import { useVoiceRecorder } from "@/hooks/useVoiceRecorder";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
+import { getStoredApiKey } from "@/lib/client-api-key";
+import { ApiKeyModal } from "@/components/ApiKeyModal";
 import type { UserProfile, SchemeMatch } from "@/lib/scheme-matcher";
 
 interface Message {
@@ -55,6 +57,7 @@ export function VoiceInterview({
   const [typedInput, setTypedInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [suggestedChips, setSuggestedChips] = useState<string[]>(getDefaultChips(language));
+  const [isKeyModalOpen, setIsKeyModalOpen] = useState(false);
 
   const { speak, stop, isPlaying } = useSpeechSynthesis();
   const {
@@ -200,14 +203,19 @@ export function VoiceInterview({
       reader.onloadend = async () => {
         try {
           const base64Audio = reader.result as string;
+          const storedKey = getStoredApiKey();
           const res = await fetch("/api/voice-process", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
+            },
             body: JSON.stringify({
               audio_base64: base64Audio,
               mime_type: mimeType || audioBlob.type || "audio/wav",
               conversation_history: messages,
               language,
+              ...(storedKey ? { user_api_key: storedKey } : {}),
             }),
           });
 
@@ -271,13 +279,18 @@ export function VoiceInterview({
 
     try {
       // 1. Process voice / text input with Gemini
+      const storedKey = getStoredApiKey();
       const res = await fetch("/api/voice-process", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
+        },
         body: JSON.stringify({
           transcript: trimmed,
           conversation_history: messages,
           language,
+          ...(storedKey ? { user_api_key: storedKey } : {}),
         }),
       });
 
@@ -297,7 +310,11 @@ export function VoiceInterview({
 
   const handleChipClick = (value: string) => {
     // Strip leading emoji or symbols for cleaner transcript
-    const cleanValue = value.replace(/^[📍🌾📚💼👷👩🎂💰🏷️]\s*/, "");
+    const cleanValue = value.replace(/^[📍🌾📚💼👷👩🎂💰🏷️🔑]\s*/, "");
+    if (cleanValue.toLowerCase().includes("api key") || cleanValue.includes("API Key")) {
+      setIsKeyModalOpen(true);
+      return;
+    }
     handleUserSubmit(cleanValue);
   };
 
@@ -489,6 +506,8 @@ export function VoiceInterview({
           </form>
         </div>
       </div>
+
+      <ApiKeyModal isOpen={isKeyModalOpen} onClose={() => setIsKeyModalOpen(false)} />
     </div>
   );
 }

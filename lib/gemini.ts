@@ -23,7 +23,11 @@ export function getModelName(): string {
   return model || "gemini-3.5-flash-lite";
 }
 
-export function getGeminiClient(): GoogleGenerativeAI {
+export function getGeminiClient(customApiKey?: string): GoogleGenerativeAI {
+  const cleanCustom = customApiKey?.replace(/^["']|["']$/g, "").trim();
+  if (cleanCustom && cleanCustom !== "dummy-key-for-test") {
+    return new GoogleGenerativeAI(cleanCustom);
+  }
   if (geminiClient) return geminiClient;
   const rawKey = (process.env.GEMINI_API_KEY || "dummy-key-for-test").replace(/^["']|["']$/g, "").trim();
   geminiClient = new GoogleGenerativeAI(rawKey || "dummy-key-for-test");
@@ -72,28 +76,30 @@ export interface ProfileExtractionResult {
 export async function extractUserProfile(
   transcript: string,
   history: Array<{ role: "user" | "model"; text: string }>,
-  language: "hi" | "en" = "hi"
+  language: "hi" | "en" = "hi",
+  customApiKey?: string
 ): Promise<ProfileExtractionResult> {
+  const effectiveKey = customApiKey?.trim() || process.env.GEMINI_API_KEY;
   const hasValidKey =
-    (!!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== "dummy-key-for-test") ||
+    (!!effectiveKey && effectiveKey !== "dummy-key-for-test") ||
     process.env.NODE_ENV === "test";
   if (!hasValidKey) {
-    console.error("CRITICAL: GEMINI_API_KEY is not set in environment variables!");
+    console.error("CRITICAL: Neither custom nor server GEMINI_API_KEY is available!");
     return {
       profile_updates: {},
       next_question:
         language === "hi"
-          ? "लोकसाथी AI सेवा शुरू करने के लिए Vercel Settings > Environment Variables में GEMINI_API_KEY जोड़ें और Redeploy करें।"
-          : "LokSaathi AI requires GEMINI_API_KEY. Please add GEMINI_API_KEY in Vercel Project Settings > Environment Variables and redeploy.",
+          ? "लोकसाथी AI का उपयोग करने के लिए कृपया ऊपर 🔑 आइकॉन पर क्लिक करके अपनी निःशुल्क Gemini API Key दर्ज करें।"
+          : "To use LokSaathi AI, please click the Key 🔑 icon in the top header and enter your free Gemini API key.",
       suggested_chips:
         language === "hi"
-          ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी / छात्र"]
-          : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
+          ? ["API Key जोड़ें", "उत्तर प्रदेश", "दिल्ली", "किसान", "विद्यार्थी / छात्र"]
+          : ["Add API Key", "Uttar Pradesh", "Delhi", "Farmer", "Student"],
       is_complete: false,
     };
   }
 
-  const client = getGeminiClient();
+  const client = getGeminiClient(customApiKey);
   const model = client.getGenerativeModel({ model: getModelName() });
 
   const systemInstruction = loadPrompt("scheme-system.txt");
@@ -157,30 +163,32 @@ export async function extractUserProfileFromAudio(
   audioBase64: string,
   mimeType: string,
   history: Array<{ role: "user" | "model"; text: string }>,
-  language: "hi" | "en" = "hi"
+  language: "hi" | "en" = "hi",
+  customApiKey?: string
 ): Promise<ProfileExtractionResult & { transcript: string }> {
+  const effectiveKey = customApiKey?.trim() || process.env.GEMINI_API_KEY;
   const hasValidKey =
-    (!!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== "dummy-key-for-test") ||
+    (!!effectiveKey && effectiveKey !== "dummy-key-for-test") ||
     process.env.NODE_ENV === "test";
   if (!hasValidKey) {
-    console.error("CRITICAL: GEMINI_API_KEY is not set in environment variables!");
+    console.error("CRITICAL: Neither custom nor server GEMINI_API_KEY is available!");
     return {
       transcript: language === "hi" ? "आवाज इनपुट" : "Voice input",
       profile_updates: {},
       acknowledgment: "",
       next_question:
         language === "hi"
-          ? "लोकसाथी AI सेवा शुरू करने के लिए Vercel Settings > Environment Variables में GEMINI_API_KEY जोड़ें और Redeploy करें।"
-          : "LokSaathi AI requires GEMINI_API_KEY. Please add GEMINI_API_KEY in Vercel Project Settings > Environment Variables and redeploy.",
+          ? "लोकसाथी AI का उपयोग करने के लिए कृपया ऊपर 🔑 आइकॉन पर क्लिक करके अपनी निःशुल्क Gemini API Key दर्ज करें।"
+          : "To use LokSaathi AI, please click the Key 🔑 icon in the top header and enter your free Gemini API key.",
       suggested_chips:
         language === "hi"
-          ? ["उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "छात्र"]
-          : ["Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
+          ? ["API Key जोड़ें", "उत्तर प्रदेश", "दिल्ली", "किसान", "छात्र"]
+          : ["Add API Key", "Uttar Pradesh", "Delhi", "Farmer", "Student"],
       is_complete: false,
     };
   }
 
-  const client = getGeminiClient();
+  const client = getGeminiClient(customApiKey);
   const model = client.getGenerativeModel({ model: getModelName() });
 
   const systemInstruction = loadPrompt("scheme-system.txt");
@@ -292,9 +300,10 @@ Expected JSON output structure:
 
 export async function explainDocument(
   imageBase64: string,
-  language: "hi" | "en" = "hi"
+  language: "hi" | "en" = "hi",
+  customApiKey?: string
 ): Promise<DocExplanation> {
-  const client = getGeminiClient();
+  const client = getGeminiClient(customApiKey);
   const model = client.getGenerativeModel({ model: getModelName() });
 
   const systemInstruction = loadPrompt("doc-system.txt");
@@ -345,9 +354,10 @@ Analyze the attached document and produce the structured JSON response:`;
 export async function* generateSchemeExplanation(
   matches: SchemeMatch[],
   profile: Partial<UserProfile>,
-  language: "hi" | "en" = "hi"
+  language: "hi" | "en" = "hi",
+  customApiKey?: string
 ): AsyncGenerator<string> {
-  const client = getGeminiClient();
+  const client = getGeminiClient(customApiKey);
   const model = client.getGenerativeModel({ model: getModelName() });
 
   const schemeSummaries = matches

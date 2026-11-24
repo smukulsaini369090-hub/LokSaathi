@@ -7,30 +7,36 @@ export async function POST(request: NextRequest) {
   const realIp = request.headers.get("x-real-ip");
   const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : realIp || "127.0.0.1";
 
-  // Enforce rate limit
-  const rateLimitResult = await checkRateLimit(ip);
-  if (!rateLimitResult.success) {
-    return NextResponse.json(
-      {
-        error: "rate_limit_exceeded",
-        message_hi: "थोड़ी देर बाद कोशिश करें",
-        message_en: "Too many requests. Please try again shortly.",
-      },
-      {
-        status: 429,
-        headers: {
-          "Retry-After": "3600",
-          "X-RateLimit-Remaining": "0",
-        },
-      }
-    );
-  }
-
   let body: any;
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "invalid_json_body" }, { status: 400 });
+  }
+
+  const headerKey = request.headers.get("x-gemini-api-key")?.trim();
+  const bodyKey = typeof body?.user_api_key === "string" ? body.user_api_key.trim() : "";
+  const customApiKey = headerKey || bodyKey || undefined;
+
+  // Enforce rate limit only for shared server usage
+  if (!customApiKey) {
+    const rateLimitResult = await checkRateLimit(ip);
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          error: "rate_limit_exceeded",
+          message_hi: "अनुरोध सीमा समाप्त हुई। कृपया थोड़ी देर बाद कोशिश करें या अपनी API Key जोड़ें।",
+          message_en: "Rate limit reached. Please try again shortly or add your own Gemini API key.",
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": "3600",
+            "X-RateLimit-Remaining": "0",
+          },
+        }
+      );
+    }
   }
 
   if (!body || !body.image_base64 || typeof body.image_base64 !== "string") {
@@ -48,7 +54,8 @@ export async function POST(request: NextRequest) {
   try {
     const explanation: DocExplanation = await explainDocument(
       body.image_base64,
-      language
+      language,
+      customApiKey
     );
     return NextResponse.json(explanation);
   } catch (error) {
