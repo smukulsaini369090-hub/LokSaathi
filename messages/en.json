@@ -1,0 +1,41 @@
+{
+  "common": {
+    "appName": "LokSaathi",
+    "appTagline": "Government Scheme & Document Helper",
+    "listen": "Listen",
+    "stop": "Stop",
+    "loading": "Please wait...",
+    "error": "Something went wrong. Please try again.",
+    "rateLimit": "Too many requests. Please try again shortly.",
+    "verified": "Verified",
+    "webGrounded": "Web Sourced",
+    "needsVerification": "Needs Verification",
+    "back": "Back",
+    "save": "Save",
+    "saved": "Saved",
+    "share": "Share"
+  },
+  "home": {
+    "title": "Welcome to LokSaathi",
+    "subtitle": "Speak in your natural language and discover all government schemes you qualify for.",
+    "ctaSchemes": "Find Schemes",
+    "ctaSchemesDesc": "Speak or select your details to discover schemes",
+    "ctaDocument": "Scan Document",
+    "ctaDocumentDesc": "Photograph any government notice, letter or form to understand it easily",
+    "ctaSaved": "Saved Schemes",
+    "ctaSavedDesc": "View your saved schemes offline anytime"
+  },
+  "voice": {
+    "micPrompt": "Tap to speak",
+    "listening": "Listening... speak now",
+    "processing": "Processing...",
+    "typeInstead": "Or type here..."
+  },
+  "document": {
+    "title": "Document Helper",
+    "privacyNotice": "🔒 Your document is safe. It is never stored on our servers.",
+    "cameraBtn": "Take Photo",
+    "uploadBtn": "Choose File",
+    "analyzing": "Analyzing document..."
+  }
+}
