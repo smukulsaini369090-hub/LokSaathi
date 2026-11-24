@@ -1,8 +1,46 @@
 import { NextRequest, NextResponse } from "next/server";
+import { readdirSync, readFileSync, statSync, existsSync } from "fs";
+import { join } from "path";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { extractUserProfile, extractUserProfileFromAudio, extractRuleBasedProfile } from "@/lib/gemini";
+import { detectTargetScheme, evaluateSchemeEligibility } from "@/lib/eligibility-evaluator";
+import type { Scheme } from "@/lib/scheme-types";
 
 export const maxDuration = 60;
+
+// Cache schemes in-memory for zero disk overhead
+let cachedSchemes: Scheme[] | null = null;
+
+function loadAllSchemes(): Scheme[] {
+  if (cachedSchemes && cachedSchemes.length > 0) {
+    return cachedSchemes;
+  }
+
+  const baseDir = join(process.cwd(), "data/schemes");
+  const schemes: Scheme[] = [];
+
+  function walk(dir: string) {
+    if (!existsSync(dir)) return;
+    const entries = readdirSync(dir);
+    for (const entry of entries) {
+      const fullPath = join(dir, entry);
+      if (statSync(fullPath).isDirectory()) {
+        walk(fullPath);
+      } else if (entry.endsWith(".json")) {
+        try {
+          const content = readFileSync(fullPath, "utf-8");
+          schemes.push(JSON.parse(content));
+        } catch (err) {
+          console.error(`Failed to load scheme at ${fullPath}:`, err);
+        }
+      }
+    }
+  }
+
+  walk(baseDir);
+  cachedSchemes = schemes;
+  return schemes;
+}
 
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -47,6 +85,7 @@ export async function POST(request: NextRequest) {
     ? body.conversation_history
     : [];
   const language = body?.language === "en" ? "en" : "hi";
+  const userProfile = body?.user_profile || {};
 
   if (!transcript && !audioBase64) {
     return NextResponse.json(
@@ -58,6 +97,8 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
+
+  const allSchemes = loadAllSchemes();
 
   try {
     let textToProcess = transcript;
@@ -85,6 +126,17 @@ export async function POST(request: NextRequest) {
       throw new Error("No transcript or audio provided");
     }
 
+    // Voice parity: Check if user spoken text targets a specific scheme
+    const targetScheme = textToProcess ? detectTargetScheme(textToProcess, allSchemes) : null;
+    let eligibilityAudit = null;
+    if (targetScheme) {
+      const mergedProfile = {
+        ...userProfile,
+        ...(profileResult.profile_updates || {}),
+      };
+      eligibilityAudit = evaluateSchemeEligibility(mergedProfile, targetScheme, allSchemes);
+    }
+
     return NextResponse.json({
       transcript: textToProcess,
       intent: "scheme_query",
@@ -92,6 +144,8 @@ export async function POST(request: NextRequest) {
       next_question: profileResult.next_question,
       suggested_chips: profileResult.suggested_chips || [],
       is_profile_complete: profileResult.is_complete,
+      target_scheme: targetScheme ? { id: targetScheme.id, name: targetScheme.name } : null,
+      eligibility_audit: eligibilityAudit,
     });
   } catch (error: any) {
     console.error("Voice process error:", error);
@@ -116,6 +170,16 @@ export async function POST(request: NextRequest) {
           : "The Gemini API Key entered is invalid. Valid keys start with 'AIzaSy'. Please click the Key 🔑 icon above to update it.";
     }
 
+    const targetScheme = transcript ? detectTargetScheme(transcript, allSchemes) : null;
+    let eligibilityAudit = null;
+    if (targetScheme) {
+      const mergedProfile = {
+        ...userProfile,
+        ...localUpdates,
+      };
+      eligibilityAudit = evaluateSchemeEligibility(mergedProfile, targetScheme, allSchemes);
+    }
+
     return NextResponse.json(
       {
         transcript:
@@ -128,6 +192,8 @@ export async function POST(request: NextRequest) {
             ? ["पंजाब", "उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी"]
             : ["Punjab", "Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
         is_profile_complete: false,
+        target_scheme: targetScheme ? { id: targetScheme.id, name: targetScheme.name } : null,
+        eligibility_audit: eligibilityAudit,
       },
       { status: 200 }
     );

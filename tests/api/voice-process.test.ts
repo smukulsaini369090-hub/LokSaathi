@@ -103,4 +103,43 @@ describe("POST /api/voice-process", () => {
     expect(body.transcript).toBe("मैं किसान हूँ");
     expect(body.extracted_profile_updates.occupation).toContain("farmer");
   });
+
+  it("detects specific-scheme spoken query and returns target_scheme and eligibility_audit for voice parity", async () => {
+    const { checkRateLimit } = await import("@/lib/rate-limit");
+    vi.mocked(checkRateLimit).mockResolvedValueOnce({
+      success: true,
+      remaining: 18,
+    });
+
+    const { extractUserProfile } = await import("@/lib/gemini");
+    vi.mocked(extractUserProfile).mockResolvedValueOnce({
+      profile_updates: { state: "up", occupation: ["farmer"], land_owned_acres: 2 },
+      next_question: "क्या आप सरकारी कर्मचारी हैं?",
+      is_complete: false,
+    });
+
+    const req = new NextRequest("http://localhost/api/voice-process", {
+      method: "POST",
+      body: JSON.stringify({
+        transcript: "क्या मैं पीएम किसान योजना के लिए पात्र हूँ?",
+        language: "hi",
+        user_profile: {
+          is_government_employee: false,
+          is_income_tax_payer: false,
+        },
+      }),
+      headers: {
+        "content-type": "application/json",
+        "x-forwarded-for": "1.2.3.4",
+      },
+    });
+
+    const res = await POST(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.target_scheme).toBeDefined();
+    expect(body.target_scheme.id).toBe("pm-kisan");
+    expect(body.eligibility_audit).toBeDefined();
+    expect(body.eligibility_audit.verdict).toBe("eligible");
+  });
 });

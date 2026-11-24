@@ -3,6 +3,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from "fs";
 import { join } from "path";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { matchSchemes, type UserProfile } from "@/lib/scheme-matcher";
+import { evaluateSchemeEligibility, detectTargetScheme } from "@/lib/eligibility-evaluator";
 import type { Scheme } from "@/lib/scheme-types";
 
 // Cache in-memory scheme files list so we don't hit disk on every call
@@ -82,15 +83,35 @@ export async function POST(request: NextRequest) {
 
   const userProfile: Partial<UserProfile> = body.user_profile;
   const language = body.language === "en" ? "en" : "hi";
+  const targetSchemeId: string | undefined = body.target_scheme_id;
+  const queryText: string | undefined = body.query || body.transcript;
 
   const allSchemes = loadAllSchemes();
   const matched_schemes = matchSchemes(userProfile, allSchemes);
 
-  // Extract unique missing fields across matched schemes
+  let targetScheme: Scheme | null = null;
+  if (targetSchemeId) {
+    targetScheme = allSchemes.find((s) => s.id === targetSchemeId) || null;
+  } else if (queryText) {
+    targetScheme = detectTargetScheme(queryText, allSchemes);
+  }
+
+  let eligibilityAudit = null;
+  if (targetScheme) {
+    eligibilityAudit = evaluateSchemeEligibility(userProfile, targetScheme, allSchemes);
+  }
+
+  // Extract unique missing fields across matched schemes (or target scheme if targeted)
   const missingFieldsSet = new Set<string>();
-  for (const m of matched_schemes) {
-    for (const f of m.missing_fields) {
+  if (eligibilityAudit && eligibilityAudit.verdict === "needs_more_info") {
+    for (const f of eligibilityAudit.missingFields) {
       missingFieldsSet.add(f);
+    }
+  } else {
+    for (const m of matched_schemes) {
+      for (const f of m.missing_fields) {
+        missingFieldsSet.add(f);
+      }
     }
   }
 
@@ -99,5 +120,7 @@ export async function POST(request: NextRequest) {
     missing_fields: Array.from(missingFieldsSet),
     language_detected: language,
     total_matched: matched_schemes.length,
+    target_scheme: targetScheme ? { id: targetScheme.id, name: targetScheme.name } : null,
+    eligibility_audit: eligibilityAudit,
   });
 }

@@ -54,6 +54,35 @@ describe("POST /api/scheme-match", () => {
     expect(hasPmKisan).toBe(true);
   });
 
+  it("returns specific-scheme eligibility audit when target_scheme_id or query is provided", async () => {
+    const { checkRateLimit } = await import("@/lib/rate-limit");
+    vi.mocked(checkRateLimit).mockResolvedValueOnce({
+      success: true,
+      remaining: 19,
+    });
+
+    const req = new NextRequest("http://localhost/api/scheme-match", {
+      method: "POST",
+      body: JSON.stringify({
+        ...validFarmerBody,
+        query: "क्या मैं पीएम किसान योजना के लिए पात्र हूँ?",
+      }),
+      headers: {
+        "content-type": "application/json",
+        "x-forwarded-for": "1.2.3.4",
+      },
+    });
+
+    const res = await POST(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.target_scheme).toBeDefined();
+    expect(body.target_scheme.id).toBe("pm-kisan");
+    expect(body.eligibility_audit).toBeDefined();
+    expect(body.eligibility_audit.verdict).toBe("eligible");
+    expect(body.eligibility_audit.documentReadiness.length).toBeGreaterThan(0);
+  });
+
   it("returns 429 when rate limit is exceeded (Review Focus 5)", async () => {
     const { checkRateLimit } = await import("@/lib/rate-limit");
     vi.mocked(checkRateLimit).mockResolvedValueOnce({

@@ -1,16 +1,31 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Mic, MicOff, Send, Volume2, Square, Sparkles, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import {
+  Mic,
+  MicOff,
+  Send,
+  Volume2,
+  Square,
+  Sparkles,
+  CheckCircle2,
+  XCircle,
+  HelpCircle,
+  ExternalLink,
+} from "lucide-react";
 import { useVoiceRecorder } from "@/hooks/useVoiceRecorder";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 import { getStoredApiKey } from "@/lib/client-api-key";
 import { ApiKeyModal } from "@/components/ApiKeyModal";
 import type { UserProfile, SchemeMatch } from "@/lib/scheme-matcher";
+import type { EligibilityAuditResult } from "@/lib/eligibility-evaluator";
+import { getStoredUserProfile, saveStoredUserProfile } from "@/lib/storage";
 
 interface Message {
   role: "user" | "model";
   text: string;
+  auditResult?: EligibilityAuditResult;
 }
 
 interface VoiceInterviewProps {
@@ -21,6 +36,7 @@ interface VoiceInterviewProps {
 const getDefaultChips = (lang: "hi" | "en") =>
   lang === "hi"
     ? [
+        "📍 पंजाब (PB)",
         "📍 उत्तर प्रदेश (UP)",
         "📍 दिल्ली (NCR)",
         "📍 हरियाणा (HR)",
@@ -31,6 +47,7 @@ const getDefaultChips = (lang: "hi" | "en") =>
         "👩 महिला स्वरोजगार",
       ]
     : [
+        "📍 Punjab (PB)",
         "📍 Uttar Pradesh (UP)",
         "📍 Delhi (NCR)",
         "📍 Haryana (HR)",
@@ -53,7 +70,7 @@ export function VoiceInterview({
   const [messages, setMessages] = useState<Message[]>([
     { role: "model", text: initialQuestion },
   ]);
-  const [profile, setProfile] = useState<Partial<UserProfile>>({});
+  const [profile, setProfile] = useState<Partial<UserProfile>>(() => getStoredUserProfile());
   const [typedInput, setTypedInput] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [suggestedChips, setSuggestedChips] = useState<string[]>(getDefaultChips(language));
@@ -126,12 +143,13 @@ export function VoiceInterview({
     return text.replace(/[*#_~`]/g, "").replace(/\n+/g, " ").trim();
   };
 
-  const processProfileResponse = async (data: any) => {
+  const processProfileResponse = async (data: any, userQueryText?: string) => {
     const updatedProfile: Partial<UserProfile> = {
       ...profile,
       ...(data.extracted_profile_updates || {}),
     };
     setProfile(updatedProfile);
+    saveStoredUserProfile(updatedProfile);
 
     // Update dynamic chips if provided
     if (Array.isArray(data.suggested_chips) && data.suggested_chips.length > 0) {
@@ -144,35 +162,52 @@ export function VoiceInterview({
         ? "आपकी पारिवारिक आय या व्यवसाय के बारे में कुछ और बताएं?"
         : "Could you tell me more about your income or occupation?");
 
-    // Add AI response
-    setMessages((prev) => [...prev, { role: "model", text: nextQuestion }]);
-
-    // Check if profile is complete or ready for scheme matching
+    // Check if profile is complete or if this turn matches a specific scheme query
     const profileFieldCount = Object.keys(updatedProfile).filter(
       (k) => (updatedProfile as Record<string, unknown>)[k] !== undefined
     ).length;
 
-    if (data.is_profile_complete || profileFieldCount >= 4) {
-      // Query scheme matches
+    let auditResult: EligibilityAuditResult | undefined = data.eligibility_audit || undefined;
+
+    try {
       const matchRes = await fetch("/api/scheme-match", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           user_profile: updatedProfile,
           language,
+          query: userQueryText,
         }),
       });
 
       if (matchRes.ok) {
         const matchData = await matchRes.json();
+        if (matchData.eligibility_audit) {
+          auditResult = matchData.eligibility_audit;
+        }
+
         if (matchData.matched_schemes && matchData.matched_schemes.length > 0) {
-          onProfileComplete(
-            updatedProfile as UserProfile,
-            matchData.matched_schemes
-          );
+          if (data.is_profile_complete || profileFieldCount >= 4) {
+            onProfileComplete(
+              updatedProfile as UserProfile,
+              matchData.matched_schemes
+            );
+          }
         }
       }
+    } catch (err) {
+      console.warn("Failed to query scheme matches in turn:", err);
     }
+
+    // Add AI response message with optional auditResult
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "model",
+        text: nextQuestion,
+        auditResult,
+      },
+    ]);
   };
 
   const handleTurnError = (isTimeout = false) => {
@@ -249,7 +284,7 @@ export function VoiceInterview({
             return copy;
           });
 
-          await processProfileResponse(data);
+          await processProfileResponse(data, finalTranscript);
         } catch (err: any) {
           clearTimeout(timeoutId);
           console.error("Audio API error:", err);
@@ -318,7 +353,7 @@ export function VoiceInterview({
       }
 
       const data = await res.json();
-      await processProfileResponse(data);
+      await processProfileResponse(data, trimmed);
     } catch (err: any) {
       clearTimeout(timeoutId);
       console.error("Error during voice interview turn:", err);
@@ -368,15 +403,10 @@ export function VoiceInterview({
               💰 ₹{profile.annual_income_inr.toLocaleString("en-IN")}
             </span>
           )}
-          {profile.category && (
-            <span className="bg-white px-2 py-0.5 rounded-md border border-blue-200 font-medium uppercase text-slate-800 shadow-2xs">
-              🏷️ {profile.category}
-            </span>
-          )}
         </div>
       )}
 
-      {/* Messages stream */}
+      {/* Chat Messages Log */}
       <div className="flex-1 overflow-y-auto space-y-4 mb-4 pr-1 min-h-[300px] max-h-[500px]">
         {messages.map((msg, idx) => (
           <div
@@ -386,7 +416,7 @@ export function VoiceInterview({
             }`}
           >
             <div
-              className={`rounded-2xl px-4 py-3 max-w-[88%] text-base shadow-sm transition-all ${
+              className={`rounded-2xl px-4 py-3 max-w-[92%] sm:max-w-[88%] text-base shadow-sm transition-all ${
                 msg.role === "user"
                   ? "bg-blue-600 text-white rounded-tr-none font-medium"
                   : "bg-white text-gray-900 border border-slate-200 rounded-tl-none font-normal"
@@ -416,6 +446,79 @@ export function VoiceInterview({
                   </button>
                 )}
               </div>
+
+              {/* Inline Eligibility Verdict Card if specific scheme was evaluated */}
+              {msg.auditResult && (
+                <div className="mt-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2.5 text-xs text-slate-800 animate-in fade-in duration-200">
+                  <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-2">
+                    <div className="font-bold text-slate-900 text-sm">
+                      {language === "hi" ? msg.auditResult.schemeName.hi : msg.auditResult.schemeName.en}
+                    </div>
+                    <span
+                      className={`px-2.5 py-0.5 rounded-full font-bold text-[11px] shrink-0 ${
+                        msg.auditResult.verdict === "eligible"
+                          ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
+                          : msg.auditResult.verdict === "not_eligible"
+                          ? "bg-rose-100 text-rose-800 border border-rose-300"
+                          : "bg-amber-100 text-amber-800 border border-amber-300"
+                      }`}
+                    >
+                      {msg.auditResult.verdict === "eligible"
+                        ? language === "hi" ? "✅ आप पात्र हैं" : "✅ Eligible"
+                        : msg.auditResult.verdict === "not_eligible"
+                        ? language === "hi" ? "❌ अभी पात्र नहीं" : "❌ Not Eligible"
+                        : language === "hi" ? "⏳ जानकारी अधूरी" : "⏳ Needs Info"}
+                    </span>
+                  </div>
+
+                  <p className="text-slate-600 leading-relaxed font-medium">
+                    {language === "hi" ? msg.auditResult.summary_hi : msg.auditResult.summary_en}
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                    {msg.auditResult.passedCriteria.length > 0 && (
+                      <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-md font-semibold text-[11px]">
+                        {msg.auditResult.passedCriteria.length} {language === "hi" ? "शर्तें पूरी ✅" : "conditions met ✅"}
+                      </span>
+                    )}
+                    {msg.auditResult.failedCriteria.length > 0 && (
+                      <span className="bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 rounded-md font-semibold text-[11px]">
+                        {msg.auditResult.failedCriteria.length} {language === "hi" ? "शर्तें अधूरी ❌" : "gaps identified ❌"}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Alternative schemes if Not Eligible */}
+                  {msg.auditResult.verdict === "not_eligible" && msg.auditResult.alternativeSchemes.length > 0 && (
+                    <div className="pt-1.5 border-t border-slate-200/80">
+                      <p className="text-[11px] font-bold text-slate-700 mb-1">
+                        {language === "hi" ? "💡 आपके लिए अन्य उपयुक्त योजनाएं:" : "💡 Alternative options:"}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {msg.auditResult.alternativeSchemes.map((alt, aIdx) => (
+                          <Link
+                            key={aIdx}
+                            href={`/schemes/${alt.scheme.id}`}
+                            className="text-[11px] font-medium bg-blue-50 text-blue-700 border border-blue-200 rounded-lg px-2 py-0.5 hover:bg-blue-100 transition-colors"
+                          >
+                            {language === "hi" ? alt.scheme.name.hi : alt.scheme.name.en} →
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="pt-2 flex items-center justify-between gap-2 border-t border-slate-200">
+                    <Link
+                      href={`/schemes/${msg.auditResult.schemeId}#eligibility-check`}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      <span>{language === "hi" ? "विस्तृत रिपोर्ट व आवेदन देखें" : "View Full Audit & Apply"}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -496,7 +599,7 @@ export function VoiceInterview({
             )}
           </button>
 
-          {/* Text Input Fallback (Review Focus 3) */}
+          {/* Text Input Fallback */}
           <form
             onSubmit={(e) => {
               e.preventDefault();
