@@ -302,10 +302,11 @@ describe("Phase 1 & 3: Multi-Turn Progressive Intake State Machine & Production 
     expect(screen.getByText("0 / 6")).toBeInTheDocument();
   });
 
-  it("Test Case H: SchemeDetailClient switches dynamically between Hindi and English via LanguageContext", async () => {
+  it("Test Case H: SchemeDetailClient deduplicates AntiDalalShield, CTAs, disclaimers & switches docs cleanly in English", async () => {
     localStorage.setItem("loksaathi_lang", "en");
     const { LanguageProvider } = await import("@/components/LanguageContext");
     const { SchemeDetailClient } = await import("@/components/SchemeDetailClient");
+    const { Footer } = await import("@/components/Footer");
 
     const sampleScheme: any = {
       id: "pm-kisan",
@@ -315,18 +316,28 @@ describe("Phase 1 & 3: Multi-Turn Progressive Intake State Machine & Production 
       apply_url: "https://pmkisan.gov.in",
       eligibility: { must_match_all: [], must_match_none: [] },
       benefit: { summary_hi: "₹6,000 प्रति वर्ष", summary_en: "₹6,000 per year" },
-      documents_required: ["आधार कार्ड"],
+      documents_required: ["आधार कार्ड", "बैंक खाता पासबुक"],
       confidence: "verified",
     };
 
     render(
       <LanguageProvider>
         <SchemeDetailClient scheme={sampleScheme} allSchemes={[sampleScheme]} />
+        <Footer />
       </LanguageProvider>
     );
 
     expect(await screen.findByText("Back to schemes")).toBeInTheDocument();
-    expect(screen.getByText("Required Documents to Apply")).toBeInTheDocument();
+    expect(screen.getAllByText("Required Documents to Apply")).toHaveLength(1);
+    expect(screen.getByText("Aadhaar Card")).toBeInTheDocument();
+    expect(screen.getByText("Bank Account Passbook")).toBeInTheDocument();
+    expect(screen.queryByText("आधार कार्ड")).not.toBeInTheDocument();
+    expect(screen.getAllByText(/Anti-Dalal Zero-Middleman Citizen Shield/i)).toHaveLength(1);
+    expect(screen.getAllByRole("link", { name: /Open Official Portal/i })).toHaveLength(1);
+    expect(screen.getAllByRole("link", { name: /Find Nearest/i })).toHaveLength(1);
+    expect(screen.getAllByRole("button", { name: /Share/i })).toHaveLength(1);
+    expect(screen.getAllByText(/independent.*citizen-assistive platform/i)).toHaveLength(1);
+    expect(screen.getAllByRole("button", { name: /How to Get It\?/i }).length).toBeGreaterThanOrEqual(2);
     expect(screen.getByRole("button", { name: /Listen to scheme/i })).toBeInTheDocument();
   });
 

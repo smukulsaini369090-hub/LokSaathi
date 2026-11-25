@@ -161,11 +161,11 @@ export function AntiDalalShield({ scheme, compact = false }: AntiDalalShieldProp
             type="button"
             onClick={handleWhatsAppShare}
             className="min-h-[44px] px-3 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
-            aria-label="WhatsApp पर नियम शेयर करें"
+            aria-label={language === "hi" ? "व्हाट्सएप पर शेयर करें" : "Share on WhatsApp"}
           >
             <Share2 className="w-4 h-4" />
-            <span className="hidden sm:inline">
-              {language === "hi" ? "शेयर करें" : "Share"}
+            <span>
+              {language === "hi" ? "व्हाट्सएप शेयर" : "Share"}
             </span>
           </button>
         </div>

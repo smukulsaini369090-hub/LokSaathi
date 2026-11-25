@@ -645,10 +645,138 @@ const AADHAAR_UPDATE_GUIDE: DocumentAcquisitionGuide = {
 };
 
 // Generic Fallback Guide for Unlisted Documents
+export const DOCUMENT_TRANSLATIONS_EN: Record<string, string> = {
+  "12वीं की मार्कशीट": "12th Class Marksheet",
+  "90 दिन के निर्माण कार्य का प्रमाण (ठेकेदार/नियोक्ता द्वारा)": "90 Days Construction Work Proof (from Contractor/Employer)",
+  "अनुभव प्रमाण पत्र (यदि हो)": "Work Experience Certificate (if applicable)",
+  "आधार कार्ड": "Aadhaar Card",
+  "आधार कार्ड या मतदाता पहचान पत्र": "Aadhaar Card or Voter ID Card",
+  "आधार से लिंक मोबाइल नंबर": "Aadhaar-linked Mobile Number",
+  "आय प्रमाण पत्र": "Income Certificate",
+  "आय प्रमाण पत्र (₹1 लाख से कम)": "Income Certificate (Annual Income below ₹1 Lakh)",
+  "आय प्रमाण पत्र (अधिकतम ₹3 लाख)": "Income Certificate (Up to ₹3 Lakh Annual)",
+  "आय प्रमाण पत्र (ग्रामीण: ₹46,080 / शहरी: ₹56,460)": "Income Certificate (Rural: below ₹46,080 / Urban: below ₹56,460)",
+  "आय प्रमाण पत्र / पीपीपी सत्यापित आय": "Income Certificate / PPP Verified Income",
+  "आय प्रमाण पत्र / स्व-घोषणा पत्र": "Income Certificate / Self-Declaration",
+  "आयु प्रमाण पत्र": "Age Proof Certificate",
+  "आयु प्रमाण पत्र / वोटर कार्ड": "Age Proof / Voter ID Card",
+  "उत्तर प्रदेश का निवास प्रमाण पत्र": "Uttar Pradesh Residence (Domicile) Certificate",
+  "उम्र प्रमाण पत्र (18 वर्ष या अधिक)": "Age Proof (18 years or above)",
+  "उम्र प्रमाण पत्र (आयु 58 वर्ष या अधिक)": "Age Proof (58 years or above)",
+  "एमसीपी कार्ड (मातृ एवं शिशु सुरक्षा कार्ड)": "MCP Card (Mother & Child Protection Card)",
+  "कक्षा 9वीं से 12वीं में प्रवेश का प्रमाण पत्र": "Class 9th to 12th School Enrollment Certificate",
+  "कन्या का आयु प्रमाण (विवाह तिथि को न्यूनतम 18 वर्ष)": "Bride's Age Proof (Minimum 18 years on wedding date)",
+  "गेट/नेट स्कोरकार्ड": "GATE / NET Scorecard",
+  "छात्रा का आधार कार्ड": "Girl Student's Aadhaar Card",
+  "जमीन का मालिकाना प्रमाण": "Land Ownership Proof",
+  "जाति प्रमाण पत्र (SC/BC) या BPL प्रमाण पत्र": "Caste Certificate (SC/BC) or BPL Certificate",
+  "जाति प्रमाण पत्र (यदि लागू हो)": "Caste Certificate (if applicable)",
+  "जॉब कार्ड (मनरेगा)": "MGNREGA Job Card",
+  "टीकाकरण कार्ड (MCH Card)": "Immunization / MCH Card",
+  "तहसीलदार द्वारा जारी आय प्रमाण पत्र (ग्रामीण: ₹46,080 / शहरी: ₹56,460 से कम)": "Tehsildar-Issued Income Certificate (Rural < ₹46,080 / Urban < ₹56,460)",
+  "दिल्ली का बैंक खाता पासबुक": "Delhi Bank Account Passbook",
+  "दिल्ली का वोटर आईडी कार्ड / आधार कार्ड": "Delhi Voter ID Card / Aadhaar Card",
+  "दुल्हन का आधार कार्ड": "Bride's Aadhaar Card",
+  "दोनों पुत्रियों के जन्म प्रमाण पत्र": "Birth Certificates of Both Daughters",
+  "निवास प्रमाण पत्र": "Residence / Domicile Certificate",
+  "पंजाब निवास प्रमाण पत्र": "Punjab Residence Certificate",
+  "पंजाब निवास प्रमाण पत्र (Domicile)": "Punjab Domicile Certificate",
+  "पंजाब में न्यूनतम 5 वर्ष का निवास प्रमाण": "Proof of Minimum 5 Years Residence in Punjab",
+  "पंजाब स्थायी निवास प्रमाण": "Punjab Permanent Residence Proof",
+  "पंजाब स्थायी निवास प्रमाण पत्र": "Punjab Permanent Residence Certificate",
+  "परियोजना रिपोर्ट (Project Report)": "Project Report",
+  "परिवार के सभी सदस्यों के आधार कार्ड": "Aadhaar Cards of All Family Members",
+  "परिवार पहचान दस्तावेज": "Family Identity Document",
+  "परिवार पहचान पत्र (PPP - Parivar Pehchan Patra)": "Parivar Pehchan Patra (PPP - Family ID)",
+  "परिवार पहचान पत्र (PPP)": "Parivar Pehchan Patra (PPP Family ID)",
+  "पारिवारिक आय प्रमाण पत्र": "Family Income Certificate",
+  "पारिवारिक आय प्रमाण पत्र (वार्षिक ₹60,000 से कम)": "Family Income Certificate (Annual < ₹60,000)",
+  "पासपोर्ट साइज फोटो": "Passport-Size Photograph",
+  "पिछली कक्षा की अंकतालिका (मार्कशीट)": "Previous Class Marksheet",
+  "पिछले 6 महीने का बैंक स्टेटमेंट": "Last 6 Months Bank Statement",
+  "पुत्री और पिता/अभिभावक का आधार कार्ड": "Aadhaar Cards of Daughter & Father/Guardian",
+  "पैन कार्ड": "PAN Card",
+  "फसल बुवाई का प्रमाण पत्र (पटवारी/पंचायत द्वारा)": "Crop Sowing Certificate (from Patwari / Panchayat)",
+  "बचत बैंक खाता पासबुक / जन धन खाता": "Savings Bank Passbook / Jan Dhan Account",
+  "बचत बैंक खाता विवरण": "Savings Bank Account Details",
+  "बच्ची और माता-पिता का आधार कार्ड": "Aadhaar Cards of Girl Child & Parents",
+  "बच्ची का जन्म प्रमाण पत्र": "Girl Child Birth Certificate",
+  "बच्ची का जन्म प्रमाण पत्र (जन्म के 1 वर्ष के भीतर आवेदन)": "Girl Child Birth Certificate (apply within 1 year of birth)",
+  "बच्चे का जन्म प्रमाण पत्र या माता-पिता का आधार कार्ड": "Child's Birth Certificate or Parents' Aadhaar Card",
+  "बिजली बिल / मकान का पता प्रमाण": "Electricity Bill / Home Address Proof",
+  "बीपीएल राशन कार्ड": "BPL Ration Card",
+  "बैंक खाता पासबुक": "Bank Account Passbook",
+  "बैंक पासबुक (आधार एनपीसीआई लिंक)": "Bank Passbook (Aadhaar NPCI Seeded)",
+  "भूमि के कागजात": "Land Ownership Records",
+  "भूमि के दस्तावेज (खतौनी/जमाबंदी)": "Land Records (Khatauni / Jamabandi)",
+  "भूमि के दस्तावेज (खसरा/खतौनी)": "Land Records (Khasra / Khatauni)",
+  "महिला का आधार कार्ड": "Applicant Woman's Aadhaar Card",
+  "महिला का व्यक्तिगत बैंक खाता पासबुक": "Applicant Woman's Personal Bank Passbook",
+  "माता और पति का आधार कार्ड": "Aadhaar Cards of Mother & Husband",
+  "माता/पिता का सेवा प्रमाण पत्र (WARB/Discharge Certificate)": "Parent's Service / WARB / Discharge Certificate",
+  "माता-पिता / अभिभावक का आधार कार्ड": "Parents' / Guardian's Aadhaar Card",
+  "माता-पिता का आधार कार्ड": "Parents' Aadhaar Card",
+  "माता-पिता का दिल्ली में 3 वर्ष का निवास प्रमाण पत्र": "Parents' 3-Year Delhi Residence Certificate",
+  "मान्यता प्राप्त संस्थान में शोध प्रवेश पत्र": "PhD Admission Letter from Recognized Institution",
+  "मास्टर डिग्री मार्कशीट": "Master's Degree Marksheet",
+  "मूल निवास प्रमाण पत्र (उत्तर प्रदेश)": "Domicile Certificate (Uttar Pradesh)",
+  "मोबाइल नंबर": "Active Mobile Number",
+  "राशन कार्ड (बीपीएल/अंत्योदय)": "Ration Card (BPL / Antyodaya)",
+  "राशन कार्ड या किसान J-फॉर्म": "Ration Card or Farmer J-Form",
+  "राशन कार्ड या परिवार पहचान पत्र": "Ration Card or Family ID (PPP)",
+  "वर का आयु प्रमाण (न्यूनतम 21 वर्ष)": "Groom's Age Proof (Minimum 21 years)",
+  "विद्यार्थी का आधार कार्ड": "Student's Aadhaar Card",
+  "विधायक या राजपत्रित अधिकारी द्वारा सत्यापन": "Verification by MLA or Gazetted Officer",
+  "वेंडिंग प्रमाण पत्र / पहचान पत्र (नगर पालिका द्वारा) या सिफारिश पत्र (LoR)": "Certificate of Vending / Municipality ID or Letter of Recommendation (LoR)",
+  "व्यवसाय का प्रमाण / कोटेशन": "Business Proof / Equipment Quotation",
+  "शादी का कार्ड / विवाह प्रमाण पत्र": "Wedding Invitation Card / Marriage Certificate",
+  "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र": "Educational & Skill Qualification Certificate",
+  "शैक्षणिक योग्यता प्रमाण पत्र (8वीं पास यदि परियोजना 10 लाख से अधिक हो)": "Educational Qualification Certificate (8th Pass if project > ₹10 Lakh)",
+  "संस्थान का बोनाफाइड प्रमाण पत्र": "Bonafide Student Certificate from Institution",
+  "सरकारी या सहायता प्राप्त स्कूल में छात्र प्रवेश नामांकन": "Enrollment Proof in Govt / Govt-Aided School",
+  "सरकारी स्कूल पहचान पत्र (Student ID)": "Government School Student ID Card",
+  "सीएमओ (मुख्य चिकित्सा अधिकारी) द्वारा जारी दिव्यांगता प्रमाण पत्र (न्यूनतम 40%)": "CMO-Issued Disability Certificate (Minimum 40%)",
+  "स्कूल प्रवेश प्रमाण पत्र": "School Admission Certificate",
+  "स्कूल/कॉलेज प्रवेश रसीद": "School / College Admission Fee Receipt",
+  "स्व-प्रमाणित स्वास्थ्य प्रमाण पत्र (Medical Fitness)": "Self-Attested Medical Fitness Certificate",
+};
+
+/**
+ * Translates any document string from scheme data into Hindi or clean English.
+ */
+export function translateDocumentName(docString: string, language: "hi" | "en" = "hi"): string {
+  const clean = (docString || "").trim();
+  if (!clean) return "";
+  if (language === "hi") return clean;
+
+  if (DOCUMENT_TRANSLATIONS_EN[clean]) {
+    return DOCUMENT_TRANSLATIONS_EN[clean];
+  }
+
+  // Fallback keyword mapping for custom or uncatalogued Hindi document strings
+  const norm = clean.toLowerCase();
+  if (/^[\x00-\x7F\u20B9]+$/.test(clean)) return clean;
+  if (norm.includes("आधार")) return "Aadhaar Card";
+  if (norm.includes("आय प्रमाण")) return "Income Certificate";
+  if (norm.includes("निवास") || norm.includes("अधिवास")) return "Residence / Domicile Certificate";
+  if (norm.includes("जाति")) return "Caste Certificate";
+  if (norm.includes("बैंक") || norm.includes("पासबुक")) return "Bank Account Passbook";
+  if (norm.includes("राशन")) return "Ration Card";
+  if (norm.includes("खतौनी") || norm.includes("जमाबंदी") || norm.includes("भूमि")) return "Land Ownership Record";
+  if (norm.includes("दिव्यांग") || norm.includes("विकलांग")) return "Disability Certificate (UDID)";
+  if (norm.includes("फोटो")) return "Passport-Size Photograph";
+  if (norm.includes("मार्कशीट") || norm.includes("अंकतालिका")) return "Educational Marksheet";
+  if (norm.includes("जन्म प्रमाण")) return "Birth Certificate";
+  if (norm.includes("पैन")) return "PAN Card";
+  if (norm.includes("मोबाइल")) return "Mobile Number";
+  return clean;
+}
+
 export function getGenericDocumentGuide(docName: string): DocumentAcquisitionGuide {
+  const cleanEn = translateDocumentName(docName, "en");
   return {
     id: `generic-${docName.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
-    name: { hi: `${docName} कैसे बनवाएं?`, en: `How to get ${docName}` },
+    name: { hi: `${docName} कैसे बनवाएं?`, en: cleanEn },
     category: "identity",
     portal_name: { hi: "राष्ट्रीय सरकारी सेवा पोर्टल (India Services)", en: "National Government Services Portal" },
     portal_url: "https://services.india.gov.in",

@@ -4,9 +4,7 @@ import React from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
-  ExternalLink,
   ShieldCheck,
-  FileText,
   Sparkles,
   Volume2,
   Square,
@@ -17,6 +15,7 @@ import { EligibilityBadge } from "@/components/EligibilityBadge";
 import { EligibilityChecker } from "@/components/EligibilityChecker";
 import { AntiDalalShield } from "@/components/AntiDalalShield";
 import { ensureSafeHttpUrl } from "@/lib/anti-dalal";
+import { translateDocumentName } from "@/lib/document-guides";
 import type { Scheme } from "@/lib/scheme-types";
 
 interface SchemeDetailClientProps {
@@ -51,12 +50,24 @@ export function SchemeDetailClient({
       stop();
       return;
     }
+    const docsList = (scheme.documents_required || [])
+      .map((doc) => translateDocumentName(doc, language))
+      .join(", ");
     const speech =
       language === "hi"
-        ? `${scheme.name.hi}। लाभ: ${scheme.benefit.summary_hi}। आवश्यक दस्तावेज़: ${(scheme.documents_required || []).join(", ")}।`
-        : `${scheme.name.en}. Benefit: ${scheme.benefit.summary_en}. Required documents: ${(scheme.documents_required || []).join(", ")}.`;
+        ? `${scheme.name.hi}। लाभ: ${scheme.benefit.summary_hi}। आवश्यक दस्तावेज़: ${docsList}।`
+        : `${scheme.name.en}. Benefit: ${scheme.benefit.summary_en}. Required documents: ${docsList}.`;
     speak(speech, language);
   };
+
+  let verifiedDomain = "";
+  if (scheme.source_url) {
+    try {
+      verifiedDomain = new URL(ensureSafeHttpUrl(scheme.source_url, scheme.apply_url)).hostname;
+    } catch {
+      verifiedDomain = "";
+    }
+  }
 
   return (
     <div className="px-4 py-6 space-y-6 max-w-3xl mx-auto">
@@ -141,7 +152,7 @@ export function SchemeDetailClient({
           </div>
         </div>
 
-        {/* Verification & Official .gov.in Source */}
+        {/* Verification Metadata Strip */}
         <div className="p-4 bg-gray-50 border border-gray-200 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs text-gray-700">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -152,47 +163,15 @@ export function SchemeDetailClient({
               {scheme.last_verified}
             </span>
           </div>
-          {scheme.source_url && (
-            <a
-              href={ensureSafeHttpUrl(scheme.source_url, scheme.apply_url)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline"
-            >
-              <span>
-                {language === "hi"
-                  ? "आधिकारिक स्रोत (.gov.in)"
-                  : "Official Source (.gov.in)"}
-              </span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+          {verifiedDomain && (
+            <span className="font-semibold text-slate-600">
+              {language === "hi" ? "आधिकारिक स्रोत:" : "Verified Source:"}{" "}
+              <span className="text-blue-700">{verifiedDomain}</span>
+            </span>
           )}
         </div>
 
-        {/* Required Documents */}
-        <div>
-          <h2 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-1.5">
-            <FileText className="w-4 h-4 text-blue-600" />
-            <span>
-              {language === "hi"
-                ? "आवेदन के लिए आवश्यक दस्तावेज़"
-                : "Required Documents to Apply"}
-            </span>
-          </h2>
-          <ul className="space-y-2">
-            {(scheme.documents_required || []).map((doc, idx) => (
-              <li
-                key={idx}
-                className="p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 font-medium flex items-center gap-2"
-              >
-                <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-                <span>{doc}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Interactive Eligibility Checker */}
+        {/* Interactive Eligibility Checker & Unified Document Checklist */}
         <div className="pt-2">
           <EligibilityChecker
             id="eligibility-check"
@@ -201,20 +180,9 @@ export function SchemeDetailClient({
           />
         </div>
 
-        {/* Anti-Dalal Transparency & Zero-Middleman Citizen Shield */}
+        {/* Anti-Dalal Transparency & Zero-Middleman Citizen Shield (Rendered Strictly Once) */}
         <div className="pt-2">
           <AntiDalalShield scheme={scheme} />
-        </div>
-
-        {/* Non-Government Trust Disclaimer */}
-        <div className="p-3.5 bg-amber-50/70 border border-amber-200 rounded-2xl text-[11px] text-amber-900 leading-relaxed text-center">
-          ⚖️{" "}
-          <strong>
-            {language === "hi" ? "महत्वपूर्ण सूचना (Disclaimer):" : "Important Notice:"}
-          </strong>{" "}
-          {language === "hi"
-            ? "लोकसाथी (LokSaathi) एक स्वतंत्र नागरिक सहायता मंच है। यह किसी भी सरकारी विभाग की आधिकारिक वेबसाइट नहीं है। योजना विवरण आधिकारिक सरकारी पोर्टलों (.gov.in) से सत्यापित हैं।"
-            : "LokSaathi is an independent civic helper platform and not an official government portal. All details are grounded from official .gov.in sources."}
         </div>
       </div>
     </div>

@@ -9,7 +9,6 @@ import {
   HelpCircle,
   Volume2,
   Square,
-  Share2,
   ExternalLink,
   ChevronDown,
   ChevronUp,
@@ -23,8 +22,8 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
-import { AntiDalalShield } from "@/components/AntiDalalShield";
 import { ensureSafeHttpUrl } from "@/lib/anti-dalal";
+import { translateDocumentName } from "@/lib/document-guides";
 import type { Scheme } from "@/lib/scheme-types";
 import type { UserProfile } from "@/lib/scheme-matcher";
 import {
@@ -131,34 +130,6 @@ export function EligibilityChecker({
     }
   };
 
-  const handleWhatsAppShare = () => {
-    const detailUrl = `https://lok-saathi.vercel.app/schemes/${scheme.id}`;
-    const missingDocs = audit.documentReadiness
-      .filter((d) => !readyDocs[d.documentName])
-      .map((d) => `• ${d.documentName}`)
-      .join("\n");
-
-    const shareText =
-      language === "hi"
-        ? `🏛️ *${scheme.name.hi}*\n📋 *पात्रता स्थिति:* ${
-            audit.verdict === "eligible"
-              ? "✅ आप पात्र हैं!"
-              : audit.verdict === "not_eligible"
-              ? "❌ वर्तमान में पात्र नहीं"
-              : "⏳ अधूरी जानकारी"
-          }\n\n📄 *आवश्यक दस्तावेज़:*\n${missingDocs || "सभी दस्तावेज़ तैयार हैं"}\n\n🔗 *पात्रता व आवेदन देखें:*\n${detailUrl}`
-        : `🏛️ *${scheme.name.en}*\n📋 *Eligibility Status:* ${
-            audit.verdict === "eligible"
-              ? "✅ You are eligible!"
-              : audit.verdict === "not_eligible"
-              ? "❌ Currently not eligible"
-              : "⏳ More info needed"
-          }\n\n📄 *Required Documents:*\n${missingDocs || "All documents ready"}\n\n🔗 *Check details on LokSaathi:*\n${detailUrl}`;
-
-    const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-    window.open(waUrl, "_blank", "noopener,noreferrer");
-  };
-
   const isProfileEmpty = Object.keys(profile).length === 0;
 
   return (
@@ -247,32 +218,19 @@ export function EligibilityChecker({
           </div>
 
           <div className="flex-1">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="text-base sm:text-lg font-black leading-tight">
-                {audit.verdict === "eligible"
-                  ? language === "hi"
-                    ? "बधाई हो! आप इस योजना के पात्र हैं 🎉"
-                    : "Congratulations! You are eligible 🎉"
-                  : audit.verdict === "not_eligible"
-                  ? language === "hi"
-                    ? "वर्तमान में आप इस योजना के पात्र नहीं हैं"
-                    : "Currently you do not meet the criteria"
-                  : language === "hi"
-                  ? "पात्रता जांचने के लिए कुछ विवरण आवश्यक हैं"
-                  : "Additional details needed to verify eligibility"}
-              </h3>
-
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleWhatsAppShare}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs active:scale-95"
-                >
-                  <Share2 className="w-3.5 h-3.5" />
-                  <span>{language === "hi" ? "व्हाट्सएप" : "Share"}</span>
-                </button>
-              </div>
-            </div>
+            <h3 className="text-base sm:text-lg font-black leading-tight">
+              {audit.verdict === "eligible"
+                ? language === "hi"
+                  ? "बधाई हो! आप इस योजना के पात्र हैं 🎉"
+                  : "Congratulations! You are eligible 🎉"
+                : audit.verdict === "not_eligible"
+                ? language === "hi"
+                  ? "वर्तमान में आप इस योजना के पात्र नहीं हैं"
+                  : "Currently you do not meet the criteria"
+                : language === "hi"
+                ? "पात्रता जांचने के लिए कुछ विवरण आवश्यक हैं"
+                : "Additional details needed to verify eligibility"}
+            </h3>
 
             <p className="text-xs sm:text-sm mt-2 leading-relaxed font-medium opacity-90">
               {language === "hi" ? audit.summary_hi : audit.summary_en}
@@ -608,16 +566,24 @@ export function EligibilityChecker({
         )}
       </div>
 
-      {/* Interactive Document Readiness Checklist & "Kaise Banwayein" Guide */}
+      {/* Unified Document Checklist & "Kaise Banwayein" Guide */}
       <div className="pt-2 border-t border-slate-100">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 flex items-center gap-1.5">
-          <FileText className="w-4 h-4 text-blue-600" />
-          <span>
-            {language === "hi"
-              ? "ज़रूरी दस्तावेज़ तैयारी (Document Readiness Checklist)"
-              : "Required Document Acquisition Checklist"}
-          </span>
-        </h4>
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+            <FileText className="w-4 h-4 text-blue-600" />
+            <span>
+              {language === "hi"
+                ? "आवेदन के लिए आवश्यक दस्तावेज़"
+                : "Required Documents to Apply"}
+            </span>
+          </h4>
+          {audit.documentReadiness.length > 0 && (
+            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+              {Object.values(readyDocs).filter(Boolean).length} / {audit.documentReadiness.length}{" "}
+              {language === "hi" ? "तैयार" : "Ready"}
+            </span>
+          )}
+        </div>
         <p className="text-xs text-slate-500 mb-3">
           {language === "hi"
             ? "यदि आपके पास कोई दस्तावेज़ नहीं है, तो 'कैसे बनवाएं?' बटन दबाकर आधिकारिक सरकारी पोर्टल व प्रक्रिया देखें।"
@@ -629,6 +595,7 @@ export function EligibilityChecker({
             const isReady = !!readyDocs[item.documentName];
             const isGuideOpen = expandedDocGuide === item.documentName;
             const guide = item.guide;
+            const localizedDocLabel = translateDocumentName(item.documentName, language);
 
             return (
               <div
@@ -648,7 +615,7 @@ export function EligibilityChecker({
                         isReady ? "text-emerald-800 line-through opacity-80" : "text-slate-800"
                       }`}
                     >
-                      {item.documentName}
+                      {localizedDocLabel}
                     </span>
                   </label>
 
@@ -794,37 +761,6 @@ export function EligibilityChecker({
           </div>
         </div>
       )}
-
-      {/* Anti-Dalal Transparency & Citizen Protection Shield */}
-      <div className="pt-2">
-        <AntiDalalShield scheme={scheme} compact />
-      </div>
-
-      {/* Official Apply Action Footer */}
-      <div className="pt-2 flex flex-col sm:flex-row gap-3">
-        <a
-          href={ensureSafeHttpUrl(scheme.apply_url, scheme.source_url)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95"
-        >
-          <span>
-            {language === "hi"
-              ? "आधिकारिक पोर्टल पर सीधे आवेदन करें"
-              : "Apply on Official Government Portal"}
-          </span>
-          <ExternalLink className="w-4 h-4" />
-        </a>
-
-        <button
-          type="button"
-          onClick={handleWhatsAppShare}
-          className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95"
-        >
-          <Share2 className="w-4 h-4" />
-          <span>{language === "hi" ? "चेकलिस्ट व्हाट्सएप पर भेजें" : "Share on WhatsApp"}</span>
-        </button>
-      </div>
 
       {/* Privacy Guarantee Note */}
       <div className="p-3 bg-slate-50 border border-slate-200/80 rounded-xl text-[11px] text-slate-500 text-center leading-relaxed">

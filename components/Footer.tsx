@@ -20,8 +20,8 @@ export function Footer() {
 
       <p className="text-[11px] leading-relaxed text-gray-500 max-w-lg mx-auto">
         {language === "hi"
-          ? "लोकसाथी (LokSaathi) एक स्वतंत्र, नागरिक सहायता मंच है। यह भारत सरकार या किसी भी राज्य सरकार का आधिकारिक विभाग या वेबसाइट नहीं है। सभी योजना विवरण व आवेदन लिंक आधिकारिक सरकारी पोर्टलों (.gov.in) से सत्यापित किए गए हैं।"
-          : "LokSaathi is an independent citizen-assistive platform. We are not an official government agency or department. All scheme details and links are verified from official government portals (.gov.in)."}
+          ? "लोकसाथी (LokSaathi) एक स्वतंत्र, निःशुल्क नागरिक सहायता मंच है। यह भारत सरकार या किसी भी राज्य सरकार का आधिकारिक विभाग या वेबसाइट नहीं है। सभी योजना विवरण, शुल्क नियम व आवेदन लिंक आधिकारिक सरकारी पोर्टलों (.gov.in) से सत्यापित किए गए हैं।"
+          : "LokSaathi is an independent, free citizen-assistive platform and is not an official central or state government agency. All scheme details, fee rules, and links are verified directly from official government portals (.gov.in)."}
       </p>
 
       <p className="text-[10px] text-gray-400 pt-1">
