@@ -117,7 +117,11 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
           recognition.onerror = (event: any) => {
             console.warn("Speech recognition notice (falling back to direct WAV audio):", event.error);
             if (event.error === "not-allowed") {
-              setError("माइक की अनुमति नहीं मिली। कृपया ब्राउज़र में माइक चालू करें।");
+              setError(
+                language === "hi"
+                  ? "माइक की अनुमति नहीं मिली। कृपया ब्राउज़र में माइक चालू करें।"
+                  : "Microphone permission denied. Please enable mic access in browser settings."
+              );
               setIsRecording(false);
             }
           };
@@ -134,9 +138,36 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
         }
       }
     }
+
+    // Release microphone hardware tracks & SpeechRecognition cleanly on unmount or language switch
+    return () => {
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.abort();
+        } catch {}
+        recognitionRef.current = null;
+      }
+      if (processorRef.current) {
+        try {
+          processorRef.current.disconnect();
+        } catch {}
+        processorRef.current = null;
+      }
+      if (audioContextRef.current && audioContextRef.current.state !== "closed") {
+        try {
+          audioContextRef.current.close();
+        } catch {}
+        audioContextRef.current = null;
+      }
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
+      }
+    };
   }, [language]);
 
   const startRecording = useCallback(async () => {
+    if (isRecording) return;
     setError(null);
     setTranscript("");
     transcriptRef.current = "";
@@ -182,7 +213,11 @@ export function useVoiceRecorder(language: "hi" | "en" = "hi") {
         setIsRecording(true);
       } catch (err: any) {
         console.warn("Microphone access error:", err);
-        setError("माइक की अनुमति नहीं मिली। कृपया ब्राउज़र सेटिंग्स में माइक चालू करें।");
+        setError(
+          language === "hi"
+            ? "माइक की अनुमति नहीं मिली। कृपया ब्राउज़र सेटिंग्स में माइक चालू करें।"
+            : "Microphone permission denied. Please enable mic access in browser settings."
+        );
         setIsRecording(false);
         return;
       }

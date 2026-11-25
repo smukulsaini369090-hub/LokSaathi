@@ -123,6 +123,19 @@ export function getNearbyCenterMapsUrl(state?: string, customQuery?: string): st
  * Resolves comprehensive, verified Anti-Dalal information for any scheme with
  * fail-safe smart defaults, bilingual text, audio transcript, and WhatsApp share copy.
  */
+export function ensureSafeHttpUrl(url?: string | null, fallbackUrl?: string | null): string {
+  const candidates = [url, fallbackUrl];
+  for (const candidate of candidates) {
+    if (typeof candidate === "string") {
+      const trimmed = candidate.trim();
+      if (/^https?:\/\//i.test(trimmed)) {
+        return trimmed;
+      }
+    }
+  }
+  return "https://services.india.gov.in";
+}
+
 export function resolveAntiDalalInfo(
   scheme: Scheme,
   language: "hi" | "en" = "hi"
@@ -182,7 +195,7 @@ export function resolveAntiDalalInfo(
     custom.center_search_query
   );
 
-  const officialPortalUrl = scheme.apply_url || scheme.source_url;
+  const officialPortalUrl = ensureSafeHttpUrl(scheme.apply_url, scheme.source_url);
 
   // 7. Natural Speech Text for Audio Playback ("Suno")
   const audioSpeechText =

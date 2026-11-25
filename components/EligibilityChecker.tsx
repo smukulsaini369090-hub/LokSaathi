@@ -24,6 +24,7 @@ import {
 import { useLanguage } from "@/components/LanguageContext";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 import { AntiDalalShield } from "@/components/AntiDalalShield";
+import { ensureSafeHttpUrl } from "@/lib/anti-dalal";
 import type { Scheme } from "@/lib/scheme-types";
 import type { UserProfile } from "@/lib/scheme-matcher";
 import {
@@ -737,7 +738,7 @@ export function EligibilityChecker({
                     {guide.portal_url && (
                       <div className="pt-1">
                         <a
-                          href={guide.portal_url}
+                          href={ensureSafeHttpUrl(guide.portal_url, scheme.apply_url)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 hover:underline"
@@ -802,7 +803,7 @@ export function EligibilityChecker({
       {/* Official Apply Action Footer */}
       <div className="pt-2 flex flex-col sm:flex-row gap-3">
         <a
-          href={scheme.apply_url}
+          href={ensureSafeHttpUrl(scheme.apply_url, scheme.source_url)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95"

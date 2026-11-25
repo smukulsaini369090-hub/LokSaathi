@@ -16,6 +16,7 @@ import {
 import { EligibilityBadge } from "@/components/EligibilityBadge";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 import { isSchemeSaved, saveScheme, removeScheme } from "@/lib/offline";
+import { ensureSafeHttpUrl } from "@/lib/anti-dalal";
 import type { SchemeMatch } from "@/lib/scheme-matcher";
 
 interface SchemeCardProps {
@@ -213,7 +214,7 @@ export function SchemeCard({
         </Link>
 
         <a
-          href={scheme.apply_url}
+          href={ensureSafeHttpUrl(scheme.apply_url, scheme.source_url)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold py-2.5 px-3 rounded-xl transition-colors shadow-sm"

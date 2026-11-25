@@ -7,13 +7,38 @@ import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 import { OnboardingGuide } from "@/components/OnboardingGuide";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lok-saathi.vercel.app"),
   title: "LokSaathi — सरकारी योजना एवं दस्तावेज़ सहायक",
-  description: "अपनी स्थानीय भाषा में बोलकर जानिए सरकारी योजनाओं की पात्रता और दस्तावेज़ों का अर्थ।",
+  description:
+    "अपनी स्थानीय भाषा में बोलकर जानिए सरकारी योजनाओं की पात्रता, असली शुल्क व दस्तावेज़ों का सरल अर्थ।",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "LokSaathi",
+  },
+  openGraph: {
+    type: "website",
+    locale: "hi_IN",
+    alternateLocale: ["en_IN"],
+    url: "https://lok-saathi.vercel.app",
+    siteName: "LokSaathi (लोकसाथी)",
+    title: "LokSaathi — अपनी भाषा में जानें सरकारी योजनाएं और पात्रता",
+    description:
+      "केंद्र, दिल्ली, हरियाणा, यूपी और पंजाब की 35+ सत्यापित सरकारी योजनाओं की जांच, दलाल-मुक्त शुल्क जानकारी और दस्तावेज़ सहायता — 100% निःशुल्क।",
+    images: [
+      {
+        url: "/icons/icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "LokSaathi Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "LokSaathi — सरकारी योजना एवं दस्तावेज़ सहायक",
+    description: "बोलकर जानें सरकारी योजना पात्रता और दस्तावेज़ों का सरल अर्थ।",
   },
 };
 
@@ -21,8 +46,8 @@ export const viewport: Viewport = {
   themeColor: "#1a56db",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({

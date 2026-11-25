@@ -7,7 +7,12 @@
  */
 
 import type { Scheme, EligibilityRule } from "@/lib/scheme-types";
-import { matchSchemes, type UserProfile, type SchemeMatch } from "@/lib/scheme-matcher";
+import {
+  matchSchemes,
+  evaluateSingleRule,
+  type UserProfile,
+  type SchemeMatch,
+} from "@/lib/scheme-matcher";
 import { getDocumentGuide, type DocumentAcquisitionGuide } from "@/lib/document-guides";
 
 export type CriterionGapType = "hard_disqualifier" | "fixable_gap";
@@ -61,16 +66,24 @@ const CATEGORY_NAMES: Record<string, { hi: string; en: string }> = {
   obc: { hi: "अन्य पिछड़ा वर्ग (OBC)", en: "OBC" },
   sc: { hi: "अनुसूचित जाति (SC)", en: "SC" },
   st: { hi: "अनुसूचित जनजाति (ST)", en: "ST" },
+  ews: { hi: "आर्थिक रूप से कमजोर वर्ग (EWS)", en: "Economically Weaker Section (EWS)" },
 };
 
 const OCCUPATION_NAMES: Record<string, { hi: string; en: string }> = {
   farmer: { hi: "किसान", en: "Farmer" },
   student: { hi: "छात्र / विद्यार्थी", en: "Student" },
+  researcher: { hi: "शोधार्थी (PhD)", en: "PhD / Research Scholar" },
   laborer: { hi: "श्रमिक / दैनिक मज़दूर", en: "Laborer / Daily Wage Worker" },
+  worker: { hi: "असंगठित कामगार", en: "Unorganized Worker" },
+  construction_worker: { hi: "निर्माण श्रमिक", en: "Construction Worker" },
   street_vendor: { hi: "रेहड़ी-पटरी / स्ट्रीट वेंडर", en: "Street Vendor" },
+  vendor: { hi: "रेहड़ी-पटरी / स्ट्रीट वेंडर", en: "Street Vendor" },
   business: { hi: "छोटा व्यापारी / दुकानदार", en: "Small Business Owner" },
+  self_employed: { hi: "स्वरोजगार", en: "Self-Employed" },
   homemaker: { hi: "गृहिणी", en: "Homemaker" },
+  senior_citizen: { hi: "वरिष्ठ नागरिक", en: "Senior Citizen" },
   unemployed: { hi: "बेरोजगार", en: "Unemployed" },
+  artisan: { hi: "कारीगर / शिल्पकार", en: "Artisan" },
 };
 
 function formatFieldValue(field: string, val: any): { hi: string; en: string } {
@@ -118,45 +131,7 @@ function evaluateRuleMatch(
   rule: EligibilityRule,
   profile: Partial<UserProfile>
 ): "pass" | "fail" | "unknown" {
-  const profileVal = (profile as Record<string, any>)[rule.field];
-
-  if (profileVal === undefined || profileVal === null) {
-    return "unknown";
-  }
-
-  switch (rule.operator) {
-    case "eq":
-      return profileVal === rule.value ? "pass" : "fail";
-
-    case "lte":
-      return typeof profileVal === "number" && profileVal <= (rule.value as number)
-        ? "pass"
-        : "fail";
-
-    case "gte":
-      return typeof profileVal === "number" && profileVal >= (rule.value as number)
-        ? "pass"
-        : "fail";
-
-    case "includes": {
-      const allowed = Array.isArray(rule.value) ? rule.value : [rule.value];
-      if (Array.isArray(profileVal)) {
-        return profileVal.some((item) => allowed.includes(item)) ? "pass" : "fail";
-      }
-      return allowed.includes(profileVal) ? "pass" : "fail";
-    }
-
-    case "not_includes": {
-      const forbidden = Array.isArray(rule.value) ? rule.value : [rule.value];
-      if (Array.isArray(profileVal)) {
-        return !profileVal.some((item) => forbidden.includes(item)) ? "pass" : "fail";
-      }
-      return !forbidden.includes(profileVal) ? "pass" : "fail";
-    }
-
-    default:
-      return "unknown";
-  }
+  return evaluateSingleRule(rule, profile);
 }
 
 /**
@@ -337,6 +312,34 @@ function getRuleDescription(rule: EligibilityRule): { hi: string; en: string } {
     return { hi: "सक्रिय बैंक खाता होना अनिवार्य", en: "Must have an active bank account" };
   }
 
+  if (f === "is_disabled") {
+    return { hi: "न्यूनतम 40% दिव्यांगता (UDID) प्रमाण पत्र होना अनिवार्य", en: "Must hold a valid Disability / UDID certificate (≥40%)" };
+  }
+
+  if (f === "is_epfo_esic_member") {
+    return { hi: "EPFO / ESIC संगठित क्षेत्र का सदस्य नहीं होना चाहिए", en: "Must not be an EPFO / ESIC formal sector member" };
+  }
+
+  if (f === "owns_pucca_house") {
+    return { hi: "परिवार के नाम पक्का मकान नहीं होना चाहिए", en: "Family must not already own a pucca house" };
+  }
+
+  if (f === "has_lpg_connection") {
+    return { hi: "घर में पहले से एलपीजी गैस कनेक्शन नहीं होना चाहिए", en: "Household must not already hold an active LPG connection" };
+  }
+
+  if (f === "has_other_pension") {
+    return { hi: "किसी अन्य सरकारी सामाजिक पेंशन का लाभ न ले रहा हो", en: "Must not already receive another government pension" };
+  }
+
+  if (f === "is_capf_ward") {
+    return { hi: "माता/पिता अर्धसैनिक बल (CAPF / असम राइफल्स) कर्मी या शहीद/पूर्व सैनिक होने चाहिए", en: "Parent must be serving/retired/deceased CAPF or Assam Rifles personnel" };
+  }
+
+  if (f === "is_phd_scholar") {
+    return { hi: "मान्यता प्राप्त संस्थान में पूर्णकालिक PhD (इलेक्ट्रॉनिक्स/IT) शोध प्रवेश अनिवार्य", en: "Must be enrolled as a full-time PhD scholar in Electronics / IT" };
+  }
+
   return { hi: `${f} नियम`, en: `${f} requirement` };
 }
 
@@ -344,19 +347,20 @@ function getRuleDescription(rule: EligibilityRule): { hi: string; en: string } {
  * Deterministic Specific-Scheme Eligibility Auditor.
  */
 export function evaluateSchemeEligibility(
-  profile: Partial<UserProfile>,
+  profile: Partial<UserProfile> | null | undefined,
   scheme: Scheme,
   allSchemes: Scheme[] = []
 ): EligibilityAuditResult {
+  const safeProfile: Partial<UserProfile> = profile && typeof profile === "object" ? profile : {};
   const passedCriteria: EvaluatedCriterion[] = [];
   const failedCriteria: EvaluatedCriterion[] = [];
   const missingFieldsSet = new Set<string>();
 
   // 1. Evaluate State Restriction
   if (scheme.state) {
-    if (!profile.state) {
+    if (!safeProfile.state) {
       missingFieldsSet.add("state");
-    } else if (profile.state === scheme.state) {
+    } else if (safeProfile.state === scheme.state) {
       const sName = STATE_NAMES[scheme.state] || { hi: scheme.state, en: scheme.state };
       passedCriteria.push({
         field: "state",
@@ -368,7 +372,7 @@ export function evaluateSchemeEligibility(
       });
     } else {
       const sName = STATE_NAMES[scheme.state] || { hi: scheme.state, en: scheme.state };
-      const uName = STATE_NAMES[profile.state] || { hi: profile.state, en: profile.state };
+      const uName = STATE_NAMES[safeProfile.state] || { hi: safeProfile.state, en: safeProfile.state };
       const gap = classifyGap({ field: "state", operator: "eq", value: scheme.state });
       failedCriteria.push({
         field: "state",
@@ -384,14 +388,21 @@ export function evaluateSchemeEligibility(
     }
   }
 
+  const mustMatchAll = Array.isArray(scheme.eligibility?.must_match_all)
+    ? scheme.eligibility.must_match_all
+    : [];
+  const mustMatchNone = Array.isArray(scheme.eligibility?.must_match_none)
+    ? scheme.eligibility.must_match_none
+    : [];
+
   // 2. Evaluate must_match_all rules
-  for (const rule of scheme.eligibility.must_match_all) {
+  for (const rule of mustMatchAll) {
     // Avoid duplicate evaluation if state was already handled
     if (rule.field === "state" && scheme.state) continue;
 
-    const res = evaluateRuleMatch(rule, profile);
+    const res = evaluateRuleMatch(rule, safeProfile);
     const ruleDesc = getRuleDescription(rule);
-    const userVal = (profile as Record<string, any>)[rule.field];
+    const userVal = (safeProfile as Record<string, any>)[rule.field];
     const userValFormatted = formatFieldValue(rule.field, userVal);
 
     if (res === "unknown") {
@@ -422,10 +433,10 @@ export function evaluateSchemeEligibility(
   }
 
   // 3. Evaluate must_match_none rules (Disqualifiers like govt employee, income tax payer)
-  for (const rule of scheme.eligibility.must_match_none) {
-    const res = evaluateRuleMatch(rule, profile);
+  for (const rule of mustMatchNone) {
+    const res = evaluateRuleMatch(rule, safeProfile);
     const ruleDesc = getRuleDescription(rule);
-    const userVal = (profile as Record<string, any>)[rule.field];
+    const userVal = (safeProfile as Record<string, any>)[rule.field];
 
     if (res === "pass") {
       // It matched a forbidden condition -> FAIL
@@ -468,14 +479,14 @@ export function evaluateSchemeEligibility(
   // 5. Document Readiness Checklist
   const documentReadiness: DocumentReadinessItem[] = (scheme.documents_required || []).map((doc) => ({
     documentName: doc,
-    guide: getDocumentGuide(doc, profile.state || scheme.state),
+    guide: getDocumentGuide(doc, safeProfile.state || scheme.state),
   }));
 
   // 6. Alternative Schemes if Not Eligible
   let alternativeSchemes: SchemeMatch[] = [];
-  if (verdict === "not_eligible" && allSchemes.length > 0) {
+  if (verdict === "not_eligible" && Array.isArray(allSchemes) && allSchemes.length > 0) {
     const otherSchemes = allSchemes.filter((s) => s.id !== scheme.id);
-    const matches = matchSchemes(profile, otherSchemes);
+    const matches = matchSchemes(safeProfile, otherSchemes);
     alternativeSchemes = matches.slice(0, 3);
   }
 
@@ -581,10 +592,20 @@ export function detectTargetScheme(message: string, allSchemes: Scheme[]): Schem
     // Check if entire name or significant portion appears in text
     if (text.includes(enName) || text.includes(hiName)) return s;
 
-    // Check significant segments (e.g., "Sarbat Sehat" or "Ashirwad"), ignoring generic terms like "योजना" or "scheme"
-    const STOPWORDS = new Set(["योजना", "योजनाएं", "scheme", "schemes", "yojana", "yojna", "yojnaa"]);
-    const enSegments = enName.split(/[\s()\-]+/).filter((seg) => seg.length >= 4 && !STOPWORDS.has(seg));
-    const hiSegments = hiName.split(/[\s()\-]+/).filter((seg) => seg.length >= 3 && !STOPWORDS.has(seg));
+    // Check significant UNIQUE segments (excluding generic demographic/state words so saying "I am a kisan from Punjab" never falsely hijacks into a specific scheme)
+    const STOPWORDS = new Set([
+      "योजना", "योजनाएं", "scheme", "schemes", "yojana", "yojna", "yojnaa",
+      "kisan", "किसान", "student", "छात्र", "pension", "पेंशन", "punjab", "पंजाब",
+      "delhi", "दिल्ली", "haryana", "हरियाणा", "uttar", "pradesh", "प्रदेश", "उत्तर",
+      "pradhan", "mantri", "प्रधानमंत्री", "mukh", "mantri", "मुख्यमंत्री", "national",
+      "राष्ट्रीय", "central", "state", "राज्य", "welfare", "कल्याण", "india", "bharat",
+    ]);
+    const enSegments = Array.from(
+      new Set(enName.split(/[\s()\-]+/).filter((seg) => seg.length >= 4 && !STOPWORDS.has(seg)))
+    );
+    const hiSegments = Array.from(
+      new Set(hiName.split(/[\s()\-]+/).filter((seg) => seg.length >= 3 && !STOPWORDS.has(seg)))
+    );
 
     const matchEnSegCount = enSegments.filter((seg) => text.includes(seg)).length;
     if (enSegments.length > 0 && matchEnSegCount >= Math.min(2, enSegments.length)) {

@@ -37,8 +37,8 @@ export default function HomePage() {
 
           <p className="text-blue-100 text-sm leading-relaxed mb-4">
             {language === "hi"
-              ? "केंद्र सरकार, उत्तर प्रदेश, हरियाणा और दिल्ली की योजनाओं की सही जानकारी।"
-              : "Verified schemes from Central Government, Uttar Pradesh, Haryana, and Delhi."}
+              ? "केंद्र सरकार, उत्तर प्रदेश, हरियाणा, पंजाब और दिल्ली की सत्यापित योजनाओं की सही जानकारी।"
+              : "Verified schemes from Central Government, Uttar Pradesh, Haryana, Punjab, and Delhi."}
           </p>
 
           <button

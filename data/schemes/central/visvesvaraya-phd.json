@@ -8,7 +8,9 @@
   "source_url": "https://phd.digitalindiacorporation.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "occupation", "operator": "includes", "value": ["student", "researcher"] }
+      { "field": "occupation", "operator": "includes", "value": ["student", "researcher"] },
+      { "field": "age", "operator": "gte", "value": 21 },
+      { "field": "is_phd_scholar", "operator": "eq", "value": true }
     ],
     "must_match_none": []
   },

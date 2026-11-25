@@ -5,6 +5,28 @@ import { Download, X, Share, PlusSquare } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 import { ONBOARDING_STORAGE_KEY } from "@/components/OnboardingGuide";
 
+const safeGetSession = (key: string): string | null => {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+};
+
+const safeSetSession = (key: string, val: string): void => {
+  try {
+    sessionStorage.setItem(key, val);
+  } catch {}
+};
+
+const safeGetLocal = (key: string): string | null => {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+};
+
 export function PWAInstallBanner() {
   const { language } = useLanguage();
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -17,11 +39,12 @@ export function PWAInstallBanner() {
   useEffect(() => {
     // Check if dismissed in this session
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("loksaathi_install_dismissed") === "true") return;
+    if (safeGetSession("loksaathi_install_dismissed") === "true") return;
 
     // Check if already in standalone PWA mode
     const isStandalone =
-      window.matchMedia("(display-mode: standalone)").matches ||
+      (typeof window.matchMedia === "function" &&
+        window.matchMedia("(display-mode: standalone)").matches) ||
       (window.navigator as any).standalone;
     if (isStandalone) return;
 
@@ -37,7 +60,7 @@ export function PWAInstallBanner() {
       setDeferredPrompt(e);
 
       // Do NOT show banner while user has not finished onboarding (prevents screen overlap)
-      const isOnboardingDone = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
+      const isOnboardingDone = safeGetLocal(ONBOARDING_STORAGE_KEY) === "true";
       if (isOnboardingDone) {
         setShowBanner(true);
       }
@@ -49,7 +72,7 @@ export function PWAInstallBanner() {
     let timer: NodeJS.Timeout | undefined;
     if (isIOSDevice && !isStandalone) {
       timer = setTimeout(() => {
-        const isOnboardingDone = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
+        const isOnboardingDone = safeGetLocal(ONBOARDING_STORAGE_KEY) === "true";
         if (isOnboardingDone) {
           setShowBanner(true);
         }
@@ -58,7 +81,7 @@ export function PWAInstallBanner() {
 
     // When onboarding finishes, show banner if installable and not dismissed
     const handleOnboardingCompleted = () => {
-      if (sessionStorage.getItem("loksaathi_install_dismissed") === "true") return;
+      if (safeGetSession("loksaathi_install_dismissed") === "true") return;
       if (deferredPromptRef.current || isIOSRef.current) {
         setShowBanner(true);
       }
@@ -97,7 +120,7 @@ export function PWAInstallBanner() {
 
   const handleDismiss = () => {
     setShowBanner(false);
-    sessionStorage.setItem("loksaathi_install_dismissed", "true");
+    safeSetSession("loksaathi_install_dismissed", "true");
   };
 
   if (!showBanner) return null;

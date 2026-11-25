@@ -27,7 +27,7 @@ function getRateLimiter(): Ratelimit | null {
 
   ratelimit = new Ratelimit({
     redis,
-    limiter: Ratelimit.slidingWindow(20, "1 h"),
+    limiter: Ratelimit.slidingWindow(60, "1 h"),
     analytics: false,
     prefix: "loksaathi:ratelimit",
   });
@@ -41,7 +41,7 @@ export async function checkRateLimit(
   const limiter = getRateLimiter();
 
   if (!limiter) {
-    return { success: true, remaining: 20 };
+    return { success: true, remaining: 60 };
   }
 
   try {

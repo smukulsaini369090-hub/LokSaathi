@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { KeyRound, Eye, EyeOff, CheckCircle2, AlertCircle, ExternalLink, X, Trash2 } from "lucide-react";
 import { getStoredApiKey, setStoredApiKey, clearStoredApiKey, onApiKeyChange } from "@/lib/client-api-key";
 import { useLanguage } from "@/components/LanguageContext";
@@ -19,6 +19,15 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const refresh = () => {
@@ -51,7 +60,8 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
         : "✅ Your private API Key was saved successfully!"
     );
     setIsSuccess(true);
-    setTimeout(() => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => {
       setStatusMessage(null);
       onClose();
     }, 1200);
@@ -63,7 +73,8 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
       clearStoredApiKey();
       setStatusMessage(language === "hi" ? "कुंजी हटा दी गई है।" : "API Key removed.");
       setIsSuccess(true);
-      setTimeout(() => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = setTimeout(() => {
         setStatusMessage(null);
         onClose();
       }, 1000);
@@ -97,7 +108,8 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
         setIsSuccess(true);
         setStatusMessage(language === "hi" ? data.message_hi : data.message_en);
         setStoredApiKey(trimmed);
-        setTimeout(() => {
+        if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+        closeTimerRef.current = setTimeout(() => {
           setStatusMessage(null);
           setIsVerifying(false);
           onClose();
@@ -124,7 +136,8 @@ export function ApiKeyModal({ isOpen, onClose }: ApiKeyModalProps) {
         : "Custom key removed. Now using server default."
     );
     setIsSuccess(true);
-    setTimeout(() => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => {
       setStatusMessage(null);
       onClose();
     }, 1000);

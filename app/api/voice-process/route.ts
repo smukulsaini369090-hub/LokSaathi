@@ -2,8 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { readdirSync, readFileSync, statSync, existsSync } from "fs";
 import { join } from "path";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { extractUserProfile, extractUserProfileFromAudio, extractRuleBasedProfile } from "@/lib/gemini";
-import { detectTargetScheme, evaluateSchemeEligibility } from "@/lib/eligibility-evaluator";
+import { extractUserProfile, extractUserProfileFromAudio } from "@/lib/gemini";
+import { runIntakeStateMachine } from "@/lib/intake-state-machine";
+import {
+  sanitizeUntrustedInput,
+  detectPromptInjectionAttack,
+  validateProfilePayload,
+  redactSecrets,
+} from "@/lib/security";
 import type { Scheme } from "@/lib/scheme-types";
 
 export const maxDuration = 60;
@@ -57,9 +63,10 @@ export async function POST(request: NextRequest) {
   const headerKey = request.headers.get("x-gemini-api-key")?.trim();
   const bodyKey = typeof body?.user_api_key === "string" ? body.user_api_key.trim() : "";
   const customApiKey = headerKey || bodyKey || undefined;
+  const alreadyRateLimited = request.headers.get("x-loksaathi-ratelimited") === "1";
 
-  // Enforce rate limit only for shared server usage. Users with their own key get unlimited requests!
-  if (!customApiKey) {
+  // Enforce rate limit only for shared server usage and never double-count after middleware
+  if (!customApiKey && !alreadyRateLimited) {
     const rateLimitResult = await checkRateLimit(ip);
     if (!rateLimitResult.success) {
       return NextResponse.json(
@@ -79,13 +86,29 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  const transcript = (body?.transcript || "").trim();
-  const audioBase64 = (body?.audio_base64 || "").trim();
+  const rawTranscript = typeof body?.transcript === "string" ? body.transcript : "";
+  const transcript = sanitizeUntrustedInput(rawTranscript, 2000);
+  const audioBase64 = (typeof body?.audio_base64 === "string" ? body.audio_base64 : "").trim();
+  if (audioBase64.length > 4_000_000) {
+    return NextResponse.json(
+      {
+        error: "audio_payload_too_large",
+        message_hi: "ऑडियो संदेश बहुत बड़ा है। कृपया छोटा संदेश बोलें।",
+        message_en: "Audio recording is too large. Please record a shorter clip.",
+      },
+      { status: 413 }
+    );
+  }
   const history = Array.isArray(body?.conversation_history)
-    ? body.conversation_history
+    ? body.conversation_history.slice(-12)
     : [];
   const language = body?.language === "en" ? "en" : "hi";
-  const userProfile = body?.user_profile || {};
+  const userProfile = validateProfilePayload(body?.user_profile);
+  const targetSchemeId =
+    typeof body?.target_scheme_id === "string"
+      ? sanitizeUntrustedInput(body.target_scheme_id, 100)
+      : undefined;
+  const forceComplete = Boolean(body?.force_complete);
 
   if (!transcript && !audioBase64) {
     return NextResponse.json(
@@ -100,18 +123,67 @@ export async function POST(request: NextRequest) {
 
   const allSchemes = loadAllSchemes();
 
-  try {
-    let textToProcess = transcript;
-    let profileResult: {
-      profile_updates: any;
-      next_question: string;
-      suggested_chips?: string[];
-      is_complete: boolean;
-      transcript?: string;
-    };
+  const buildSecurityRefusal = (
+    reason: "prompt_injection" | "scam_manipulation",
+    safeTranscript: string
+  ) => {
+    const refusalText =
+      reason === "scam_manipulation"
+        ? language === "hi"
+          ? "⚠️ दलाल और फर्जी लिंक से सावधान: LokSaathi या कोई भी सरकारी पोर्टल कभी निजी UPI ID, OTP या अनधिकृत शुल्क नहीं मांगता। केवल सत्यापित .gov.in वेबसाइट का ही उपयोग करें।"
+          : "⚠️ Anti-Scam Alert: LokSaathi and official government portals never ask for private UPI transfers, OTPs, or middleman fees. Only use verified .gov.in websites."
+        : language === "hi"
+        ? "मैं केवल भारत सरकार और राज्यों की सत्यापित कल्याणकारी योजनाओं व पात्रता जांच में आपकी सहायता कर सकता हूँ। कृपया अपनी उम्र, राज्य या व्यवसाय बताएं।"
+        : "I only assist citizens with verified Indian government welfare schemes and eligibility checks. Please share your state, age, or occupation to begin.";
 
+    return NextResponse.json({
+      transcript: safeTranscript || (language === "hi" ? "सुरक्षा जांच" : "Security check"),
+      intent: "scheme_query",
+      extracted_profile_updates: {},
+      merged_profile: userProfile,
+      pending_fields: ["state", "age", "occupation"],
+      needs_state_disambiguation: false,
+      potential_schemes_count: allSchemes.length,
+      next_question: refusalText,
+      suggested_chips:
+        language === "hi"
+          ? ["दिल्ली सरकार की योजनाएँ", "किसान सम्मान (PM-KISAN)", "छात्रवृत्ति / पेंशन"]
+          : ["Delhi Welfare Schemes", "PM-KISAN Benefits", "Scholarships / Pension"],
+      is_profile_complete: false,
+      matched_schemes: [],
+      target_scheme: null,
+      eligibility_audit: null,
+    });
+  };
+
+  if (transcript) {
+    const preCheck = detectPromptInjectionAttack(rawTranscript);
+    if (preCheck.blocked && preCheck.reason) {
+      return buildSecurityRefusal(preCheck.reason, transcript);
+    }
+  }
+
+  let textToProcess = transcript;
+  let llmResult: {
+    profile_updates?: any;
+    acknowledgment?: string;
+    next_question?: string;
+    suggested_chips?: string[];
+    is_complete?: boolean;
+    transcript?: string;
+    is_fallback?: boolean;
+    auth_error?: boolean;
+  } | null = null;
+
+  try {
     if (transcript) {
-      profileResult = await extractUserProfile(transcript, history, language, customApiKey);
+      llmResult = await extractUserProfile(
+        transcript,
+        history,
+        language,
+        customApiKey,
+        userProfile
+      );
     } else if (audioBase64) {
       const audioResult = await extractUserProfileFromAudio(
         audioBase64,
@@ -120,36 +192,16 @@ export async function POST(request: NextRequest) {
         language,
         customApiKey
       );
-      textToProcess = audioResult.transcript;
-      profileResult = audioResult;
-    } else {
-      throw new Error("No transcript or audio provided");
+      const rawAudioText = audioResult.transcript || "";
+      textToProcess = sanitizeUntrustedInput(rawAudioText, 2000);
+      const postAudioCheck = detectPromptInjectionAttack(rawAudioText);
+      if (postAudioCheck.blocked && postAudioCheck.reason) {
+        return buildSecurityRefusal(postAudioCheck.reason, textToProcess);
+      }
+      llmResult = audioResult;
     }
-
-    // Voice parity: Check if user spoken text targets a specific scheme
-    const targetScheme = textToProcess ? detectTargetScheme(textToProcess, allSchemes) : null;
-    let eligibilityAudit = null;
-    if (targetScheme) {
-      const mergedProfile = {
-        ...userProfile,
-        ...(profileResult.profile_updates || {}),
-      };
-      eligibilityAudit = evaluateSchemeEligibility(mergedProfile, targetScheme, allSchemes);
-    }
-
-    return NextResponse.json({
-      transcript: textToProcess,
-      intent: "scheme_query",
-      extracted_profile_updates: profileResult.profile_updates,
-      next_question: profileResult.next_question,
-      suggested_chips: profileResult.suggested_chips || [],
-      is_profile_complete: profileResult.is_complete,
-      target_scheme: targetScheme ? { id: targetScheme.id, name: targetScheme.name } : null,
-      eligibility_audit: eligibilityAudit,
-    });
   } catch (error: any) {
-    console.error("Voice process error:", error);
-    const localUpdates = transcript ? extractRuleBasedProfile(transcript) : {};
+    console.error("Voice process fallback triggered (deterministic intake active):", redactSecrets(error));
     const errMsg = error?.message || String(error);
     const isAuthError =
       errMsg.includes("401") ||
@@ -158,44 +210,47 @@ export async function POST(request: NextRequest) {
       errMsg.includes("UNAUTHENTICATED") ||
       errMsg.includes("API_KEY_INVALID");
 
-    let question =
-      language === "hi"
-        ? "माफ़ कीजिए, तकनीकी समस्या आई। क्या आप अपनी बात फिर से दोहरा सकते हैं?"
-        : "Sorry, a temporary issue occurred. Could you please select an option below?";
-
-    if (isAuthError) {
-      question =
-        language === "hi"
-          ? "आपकी दर्ज की गई Gemini API Key अमान्य है। Google AI Studio की सही कुंजी 'AIzaSy' से शुरू होती है। कृपया ऊपर 🔑 आइकॉन से सही कुंजी जोड़ें।"
-          : "The Gemini API Key entered is invalid. Valid keys start with 'AIzaSy'. Please click the Key 🔑 icon above to update it.";
-    }
-
-    const targetScheme = transcript ? detectTargetScheme(transcript, allSchemes) : null;
-    let eligibilityAudit = null;
-    if (targetScheme) {
-      const mergedProfile = {
-        ...userProfile,
-        ...localUpdates,
-      };
-      eligibilityAudit = evaluateSchemeEligibility(mergedProfile, targetScheme, allSchemes);
-    }
-
-    return NextResponse.json(
-      {
-        transcript:
-          transcript || (language === "hi" ? "आवाज संदेश" : "Voice input"),
-        intent: "scheme_query",
-        extracted_profile_updates: localUpdates,
-        next_question: question,
-        suggested_chips:
-          language === "hi"
-            ? ["पंजाब", "उत्तर प्रदेश", "दिल्ली", "हरियाणा", "किसान", "विद्यार्थी"]
-            : ["Punjab", "Uttar Pradesh", "Delhi", "Haryana", "Farmer", "Student"],
-        is_profile_complete: false,
-        target_scheme: targetScheme ? { id: targetScheme.id, name: targetScheme.name } : null,
-        eligibility_audit: eligibilityAudit,
-      },
-      { status: 200 }
-    );
+    llmResult = {
+      is_fallback: true,
+      auth_error: isAuthError,
+      acknowledgment: isAuthError
+        ? language === "hi"
+          ? "⚠️ आपकी दर्ज Gemini API Key अमान्य है (🔑 से सही Key जोड़ें) — ऑफ़लाइन मोड में जांच जारी है:"
+          : "⚠️ Your entered Gemini API Key is invalid (update via 🔑) — continuing in smart offline mode:"
+        : "",
+    };
   }
+
+  // Run authoritative progressive state machine regardless of LLM outcome
+  const stateOutput = runIntakeStateMachine({
+    userMessage: textToProcess,
+    currentProfile: userProfile,
+    llmResult: llmResult?.is_fallback
+      ? {
+          profile_updates: llmResult.profile_updates,
+          acknowledgment: llmResult.acknowledgment,
+          is_complete: false,
+        }
+      : llmResult,
+    targetSchemeId,
+    forceComplete,
+    allSchemes,
+    language,
+  });
+
+  return NextResponse.json({
+    transcript: textToProcess || (language === "hi" ? "आवाज संदेश" : "Voice input"),
+    intent: "scheme_query",
+    extracted_profile_updates: stateOutput.extracted_profile_updates,
+    merged_profile: stateOutput.merged_profile,
+    pending_fields: stateOutput.pending_fields,
+    needs_state_disambiguation: stateOutput.needs_state_disambiguation,
+    potential_schemes_count: stateOutput.potential_schemes_count,
+    next_question: stateOutput.next_question,
+    suggested_chips: stateOutput.suggested_chips,
+    is_profile_complete: stateOutput.is_profile_complete,
+    matched_schemes: stateOutput.is_profile_complete ? stateOutput.matched_schemes : [],
+    target_scheme: stateOutput.target_scheme,
+    eligibility_audit: stateOutput.eligibility_audit,
+  });
 }

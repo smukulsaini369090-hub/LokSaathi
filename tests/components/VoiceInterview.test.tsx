@@ -33,7 +33,7 @@ describe("VoiceInterview Component", () => {
     const { VoiceInterview } = await import("@/components/VoiceInterview");
     render(<VoiceInterview language="hi" onProfileComplete={vi.fn()} />);
 
-    expect(screen.getByText(/नमस्ते|राज्य|शुरू/i)).toBeInTheDocument();
+    expect(screen.getByText(/नमस्ते!.*लोकसाथी/i)).toBeInTheDocument();
   });
 
   it("includes audio playback Suno button for users who prefer listening", async () => {

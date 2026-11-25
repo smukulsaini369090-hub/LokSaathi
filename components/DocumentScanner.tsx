@@ -54,17 +54,35 @@ export function DocumentScanner({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageObjRef = useRef<HTMLImageElement | null>(null);
 
-  // Load image onto canvas when imagePreviewUrl changes
+  // Load image onto canvas when imagePreviewUrl changes & clean up previous blob URLs on change/unmount
   useEffect(() => {
     if (!imagePreviewUrl) return;
+    let cancelled = false;
     const img = new Image();
     img.crossOrigin = "anonymous";
     img.onload = () => {
+      if (cancelled) return;
       imageObjRef.current = img;
       redrawCanvas();
     };
+    img.onerror = () => {
+      if (cancelled) return;
+      setError(
+        language === "hi"
+          ? "चयनित फ़ाइल पढ़ी नहीं जा सकी। कृपया साफ फोटो (JPG/PNG) या स्क्रीनशॉट चुनें।"
+          : "Selected file could not be loaded as an image. Please upload a clear JPG/PNG photo or screenshot."
+      );
+      setImagePreviewUrl(null);
+      setSelectedFile(null);
+    };
     img.src = imagePreviewUrl;
-  }, [imagePreviewUrl]);
+    return () => {
+      cancelled = true;
+      if (imagePreviewUrl.startsWith("blob:")) {
+        URL.revokeObjectURL(imagePreviewUrl);
+      }
+    };
+  }, [imagePreviewUrl, language]);
 
   // Redraw canvas whenever masks change
   useEffect(() => {
@@ -118,8 +136,20 @@ export function DocumentScanner({
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
     const rect = canvas.getBoundingClientRect();
-    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-    const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+    if (!rect || rect.width <= 0 || rect.height <= 0) {
+      return { x: 0, y: 0 };
+    }
+    let clientX = 0;
+    let clientY = 0;
+    if ("touches" in e) {
+      const touch = e.touches[0] || e.changedTouches?.[0];
+      if (!touch) return { x: 0, y: 0 };
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
     const rawX = clientX - rect.left;
     const rawY = clientY - rect.top;
     return {
@@ -167,6 +197,16 @@ export function DocumentScanner({
     if (!file) return;
     setError(null);
     setResult(null);
+
+    if (file.type && !file.type.startsWith("image/")) {
+      setError(
+        language === "hi"
+          ? "कृपया फोटो (JPG/PNG) या PDF पेज का स्क्रीनशॉट चुनें। (अन्य फ़ाइल फ़ॉर्मेट अभी समर्थित नहीं हैं।)"
+          : "Please upload an image photo (JPG/PNG) or a screenshot of the PDF page."
+      );
+      return;
+    }
+
     setSelectedFile(file);
     setMasks([]);
     const url = URL.createObjectURL(file);
@@ -219,7 +259,17 @@ export function DocumentScanner({
       });
 
       if (!res.ok) {
-        throw new Error("Document analysis failed");
+        let serverMsg = "";
+        try {
+          const errJson = await res.json();
+          serverMsg = language === "hi" ? errJson.message_hi : errJson.message_en;
+        } catch {}
+        throw new Error(
+          serverMsg ||
+            (language === "hi"
+              ? "दस्तावेज़ का विश्लेषण नहीं हो सका। कृपया पुनः प्रयास करें।"
+              : "Could not analyze document. Please try again.")
+        );
       }
 
       const docData: DocExplanation = await res.json();
@@ -228,9 +278,11 @@ export function DocumentScanner({
     } catch (err: any) {
       console.error("Doc explain error:", err);
       setError(
-        language === "hi"
-          ? "दस्तावेज़ का विश्लेषण नहीं हो सका। कृपया पुनः प्रयास करें।"
-          : "Could not analyze document. Please try again."
+        err?.message && !err.message.includes("Failed to fetch")
+          ? err.message
+          : language === "hi"
+          ? "दस्तावेज़ का विश्लेषण नहीं हो सका। कृपया इंटरनेट या API कुंजी जांच कर पुनः प्रयास करें।"
+          : "Could not analyze document. Please check connection and try again."
       );
     } finally {
       setIsProcessing(false);
@@ -451,9 +503,12 @@ export function DocumentScanner({
               onMouseDown={handlePointerDown}
               onMouseMove={handlePointerMove}
               onMouseUp={handlePointerUp}
+              onMouseLeave={handlePointerUp}
               onTouchStart={handlePointerDown}
               onTouchMove={handlePointerMove}
               onTouchEnd={handlePointerUp}
+              onTouchCancel={handlePointerUp}
+              style={{ touchAction: "none" }}
               className="max-w-full h-auto cursor-crosshair rounded-xl block"
             />
           </div>

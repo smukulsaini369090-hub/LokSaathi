@@ -67,7 +67,8 @@ export default function HelpCenterPage() {
       setOfflineStatus("notReady");
     }
 
-    // Check available TTS voices
+    // Check available TTS voices cleanly via addEventListener with cleanup
+    let cleanupVoices: (() => void) | undefined;
     if ("speechSynthesis" in window) {
       const checkVoices = () => {
         const voices = window.speechSynthesis.getVoices();
@@ -76,12 +77,16 @@ export default function HelpCenterPage() {
       };
 
       checkVoices();
-      if (window.speechSynthesis.onvoiceschanged !== undefined) {
-        window.speechSynthesis.onvoiceschanged = checkVoices;
+      if (typeof window.speechSynthesis.addEventListener === "function") {
+        window.speechSynthesis.addEventListener("voiceschanged", checkVoices);
+        cleanupVoices = () =>
+          window.speechSynthesis.removeEventListener("voiceschanged", checkVoices);
       }
     } else {
       setTtsVoiceStatus("missingHindi");
     }
+
+    return cleanupVoices;
   }, []);
 
   const handleTestMediaPermissions = async () => {
@@ -91,14 +96,28 @@ export default function HelpCenterPage() {
     try {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         setMediaCheckStatus("blocked");
-        setMediaErrorMsg("Browser does not support mediaDevices API");
+        setMediaErrorMsg(
+          language === "hi"
+            ? "ब्राउज़र माइक/कैमरा API को सपोर्ट नहीं करता।"
+            : "Browser does not support mediaDevices API."
+        );
         return;
       }
 
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: true,
-      });
+      let stream: MediaStream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+          video: true,
+        });
+      } catch (dualErr: any) {
+        // Fallback: desktops or mic-only setups may lack webcam (NotFoundError)
+        if (dualErr?.name === "NotFoundError" || dualErr?.name === "DevicesNotFoundError") {
+          stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        } else {
+          throw dualErr;
+        }
+      }
 
       // Release hardware streams immediately after successful test
       stream.getTracks().forEach((track) => track.stop());
@@ -106,7 +125,11 @@ export default function HelpCenterPage() {
     } catch (err: any) {
       console.warn("Media permission test rejected:", err);
       setMediaCheckStatus("blocked");
-      setMediaErrorMsg(err?.message || "Permission denied");
+      setMediaErrorMsg(
+        language === "hi"
+          ? "अनुमति अवरुद्ध है। ब्राउज़र सेटिंग्स से माइक/कैमरा चालू करें।"
+          : err?.message || "Permission denied"
+      );
     }
   };
 

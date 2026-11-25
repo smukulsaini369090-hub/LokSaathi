@@ -53,7 +53,12 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
       return;
     }
 
-    const hasCompleted = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
+    let hasCompleted = false;
+    try {
+      hasCompleted = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
+    } catch {
+      hasCompleted = false;
+    }
     if (!hasCompleted) {
       // Small delay for smooth entry after page hydration
       const timer = setTimeout(() => {
@@ -376,7 +381,7 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
         {/* Footer Navigation Bar */}
         <div className="px-5 py-4 border-t border-slate-100 bg-slate-50/90 flex items-center justify-between gap-3">
           {/* Progress dots */}
-          <div className="flex items-center gap-1.5" aria-hidden="true">
+          <div className="flex items-center gap-1.5" role="group" aria-label={language === "hi" ? "चरण संकेतक" : "Step indicators"}>
             {steps.map((_, idx) => (
               <button
                 key={idx}

@@ -29,6 +29,13 @@ const serwist = new Serwist({
         networkTimeoutSeconds: 3,
       }),
     },
+    {
+      matcher: ({ url }) => url.pathname === "/api/schemes",
+      handler: new NetworkFirst({
+        cacheName: "schemes-catalog-cache",
+        networkTimeoutSeconds: 3,
+      }),
+    },
     ...defaultCache,
   ],
   fallbacks: {

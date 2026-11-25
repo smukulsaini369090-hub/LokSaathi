@@ -3,18 +3,15 @@ import { getGeminiClient, getModelName } from "@/lib/gemini";
 
 export async function GET() {
   const hasKey = !!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== "dummy-key-for-test";
-  const keyPrefix = hasKey ? process.env.GEMINI_API_KEY!.slice(0, 8) + "..." : "missing";
   const modelName = getModelName();
 
   let geminiStatus = "untested";
-  let geminiError: string | null = null;
-  let activeModel = modelName;
 
   if (hasKey) {
     try {
       const client = getGeminiClient();
       try {
-        const model = client.getGenerativeModel({ model: activeModel });
+        const model = client.getGenerativeModel({ model: modelName });
         const result = await model.generateContent("ping");
         geminiStatus = result.response.text() ? "connected" : "empty_response";
       } catch (firstErr: any) {
@@ -23,14 +20,12 @@ export async function GET() {
           const fallbackModel = client.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
           const result = await fallbackModel.generateContent("ping");
           geminiStatus = result.response.text() ? "connected" : "empty_response";
-          activeModel = "gemini-3.5-flash-lite";
         } else {
           throw firstErr;
         }
       }
-    } catch (err: any) {
+    } catch {
       geminiStatus = "error";
-      geminiError = err?.message || String(err);
     }
   } else {
     geminiStatus = "missing_api_key";
@@ -40,10 +35,7 @@ export async function GET() {
     status: hasKey && geminiStatus === "connected" ? "healthy" : "degraded",
     gemini: {
       has_key: hasKey,
-      key_prefix: keyPrefix,
-      model: activeModel,
       status: geminiStatus,
-      error: geminiError,
     },
     timestamp: new Date().toISOString(),
   });

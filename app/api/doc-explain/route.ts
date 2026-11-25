@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { explainDocument, type DocExplanation } from "@/lib/gemini";
 import { getCachedDocExplanation, setCachedDocExplanation } from "@/lib/doc-cache";
+import {
+  validateBase64ImageInput,
+  sanitizeDocExplanation,
+  redactSecrets,
+} from "@/lib/security";
 
 export const maxDuration = 60;
 
@@ -21,8 +26,8 @@ export async function POST(request: NextRequest) {
   const bodyKey = typeof body?.user_api_key === "string" ? body.user_api_key.trim() : "";
   const customApiKey = headerKey || bodyKey || undefined;
 
-  // Enforce rate limit only for shared server usage
-  if (!customApiKey) {
+  // Enforce rate limit only for shared server usage and never double-count after middleware
+  if (!customApiKey && request.headers.get("x-loksaathi-ratelimited") !== "1") {
     const rateLimitResult = await checkRateLimit(ip);
     if (!rateLimitResult.success) {
       return NextResponse.json(
@@ -42,43 +47,54 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  if (!body || !body.image_base64 || typeof body.image_base64 !== "string") {
+  const imgValidation = validateBase64ImageInput(body?.image_base64);
+  if (!imgValidation.valid) {
+    const status = imgValidation.error === "image_payload_too_large" ? 413 : 400;
     return NextResponse.json(
       {
-        error: "missing_image_base64",
-        message_hi: "दस्तावेज़ की इमेज (base64) आवश्यक है",
+        error: imgValidation.error,
+        message_hi:
+          imgValidation.error === "image_payload_too_large"
+            ? "इमेज का आकार बहुत बड़ा है (अधिकतम 2MB)।"
+            : "अमान्य दस्तावेज़ इमेज प्रारूप (केवल JPEG, PNG या WebP मान्य हैं)।",
+        message_en:
+          imgValidation.error === "image_payload_too_large"
+            ? "Image payload is too large (maximum 2MB)."
+            : "Invalid document image format (only JPEG, PNG, or WebP are supported).",
       },
-      { status: 400 }
+      { status }
     );
   }
 
+  const normalizedImage = imgValidation.normalized;
   const language = body.language === "en" ? "en" : "hi";
   const mode = body.mode === "form_guide" ? "form_guide" : "explain";
 
   // Check Upstash Redis cache (isolated by mode + language + image sha256)
   try {
-    const cached = await getCachedDocExplanation(body.image_base64, mode, language);
+    const cached = await getCachedDocExplanation(normalizedImage, mode, language);
     if (cached) {
-      return NextResponse.json(cached);
+      return NextResponse.json(sanitizeDocExplanation(cached, language));
     }
   } catch {
     // Non-fatal, proceed with AI analysis
   }
 
   try {
-    const explanation: DocExplanation = await explainDocument(
-      body.image_base64,
+    const rawExplanation: DocExplanation = await explainDocument(
+      normalizedImage,
       language,
       customApiKey,
       mode
     );
+    const explanation = sanitizeDocExplanation(rawExplanation, language);
 
     // Persist to Redis cache asynchronously
-    setCachedDocExplanation(body.image_base64, mode, language, explanation).catch(() => {});
+    setCachedDocExplanation(normalizedImage, mode, language, explanation).catch(() => {});
 
     return NextResponse.json(explanation);
   } catch (error: any) {
-    console.error("Doc explanation error (returning graceful fallback):", error);
+    console.error("Doc explanation error (returning graceful fallback):", redactSecrets(error));
     const errMsg = error?.message || String(error);
     const isAuthError =
       errMsg.includes("401") ||

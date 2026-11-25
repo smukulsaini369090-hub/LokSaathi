@@ -11,7 +11,7 @@
     "must_match_all": [
       { "field": "state", "operator": "eq", "value": "punjab" },
       { "field": "gender", "operator": "eq", "value": "female" },
-      { "field": "occupation", "operator": "includes", "value": "student" },
+      { "field": "occupation", "operator": "includes", "value": ["student"] },
       { "field": "age", "operator": "gte", "value": 13 },
       { "field": "age", "operator": "lte", "value": 19 }
     ],

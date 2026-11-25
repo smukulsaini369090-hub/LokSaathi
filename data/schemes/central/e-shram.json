@@ -9,7 +9,12 @@
   "eligibility": {
     "must_match_all": [
       { "field": "age", "operator": "gte", "value": 16 },
-      { "field": "age", "operator": "lte", "value": 59 }
+      { "field": "age", "operator": "lte", "value": 59 },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": ["worker", "laborer", "construction_worker", "street_vendor", "vendor", "farmer", "artisan"]
+      }
     ],
     "must_match_none": [
       { "field": "is_epfo_esic_member", "operator": "eq", "value": true },

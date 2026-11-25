@@ -49,7 +49,10 @@ export async function POST(request: NextRequest) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 6000);
 
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(rawKey)}`, {
+    const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models", {
+      headers: {
+        "x-goog-api-key": rawKey,
+      },
       signal: controller.signal,
     });
     clearTimeout(timer);

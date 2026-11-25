@@ -34,12 +34,17 @@ export function prewarmTTS(): void {
   }
 }
 
-// Initialize & cache available voices
+// Initialize & cache available voices without clobbering external listeners
 if (typeof window !== "undefined" && "speechSynthesis" in window) {
   cachedVoices = window.speechSynthesis.getVoices();
-  window.speechSynthesis.onvoiceschanged = () => {
+  const refreshVoices = () => {
     cachedVoices = window.speechSynthesis.getVoices();
   };
+  if (typeof window.speechSynthesis.addEventListener === "function") {
+    window.speechSynthesis.addEventListener("voiceschanged", refreshVoices);
+  } else {
+    window.speechSynthesis.onvoiceschanged = refreshVoices;
+  }
 }
 
 function getAvailableVoices(): SpeechSynthesisVoice[] {

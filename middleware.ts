@@ -5,8 +5,17 @@ import { checkRateLimit } from "@/lib/rate-limit";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Rate limit all API calls
+  // Rate limit shared API calls cleanly (bypass read-only catalog, health, and BYOK key users)
   if (pathname.startsWith("/api/")) {
+    const isReadOnlyCatalogOrHealth =
+      pathname === "/api/health" ||
+      (pathname === "/api/schemes" && request.method === "GET");
+    const hasCustomKey = !!request.headers.get("x-gemini-api-key")?.trim();
+
+    if (isReadOnlyCatalogOrHealth || hasCustomKey) {
+      return NextResponse.next();
+    }
+
     const forwardedFor = request.headers.get("x-forwarded-for");
     const realIp = request.headers.get("x-real-ip");
     const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : realIp || "127.0.0.1";
@@ -30,7 +39,11 @@ export async function middleware(request: NextRequest) {
       );
     }
 
-    const response = NextResponse.next();
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-loksaathi-ratelimited", "1");
+    const response = NextResponse.next({
+      request: { headers: requestHeaders },
+    });
     response.headers.set("X-RateLimit-Remaining", remaining.toString());
     return response;
   }

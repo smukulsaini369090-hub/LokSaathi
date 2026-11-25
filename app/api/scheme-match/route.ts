@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { readdirSync, readFileSync, statSync, existsSync } from "fs";
 import { join } from "path";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { matchSchemes, type UserProfile } from "@/lib/scheme-matcher";
+import { matchSchemes } from "@/lib/scheme-matcher";
 import { evaluateSchemeEligibility, detectTargetScheme } from "@/lib/eligibility-evaluator";
+import {
+  validateProfilePayload,
+  sanitizeUntrustedInput,
+  detectPromptInjectionAttack,
+} from "@/lib/security";
 import type { Scheme } from "@/lib/scheme-types";
 
 // Cache in-memory scheme files list so we don't hit disk on every call
@@ -45,23 +50,25 @@ export async function POST(request: NextRequest) {
   const realIp = request.headers.get("x-real-ip");
   const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : realIp || "127.0.0.1";
 
-  // Enforce rate limit
-  const rateLimitResult = await checkRateLimit(ip);
-  if (!rateLimitResult.success) {
-    return NextResponse.json(
-      {
-        error: "rate_limit_exceeded",
-        message_hi: "थोड़ी देर बाद कोशिश करें",
-        message_en: "Too many requests. Please try again shortly.",
-      },
-      {
-        status: 429,
-        headers: {
-          "Retry-After": "3600",
-          "X-RateLimit-Remaining": "0",
+  // Enforce rate limit (skip if already checked in middleware)
+  if (request.headers.get("x-loksaathi-ratelimited") !== "1") {
+    const rateLimitResult = await checkRateLimit(ip);
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          error: "rate_limit_exceeded",
+          message_hi: "थोड़ी देर बाद कोशिश करें",
+          message_en: "Too many requests. Please try again shortly.",
         },
-      }
-    );
+        {
+          status: 429,
+          headers: {
+            "Retry-After": "3600",
+            "X-RateLimit-Remaining": "0",
+          },
+        }
+      );
+    }
   }
 
   let body: any;
@@ -81,10 +88,20 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const userProfile: Partial<UserProfile> = body.user_profile;
+  const userProfile = validateProfilePayload(body.user_profile);
   const language = body.language === "en" ? "en" : "hi";
-  const targetSchemeId: string | undefined = body.target_scheme_id;
-  const queryText: string | undefined = body.query || body.transcript;
+  const targetSchemeId =
+    typeof body.target_scheme_id === "string"
+      ? sanitizeUntrustedInput(body.target_scheme_id, 100)
+      : undefined;
+  const rawQuery =
+    typeof body.query === "string"
+      ? body.query
+      : typeof body.transcript === "string"
+      ? body.transcript
+      : undefined;
+  const queryText = rawQuery ? sanitizeUntrustedInput(rawQuery, 1000) : undefined;
+  const queryBlocked = rawQuery ? detectPromptInjectionAttack(rawQuery).blocked : false;
 
   const allSchemes = loadAllSchemes();
   const matched_schemes = matchSchemes(userProfile, allSchemes);
@@ -92,7 +109,7 @@ export async function POST(request: NextRequest) {
   let targetScheme: Scheme | null = null;
   if (targetSchemeId) {
     targetScheme = allSchemes.find((s) => s.id === targetSchemeId) || null;
-  } else if (queryText) {
+  } else if (queryText && !queryBlocked) {
     targetScheme = detectTargetScheme(queryText, allSchemes);
   }
 

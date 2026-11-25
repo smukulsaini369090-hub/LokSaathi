@@ -33,6 +33,8 @@ const ALLOWED_FIELDS: Array<keyof UserProfile> = [
   "has_lpg_connection",
   "is_epfo_esic_member",
   "has_other_pension",
+  "is_capf_ward",
+  "is_phd_scholar",
 ];
 
 export function getStoredUserProfile(): Partial<UserProfile> {
