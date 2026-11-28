@@ -8,6 +8,7 @@ import {
   detectPromptInjectionAttack,
   validateProfilePayload,
   redactSecrets,
+  scrubCitizenPII,
 } from "@/lib/security";
 
 export const maxDuration = 60;
@@ -36,8 +37,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: "rate_limit_exceeded",
-          message_hi: "अनुरोध सीमा समाप्त हुई। थोड़ी देर बाद कोशिश करें या ऊपर 🔑 आइकॉन से अपनी API Key जोड़ें।",
-          message_en: "Rate limit reached. Please try again shortly or add your own Gemini API key via the 🔑 button.",
+          message_hi: "अभी बहुत अधिक उपयोग हो रहा है। कृपया थोड़ी देर बाद कोशिश करें या 'सभी योजनाएं' टैब में तुरंत खोजें।",
+          message_en: "High demand right now. Please try again shortly or browse All Schemes directly.",
         },
         {
           status: 429,
@@ -64,7 +65,10 @@ export async function POST(request: NextRequest) {
     );
   }
   const history = Array.isArray(body?.conversation_history)
-    ? body.conversation_history.slice(-12)
+    ? body.conversation_history.slice(-12).map((item: any) => ({
+        role: item?.role === "model" ? "model" : "user",
+        text: scrubCitizenPII(typeof item?.text === "string" ? item.text : ""),
+      }))
     : [];
   const language = body?.language === "en" ? "en" : "hi";
   const userProfile = validateProfilePayload(body?.user_profile);
@@ -166,28 +170,16 @@ export async function POST(request: NextRequest) {
     }
   } catch (error: any) {
     console.error("Voice process fallback triggered (deterministic intake active):", redactSecrets(error));
-    const errMsg = error?.message || String(error);
-    const isAuthError =
-      errMsg.includes("401") ||
-      errMsg.includes("API key not valid") ||
-      errMsg.includes("ACCESS_TOKEN_TYPE_UNSUPPORTED") ||
-      errMsg.includes("UNAUTHENTICATED") ||
-      errMsg.includes("API_KEY_INVALID");
-
     llmResult = {
       is_fallback: true,
-      auth_error: isAuthError,
-      acknowledgment: isAuthError
-        ? language === "hi"
-          ? "⚠️ आपकी दर्ज Gemini API Key अमान्य है (🔑 से सही Key जोड़ें) — ऑफ़लाइन मोड में जांच जारी है:"
-          : "⚠️ Your entered Gemini API Key is invalid (update via 🔑) — continuing in smart offline mode:"
-        : "",
+      acknowledgment: "",
     };
   }
 
   // Run authoritative progressive state machine regardless of LLM outcome
+  const safeTranscriptOutput = scrubCitizenPII(textToProcess);
   const stateOutput = runIntakeStateMachine({
-    userMessage: textToProcess,
+    userMessage: safeTranscriptOutput,
     currentProfile: userProfile,
     llmResult: llmResult?.is_fallback
       ? {
@@ -203,7 +195,7 @@ export async function POST(request: NextRequest) {
   });
 
   return NextResponse.json({
-    transcript: textToProcess || (language === "hi" ? "आवाज संदेश" : "Voice input"),
+    transcript: safeTranscriptOutput || (language === "hi" ? "आवाज संदेश" : "Voice input"),
     intent: "scheme_query",
     extracted_profile_updates: stateOutput.extracted_profile_updates,
     merged_profile: stateOutput.merged_profile,

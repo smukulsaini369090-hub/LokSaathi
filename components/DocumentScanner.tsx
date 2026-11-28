@@ -276,13 +276,20 @@ export function DocumentScanner({
       setResult(docData);
       if (onResult) onResult(docData);
     } catch (err: any) {
-      console.error("Doc explain error:", err);
-      setError(
-        err?.message && !err.message.includes("Failed to fetch")
+      console.warn("Doc explain fallback message shown.");
+      const safeServerMessage =
+        typeof err?.message === "string" &&
+        !err.message.includes("Failed to fetch") &&
+        !err.message.includes("HTTP_") &&
+        !err.message.includes("Error:") &&
+        !/\b(401|403|404|500|502|503|Unauthorized|API\s*Key|AIzaSy)\b/i.test(err.message)
           ? err.message
-          : language === "hi"
-          ? "दस्तावेज़ का विश्लेषण नहीं हो सका। कृपया इंटरनेट या API कुंजी जांच कर पुनः प्रयास करें।"
-          : "Could not analyze document. Please check connection and try again."
+          : "";
+      setError(
+        safeServerMessage ||
+          (language === "hi"
+            ? "दस्तावेज़ अभी स्पष्ट नहीं पढ़ा जा सका। कृपया इंटरनेट जांचें या बेहतर रोशनी में दोबारा फोटो लें।"
+            : "Could not analyze document right now. Please check connection or take a clearer photo in bright light.")
       );
     } finally {
       setIsProcessing(false);

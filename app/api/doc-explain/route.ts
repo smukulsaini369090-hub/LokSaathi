@@ -33,8 +33,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: "rate_limit_exceeded",
-          message_hi: "अनुरोध सीमा समाप्त हुई। कृपया थोड़ी देर बाद कोशिश करें या अपनी API Key जोड़ें।",
-          message_en: "Rate limit reached. Please try again shortly or add your own Gemini API key.",
+          message_hi: "अभी अधिक उपयोग के कारण कृपया थोड़ी देर बाद पुनः प्रयास करें।",
+          message_en: "High demand right now. Please wait a moment and try scanning again.",
         },
         {
           status: 429,
@@ -107,83 +107,72 @@ export async function POST(request: NextRequest) {
       errMsg.includes("quota") ||
       errMsg.includes("RESOURCE_EXHAUSTED");
 
-    if (isAuthError) {
+    if (isAuthError && customApiKey) {
       const authErrorResponse: DocExplanation = {
         document_type:
           language === "hi"
-            ? "API Key अमान्य (Invalid API Key)"
-            : "Invalid API Key",
+            ? "वैकल्पिक कस्टम कुंजी अमान्य"
+            : "Custom Key Rejected",
         summary:
           language === "hi"
-            ? "दर्ज की गई Gemini API Key अमान्य है। Google AI Studio की सही Key 'AIzaSy' से शुरू होती है।"
-            : "The Gemini API Key is invalid or expired. Google AI Studio keys must start with 'AIzaSy'.",
-        key_fields: [
-          {
-            label: language === "hi" ? "त्रुटि स्थिति" : "Error Status",
-            value: "Google 401 Unauthorized",
-            importance: "critical",
-          },
-          {
-            label: language === "hi" ? "निःशुल्क कुंजी पोर्टल" : "Free Key Portal",
-            value: "aistudio.google.com/app/apikey",
-            importance: "critical",
-          },
-        ],
-        action_items: [
-          {
-            task:
-              language === "hi"
-                ? "ऊपर 🔑 बटन पर क्लिक करके 'AIzaSy' वाली वैध Gemini API Key दर्ज करें"
-                : "Click the Key 🔑 icon above and enter a valid 'AIzaSy' Google AI Studio key",
-            urgency: "high",
-          },
-        ],
-        warnings: [
-          language === "hi"
-            ? "OAuth टोकन (जैसे AQ...) API Key के रूप में काम नहीं करते। केवल Google AI Studio Key मान्य है।"
-            : "OAuth tokens (such as AQ...) are not valid API keys. Only Google AI Studio keys (starting with AIzaSy) are accepted.",
-        ],
-        full_explanation:
-          language === "hi"
-            ? "आपकी फोटो बिल्कुल ठीक है, लेकिन Google के AI सर्वर ने इस API Key को अस्वीकार कर दिया। कृपया https://aistudio.google.com/app/apikey पर जाकर एक सेकंड में मुफ्त कुंजी बनाएं और ऊपर 🔑 आइकॉन में दर्ज करें।"
-            : "Your document photo is fine, but Google's AI server rejected the API key. Please generate a free key at https://aistudio.google.com/app/apikey and update it via the Key 🔑 icon above.",
-        mode,
-      };
-      return NextResponse.json(authErrorResponse);
-    }
-
-    if (isRateLimit) {
-      const rateLimitResponse: DocExplanation = {
-        document_type:
-          language === "hi"
-            ? "अनुरोध सीमा (Rate Limit)"
-            : "Rate Limit Exceeded",
-        summary:
-          language === "hi"
-            ? "सर्वर पर अभी अधिक लोड है या Gemini API की सीमा समाप्त हो गई है। कृपया थोड़ी देर बाद पुनः प्रयास करें।"
-            : "The server is experiencing high traffic or the Gemini API rate limit was reached. Please try again shortly.",
+            ? "आपकी दर्ज वैकल्पिक API कुंजी काम नहीं कर सकी। मदद (/help) के उन्नत सेटअप से इसे अपडेट या हटा सकते हैं।"
+            : "Your optional private key could not be verified. You can update or remove it in Help (/help).",
         key_fields: [],
         action_items: [
           {
             task:
               language === "hi"
-                ? "कुछ सेकंड बाद दोबारा कोशिश करें या ऊपर 🔑 बटन से अपनी निःशुल्क API Key लगाएं"
-                : "Retry in a few seconds or use your own free key via the Key 🔑 button",
-            urgency: "high",
+                ? "मदद (/help) पेज के उन्नत विकल्प में जाकर कस्टम कुंजी हटाएं या नई वैध 'AIzaSy' कुंजी डालें"
+                : "Open Advanced Setup in Help (/help) to clear or update your optional 'AIzaSy' key",
+            urgency: "medium",
           },
         ],
         warnings: [
           language === "hi"
-            ? "मुफ्त कोटा अस्थायी रूप से भर गया है।"
-            : "Free tier rate limit reached.",
+            ? "आपकी फोटो सुरक्षित है और सर्वर पर सेव नहीं हुई है।"
+            : "Your document photo remains safe and was not stored on any server.",
         ],
         full_explanation:
           language === "hi"
-            ? "कृपया कुछ सेकंड प्रतीक्षा करें और दोबारा प्रयास करें।"
-            : "Please wait a moment and try again.",
+            ? "आपकी फोटो बिल्कुल ठीक है, लेकिन आपकी वैकल्पिक कस्टम कुंजी स्वीकार नहीं हुई। मदद (/help) पेज से उसे हटाकर डिफ़ॉल्ट सेवा का उपयोग कर सकते हैं।"
+            : "Your photo is fine, but your optional custom key was not accepted. You can clear it under Help (/help) to resume standard service.",
         mode,
       };
-      return NextResponse.json(rateLimitResponse);
+      return NextResponse.json(authErrorResponse);
+    }
+
+    if (isRateLimit || isAuthError) {
+      const busyResponse: DocExplanation = {
+        document_type:
+          language === "hi"
+            ? "सेवा अभी व्यस्त है"
+            : "Service Temporarily Busy",
+        summary:
+          language === "hi"
+            ? "इस समय कई नागरिक दस्तावेज़ पढ़ रहे हैं। कृपया कुछ सेकंड बाद दोबारा प्रयास करें।"
+            : "Many citizens are scanning documents right now. Please wait a moment and try again.",
+        key_fields: [],
+        action_items: [
+          {
+            task:
+              language === "hi"
+                ? "थोड़ी देर बाद 'पुनः प्रयास करें' दबाएं या नजदीकी जन सेवा केंद्र (CSC) पर दस्तावेज़ दिखाएं"
+                : "Wait a short moment and tap Try Again, or ask your nearest Citizen Facilitation Center (CSC / Jan Seva Kendra)",
+            urgency: "medium",
+          },
+        ],
+        warnings: [
+          language === "hi"
+            ? "आपकी फोटो पूरी तरह सुरक्षित है और किसी सर्वर पर सेव नहीं की गई है।"
+            : "Your photo remains private and was not saved on our servers.",
+        ],
+        full_explanation:
+          language === "hi"
+            ? "अभी AI रीडर पर अधिक लोड है। कृपया थोड़ी देर बाद दोबारा फोटो स्कैन करें या सरकारी योजना विवरण में आवश्यक कागजात की सूची देखें।"
+            : "The document reader is currently handling high traffic. Please retry in a few moments or check the official document guide in Schemes.",
+        mode,
+      };
+      return NextResponse.json(busyResponse);
     }
 
     // Review Focus 2: Never return 500 on unreadable/degraded images

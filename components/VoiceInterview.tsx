@@ -19,7 +19,8 @@ import {
 import { useVoiceRecorder } from "@/hooks/useVoiceRecorder";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 import { getStoredApiKey } from "@/lib/client-api-key";
-import { ApiKeyModal } from "@/components/ApiKeyModal";
+import { runIntakeStateMachine } from "@/lib/intake-state-machine";
+import type { Scheme } from "@/lib/scheme-types";
 import type { UserProfile, SchemeMatch } from "@/lib/scheme-matcher";
 import type { EligibilityAuditResult } from "@/lib/eligibility-evaluator";
 import type { SchemeRedirectEntry } from "@/lib/scheme-redirects";
@@ -28,6 +29,8 @@ import {
   saveStoredUserProfile,
   clearStoredUserProfile,
 } from "@/lib/storage";
+
+export const VOICE_REQUEST_TIMEOUT_MS = 4500;
 
 interface Message {
   role: "user" | "model";
@@ -56,6 +59,7 @@ function renderFormattedChatText(text: string): React.ReactNode {
 interface VoiceInterviewProps {
   language: "hi" | "en";
   onProfileComplete: (profile: UserProfile, matches: SchemeMatch[]) => void;
+  allSchemes?: Scheme[];
 }
 
 const getDefaultChips = (lang: "hi" | "en") =>
@@ -104,6 +108,7 @@ const PROGRESS_STEPS: ProgressStepSpec[] = [
 export function VoiceInterview({
   language,
   onProfileComplete,
+  allSchemes = [],
 }: VoiceInterviewProps) {
   const initialQuestion =
     language === "hi"
@@ -132,7 +137,6 @@ export function VoiceInterview({
   const [suggestedChips, setSuggestedChips] = useState<string[]>(
     getDefaultChips(language)
   );
-  const [isKeyModalOpen, setIsKeyModalOpen] = useState(false);
 
   const { speak, stop, isPlaying } = useSpeechSynthesis();
   const {
@@ -335,20 +339,69 @@ export function VoiceInterview({
     }
   };
 
-  const handleTurnError = (isTimeout = false) => {
-    setMessages((prev) => [
-      ...prev,
+  const fetchVoiceProcessWithTimeout = async (payload: Record<string, unknown>) => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), VOICE_REQUEST_TIMEOUT_MS);
+    try {
+      const storedKey = getStoredApiKey();
+      const res = await fetch("/api/voice-process", {
+        method: "POST",
+        signal: controller.signal,
+        headers: {
+          "Content-Type": "application/json",
+          ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
+        },
+        body: JSON.stringify({
+          ...payload,
+          ...(storedKey ? { user_api_key: storedKey } : {}),
+        }),
+      });
+      if (!res.ok) {
+        throw new Error(`HTTP_${res.status}`);
+      }
+      return await res.json();
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  };
+
+  const runLocalDeterministicFallback = async (
+    userText: string,
+    customProfile?: Partial<UserProfile>,
+    forceComplete = false,
+    acknowledgmentOverride?: string
+  ) => {
+    const stateOutput = runIntakeStateMachine({
+      userMessage: userText,
+      currentProfile: customProfile || profile,
+      llmResult: acknowledgmentOverride
+        ? { acknowledgment: acknowledgmentOverride, is_complete: false }
+        : null,
+      targetSchemeId,
+      forceComplete,
+      allSchemes,
+      language,
+    });
+
+    await processProfileResponse(
       {
-        role: "model",
-        text: isTimeout
-          ? language === "hi"
-            ? "सर्वर पर अधिक लोड के कारण उत्तर में देरी हुई। कृपया नीचे दिए गए विकल्पों में से चुनें या दोबारा भेजें।"
-            : "The server took too long to respond. Please choose a quick option below or try again."
-          : language === "hi"
-          ? "तकनीकी समस्या आई। कृपया अपनी बात दोबारा बताएं या नीचे से त्वरित विकल्प चुनें।"
-          : "A technical issue occurred. Please repeat or choose an option below.",
+        extracted_profile_updates: stateOutput.extracted_profile_updates,
+        merged_profile: stateOutput.merged_profile,
+        pending_fields: stateOutput.pending_fields,
+        needs_state_disambiguation: stateOutput.needs_state_disambiguation,
+        potential_schemes_count: stateOutput.potential_schemes_count,
+        next_question: stateOutput.next_question,
+        suggested_chips: stateOutput.suggested_chips,
+        is_profile_complete: stateOutput.is_profile_complete,
+        matched_schemes: stateOutput.is_profile_complete
+          ? stateOutput.matched_schemes
+          : [],
+        target_scheme: stateOutput.target_scheme,
+        scheme_redirect: stateOutput.scheme_redirect || null,
+        eligibility_audit: stateOutput.eligibility_audit,
       },
-    ]);
+      userText
+    );
   };
 
   const handleAudioSubmit = async (audioBlob: Blob, mimeType: string) => {
@@ -363,36 +416,35 @@ export function VoiceInterview({
 
     setMessages((prev) => [...prev, { role: "user", text: placeholderText }]);
 
+    const replaceAudioPlaceholder = (label: string) => {
+      setMessages((prev) => {
+        const copy = [...prev];
+        const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
+        if (lastUserIdx !== -1) {
+          copy[lastUserIdx] = { role: "user", text: label };
+        }
+        return copy;
+      });
+    };
+
+    const audioRetryAck =
+      language === "hi"
+        ? "आवाज़ अभी स्पष्ट रूप से नहीं सुनी जा सकी — कोई बात नहीं! कृपया नीचे दिए गए विकल्प पर टैप करें या लिखकर आगे बढ़ें:"
+        : "Voice could not be processed over this connection — no problem! Please tap a quick option below or type to continue:";
+
     try {
       const reader = new FileReader();
       reader.onloadend = async () => {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 14000);
-
         try {
           const base64Audio = reader.result as string;
-          const storedKey = getStoredApiKey();
-          const res = await fetch("/api/voice-process", {
-            method: "POST",
-            signal: controller.signal,
-            headers: {
-              "Content-Type": "application/json",
-              ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
-            },
-            body: JSON.stringify({
-              audio_base64: base64Audio,
-              mime_type: mimeType || audioBlob.type || "audio/wav",
-              conversation_history: messages,
-              user_profile: profile,
-              target_scheme_id: targetSchemeId,
-              language,
-              ...(storedKey ? { user_api_key: storedKey } : {}),
-            }),
+          const data = await fetchVoiceProcessWithTimeout({
+            audio_base64: base64Audio,
+            mime_type: mimeType || audioBlob.type || "audio/wav",
+            conversation_history: messages,
+            user_profile: profile,
+            target_scheme_id: targetSchemeId,
+            language,
           });
-          clearTimeout(timeoutId);
-
-          if (!res.ok) throw new Error("Voice processing request failed");
-          const data = await res.json();
 
           const finalTranscript =
             data.transcript && data.transcript.trim()
@@ -401,40 +453,22 @@ export function VoiceInterview({
               ? "🎙️ आवाज संदेश"
               : "🎙️ Voice message";
 
-          setMessages((prev) => {
-            const copy = [...prev];
-            const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
-            if (lastUserIdx !== -1) {
-              copy[lastUserIdx] = { role: "user", text: finalTranscript };
-            }
-            return copy;
-          });
-
+          replaceAudioPlaceholder(finalTranscript);
           await processProfileResponse(data, finalTranscript);
-        } catch (err: any) {
-          clearTimeout(timeoutId);
-          console.error("Audio API error:", err);
-          setMessages((prev) => {
-            const copy = [...prev];
-            const lastUserIdx = copy.map((m) => m.role).lastIndexOf("user");
-            if (lastUserIdx !== -1) {
-              copy[lastUserIdx] = {
-                role: "user",
-                text: language === "hi" ? "🎙️ आवाज संदेश" : "🎙️ Voice message",
-              };
-            }
-            return copy;
-          });
-          handleTurnError(err?.name === "AbortError");
+        } catch {
+          console.warn("Audio intake fell back cleanly to guided deterministic chips.");
+          replaceAudioPlaceholder(language === "hi" ? "🎙️ आवाज संदेश" : "🎙️ Voice message");
+          await runLocalDeterministicFallback("", undefined, false, audioRetryAck);
         } finally {
           inFlightRef.current = false;
           setIsProcessing(false);
         }
       };
       reader.readAsDataURL(audioBlob);
-    } catch (err) {
-      console.error("Audio read error:", err);
-      handleTurnError();
+    } catch {
+      console.warn("Audio read fell back cleanly to guided deterministic chips.");
+      replaceAudioPlaceholder(language === "hi" ? "🎙️ आवाज संदेश" : "🎙️ Voice message");
+      await runLocalDeterministicFallback("", undefined, false, audioRetryAck);
       inFlightRef.current = false;
       setIsProcessing(false);
     }
@@ -457,40 +491,24 @@ export function VoiceInterview({
     setTypedInput("");
     setIsProcessing(true);
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 14000);
-
     try {
-      const storedKey = getStoredApiKey();
-      const res = await fetch("/api/voice-process", {
-        method: "POST",
-        signal: controller.signal,
-        headers: {
-          "Content-Type": "application/json",
-          ...(storedKey ? { "x-gemini-api-key": storedKey } : {}),
-        },
-        body: JSON.stringify({
-          transcript: trimmed,
-          conversation_history: messages,
-          user_profile: options.customProfile || profile,
-          target_scheme_id: targetSchemeId,
-          force_complete: Boolean(options.forceComplete),
-          language,
-          ...(storedKey ? { user_api_key: storedKey } : {}),
-        }),
+      const data = await fetchVoiceProcessWithTimeout({
+        transcript: trimmed,
+        conversation_history: messages,
+        user_profile: options.customProfile || profile,
+        target_scheme_id: targetSchemeId,
+        force_complete: Boolean(options.forceComplete),
+        language,
       });
-      clearTimeout(timeoutId);
 
-      if (!res.ok) {
-        throw new Error("Voice processing request failed");
-      }
-
-      const data = await res.json();
       await processProfileResponse(data, trimmed);
-    } catch (err: any) {
-      clearTimeout(timeoutId);
-      console.error("Error during voice interview turn:", err);
-      handleTurnError(err?.name === "AbortError");
+    } catch {
+      console.warn("Voice interview fell back cleanly to deterministic intake.");
+      await runLocalDeterministicFallback(
+        trimmed,
+        options.customProfile,
+        Boolean(options.forceComplete)
+      );
     } finally {
       inFlightRef.current = false;
       setIsProcessing(false);
@@ -501,10 +519,6 @@ export function VoiceInterview({
     const cleanValue = value
       .replace(/^[📍🏛️🌾📚💼👷👩👨🛒🔍🎂💰🏷️🔑🇮🇳]\s*/u, "")
       .trim();
-    if (cleanValue.toLowerCase().includes("api key") || cleanValue.includes("API Key")) {
-      setIsKeyModalOpen(true);
-      return;
-    }
     if (
       cleanValue.includes("सभी उपयुक्त योजनाएं") ||
       cleanValue.toLowerCase().includes("discover all eligible")
@@ -865,7 +879,7 @@ export function VoiceInterview({
                 key={chip}
                 type="button"
                 onClick={() => handleChipClick(chip)}
-                className="min-h-[38px] text-xs font-medium bg-white hover:bg-blue-50 hover:text-blue-700 text-slate-800 border border-slate-300 hover:border-blue-400 rounded-full px-3.5 py-1.5 transition-all shadow-2xs active:scale-95 cursor-pointer"
+                className="min-h-[44px] text-xs font-medium bg-white hover:bg-blue-50 hover:text-blue-700 text-slate-800 border border-slate-300 hover:border-blue-400 rounded-full px-3.5 py-2 transition-all shadow-2xs active:scale-95 cursor-pointer"
               >
                 {chip}
               </button>
@@ -936,8 +950,6 @@ export function VoiceInterview({
           </form>
         </div>
       </div>
-
-      <ApiKeyModal isOpen={isKeyModalOpen} onClose={() => setIsKeyModalOpen(false)} />
     </div>
   );
 }

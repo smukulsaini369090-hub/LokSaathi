@@ -75,4 +75,11 @@ describe("Help & Device Diagnostics Page (/help)", () => {
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
+
+  it("keeps optional BYOK developer panel collapsed inside <details> out of citizens' immediate view", () => {
+    const { container } = renderWithLanguage(<HelpCenterPage />);
+    const detailsEl = container.querySelector("details");
+    expect(detailsEl).toBeInTheDocument();
+    expect(detailsEl?.hasAttribute("open")).toBe(false);
+  });
 });

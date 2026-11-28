@@ -215,6 +215,7 @@ export default function SchemesPage() {
             <VoiceInterview
               language={language}
               onProfileComplete={handleProfileComplete}
+              allSchemes={allSchemes}
             />
           )}
 

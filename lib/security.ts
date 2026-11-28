@@ -71,8 +71,65 @@ export function redactSecrets(input: unknown): string {
   const str = typeof input === "string" ? input : input instanceof Error ? input.message : String(input ?? "");
   return str
     .replace(/AIzaSy[0-9A-Za-z_-]{10,}/g, "[REDACTED_API_KEY]")
+    .replace(/gsk_[0-9A-Za-z_-]{10,}/g, "[REDACTED_API_KEY]")
     .replace(/([?&]key=)[^&\s"']+/gi, "$1[REDACTED]")
     .replace(/(bearer\s+)[A-Za-z0-9._-]+/gi, "$1[REDACTED_TOKEN]");
+}
+
+const UPI_HANDLE_SUFFIX_PATTERN =
+  /\b[a-zA-Z0-9._-]{2,}@(?:ybl|ok[a-z0-9]*|paytm|pt[a-z0-9]*|ibl|axl|upi|apl|sbi|icici|hdfc[a-z0-9]*|axis[a-z0-9]*|kotak|indus|airtel|jio|fbl|cred|slice|wa[a-z0-9]*|barodampay|freecharge)\b/gi;
+
+/**
+ * DPDP Act 2023 Citizen PII Firewall:
+ * Masks Aadhaar (12-digit), PAN, IFSC, Bank Account numbers, Indian mobile numbers,
+ * UPI IDs, and embedded secrets BEFORE any outbound AI request leaves the server,
+ * without altering annual income integers, age, years, or scheme codes (e.g. DL-015).
+ */
+export function scrubCitizenPII(input: unknown): string {
+  let clean = redactSecrets(input);
+  if (!clean) return "";
+
+  // 1. PAN Card (5 letters + 4 digits + 1 letter)
+  clean = clean.replace(/\b[A-Za-z]{5}\d{4}[A-Za-z]\b/g, "[REDACTED_PAN]");
+
+  // 2. IFSC Code (4 uppercase letters + 0 + 6 alphanumeric)
+  clean = clean.replace(/\b[A-Z]{4}0[A-Z0-9]{6}\b/g, "[REDACTED_IFSC]");
+
+  // 3. Explicit / handle-matched UPI IDs (mask before phones so 9876543210@ybl becomes UPI ID)
+  clean = clean.replace(UPI_HANDLE_SUFFIX_PATTERN, "[REDACTED_UPI_ID]");
+  clean = clean.replace(
+    /(\bupi(?:\s*id)?\s*(?:is|:|-)?\s*|यूपीआई(?:\s*आईडी)?\s*(?:है|:|-)?\s*)[a-zA-Z0-9._-]{2,}@[a-zA-Z0-9.-]{2,}(?!\w)/gi,
+    "$1[REDACTED_UPI_ID]"
+  );
+
+  // 4. Contextual Aadhaar (English & Hindi labels + 12 digits with optional spaces/hyphens)
+  clean = clean.replace(
+    /(\b(?:aadhaar|aadhar|uid)\s*(?:no\.?|number|is|:|-)?\s*|आधार\s*(?:संख्या|नंबर|कार्ड)?\s*(?:है|:|-)?\s*)\d{4}[\s-]?\d{4}[\s-]?\d{4}(?!\d)/gi,
+    "$1[REDACTED_AADHAAR]"
+  );
+
+  // 5. Contextual Bank Account numbers (9-18 digits with explicit account/खाता context)
+  clean = clean.replace(
+    /(\b(?:bank\s*(?:account|a\/c|acct|no\.?|number)|account\s*(?:no\.?|number)|a\/c\s*(?:no\.?)?|acct\s*(?:no\.?)?)\s*(?:is|:|-)?\s*|(?:बैंक\s*)?खाता\s*(?:संख्या|नंबर)?\s*(?:है|:|-)?\s*)(?:\d{9,18}|\d{3,6}(?:[\s-]\d{3,6}){1,3})(?!\d)/gi,
+    "$1[REDACTED_BANK_ACCOUNT]"
+  );
+
+  // 6. Bare or formatted 12-digit Aadhaar (must precede bare phone & bare bank account checks)
+  clean = clean.replace(/(?<!\d)\d{4}[\s-]\d{4}[\s-]\d{4}(?!\d)/g, "[REDACTED_AADHAAR]");
+  clean = clean.replace(/(?<!\d)\d{12}(?!\d)/g, "[REDACTED_AADHAAR]");
+
+  // 7. Indian Phone Numbers (+91 / 0-prefixed / 10 digits starting with 6-9)
+  clean = clean.replace(
+    /(?:\+91[\s-]?|0091[\s-]?|(?<!\d)0)[6-9]\d{4}[\s-]?\d{5}(?!\d)/g,
+    "[REDACTED_PHONE]"
+  );
+  clean = clean.replace(/(?<!\d)[6-9]\d{4}[\s-]\d{5}(?!\d)/g, "[REDACTED_PHONE]");
+  clean = clean.replace(/(?<!\d)[6-9]\d{9}(?!\d)/g, "[REDACTED_PHONE]");
+
+  // 8. Bare Bank Account numbers (11 digits or 13-18 digits remaining)
+  clean = clean.replace(/(?<!\d)(?:\d{11}|\d{13,18})(?!\d)/g, "[REDACTED_BANK_ACCOUNT]");
+
+  return clean;
 }
 
 /**
@@ -129,7 +186,10 @@ export function detectPromptInjectionAttack(text: string): {
   if (b64Matches) {
     for (const candidate of b64Matches.slice(0, 3)) {
       try {
-        const decoded = Buffer.from(candidate, "base64").toString("utf8");
+        const decoded =
+          typeof Buffer !== "undefined"
+            ? Buffer.from(candidate, "base64").toString("utf8")
+            : atob(candidate);
         if (PROMPT_INJECTION_PATTERNS.some((pat) => pat.test(decoded))) {
           return { blocked: true, reason: "prompt_injection" };
         }

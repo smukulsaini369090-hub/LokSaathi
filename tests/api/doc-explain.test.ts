@@ -105,7 +105,7 @@ describe("POST /api/doc-explain", () => {
     expect(body.warnings[0]).toContain("रोशनी");
   });
 
-  it("handles 401 unauthorized gracefully and returns actionable API key error", async () => {
+  it("handles 401 unauthorized gracefully for citizens WITHOUT exposing raw 401 or API key dead-ends", async () => {
     const { checkRateLimit } = await import("@/lib/rate-limit");
     vi.mocked(checkRateLimit).mockResolvedValueOnce({
       success: true,
@@ -132,8 +132,42 @@ describe("POST /api/doc-explain", () => {
     const res = await POST(req);
     expect(res.status).toBe(200);
     const body = await res.json();
-    expect(body.document_type).toBe("Invalid API Key");
-    expect(body.summary).toContain("AIzaSy");
+    const rawJson = JSON.stringify(body);
+    expect(body.document_type).toBe("Service Temporarily Busy");
+    expect(rawJson).not.toMatch(/API\s*Key|401|Unauthorized|🔑|aistudio\.google\.com/i);
+  });
+
+  it("guides power users to /help only when they explicitly sent a custom user_api_key that failed 401", async () => {
+    const { checkRateLimit } = await import("@/lib/rate-limit");
+    vi.mocked(checkRateLimit).mockResolvedValueOnce({
+      success: true,
+      remaining: 18,
+    });
+
+    const { explainDocument } = await import("@/lib/gemini");
+    vi.mocked(explainDocument).mockRejectedValueOnce(
+      new Error("[401 Unauthorized] API key not valid. ACCESS_TOKEN_TYPE_UNSUPPORTED")
+    );
+
+    const req = new NextRequest("http://localhost/api/doc-explain", {
+      method: "POST",
+      body: JSON.stringify({
+        image_base64: "data:image/jpeg;base64,validphoto",
+        language: "en",
+        user_api_key: "AIzaSyCustomInvalidKey1234567890abcdef",
+      }),
+      headers: {
+        "content-type": "application/json",
+        "x-forwarded-for": "1.2.3.4",
+      },
+    });
+
+    const res = await POST(req);
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.document_type).toBe("Custom Key Rejected");
+    expect(body.summary).toContain("/help");
+    expect(JSON.stringify(body)).not.toMatch(/401|Unauthorized/i);
   });
 
   it("handles mode: 'form_guide' correctly and passes mode to explainDocument", async () => {

@@ -181,4 +181,41 @@ describe("Security Audit & LLM Prompt Red-Team Suite (Promptfoo / SAST / OWASP)"
     expect(clean.occupation?.[0]).toBe("student");
     expect(({} as any).polluted).toBeUndefined();
   });
+
+  it("DPDP Privacy Firewall: scrubCitizenPII masks Aadhaar, PAN, Bank Accounts, Phone Numbers, and UPI IDs without corrupting income or scheme codes", async () => {
+    const { scrubCitizenPII } = await import("@/lib/security");
+
+    const dirtyInput =
+      "मेरा नाम राम है, आधार 2345 6789 0123 या 9876-5432-1098 (234567890123), PAN ABCDE1234F, " +
+      "खाता संख्या 12345678901234, Bank Account 98765432101, " +
+      "मोबाइल +91 9876543210 या 98765-43211, UPI ramesh.kumar@okicici और 9876543210@ybl, " +
+      "मेरी सालाना आय 150000 है, उम्र 62 साल, योजना DL-015 और HR-119 (2026) देखनी है।";
+
+    const scrubbed = scrubCitizenPII(dirtyInput);
+
+    // Sensitive PII MUST be masked
+    expect(scrubbed).not.toContain("2345 6789 0123");
+    expect(scrubbed).not.toContain("9876-5432-1098");
+    expect(scrubbed).not.toContain("234567890123");
+    expect(scrubbed).not.toContain("ABCDE1234F");
+    expect(scrubbed).not.toContain("12345678901234");
+    expect(scrubbed).not.toContain("98765432101");
+    expect(scrubbed).not.toContain("9876543210");
+    expect(scrubbed).not.toContain("98765-43211");
+    expect(scrubbed).not.toContain("ramesh.kumar@okicici");
+    expect(scrubbed).not.toContain("@ybl");
+
+    expect(scrubbed).toContain("[REDACTED_AADHAAR]");
+    expect(scrubbed).toContain("[REDACTED_PAN]");
+    expect(scrubbed).toContain("[REDACTED_BANK_ACCOUNT]");
+    expect(scrubbed).toContain("[REDACTED_PHONE]");
+    expect(scrubbed).toContain("[REDACTED_UPI_ID]");
+
+    // Non-sensitive eligibility facts & scheme codes MUST remain intact
+    expect(scrubbed).toContain("150000");
+    expect(scrubbed).toContain("62");
+    expect(scrubbed).toContain("DL-015");
+    expect(scrubbed).toContain("HR-119");
+    expect(scrubbed).toContain("2026");
+  });
 });

@@ -188,16 +188,16 @@ export const HELP_CONTENT = {
       },
     },
     byok: {
-      title: "निःशुल्क Gemini API Key गाइड (वैकल्पिक)",
-      badge: "हमेशा मुफ़्त",
-      subtitle: "लोकसाथी की सीधी योजना खोज 100% मुफ़्त है। यदि कभी भारी लोड हो, तो आप अपनी निजी निःशुल्क Key जोड़ सकते हैं।",
+      title: "उन्नत / डेवलपर सेटअप (वैकल्पिक निजी AI कुंजी)",
+      badge: "वैकल्पिक",
+      subtitle: "लोकसाथी की योजना खोज व आवाज़ सहायता बिना किसी कुंजी के 100% मुफ़्त है। केवल डेवलपर्स या उच्च-उपयोग वाले केंद्र संचालक चाहें तो अपनी निजी कुंजी जोड़ सकते हैं।",
       steps: [
         "aistudio.google.com/app/apikey पर जाएं और अपने Google खाते से लॉगिन करें।",
         "'Create API Key' बटन पर क्लिक करके एक सेकंड में मुफ़्त Key बनाएं।",
         "कुंजी को कॉपी करें (यह हमेशा 'AIzaSy' से शुरू होती है)।",
-        "ऊपर 'API Key जोड़ें' बटन दबाकर इसे सहेज लें। यह केवल आपके ब्राउज़र में सुरक्षित रहेगी।",
+        "नीचे 'अपनी API Key जोड़ें' बटन दबाकर इसे सहेज लें। यह केवल आपके ब्राउज़र में सुरक्षित रहेगी।",
       ],
-      openModalBtn: "🔑 अपनी API Key जोड़ें या बदलें",
+      openModalBtn: "वैकल्पिक निजी कुंजी जोड़ें या बदलें",
     },
     faqs: [
       {
@@ -257,16 +257,16 @@ export const HELP_CONTENT = {
       },
     },
     byok: {
-      title: "Optional Free Gemini API Key (BYOK)",
-      badge: "100% Free",
-      subtitle: "Direct Scheme search is always 100% free with no key required. You can optionally add your own free key for unlimited AI scans during high-traffic hours.",
+      title: "Advanced / Power-User Setup (Optional Private Key)",
+      badge: "Optional",
+      subtitle: "LokSaathi's scheme guide, eligibility checker, and voice intake work 100% free with zero API key needed. Only developers or CSC operators may optionally attach a private key.",
       steps: [
         "Visit aistudio.google.com/app/apikey and sign in with your Google account.",
         "Click 'Create API Key' to generate a free key instantly.",
         "Copy the key (it always begins with 'AIzaSy').",
-        "Tap the 'Add API Key' button above and save it. It remains stored exclusively on your device.",
+        "Tap the button below to save it. It remains stored exclusively on your device.",
       ],
-      openModalBtn: "🔑 Add or Update Your Private API Key",
+      openModalBtn: "Add or Update Optional Private Key",
     },
     faqs: [
       {

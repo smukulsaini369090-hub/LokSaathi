@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { getGeminiClient, getModelName } from "@/lib/gemini";
+import { getConfiguredZeroCardStatus } from "@/lib/ai-providers";
 
 export async function GET() {
   const hasKey = !!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== "dummy-key-for-test";
+  const zeroCard = getConfiguredZeroCardStatus();
   const modelName = getModelName();
 
   let geminiStatus = "untested";
@@ -31,8 +33,16 @@ export async function GET() {
     geminiStatus = "missing_api_key";
   }
 
+  const anyReady = zeroCard.cloudflare || zeroCard.groq || (hasKey && geminiStatus === "connected");
+
   return NextResponse.json({
-    status: hasKey && geminiStatus === "connected" ? "healthy" : "degraded",
+    status: anyReady ? "healthy" : "degraded",
+    providers: {
+      cloudflare: zeroCard.cloudflare,
+      groq: zeroCard.groq,
+      gemini: hasKey,
+      deterministic_fallback: true,
+    },
     gemini: {
       has_key: hasKey,
       status: geminiStatus,

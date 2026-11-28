@@ -406,49 +406,7 @@ export default function HelpCenterPage() {
         </div>
       </div>
 
-      {/* Panel 3: Optional Free BYOK API Key Guide */}
-      <div className="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-5 sm:p-6 shadow-sm space-y-3 border border-slate-800">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <KeyRound className="w-4 h-4 text-emerald-400" />
-            <h3 className="font-extrabold text-sm sm:text-base">{t.byok.title}</h3>
-          </div>
-          <span className="text-[10px] font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-400/30 px-2.5 py-0.5 rounded-full">
-            {t.byok.badge}
-          </span>
-        </div>
-
-        <p className="text-xs text-slate-300 leading-relaxed">{t.byok.subtitle}</p>
-
-        <ol className="list-decimal list-inside space-y-1.5 text-xs text-slate-200 bg-white/5 p-3.5 rounded-2xl border border-white/10">
-          {t.byok.steps.map((st, idx) => (
-            <li key={idx} className="leading-relaxed">
-              <span>{st}</span>
-            </li>
-          ))}
-        </ol>
-
-        <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setIsKeyModalOpen(true)}
-            className="py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition-all shadow-sm text-center min-h-[44px]"
-          >
-            {t.byok.openModalBtn}
-          </button>
-          <a
-            href="https://aistudio.google.com/app/apikey"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="py-2.5 px-4 rounded-xl text-xs font-bold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 transition-all text-center flex items-center justify-center gap-1 min-h-[44px]"
-          >
-            <span>aistudio.google.com</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        </div>
-      </div>
-
-      {/* Panel 4: Troubleshooting FAQ Accordion */}
+      {/* Panel 3: Troubleshooting FAQ Accordion */}
       <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
         <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
           {language === "hi" ? "अक्सर पूछे जाने वाले सवाल (FAQs)" : "Frequently Asked Questions"}
@@ -485,6 +443,50 @@ export default function HelpCenterPage() {
           })}
         </div>
       </div>
+
+      {/* Panel 4: Advanced Power-User Option (Collapsed by default so elderly citizens see zero key friction) */}
+      <details className="bg-slate-900 text-white rounded-3xl border border-slate-800 shadow-sm group">
+        <summary className="p-5 sm:p-6 cursor-pointer list-none flex items-center justify-between gap-3 min-h-[48px]">
+          <div className="flex items-center gap-2">
+            <KeyRound className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span className="font-bold text-xs sm:text-sm">{t.byok.title}</span>
+          </div>
+          <span className="text-[10px] font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-400/30 px-2.5 py-0.5 rounded-full shrink-0">
+            {t.byok.badge}
+          </span>
+        </summary>
+
+        <div className="px-5 sm:px-6 pb-6 pt-1 space-y-3 border-t border-slate-800">
+          <p className="text-xs text-slate-300 leading-relaxed">{t.byok.subtitle}</p>
+
+          <ol className="list-decimal list-inside space-y-1.5 text-xs text-slate-200 bg-white/5 p-3.5 rounded-2xl border border-white/10">
+            {t.byok.steps.map((st, idx) => (
+              <li key={idx} className="leading-relaxed">
+                <span>{st}</span>
+              </li>
+            ))}
+          </ol>
+
+          <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setIsKeyModalOpen(true)}
+              className="py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition-all shadow-sm text-center min-h-[44px]"
+            >
+              {t.byok.openModalBtn}
+            </button>
+            <a
+              href="https://aistudio.google.com/app/apikey"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2.5 px-4 rounded-xl text-xs font-bold text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 transition-all text-center flex items-center justify-center gap-1 min-h-[44px]"
+            >
+              <span>aistudio.google.com</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+      </details>
 
       {/* Floating API Key Modal */}
       <ApiKeyModal isOpen={isKeyModalOpen} onClose={() => setIsKeyModalOpen(false)} />
