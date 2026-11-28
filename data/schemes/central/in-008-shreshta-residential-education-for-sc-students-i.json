@@ -1,0 +1,78 @@
+{
+  "id": "in-008-shreshta-residential-education-for-sc-students-i",
+  "scheme_code": "IN-008",
+  "jurisdiction": "central",
+  "category": "Education",
+  "scale": "Minor",
+  "department": "Ministry of Social Justice & Empowerment",
+  "name": {
+    "hi": "श्रेष्ठा (SHRESHTA) अनुसूचित जाति आवासीय उच्च विद्यालय शिक्षा योजना",
+    "en": "SHRESHTA (Residential Education for SC Students in High Schools)"
+  },
+  "bilingual_title": {
+    "en": "SHRESHTA (Residential Education for SC Students in High Schools)",
+    "hi": "श्रेष्ठा (SHRESHTA) अनुसूचित जाति आवासीय उच्च विद्यालय शिक्षा योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://shreshta.dosje.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "₹2.50 लाख तक आय वाले मेधावी अनुसूचित जाति विद्यार्थियों को देश के श्रेष्ठ आवासीय स्कूलों में कक्षा 9–12 की 100% मुफ्त शिक्षा।",
+    "summary_en": "100% fee & hostel funding (Classes 9–12) in India's top CBSE/State residential private schools via NTA NETS exam for SC students (income <=₹2.50L)."
+  },
+  "benefit_summary": {
+    "en": "100% fee & hostel funding (Classes 9–12) in India's top CBSE/State residential private schools via NTA NETS exam for SC students (income <=₹2.50L).",
+    "hi": "₹2.50 लाख तक आय वाले मेधावी अनुसूचित जाति विद्यार्थियों को देश के श्रेष्ठ आवासीय स्कूलों में कक्षा 9–12 की 100% मुफ्त शिक्षा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (shreshta.dosje.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://shreshta.dosje.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

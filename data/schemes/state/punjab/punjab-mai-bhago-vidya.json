@@ -1,0 +1,97 @@
+{
+  "id": "punjab-mai-bhago-vidya",
+  "scheme_code": "PB-006",
+  "jurisdiction": "punjab",
+  "category": "Education",
+  "scale": "Minor",
+  "department": "School Education Dept, Punjab",
+  "name": {
+    "hi": "माई भागो विद्या योजना (निःशुल्क साइकिल वितरण)",
+    "en": "Mai Bhago Vidya Scheme (Free Bicycle Distribution)"
+  },
+  "bilingual_title": {
+    "en": "Mai Bhago Vidya Scheme (Free Bicycle Distribution)",
+    "hi": "माई भागो विद्या योजना (निःशुल्क साइकिल वितरण)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://ssapunjab.org",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 13
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 19
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के सरकारी स्कूलों में कक्षा 9वीं से 12वीं में पढ़ने वाली छात्राओं को स्कूल आने-जाने हेतु निःशुल्क साइकिल",
+    "summary_en": "Free bicycles provided to girl students in Class 9th to 12th in Punjab government schools to encourage education",
+    "frequency": "one_time",
+    "mode": "In-kind (Free Bicycle Distribution)"
+  },
+  "benefit_summary": {
+    "en": "Free bicycles provided to girl students in Class 9th to 12th in Punjab government schools to encourage education",
+    "hi": "पंजाब के सरकारी स्कूलों में कक्षा 9वीं से 12वीं में पढ़ने वाली छात्राओं को स्कूल आने-जाने हेतु निःशुल्क साइकिल"
+  },
+  "documents_required": [
+    "छात्रा का आधार कार्ड",
+    "सरकारी स्कूल पहचान पत्र (Student ID)",
+    "कक्षा 9वीं से 12वीं में प्रवेश का प्रमाण पत्र",
+    "पंजाब स्थायी निवास प्रमाण"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (ssapunjab.org)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://ssapunjab.org",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

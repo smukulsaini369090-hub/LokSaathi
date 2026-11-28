@@ -1,0 +1,76 @@
+{
+  "id": "dl-027-one-stop-centre-sakhi-and-working-women-hostel-s",
+  "scheme_code": "DL-027",
+  "jurisdiction": "delhi",
+  "category": "Women & Girl Child",
+  "scale": "Minor",
+  "department": "Department of Women & Child Development (WCD), GNCTD",
+  "name": {
+    "hi": "वन स्टॉप सेंटर (सखी) एवं कामकाजी महिला छात्रावास योजना",
+    "en": "One Stop Centre (Sakhi) & Working Women Hostel Support (WCD Delhi)"
+  },
+  "bilingual_title": {
+    "en": "One Stop Centre (Sakhi) & Working Women Hostel Support (WCD Delhi)",
+    "hi": "वन स्टॉप सेंटर (सखी) एवं कामकाजी महिला छात्रावास योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://wcd.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Women in distress within Delhi (Sakhi emergency); working women meeting hostel rules in Delhi [VERIFY LATEST NOTIFICATION].",
+    "age_range": "Women & accompanying children",
+    "income_cap": "₹0 Sakhi emergency; hostel income/tariff per rules",
+    "category_rules": "All women in need of emergency protection or working accommodation.",
+    "academic_or_work_rules": "Employment proof required for Working Women Hostel.",
+    "exclusions": "Men (Sakhi is exclusively for women/children in distress)."
+  },
+  "benefit": {
+    "summary_hi": "हिंसा पीड़ित महिलाओं को सखी सेंटर में निःशुल्क आपात चिकित्सा, पुलिस व कानूनी सहायता तथा कामकाजी महिलाओं हेतु सुरक्षित हॉस्टल।",
+    "summary_en": "Emergency medical, legal, police & counselling shelter at Sakhi centres; subsidised safe accommodation at Working Women Hostels [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Emergency medical, legal, police & counselling shelter at Sakhi centres; subsidised safe accommodation at Working Women Hostels [VERIFY LATEST NOTIFICATION].",
+    "hi": "हिंसा पीड़ित महिलाओं को सखी सेंटर में निःशुल्क आपात चिकित्सा, पुलिस व कानूनी सहायता तथा कामकाजी महिलाओं हेतु सुरक्षित हॉस्टल।"
+  },
+  "documents_required": [
+    "ID Proof (relaxed in Sakhi emergency)",
+    "Employment & Income Proof (for Working Hostel)"
+  ],
+  "application_steps": {
+    "online": "Details on wcd.delhi.gov.in.",
+    "offline": "Visit District Sakhi One Stop Centre or call Women Helpline 181.",
+    "facilitation_center": "Sakhi One Stop Centre / Helpline 181 / CFC"
+  },
+  "apply_url": "https://wcd.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 for Sakhi emergency support; notified hostel tariff",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "181",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

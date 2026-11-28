@@ -1,0 +1,86 @@
+{
+  "id": "dl-065-delhi-inter-caste-marriage-incentive-scheme-sc-a",
+  "scheme_code": "DL-065",
+  "jurisdiction": "delhi",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "दिल्ली अंतरजातीय विवाह प्रोत्साहन योजना (₹50,000)",
+    "en": "Delhi Inter-Caste Marriage Incentive Scheme (SC & Non-SC — ₹50,000)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Inter-Caste Marriage Incentive Scheme (SC & Non-SC — ₹50,000)",
+    "hi": "दिल्ली अंतरजातीय विवाह प्रोत्साहन योजना (₹50,000)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residents; Haryana/UP NCR excluded.",
+    "age_range": "Bride 18+, Groom 21+",
+    "income_cap": "Family income within notified cap [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "One spouse SC, one Non-SC.",
+    "academic_or_work_rules": "Apply within notified post-marriage window.",
+    "exclusions": "Same-caste marriages or unregistered marriages."
+  },
+  "benefit": {
+    "summary_hi": "एक जीवनसाथी अनुसूचित जाति (SC) व दूसरा गैर-SC होने पर पंजीकृत अंतरजातीय विवाह पर ₹50,000 प्रोत्साहन राशि।",
+    "summary_en": "₹50,000 financial incentive [VERIFY LATEST NOTIFICATION] for registered marriage where one spouse is SC and the other is Non-SC."
+  },
+  "benefit_summary": {
+    "en": "₹50,000 financial incentive [VERIFY LATEST NOTIFICATION] for registered marriage where one spouse is SC and the other is Non-SC.",
+    "hi": "एक जीवनसाथी अनुसूचित जाति (SC) व दूसरा गैर-SC होने पर पंजीकृत अंतरजातीय विवाह पर ₹50,000 प्रोत्साहन राशि।"
+  },
+  "documents_required": [
+    "Marriage Registration Certificate",
+    "SC Caste Certificate of SC Spouse",
+    "Both Spouses' Aadhaar & Delhi Domicile",
+    "Income Certificate",
+    "Joint Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "CFC / SC-ST-OBC Welfare Dept.",
+    "facilitation_center": "CFC / Welfare Dept Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "id": "dl-045-delhi-skill-and-entrepreneurship-university-dseu",
+  "scheme_code": "DL-045",
+  "jurisdiction": "delhi",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "DTTE / Delhi Skill & Entrepreneurship University (DSEU)",
+  "name": {
+    "hi": "दिल्ली कौशल एवं उद्यमिता विश्वविद्यालय / विश्व स्तरीय कौशल केंद्र योजना",
+    "en": "Delhi Skill and Entrepreneurship University (DSEU) & World Class Skill Centres (WCSC)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Skill and Entrepreneurship University (DSEU) & World Class Skill Centres (WCSC)",
+    "hi": "दिल्ली कौशल एवं उद्यमिता विश्वविद्यालय / विश्व स्तरीय कौशल केंद्र योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://tte.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student",
+          "unemployed"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi region schooling/domicile quota rules apply to 85% state-reserved seats; open national seats per DSEU brochure [VERIFY LATEST NOTIFICATION].",
+    "age_range": "Youth & students (typically 15–35 years)",
+    "income_cap": "Fee waivers based on EWS/family income slabs",
+    "category_rules": "Open to youth; Delhi domicile & category reservations apply.",
+    "academic_or_work_rules": "Class 10/12 qualification by programme.",
+    "exclusions": "Not meeting qualifying exam marks."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली कौशल विश्वविद्यालय और विश्व स्तरीय कौशल केंद्रों में रोजगारपरक प्रशिक्षण, डिप्लोमा व पात्र छात्रों हेतु शुल्क छूट।",
+    "summary_en": "Industry-linked degree, diploma & short-term skill training in Delhi with merit/category fee concessions & scholarships [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Industry-linked degree, diploma & short-term skill training in Delhi with merit/category fee concessions & scholarships [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली कौशल विश्वविद्यालय और विश्व स्तरीय कौशल केंद्रों में रोजगारपरक प्रशिक्षण, डिप्लोमा व पात्र छात्रों हेतु शुल्क छूट।"
+  },
+  "documents_required": [
+    "Class 10/12 Marksheets",
+    "Aadhaar",
+    "Delhi Domicile/Schooling/Income Proof (for quota/waiver)",
+    "Photo"
+  ],
+  "application_steps": {
+    "online": "Apply at dseu.ac.in / tte.delhi.gov.in.",
+    "offline": "DSEU Campus Helpdesk / CFC.",
+    "facilitation_center": "DSEU / WCSC Campus Helpdesk / CFC"
+  },
+  "apply_url": "https://dseu.ac.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "Official admission fee or ₹0 where waived",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

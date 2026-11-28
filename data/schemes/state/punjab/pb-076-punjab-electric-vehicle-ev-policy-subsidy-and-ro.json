@@ -1,0 +1,73 @@
+{
+  "id": "pb-076-punjab-electric-vehicle-ev-policy-subsidy-and-ro",
+  "scheme_code": "PB-076",
+  "jurisdiction": "punjab",
+  "category": "Utility Subsidies & Food",
+  "scale": "Minor",
+  "department": "Transport Dept, Punjab",
+  "name": {
+    "hi": "पंजाब इलेक्ट्रिक वाहन (EV) सब्सिडी व रोड टैक्स छूट",
+    "en": "Punjab Electric Vehicle (EV) Policy Subsidy & Road Tax Waiver [VERIFY LATEST NOTIFICATION]"
+  },
+  "bilingual_title": {
+    "en": "Punjab Electric Vehicle (EV) Policy Subsidy & Road Tax Waiver [VERIFY LATEST NOTIFICATION]",
+    "hi": "पंजाब इलेक्ट्रिक वाहन (EV) सब्सिडी व रोड टैक्स छूट"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://transport.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Utility Subsidies & Food",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब में ई-वाहन खरीद पर रजिस्ट्रेशन व रोड टैक्स छूट व प्रोत्साहन (नवीनतम अधिसूचना पोर्टल पर सत्यापित करें)।",
+    "summary_en": "Registration fee & motor vehicle tax exemption plus EV purchase incentives subject to latest active notification on transport.punjab.gov.in."
+  },
+  "benefit_summary": {
+    "en": "Registration fee & motor vehicle tax exemption plus EV purchase incentives subject to latest active notification on transport.punjab.gov.in.",
+    "hi": "पंजाब में ई-वाहन खरीद पर रजिस्ट्रेशन व रोड टैक्स छूट व प्रोत्साहन (नवीनतम अधिसूचना पोर्टल पर सत्यापित करें)।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "बिजली बिल / मकान का पता प्रमाण",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (transport.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://transport.punjab.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

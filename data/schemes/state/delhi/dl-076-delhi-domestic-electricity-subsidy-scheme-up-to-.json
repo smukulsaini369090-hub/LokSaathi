@@ -1,0 +1,72 @@
+{
+  "id": "dl-076-delhi-domestic-electricity-subsidy-scheme-up-to-",
+  "scheme_code": "DL-076",
+  "jurisdiction": "delhi",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Power Department / DERC & TPDDL/BRPL/BYPL, GNCTD",
+  "name": {
+    "hi": "दिल्ली घरेलू बिजली सब्सिडी योजना",
+    "en": "Delhi Domestic Electricity Subsidy Scheme (Up to 200 Units Free; 201–400 50% Slab)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Domestic Electricity Subsidy Scheme (Up to 200 Units Free; 201–400 50% Slab)",
+    "hi": "दिल्ली घरेलू बिजली सब्सिडी योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://power.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Domestic metered connection inside NCT of Delhi; Gurugram/Noida excluded.",
+    "age_range": "Registered domestic meter consumers",
+    "income_cap": "Tariff/unit-consumption based",
+    "category_rules": "Opted-in domestic electricity consumers.",
+    "academic_or_work_rules": "Sanctioned domestic meter & opt-in.",
+    "exclusions": "Commercial connections & consumption above notified subsidy ceiling."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली घरेलू बिजली उपभोक्ताओं (विकल्प चुनने पर) को 200 यूनिट तक 100% व 201–400 यूनिट पर 50% सब्सिडी ([नोटिस सत्यापित करें])।",
+    "summary_en": "Domestic electricity tariff subsidy (historically up to 200 units/mo free; 201–400 units 50% slab, subject to opt-in & tariff rules [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Domestic electricity tariff subsidy (historically up to 200 units/mo free; 201–400 units 50% slab, subject to opt-in & tariff rules [VERIFY LATEST NOTIFICATION]).",
+    "hi": "दिल्ली घरेलू बिजली उपभोक्ताओं (विकल्प चुनने पर) को 200 यूनिट तक 100% व 201–400 यूनिट पर 50% सब्सिडी ([नोटिस सत्यापित करें])।"
+  },
+  "documents_required": [
+    "Electricity CA Number / Latest Bill",
+    "Consumer Aadhaar & Delhi Address",
+    "Registered Mobile"
+  ],
+  "application_steps": {
+    "online": "Opt-in via Discom portal (TPDDL/BRPL/BYPL) or power.delhi.gov.in.",
+    "offline": "Discom Consumer Centre / CFC.",
+    "facilitation_center": "Discom Consumer Care / CFC"
+  },
+  "apply_url": "https://power.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

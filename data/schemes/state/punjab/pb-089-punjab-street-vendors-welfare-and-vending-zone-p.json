@@ -1,0 +1,79 @@
+{
+  "id": "pb-089-punjab-street-vendors-welfare-and-vending-zone-p",
+  "scheme_code": "PB-089",
+  "jurisdiction": "punjab",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Local Government Dept, Punjab",
+  "name": {
+    "hi": "पंजाब रेहड़ी-फड़ी विक्रेता कल्याण एवं वेंडिंग जोन संरक्षण योजना",
+    "en": "Punjab Street Vendors Welfare & Vending Zone Protection"
+  },
+  "bilingual_title": {
+    "en": "Punjab Street Vendors Welfare & Vending Zone Protection",
+    "hi": "पंजाब रेहड़ी-फड़ी विक्रेता कल्याण एवं वेंडिंग जोन संरक्षण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://lgpunjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "शहरी रेहड़ी-पटरी विक्रेताओं को नगर निगम वेंडिंग पहचान पत्र, सुरक्षित व्यापार जोन व स्वनिधि ऋण सुविधा।",
+    "summary_en": "Municipal Vending ID Card, Town Vending Committee protection & PM SVANidhi micro-credit support across Punjab municipal corporations."
+  },
+  "benefit_summary": {
+    "en": "Municipal Vending ID Card, Town Vending Committee protection & PM SVANidhi micro-credit support across Punjab municipal corporations.",
+    "hi": "शहरी रेहड़ी-पटरी विक्रेताओं को नगर निगम वेंडिंग पहचान पत्र, सुरक्षित व्यापार जोन व स्वनिधि ऋण सुविधा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (lgpunjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://lgpunjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

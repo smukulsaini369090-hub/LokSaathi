@@ -1,0 +1,92 @@
+{
+  "id": "dl-050-dbocwwb-maternity-benefit-scheme-rule-271-30-000",
+  "scheme_code": "DL-050",
+  "jurisdiction": "delhi",
+  "category": "Labour & BOCW",
+  "scale": "Minor",
+  "department": "Delhi Building & Other Construction Workers Welfare Board (DBOCWWB)",
+  "name": {
+    "hi": "निर्माण श्रमिक मातृत्व लाभ योजना (₹30,000)",
+    "en": "DBOCWWB Maternity Benefit Scheme (Rule 271 — ₹30,000)"
+  },
+  "bilingual_title": {
+    "en": "DBOCWWB Maternity Benefit Scheme (Rule 271 — ₹30,000)",
+    "hi": "निर्माण श्रमिक मातृत्व लाभ योजना (₹30,000)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://bocw.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 60
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "construction_worker",
+          "laborer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Registered with DBOCWWB in Delhi (NCT); Haryana (HBOCWWB) / UP (UPBOCWWB) excluded.",
+    "age_range": "18–60 years (active registered worker)",
+    "income_cap": "Active DBOCWWB construction worker membership",
+    "category_rules": "Registered female worker or spouse of registered male worker.",
+    "academic_or_work_rules": "Active/renewed DBOCWWB card under Rule 271.",
+    "exclusions": "Lapsed memberships or beyond 2 live deliveries."
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत महिला निर्माण श्रमिक या पंजीकृत पुरुष श्रमिक की पत्नी को प्रसव पर ₹30,000 (2 प्रसव तक) मातृत्व सहायता।",
+    "summary_en": "₹30,000 childbirth/maternity aid (up to 2 deliveries [VERIFY LATEST NOTIFICATION]) for registered female construction worker or spouse of registered male worker."
+  },
+  "benefit_summary": {
+    "en": "₹30,000 childbirth/maternity aid (up to 2 deliveries [VERIFY LATEST NOTIFICATION]) for registered female construction worker or spouse of registered male worker.",
+    "hi": "पंजीकृत महिला निर्माण श्रमिक या पंजीकृत पुरुष श्रमिक की पत्नी को प्रसव पर ₹30,000 (2 प्रसव तक) मातृत्व सहायता।"
+  },
+  "documents_required": [
+    "DBOCWWB Registration Card",
+    "Child Birth Certificate & Hospital Discharge",
+    "Aadhaar",
+    "Delhi Residence Proof",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in / labour.delhi.gov.in.",
+    "offline": "DBOCWWB District Office / CFC.",
+    "facilitation_center": "CFC / DBOCWWB Labour Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

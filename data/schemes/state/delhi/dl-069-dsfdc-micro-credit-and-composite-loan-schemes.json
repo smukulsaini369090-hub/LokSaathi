@@ -1,0 +1,87 @@
+{
+  "id": "dl-069-dsfdc-micro-credit-and-composite-loan-schemes",
+  "scheme_code": "DL-069",
+  "jurisdiction": "delhi",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Major",
+  "department": "Delhi SC/ST/OBC/Minorities & Handicapped Financial & Dev Corp (DSFDC)",
+  "name": {
+    "hi": "डीएसएफडीसी (DSFDC) रियायती सूक्ष्म एवं समग्र ऋण योजनाएं",
+    "en": "DSFDC Micro-Credit & Composite Loan Schemes"
+  },
+  "bilingual_title": {
+    "en": "DSFDC Micro-Credit & Composite Loan Schemes",
+    "hi": "डीएसएफडीसी (DSFDC) रियायती सूक्ष्म एवं समग्र ऋण योजनाएं"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dsfdc.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Resident of Delhi (NCT); Haryana/UP NCR excluded.",
+    "age_range": "18 years and above",
+    "income_cap": "Notified target group annual income cap [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "SC/ST/OBC/Minority/Divyangjan.",
+    "academic_or_work_rules": "Project feasibility / business quotation.",
+    "exclusions": "Defaulters & non-Delhi residents."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के SC/ST/OBC, अल्पसंख्यक और दिव्यांग नागरिकों को स्वरोजगार व व्यापार हेतु कम ब्याज पर ऋण सुविधा।",
+    "summary_en": "Concessional term loans, composite loans & micro-credit for business, transport & self-employment in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Concessional term loans, composite loans & micro-credit for business, transport & self-employment in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के SC/ST/OBC, अल्पसंख्यक और दिव्यांग नागरिकों को स्वरोजगार व व्यापार हेतु कम ब्याज पर ऋण सुविधा।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Domicile",
+    "Caste/Minority Certificate & Income Certificate",
+    "Project Report/Quotation",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply via dsfdc.delhigovt.nic.in / edistrict.delhigovt.nic.in.",
+    "offline": "DSFDC Office / CFC.",
+    "facilitation_center": "DSFDC District Office / CFC"
+  },
+  "apply_url": "https://dsfdc.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 application fee",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

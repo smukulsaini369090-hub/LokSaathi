@@ -1,16 +1,37 @@
 {
   "id": "mudra-loan",
+  "scheme_code": "IN-060",
+  "jurisdiction": "central",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "Dept of Financial Services (JanSamarth)",
   "name": {
     "hi": "प्रधानमंत्री मुद्रा योजना (PMMY)",
     "en": "Pradhan Mantri MUDRA Yojana (PMMY)"
+  },
+  "bilingual_title": {
+    "en": "Pradhan Mantri MUDRA Yojana (PMMY)",
+    "hi": "प्रधानमंत्री मुद्रा योजना (PMMY)"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://www.mudra.org.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "age", "operator": "gte", "value": 18 }
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "बिना किसी गारंटी (कोलेटरल-फ्री) के ₹50,000 से लेकर ₹20 लाख तक का व्यवसाय ऋण (शिशु, किशोर, तरुण श्रेणियां)",
@@ -19,13 +40,32 @@
     "frequency": "one_time",
     "mode": "Bank Term Loan / Working Capital"
   },
+  "benefit_summary": {
+    "en": "Collateral-free business loans up to ₹20 Lakh under Shishu, Kishore, and Tarun categories",
+    "hi": "बिना किसी गारंटी (कोलेटरल-फ्री) के ₹50,000 से लेकर ₹20 लाख तक का व्यवसाय ऋण (शिशु, किशोर, तरुण श्रेणियां)"
+  },
   "documents_required": [
     "आधार कार्ड",
     "पैन कार्ड",
     "व्यवसाय का प्रमाण / कोटेशन",
     "पिछले 6 महीने का बैंक स्टेटमेंट"
   ],
-  "apply_url": "https://www.udyamimitra.in",
+  "application_steps": {
+    "online": "Apply via official portal (www.jansamarth.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://www.jansamarth.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

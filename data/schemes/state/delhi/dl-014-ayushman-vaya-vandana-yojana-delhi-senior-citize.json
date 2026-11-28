@@ -1,0 +1,77 @@
+{
+  "id": "dl-014-ayushman-vaya-vandana-yojana-delhi-senior-citize",
+  "scheme_code": "DL-014",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Major",
+  "department": "Health & Family Welfare Dept, GNCTD with NHA",
+  "name": {
+    "hi": "आयुष्मान वय वंदना योजना (दिल्ली वरिष्ठ नागरिक स्वास्थ्य बीमा)",
+    "en": "Ayushman Vaya Vandana Yojana — Delhi (Senior Citizens 70+ ₹10 Lakh Cover)"
+  },
+  "bilingual_title": {
+    "en": "Ayushman Vaya Vandana Yojana — Delhi (Senior Citizens 70+ ₹10 Lakh Cover)",
+    "hi": "आयुष्मान वय वंदना योजना (दिल्ली वरिष्ठ नागरिक स्वास्थ्य बीमा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://health.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 70
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Age 70+; Delhi (NCT) residency required for ₹5L Delhi top-up; Haryana/UP follow respective state/central rules.",
+    "age_range": "70 years and above",
+    "income_cap": "No income limit under 70+ framework [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "All senior citizens aged 70+ regardless of income.",
+    "academic_or_work_rules": "Aadhaar e-KYC required.",
+    "exclusions": "Citizens below age 70."
+  },
+  "benefit": {
+    "summary_hi": "70 वर्ष या अधिक आयु के दिल्ली वरिष्ठ नागरिकों को ₹10 लाख तक का कैशलेस अस्पताल उपचार कवर।",
+    "summary_en": "Up to ₹10,00,000 cashless cover (₹5L central + ₹5L Delhi top-up [VERIFY LATEST NOTIFICATION]) for senior citizens aged 70+."
+  },
+  "benefit_summary": {
+    "en": "Up to ₹10,00,000 cashless cover (₹5L central + ₹5L Delhi top-up [VERIFY LATEST NOTIFICATION]) for senior citizens aged 70+.",
+    "hi": "70 वर्ष या अधिक आयु के दिल्ली वरिष्ठ नागरिकों को ₹10 लाख तक का कैशलेस अस्पताल उपचार कवर।"
+  },
+  "documents_required": [
+    "Aadhaar Card (Age 70+)",
+    "Active Mobile Number",
+    "Delhi Address Proof"
+  ],
+  "application_steps": {
+    "online": "Register via beneficiary.nha.gov.in / Ayushman App.",
+    "offline": "Hospital Ayushman kiosk or CFC.",
+    "facilitation_center": "Empanelled Hospital Kiosk / CFC"
+  },
+  "apply_url": "https://beneficiary.nha.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

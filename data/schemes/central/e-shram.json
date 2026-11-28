@@ -1,25 +1,66 @@
 {
   "id": "e-shram",
+  "scheme_code": "IN-069",
+  "jurisdiction": "central",
+  "category": "Labour & BOCW",
+  "scale": "Major",
+  "department": "Ministry of Labour & Employment",
   "name": {
     "hi": "ई-श्रम - असंगठित कामगार राष्ट्रीय डेटाबेस",
     "en": "e-Shram - National Database of Unorganised Workers"
+  },
+  "bilingual_title": {
+    "en": "e-Shram - National Database of Unorganised Workers",
+    "hi": "ई-श्रम - असंगठित कामगार राष्ट्रीय डेटाबेस"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://eshram.gov.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "age", "operator": "gte", "value": 16 },
-      { "field": "age", "operator": "lte", "value": 59 },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 16
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 59
+      },
       {
         "field": "occupation",
         "operator": "includes",
-        "value": ["worker", "laborer", "construction_worker", "street_vendor", "vendor", "farmer", "artisan"]
+        "value": [
+          "worker",
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "vendor",
+          "farmer",
+          "artisan"
+        ]
       }
     ],
     "must_match_none": [
-      { "field": "is_epfo_esic_member", "operator": "eq", "value": true },
-      { "field": "is_income_tax_payer", "operator": "eq", "value": true }
+      {
+        "field": "is_epfo_esic_member",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "is_income_tax_payer",
+        "operator": "eq",
+        "value": true
+      }
     ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Labour & BOCW",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN), ₹2 लाख का दुर्घटना बीमा कवर और सभी केंद्रीय/राज्य कल्याणकारी योजनाओं का सीधा लाभ",
@@ -28,12 +69,31 @@
     "frequency": "ongoing",
     "mode": "UAN Card & Social Security Access"
   },
+  "benefit_summary": {
+    "en": "Universal Account Number (UAN), ₹2 Lakh accidental insurance cover and direct social security benefits",
+    "hi": "12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN), ₹2 लाख का दुर्घटना बीमा कवर और सभी केंद्रीय/राज्य कल्याणकारी योजनाओं का सीधा लाभ"
+  },
   "documents_required": [
     "आधार कार्ड",
     "आधार से लिंक मोबाइल नंबर",
     "बचत बैंक खाता विवरण"
   ],
+  "application_steps": {
+    "online": "Apply via official portal (eshram.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
   "apply_url": "https://eshram.gov.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14434",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

@@ -1,0 +1,76 @@
+{
+  "id": "pb-038-punjab-livestock-insurance-and-goat-piggery-poul",
+  "scheme_code": "PB-038",
+  "jurisdiction": "punjab",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Animal Husbandry Dept, Punjab",
+  "name": {
+    "hi": "पंजाब पशुधन बीमा एवं बकरी, सूकर व मुर्गी पालन सब्सिडी योजना",
+    "en": "Punjab Livestock Insurance & Goat / Piggery / Poultry Subsidy"
+  },
+  "bilingual_title": {
+    "en": "Punjab Livestock Insurance & Goat / Piggery / Poultry Subsidy",
+    "hi": "पंजाब पशुधन बीमा एवं बकरी, सूकर व मुर्गी पालन सब्सिडी योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://animalhusbandry.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "दुधारू पशुओं का रियायती बीमा तथा बकरी, सूकर व मत्स्य पालन इकाइयों के लिए प्रशिक्षण एवं अनुदान सहायता।",
+    "summary_en": "Subsidised livestock mortality insurance + 50%–60% training-linked entrepreneurship grants for commercial goat, pig & fishery units."
+  },
+  "benefit_summary": {
+    "en": "Subsidised livestock mortality insurance + 50%–60% training-linked entrepreneurship grants for commercial goat, pig & fishery units.",
+    "hi": "दुधारू पशुओं का रियायती बीमा तथा बकरी, सूकर व मत्स्य पालन इकाइयों के लिए प्रशिक्षण एवं अनुदान सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खतौनी/जमाबंदी)",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (animalhusbandry.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://animalhusbandry.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

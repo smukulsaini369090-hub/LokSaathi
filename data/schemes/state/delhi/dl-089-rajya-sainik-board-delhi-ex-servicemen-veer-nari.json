@@ -1,0 +1,78 @@
+{
+  "id": "dl-089-rajya-sainik-board-delhi-ex-servicemen-veer-nari",
+  "scheme_code": "DL-089",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Rajya Sainik Board Delhi with Kendriya Sainik Board",
+  "name": {
+    "hi": "राज्य सैनिक बोर्ड दिल्ली — भूतपूर्व सैनिक एवं वीर नारी कल्याण अनुदान",
+    "en": "Rajya Sainik Board Delhi — Ex-Servicemen, Veer Nari & Dependent Financial Grants"
+  },
+  "bilingual_title": {
+    "en": "Rajya Sainik Board Delhi — Ex-Servicemen, Veer Nari & Dependent Financial Grants",
+    "hi": "राज्य सैनिक बोर्ड दिल्ली — भूतपूर्व सैनिक एवं वीर नारी कल्याण अनुदान"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "is_capf_ward",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Ex-servicemen / Veer Naris domiciled in Delhi (NCT).",
+    "age_range": "ESM / Veer Naris / Dependents",
+    "income_cap": "Penury/income limits vary by grant [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Defence ESM & Veer Nari families.",
+    "academic_or_work_rules": "Valid ESM ID / Discharge Book / PPO.",
+    "exclusions": "Dishonourably discharged personnel."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के भूतपूर्व सैनिकों, वीर नारियों व आश्रितों को पुत्री विवाह, गंभीर चिकित्सा, शिक्षा व निर्धनता अनुदान।",
+    "summary_en": "Financial grants for daughter's marriage, serious medical care, penury relief, education & funeral for eligible ESM/Veer Naris [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Financial grants for daughter's marriage, serious medical care, penury relief, education & funeral for eligible ESM/Veer Naris [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के भूतपूर्व सैनिकों, वीर नारियों व आश्रितों को पुत्री विवाह, गंभीर चिकित्सा, शिक्षा व निर्धनता अनुदान।"
+  },
+  "documents_required": [
+    "Discharge Book / ESM ID / PPO",
+    "Aadhaar & Delhi Domicile",
+    "Marriage/Medical/Death Grant Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply via ksb.gov.in / GNCTD.",
+    "offline": "Rajya Sainik Board Delhi / CFC.",
+    "facilitation_center": "Rajya Sainik Board Delhi / CFC"
+  },
+  "apply_url": "https://ksb.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

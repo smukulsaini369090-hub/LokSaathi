@@ -1,0 +1,76 @@
+{
+  "id": "pb-007-free-textbooks-and-uniforms-for-punjab-govt-scho",
+  "scheme_code": "PB-007",
+  "jurisdiction": "punjab",
+  "category": "Education",
+  "scale": "Major",
+  "department": "School Education Dept, Punjab",
+  "name": {
+    "hi": "पंजाब सरकारी स्कूल छात्रों को निःशुल्क पाठ्यपुस्तकें एवं वर्दी",
+    "en": "Free Textbooks & Uniforms for Punjab Govt School Students"
+  },
+  "bilingual_title": {
+    "en": "Free Textbooks & Uniforms for Punjab Govt School Students",
+    "hi": "पंजाब सरकारी स्कूल छात्रों को निःशुल्क पाठ्यपुस्तकें एवं वर्दी"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://epunjabschool.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के सभी सरकारी स्कूल छात्रों को मुफ्त किताबें तथा कक्षा 1–8 के पात्र छात्रों को निःशुल्क स्कूल वर्दी सहायता।",
+    "summary_en": "100% free textbooks across all govt school students (Classes 1–12) and free school uniform sets/grant for Classes 1–8 eligible students."
+  },
+  "benefit_summary": {
+    "en": "100% free textbooks across all govt school students (Classes 1–12) and free school uniform sets/grant for Classes 1–8 eligible students.",
+    "hi": "पंजाब के सभी सरकारी स्कूल छात्रों को मुफ्त किताबें तथा कक्षा 1–8 के पात्र छात्रों को निःशुल्क स्कूल वर्दी सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (epunjabschool.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://epunjabschool.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

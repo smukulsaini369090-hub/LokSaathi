@@ -1,0 +1,89 @@
+{
+  "id": "dl-023-financial-assistance-for-marriage-of-daughters-o",
+  "scheme_code": "DL-023",
+  "jurisdiction": "delhi",
+  "category": "Women & Girl Child",
+  "scale": "Minor",
+  "department": "Department of Women & Child Development (WCD), GNCTD",
+  "name": {
+    "hi": "निर्धन विधवाओं की पुत्रियों एवं अनाथ बालिकाओं के विवाह हेतु वित्तीय सहायता योजना",
+    "en": "Financial Assistance for Marriage of Daughters of Poor Widows & Orphan Girls"
+  },
+  "bilingual_title": {
+    "en": "Financial Assistance for Marriage of Daughters of Poor Widows & Orphan Girls",
+    "hi": "निर्धन विधवाओं की पुत्रियों एवं अनाथ बालिकाओं के विवाह हेतु वित्तीय सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://wcd.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 150000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident meeting residency period; outside Delhi NCT excluded.",
+    "age_range": "Bride aged 18+ years",
+    "income_cap": "Family income within notified poverty cap [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Daughter of poor widow or orphan girl.",
+    "academic_or_work_rules": "Legal marriageable age & registered/documented marriage.",
+    "exclusions": "Underage marriage (<18) or non-Delhi residence."
+  },
+  "benefit": {
+    "summary_hi": "गरीब विधवाओं की बेटियों व अनाथ बालिकाओं के विवाह हेतु एकमुश्त वित्तीय सहायता (ऐतिहासिक दर ₹30,000 [अधिसूचना जांचें])।",
+    "summary_en": "One-time marriage grant (historically ₹30,000 [VERIFY LATEST NOTIFICATION]) for daughter of poor widow or orphan girl."
+  },
+  "benefit_summary": {
+    "en": "One-time marriage grant (historically ₹30,000 [VERIFY LATEST NOTIFICATION]) for daughter of poor widow or orphan girl.",
+    "hi": "गरीब विधवाओं की बेटियों व अनाथ बालिकाओं के विवाह हेतु एकमुश्त वित्तीय सहायता (ऐतिहासिक दर ₹30,000 [अधिसूचना जांचें])।"
+  },
+  "documents_required": [
+    "Bride's Birth/Age Proof & Aadhaar",
+    "Mother's Widow Certificate / Husband Death Certificate or Orphan Proof",
+    "Delhi Residence Proof",
+    "Income Certificate",
+    "Marriage Invitation/Certificate"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "Submit via District WCD Office or CFC.",
+    "facilitation_center": "CFC / District WCD Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "pb-067-sc-bc-dharmashalas-and-community-infrastructure-",
+  "scheme_code": "PB-067",
+  "jurisdiction": "punjab",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "Social Justice Dept, Punjab",
+  "name": {
+    "hi": "SC एवं BC धर्मशाला निर्माण व सामुदायिक केंद्र अनुदान (पंजाब)",
+    "en": "SC / BC Dharmashalas & Community Infrastructure Grants (Punjab)"
+  },
+  "bilingual_title": {
+    "en": "SC / BC Dharmashalas & Community Infrastructure Grants (Punjab)",
+    "hi": "SC एवं BC धर्मशाला निर्माण व सामुदायिक केंद्र अनुदान (पंजाब)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://punjabsocialjustice.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "SC/ST/OBC/Minority Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "ग्राम व शहरी SC/BC समाज के सामुदायिक आयोजनों हेतु धर्मशालाओं व कम्युनिटी हॉल के निर्माण/मरम्मत हेतु अनुदान।",
+    "summary_en": "Capital grants to Gram Panchayats and committees for construction/renovation of SC & BC community halls/Dharmashalas in Punjab."
+  },
+  "benefit_summary": {
+    "en": "Capital grants to Gram Panchayats and committees for construction/renovation of SC & BC community halls/Dharmashalas in Punjab.",
+    "hi": "ग्राम व शहरी SC/BC समाज के सामुदायिक आयोजनों हेतु धर्मशालाओं व कम्युनिटी हॉल के निर्माण/मरम्मत हेतु अनुदान।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "जाति प्रमाण पत्र (यदि लागू हो)",
+    "आय प्रमाण पत्र",
+    "निवास प्रमाण पत्र"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (punjabsocialjustice.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://punjabsocialjustice.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

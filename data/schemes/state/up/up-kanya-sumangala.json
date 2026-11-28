@@ -1,19 +1,47 @@
 {
   "id": "up-kanya-sumangala",
+  "scheme_code": "UP-022",
+  "jurisdiction": "up",
+  "category": "Women & Girl Child",
+  "scale": "Major",
+  "department": "Women & Child Development Dept, UP",
   "name": {
     "hi": "मुख्यमंत्री कन्या सुमंगला योजना (उत्तर प्रदेश)",
     "en": "Mukhyamantri Kanya Sumangala Yojana (Uttar Pradesh)"
   },
+  "bilingual_title": {
+    "en": "Mukhyamantri Kanya Sumangala Yojana (Uttar Pradesh)",
+    "hi": "मुख्यमंत्री कन्या सुमंगला योजना (उत्तर प्रदेश)"
+  },
   "last_verified": "2026-11-24",
   "source_url": "https://mksy.up.gov.in",
-  "state": "up",
   "eligibility": {
     "must_match_all": [
-      { "field": "gender", "operator": "eq", "value": "female" },
-      { "field": "state", "operator": "eq", "value": "up" },
-      { "field": "annual_income_inr", "operator": "lte", "value": 300000 }
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 300000
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Women & Girl Child",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "बालिका के जन्म से लेकर स्नातक में प्रवेश तक 6 किश्तों में कुल ₹25,000 की वित्तीय सहायता (बढ़ाया गया अनुदान)",
@@ -22,6 +50,10 @@
     "frequency": "milestone",
     "mode": "DBT Installments"
   },
+  "benefit_summary": {
+    "en": "Financial grant of ₹25,000 in 6 stages from birth to graduation for daughters of UP residents",
+    "hi": "बालिका के जन्म से लेकर स्नातक में प्रवेश तक 6 किश्तों में कुल ₹25,000 की वित्तीय सहायता (बढ़ाया गया अनुदान)"
+  },
   "documents_required": [
     "बच्ची और माता-पिता का आधार कार्ड",
     "उत्तर प्रदेश का निवास प्रमाण पत्र",
@@ -29,7 +61,23 @@
     "बैंक खाता पासबुक",
     "स्कूल/कॉलेज प्रवेश रसीद"
   ],
-  "apply_url": "https://mksy.up.gov.in/app/index.php",
+  "application_steps": {
+    "online": "Apply via official portal (mksy.up.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://mksy.up.gov.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

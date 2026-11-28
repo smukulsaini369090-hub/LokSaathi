@@ -1,0 +1,62 @@
+{
+  "id": "in-062-credit-guarantee-fund-trust-for-micro-and-small-",
+  "scheme_code": "IN-062",
+  "jurisdiction": "central",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "Ministry of MSME / SIDBI",
+  "name": {
+    "hi": "सूक्ष्म एवं लघु उद्यम क्रेडिट गारंटी योजना (CGTMSE — बिना गारंटी ₹5 करोड़ ऋण)",
+    "en": "Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE)"
+  },
+  "bilingual_title": {
+    "en": "Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE)",
+    "hi": "सूक्ष्म एवं लघु उद्यम क्रेडिट गारंटी योजना (CGTMSE — बिना गारंटी ₹5 करोड़ ऋण)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://www.cgtmse.in",
+  "eligibility": {
+    "must_match_all": [],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "MSME इकाइयों को बिना किसी गिरवी या गारंटर के ₹5 करोड़ तक बैंक ऋण पर सरकारी क्रेडिट गारंटी कवच।",
+    "summary_en": "Collateral-free institutional credit guarantee (75%–85% cover on loans up to ₹5 Crore, enhanced coverage for MSEs/women/SC-ST) without third-party security."
+  },
+  "benefit_summary": {
+    "en": "Collateral-free institutional credit guarantee (75%–85% cover on loans up to ₹5 Crore, enhanced coverage for MSEs/women/SC-ST) without third-party security.",
+    "hi": "MSME इकाइयों को बिना किसी गिरवी या गारंटर के ₹5 करोड़ तक बैंक ऋण पर सरकारी क्रेडिट गारंटी कवच।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (www.cgtmse.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://www.cgtmse.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

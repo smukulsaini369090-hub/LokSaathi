@@ -1,0 +1,81 @@
+{
+  "id": "dl-044-delhi-rozgar-portal-and-employment-exchange-regi",
+  "scheme_code": "DL-044",
+  "jurisdiction": "delhi",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "Directorate of Employment, GNCTD",
+  "name": {
+    "hi": "दिल्ली रोजगार पोर्टल एवं रोजगार कार्यालय पंजीकरण सेवा",
+    "en": "Delhi Rozgar Portal & Employment Exchange Registration Services"
+  },
+  "bilingual_title": {
+    "en": "Delhi Rozgar Portal & Employment Exchange Registration Services",
+    "hi": "दिल्ली रोजगार पोर्टल एवं रोजगार कार्यालय पंजीकरण सेवा"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://ncs.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "unemployed",
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Meets Delhi (NCT) employment registration rules (Haryana -> hrex.gov.in; UP -> sewayojan.up.nic.in).",
+    "age_range": "Job seekers (14–45+ years)",
+    "income_cap": "No income cap",
+    "category_rules": "All job seekers.",
+    "academic_or_work_rules": "Qualification upload required.",
+    "exclusions": "Residing outside jurisdiction."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के युवाओं हेतु निःशुल्क रोजगार पंजीकरण, जॉब फेयर सूचना व करियर मार्गदर्शन सेवा।",
+    "summary_en": "Free job-seeker registration, employment exchange card, job fair listings & career counselling in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free job-seeker registration, employment exchange card, job fair listings & career counselling in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के युवाओं हेतु निःशुल्क रोजगार पंजीकरण, जॉब फेयर सूचना व करियर मार्गदर्शन सेवा।"
+  },
+  "documents_required": [
+    "Aadhaar Card",
+    "Delhi Residence Proof",
+    "Educational Marksheets",
+    "Photo"
+  ],
+  "application_steps": {
+    "online": "Register at employment.delhi.gov.in / ncs.gov.in.",
+    "offline": "District Employment Exchange or CFC.",
+    "facilitation_center": "Delhi Employment Exchange / CFC"
+  },
+  "apply_url": "https://employment.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "in-016-ayushman-vaya-vandana-card-universal-5-lakh-cove",
+  "scheme_code": "IN-016",
+  "jurisdiction": "central",
+  "category": "Health",
+  "scale": "Major",
+  "department": "National Health Authority (NHA), MoHFW",
+  "name": {
+    "hi": "आयुष्मान वय वंदना कार्ड (70+ सभी वरिष्ठ नागरिकों हेतु ₹5 लाख मुफ्त इलाज)",
+    "en": "Ayushman Vaya Vandana Card (Universal ₹5 Lakh Cover for ALL Seniors 70+)"
+  },
+  "bilingual_title": {
+    "en": "Ayushman Vaya Vandana Card (Universal ₹5 Lakh Cover for ALL Seniors 70+)",
+    "hi": "आयुष्मान वय वंदना कार्ड (70+ सभी वरिष्ठ नागरिकों हेतु ₹5 लाख मुफ्त इलाज)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://beneficiary.nha.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 70
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Health",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "70 वर्ष व अधिक आयु के भारत के प्रत्येक वरिष्ठ नागरिक को आय की परवाह किए बिना ₹5 लाख तक निःशुल्क कैशलेस स्वास्थ्य बीमा कार्ड।",
+    "summary_en": "Universal ₹5,00,000/year free health cover exclusively for ALL Indian senior citizens aged 70+ regardless of family income (separate top-up for existing PM-JAY families)."
+  },
+  "benefit_summary": {
+    "en": "Universal ₹5,00,000/year free health cover exclusively for ALL Indian senior citizens aged 70+ regardless of family income (separate top-up for existing PM-JAY families).",
+    "hi": "70 वर्ष व अधिक आयु के भारत के प्रत्येक वरिष्ठ नागरिक को आय की परवाह किए बिना ₹5 लाख तक निःशुल्क कैशलेस स्वास्थ्य बीमा कार्ड।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "मोबाइल नंबर",
+    "अस्पताल/चिकित्सा पर्ची"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (beneficiary.nha.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://beneficiary.nha.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

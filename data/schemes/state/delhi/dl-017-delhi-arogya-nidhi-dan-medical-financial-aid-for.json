@@ -1,0 +1,78 @@
+{
+  "id": "dl-017-delhi-arogya-nidhi-dan-medical-financial-aid-for",
+  "scheme_code": "DL-017",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Minor",
+  "department": "DGHS / Health & Family Welfare, GNCTD",
+  "name": {
+    "hi": "दिल्ली आरोग्य निधि योजना",
+    "en": "Delhi Arogya Nidhi (DAN) — Medical Financial Aid for BPL/NFSA Patients"
+  },
+  "bilingual_title": {
+    "en": "Delhi Arogya Nidhi (DAN) — Medical Financial Aid for BPL/NFSA Patients",
+    "hi": "दिल्ली आरोग्य निधि योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dgehs.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 150000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident meeting residency rules; Haryana/UP NCR excluded.",
+    "age_range": "All ages",
+    "income_cap": "BPL / NFSA / low-income norms [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Low-income/BPL Delhi patients.",
+    "academic_or_work_rules": "Govt hospital estimate required.",
+    "exclusions": "Above income limit & non-Delhi NCT residents."
+  },
+  "benefit": {
+    "summary_hi": "बीपीएल/एनएफएसए और कम आय वाले मरीजों को दिल्ली सरकारी अस्पतालों में गंभीर रोग उपचार हेतु वित्तीय सहायता।",
+    "summary_en": "Medical financial aid for specified life-threatening treatments for low-income/BPL/NFSA patients at Delhi govt hospitals [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Medical financial aid for specified life-threatening treatments for low-income/BPL/NFSA patients at Delhi govt hospitals [VERIFY LATEST NOTIFICATION].",
+    "hi": "बीपीएल/एनएफएसए और कम आय वाले मरीजों को दिल्ली सरकारी अस्पतालों में गंभीर रोग उपचार हेतु वित्तीय सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar Card",
+    "Delhi Residence/Domicile Proof",
+    "NFSA/BPL Ration Card or Income Certificate",
+    "Govt Hospital Treatment Estimate"
+  ],
+  "application_steps": {
+    "online": "Check dgehs.delhi.gov.in / health.delhi.gov.in.",
+    "offline": "Submit via Hospital Medical Social Worker / DGHS Cell.",
+    "facilitation_center": "Delhi Govt Hospital Social Worker Desk / CFC"
+  },
+  "apply_url": "https://health.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

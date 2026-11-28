@@ -1,0 +1,72 @@
+{
+  "id": "dl-086-dslsa-free-legal-aid-and-lok-adalat-support",
+  "scheme_code": "DL-086",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Delhi State Legal Services Authority (DSLSA)",
+  "name": {
+    "hi": "दिल्ली राज्य विधिक सेवा प्राधिकरण (निःशुल्क कानूनी सहायता)",
+    "en": "DSLSA Free Legal Aid & Lok Adalat Support"
+  },
+  "bilingual_title": {
+    "en": "DSLSA Free Legal Aid & Lok Adalat Support",
+    "hi": "दिल्ली राज्य विधिक सेवा प्राधिकरण (निःशुल्क कानूनी सहायता)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dslsa.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Cases before Delhi courts/tribunals or Delhi residents.",
+    "age_range": "All ages",
+    "income_cap": "Section 12 statutory categories (no cap for women/children/SC/ST/PwD/custody; income limit applies otherwise [VERIFY LATEST NOTIFICATION])",
+    "category_rules": "Women, children, SC/ST, Divyangjan, trafficking/disaster victims, workmen & income-eligible persons.",
+    "academic_or_work_rules": "Legal aid application.",
+    "exclusions": "High-income ineligible civil applicants."
+  },
+  "benefit": {
+    "summary_hi": "पात्र नागरिकों को निःशुल्क वकील, कोर्ट फीस माफी, कानूनी सलाह और लोक अदालत के माध्यम से त्वरित न्याय सहायता।",
+    "summary_en": "Completely free legal advocate, court fee waiver, drafting & Lok Adalat dispute settlement under Legal Services Authorities Act [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Completely free legal advocate, court fee waiver, drafting & Lok Adalat dispute settlement under Legal Services Authorities Act [VERIFY LATEST NOTIFICATION].",
+    "hi": "पात्र नागरिकों को निःशुल्क वकील, कोर्ट फीस माफी, कानूनी सलाह और लोक अदालत के माध्यम से त्वरित न्याय सहायता।"
+  },
+  "documents_required": [
+    "ID/Address Proof",
+    "Category/Eligibility Proof (Woman/Child/SC-ST/PwD/Income)",
+    "Case Papers"
+  ],
+  "application_steps": {
+    "online": "Apply on dslsa.gov.in / nalsa.gov.in.",
+    "offline": "Visit DSLSA / DLSA Front Office in any Delhi District Court.",
+    "facilitation_center": "DLSA Front Office / Helpline 15100 / CFC"
+  },
+  "apply_url": "https://dslsa.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "15100",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

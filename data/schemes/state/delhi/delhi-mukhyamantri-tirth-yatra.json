@@ -1,0 +1,86 @@
+{
+  "id": "delhi-mukhyamantri-tirth-yatra",
+  "scheme_code": "DL-090",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Revenue / Social Welfare / Tourism Dept, GNCTD",
+  "name": {
+    "hi": "मुख्यमंत्री तीर्थ यात्रा योजना (दिल्ली)",
+    "en": "Mukhyamantri Tirth Yatra Yojana (Delhi)"
+  },
+  "bilingual_title": {
+    "en": "Mukhyamantri Tirth Yatra Yojana (Delhi)",
+    "hi": "मुख्यमंत्री तीर्थ यात्रा योजना (दिल्ली)"
+  },
+  "last_verified": "2026-11-24",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Senior citizen (60+) residing in Delhi (NCT); Haryana/UP NCR excluded.",
+    "age_range": "60 years and above",
+    "income_cap": "Per scheme notification [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Delhi senior citizens + optional attendant.",
+    "academic_or_work_rules": "Medical fitness required when active.",
+    "exclusions": "Govt employees & non-Delhi residents."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के वरिष्ठ नागरिकों को पूरे देश के प्रमुख धार्मिक स्थलों की निःशुल्क एसी ट्रेन यात्रा, होटल आवास और भोजन व्यवस्था",
+    "summary_en": "Free AC train travel, boarding, lodging and food for senior citizens visiting major pilgrimage sites",
+    "frequency": "one_time",
+    "mode": "All-Expense-Paid Travel Package"
+  },
+  "benefit_summary": {
+    "en": "Free AC train travel, boarding, lodging and food for senior citizens visiting major pilgrimage sites",
+    "hi": "दिल्ली के वरिष्ठ नागरिकों को पूरे देश के प्रमुख धार्मिक स्थलों की निःशुल्क एसी ट्रेन यात्रा, होटल आवास और भोजन व्यवस्था"
+  },
+  "documents_required": [
+    "Aadhaar (60+)",
+    "Delhi Residence Proof",
+    "Medical Fitness Certificate",
+    "Income Declaration"
+  ],
+  "application_steps": {
+    "online": "Check active registration window on edistrict.delhigovt.nic.in / delhi.gov.in.",
+    "offline": "SDM Office / CFC when active.",
+    "facilitation_center": "SDM Office / Citizen Facilitation Centre (CFC)"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

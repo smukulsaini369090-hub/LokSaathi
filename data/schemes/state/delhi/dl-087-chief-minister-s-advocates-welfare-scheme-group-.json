@@ -1,0 +1,79 @@
+{
+  "id": "dl-087-chief-minister-s-advocates-welfare-scheme-group-",
+  "scheme_code": "DL-087",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Law, Justice & Legislative Affairs Dept, GNCTD",
+  "name": {
+    "hi": "मुख्यमंत्री अधिवक्ता कल्याण योजना",
+    "en": "Chief Minister's Advocates' Welfare Scheme (Group Term & Mediclaim Insurance)"
+  },
+  "bilingual_title": {
+    "en": "Chief Minister's Advocates' Welfare Scheme (Group Term & Mediclaim Insurance)",
+    "hi": "मुख्यमंत्री अधिवक्ता कल्याण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://law.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "advocate"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident/voter + Bar Council of Delhi enrolment.",
+    "age_range": "Practising advocates",
+    "income_cap": "No income ceiling",
+    "category_rules": "Enrolled Delhi Advocates.",
+    "academic_or_work_rules": "Bar Council of Delhi registration + COP.",
+    "exclusions": "Advocates outside Bar Council/Delhi residency terms."
+  },
+  "benefit": {
+    "summary_hi": "बार काउंसिल ऑफ दिल्ली में पंजीकृत व दिल्ली निवासी अधिवक्ताओं को समूह जीवन बीमा व मेडिकल बीमा सुरक्षा।",
+    "summary_en": "Group term life & mediclaim health insurance coverage for practising advocates enrolled with Bar Council of Delhi & residing in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Group term life & mediclaim health insurance coverage for practising advocates enrolled with Bar Council of Delhi & residing in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "बार काउंसिल ऑफ दिल्ली में पंजीकृत व दिल्ली निवासी अधिवक्ताओं को समूह जीवन बीमा व मेडिकल बीमा सुरक्षा।"
+  },
+  "documents_required": [
+    "Bar Council of Delhi Enrolment Cert/ID",
+    "Aadhaar, Voter ID & Delhi Residence Proof",
+    "Nominee & Bank Details"
+  ],
+  "application_steps": {
+    "online": "Apply on law.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "Law Dept / Bar Desk / CFC.",
+    "facilitation_center": "Law Dept Bar Desk / CFC"
+  },
+  "apply_url": "https://law.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 govt component",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

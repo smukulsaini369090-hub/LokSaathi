@@ -1,0 +1,78 @@
+{
+  "id": "dl-018-janani-suraksha-yojana-jsy-and-janani-shishu-sur",
+  "scheme_code": "DL-018",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Major",
+  "department": "Delhi State Health Mission / H&FW GNCTD",
+  "name": {
+    "hi": "जननी सुरक्षा एवं जननी शिशु सुरक्षा कार्यक्रम (दिल्ली)",
+    "en": "Janani Suraksha Yojana (JSY) & Janani Shishu Suraksha Karyakram (JSSK) — Delhi"
+  },
+  "bilingual_title": {
+    "en": "Janani Suraksha Yojana (JSY) & Janani Shishu Suraksha Karyakram (JSSK) — Delhi",
+    "hi": "जननी सुरक्षा एवं जननी शिशु सुरक्षा कार्यक्रम (दिल्ली)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://health.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Public health institutions in Delhi (NCT); JSY cash eligibility follows BPL/SC/ST & Delhi norms [VERIFY LATEST NOTIFICATION].",
+    "age_range": "Pregnant women & sick infants up to 1 year",
+    "income_cap": "JSSK universal; JSY targeted per norms [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Pregnant women; JSY cash targeted to eligible women.",
+    "academic_or_work_rules": "Institutional delivery.",
+    "exclusions": "Non-institutional private deliveries without accreditation."
+  },
+  "benefit": {
+    "summary_hi": "सरकारी अस्पताल में प्रसव पर निःशुल्क दवा, जांच, भोजन, एम्बुलेंस सेवा (JSSK) तथा पात्र गर्भवती महिलाओं को डीबीटी नकद सहायता (JSY)।",
+    "summary_en": "JSSK: completely free delivery (incl. caesarean), medicines, diagnostics, diet & transport; JSY: DBT cash aid for eligible institutional deliveries [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "JSSK: completely free delivery (incl. caesarean), medicines, diagnostics, diet & transport; JSY: DBT cash aid for eligible institutional deliveries [VERIFY LATEST NOTIFICATION].",
+    "hi": "सरकारी अस्पताल में प्रसव पर निःशुल्क दवा, जांच, भोजन, एम्बुलेंस सेवा (JSSK) तथा पात्र गर्भवती महिलाओं को डीबीटी नकद सहायता (JSY)।"
+  },
+  "documents_required": [
+    "MCP / Antenatal Card",
+    "Aadhaar Card",
+    "BPL/SC/ST Proof (for JSY)",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Tracked via RCH/ASHA portal (health.delhi.gov.in / nhm.gov.in).",
+    "offline": "Register through nearest ASHA/ANM or Delhi Govt Hospital ANC desk.",
+    "facilitation_center": "Delhi Govt Hospital Maternity Desk / ASHA / CFC"
+  },
+  "apply_url": "https://health.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "102 / 108",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

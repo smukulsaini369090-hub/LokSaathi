@@ -1,0 +1,74 @@
+{
+  "id": "up-021-suman-surakshit-matritva-aashwasan-and-high-risk",
+  "scheme_code": "UP-021",
+  "jurisdiction": "up",
+  "category": "Health",
+  "scale": "Minor",
+  "department": "NHM Uttar Pradesh",
+  "name": {
+    "hi": "सुमन (सुरक्षित मातृत्व आश्वासन) एवं उच्च जोखिम गर्भावस्था देखभाल (यूपी)",
+    "en": "SUMAN (Surakshit Matritva Aashwasan) & High-Risk Pregnancy Care UP"
+  },
+  "bilingual_title": {
+    "en": "SUMAN (Surakshit Matritva Aashwasan) & High-Risk Pregnancy Care UP",
+    "hi": "सुमन (सुरक्षित मातृत्व आश्वासन) एवं उच्च जोखिम गर्भावस्था देखभाल (यूपी)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://upnrhm.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Health",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "गर्भवती महिलाओं व नवजात शिशुओं को बिना किसी खर्च व देरी के सम्मानजनक एवं सुरक्षित मातृत्व स्वास्थ्य देखभाल।",
+    "summary_en": "Zero-expense assured dignified maternal & newborn healthcare including C-section referral transport and zero denial at UP public facilities."
+  },
+  "benefit_summary": {
+    "en": "Zero-expense assured dignified maternal & newborn healthcare including C-section referral transport and zero denial at UP public facilities.",
+    "hi": "गर्भवती महिलाओं व नवजात शिशुओं को बिना किसी खर्च व देरी के सम्मानजनक एवं सुरक्षित मातृत्व स्वास्थ्य देखभाल।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "मोबाइल नंबर",
+    "अस्पताल/चिकित्सा पर्ची"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (upnrhm.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://upnrhm.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "up-003-swami-vivekananda-yuva-sashaktikaran-yojana-free",
+  "scheme_code": "UP-003",
+  "jurisdiction": "up",
+  "category": "Education",
+  "scale": "Major",
+  "department": "IT & Electronics Dept / UPDesco",
+  "name": {
+    "hi": "स्वामी विवेकानंद युवा सशक्तिकरण योजना (मुफ्त स्मार्टफोन व टैबलेट)",
+    "en": "Swami Vivekananda Yuva Sashaktikaran Yojana (Free Smartphones & Tablets)"
+  },
+  "bilingual_title": {
+    "en": "Swami Vivekananda Yuva Sashaktikaran Yojana (Free Smartphones & Tablets)",
+    "hi": "स्वामी विवेकानंद युवा सशक्तिकरण योजना (मुफ्त स्मार्टफोन व टैबलेट)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://digishakti.up.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "उत्तर प्रदेश के स्नातक, स्नातकोत्तर, डिप्लोमा व तकनीकी शिक्षा के अंतिम वर्ष के विद्यार्थियों को निःशुल्क स्मार्टफोन एवं टैबलेट।",
+    "summary_en": "Free smartphones/tablets distributed via DigiShakti portal to final-year graduate, PG, diploma, technical & ITI youth in UP."
+  },
+  "benefit_summary": {
+    "en": "Free smartphones/tablets distributed via DigiShakti portal to final-year graduate, PG, diploma, technical & ITI youth in UP.",
+    "hi": "उत्तर प्रदेश के स्नातक, स्नातकोत्तर, डिप्लोमा व तकनीकी शिक्षा के अंतिम वर्ष के विद्यार्थियों को निःशुल्क स्मार्टफोन एवं टैबलेट।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (digishakti.up.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://digishakti.up.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

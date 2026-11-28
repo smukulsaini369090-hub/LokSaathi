@@ -1,0 +1,66 @@
+{
+  "id": "dl-041-dusib-night-shelters-rain-basera-and-winter-shel",
+  "scheme_code": "DL-041",
+  "jurisdiction": "delhi",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "Delhi Urban Shelter Improvement Board (DUSIB)",
+  "name": {
+    "hi": "डूसिब रैन बसेरा (निःशुल्क रात्रि आश्रय योजना)",
+    "en": "DUSIB Night Shelters (Rain Basera) & Winter Shelter Support"
+  },
+  "bilingual_title": {
+    "en": "DUSIB Night Shelters (Rain Basera) & Winter Shelter Support",
+    "hi": "डूसिब रैन बसेरा (निःशुल्क रात्रि आश्रय योजना)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhishelterboard.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Homeless persons within NCT of Delhi needing night shelter.",
+    "age_range": "All ages",
+    "income_cap": "Free / Homeless relief",
+    "category_rules": "Homeless citizens, migrants, patients' attendants.",
+    "academic_or_work_rules": "Walk-in occupancy.",
+    "exclusions": "ID is NOT mandatory to deny emergency shelter."
+  },
+  "benefit": {
+    "summary_hi": "बेघर नागरिकों और प्रवासियों को दिल्ली भर के रैन बसेरों में बिस्तर, कंबल, पानी व स्वच्छता सहित निःशुल्क रात्रि आश्रय।",
+    "summary_en": "Free clean night shelter with bedding/blankets, sanitation, drinking water & winter expansion across Delhi."
+  },
+  "benefit_summary": {
+    "en": "Free clean night shelter with bedding/blankets, sanitation, drinking water & winter expansion across Delhi.",
+    "hi": "बेघर नागरिकों और प्रवासियों को दिल्ली भर के रैन बसेरों में बिस्तर, कंबल, पानी व स्वच्छता सहित निःशुल्क रात्रि आश्रय।"
+  },
+  "documents_required": [
+    "Any ID/Aadhaar if available (not required for emergency entry)"
+  ],
+  "application_steps": {
+    "online": "Locate shelters via delhishelterboard.in.",
+    "offline": "Walk in directly to any DUSIB Rain Basera or dial shelter helpline.",
+    "facilitation_center": "Nearest DUSIB Rain Basera / CFC"
+  },
+  "apply_url": "https://delhishelterboard.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "in-079-pm-janman-pvtg-saturation-and-dharti-aaba-janjat",
+  "scheme_code": "IN-079",
+  "jurisdiction": "central",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Major",
+  "department": "Ministry of Tribal Affairs",
+  "name": {
+    "hi": "पीएम-जनमन (विशेष पिछड़ी जनजाति) एवं धरती आबा जनजातीय ग्राम उत्कर्ष अभियान",
+    "en": "PM-JANMAN (PVTG Saturation) & Dharti Aaba Janjatiya Gram Utkarsh Abhiyan (DAJGUA)"
+  },
+  "bilingual_title": {
+    "en": "PM-JANMAN (PVTG Saturation) & Dharti Aaba Janjatiya Gram Utkarsh Abhiyan (DAJGUA)",
+    "hi": "पीएम-जनमन (विशेष पिछड़ी जनजाति) एवं धरती आबा जनजातीय ग्राम उत्कर्ष अभियान"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://tribal.nic.in",
+  "eligibility": {
+    "must_match_all": [],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "SC/ST/OBC/Minority Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "विशेष पिछड़ी जनजातियों (PVTG) व 63,000+ आदिवासी गांवों में पक्का आवास, सड़क, स्वास्थ्य, बिजली व वन धन रोजगार संतृप्ति।",
+    "summary_en": "100% saturation of pucca homes (₹2.39L), clean water, mobile medical units, Van Dhan centres & roads across PVTG & 63,000+ tribal villages."
+  },
+  "benefit_summary": {
+    "en": "100% saturation of pucca homes (₹2.39L), clean water, mobile medical units, Van Dhan centres & roads across PVTG & 63,000+ tribal villages.",
+    "hi": "विशेष पिछड़ी जनजातियों (PVTG) व 63,000+ आदिवासी गांवों में पक्का आवास, सड़क, स्वास्थ्य, बिजली व वन धन रोजगार संतृप्ति।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "जाति प्रमाण पत्र (यदि लागू हो)",
+    "आय प्रमाण पत्र",
+    "निवास प्रमाण पत्र"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (tribal.nic.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://tribal.nic.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

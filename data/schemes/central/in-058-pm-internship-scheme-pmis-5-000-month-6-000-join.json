@@ -1,0 +1,84 @@
+{
+  "id": "in-058-pm-internship-scheme-pmis-5-000-month-6-000-join",
+  "scheme_code": "IN-058",
+  "jurisdiction": "central",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "Ministry of Corporate Affairs (MCA)",
+  "name": {
+    "hi": "पीएम इंटर्नशिप योजना (PMIS — ₹5,000/माह व ₹6,000 एकमुश्त सहायता)",
+    "en": "PM Internship Scheme (PMIS — ₹5,000/month + ₹6,000 Joining Grant)"
+  },
+  "bilingual_title": {
+    "en": "PM Internship Scheme (PMIS — ₹5,000/month + ₹6,000 Joining Grant)",
+    "hi": "पीएम इंटर्नशिप योजना (PMIS — ₹5,000/माह व ₹6,000 एकमुश्त सहायता)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pminternship.mca.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 21
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 24
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 800000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Up to ₹8,00,000/year per notified scheme norms",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "21–24 वर्ष के युवाओं को देश की शीर्ष 500 कंपनियों में 12 माह की इंटर्नशिप, ₹5,000/माह भत्ता व ₹6,000 शुरुआती सहायता।",
+    "summary_en": "12-month real-world internship at India's top 500 companies with ₹5,000/month stipend (₹4,500 DBT + ₹500 corporate) + ₹6,000 one-time grant for youth aged 21–24."
+  },
+  "benefit_summary": {
+    "en": "12-month real-world internship at India's top 500 companies with ₹5,000/month stipend (₹4,500 DBT + ₹500 corporate) + ₹6,000 one-time grant for youth aged 21–24.",
+    "hi": "21–24 वर्ष के युवाओं को देश की शीर्ष 500 कंपनियों में 12 माह की इंटर्नशिप, ₹5,000/माह भत्ता व ₹6,000 शुरुआती सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pminternship.mca.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://pminternship.mca.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

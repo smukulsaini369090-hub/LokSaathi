@@ -1,0 +1,69 @@
+{
+  "id": "hr-095-sc-bc-youth-commercial-vehicle-and-micro-enterpr",
+  "scheme_code": "HR-095",
+  "jurisdiction": "haryana",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "HSFDC / HBCKN Haryana",
+  "name": {
+    "hi": "SC/BC युवा वाणिज्यिक वाहन एवं सूक्ष्म उद्यम ऋण सहायता",
+    "en": "SC/BC Youth Commercial Vehicle & Micro-Enterprise Aid"
+  },
+  "bilingual_title": {
+    "en": "SC/BC Youth Commercial Vehicle & Micro-Enterprise Aid",
+    "hi": "SC/BC युवा वाणिज्यिक वाहन एवं सूक्ष्म उद्यम ऋण सहायता"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://hsfdc.org.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "SC/ST/OBC/Minority Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "हरियाणा के SC/BC युवाओं को ई-रिक्शा, वाणिज्यिक वाहन व सूक्ष्म व्यवसाय इकाई शुरू करने हेतु रियायती वित्त।",
+    "summary_en": "Concessional credit for auto/goods carrier purchase, e-rickshaw, beauty/salon, computer centre or small workshop setup."
+  },
+  "benefit_summary": {
+    "en": "Concessional credit for auto/goods carrier purchase, e-rickshaw, beauty/salon, computer centre or small workshop setup.",
+    "hi": "हरियाणा के SC/BC युवाओं को ई-रिक्शा, वाणिज्यिक वाहन व सूक्ष्म व्यवसाय इकाई शुरू करने हेतु रियायती वित्त।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "जाति प्रमाण पत्र (यदि लागू हो)",
+    "आय प्रमाण पत्र",
+    "निवास प्रमाण पत्र"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (hsfdc.org.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://hsfdc.org.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

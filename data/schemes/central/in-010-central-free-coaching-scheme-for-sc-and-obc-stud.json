@@ -1,0 +1,70 @@
+{
+  "id": "in-010-central-free-coaching-scheme-for-sc-and-obc-stud",
+  "scheme_code": "IN-010",
+  "jurisdiction": "central",
+  "category": "Education",
+  "scale": "Minor",
+  "department": "Ministry of Social Justice & Empowerment",
+  "name": {
+    "hi": "अनुसूचित जाति एवं ओबीसी विद्यार्थियों हेतु केंद्र की निःशुल्क कोचिंग योजना",
+    "en": "Central Free Coaching Scheme for SC and OBC Students (DACE / DAFCE)"
+  },
+  "bilingual_title": {
+    "en": "Central Free Coaching Scheme for SC and OBC Students (DACE / DAFCE)",
+    "hi": "अनुसूचित जाति एवं ओबीसी विद्यार्थियों हेतु केंद्र की निःशुल्क कोचिंग योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://coaching.dosje.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "₹8 लाख तक आय वाले SC एवं OBC छात्रों को UPSC, JEE, NEET व बैंक/SSC कोचिंग फीस के साथ ₹4,000 प्रति माह भत्ता।",
+    "summary_en": "Free coaching (up to ₹1.20L fee) + ₹4,000/month stipend for UPSC, State PSC, SSC, JEE, NEET, GATE & foreign GRE/GMAT exams (income <=₹8L)."
+  },
+  "benefit_summary": {
+    "en": "Free coaching (up to ₹1.20L fee) + ₹4,000/month stipend for UPSC, State PSC, SSC, JEE, NEET, GATE & foreign GRE/GMAT exams (income <=₹8L).",
+    "hi": "₹8 लाख तक आय वाले SC एवं OBC छात्रों को UPSC, JEE, NEET व बैंक/SSC कोचिंग फीस के साथ ₹4,000 प्रति माह भत्ता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (coaching.dosje.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://coaching.dosje.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

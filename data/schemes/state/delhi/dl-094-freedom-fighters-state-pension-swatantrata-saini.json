@@ -1,0 +1,72 @@
+{
+  "id": "dl-094-freedom-fighters-state-pension-swatantrata-saini",
+  "scheme_code": "DL-094",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "GAD / Revenue / Home Dept, GNCTD",
+  "name": {
+    "hi": "स्वतंत्रता सेनानी सम्मान पेंशन (दिल्ली राज्य)",
+    "en": "Freedom Fighters' State Pension (Swatantrata Sainik Samman — Delhi Top-Up)"
+  },
+  "bilingual_title": {
+    "en": "Freedom Fighters' State Pension (Swatantrata Sainik Samman — Delhi Top-Up)",
+    "hi": "स्वतंत्रता सेनानी सम्मान पेंशन (दिल्ली राज्य)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Recognised freedom fighters / eligible dependents residing in Delhi (NCT).",
+    "age_range": "Freedom fighters & eligible dependents",
+    "income_cap": "No income ceiling",
+    "category_rules": "Recognised freedom fighters / dependents.",
+    "academic_or_work_rules": "Central/State Freedom Fighter PPO order.",
+    "exclusions": "Unverified claims."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली निवासी मान्यता प्राप्त स्वतंत्रता सेनानियों व पात्र आश्रितों को राज्य सम्मान पेंशन सहायता।",
+    "summary_en": "Monthly state pension / top-up for recognised freedom fighters & eligible dependents residing in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Monthly state pension / top-up for recognised freedom fighters & eligible dependents residing in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली निवासी मान्यता प्राप्त स्वतंत्रता सेनानियों व पात्र आश्रितों को राज्य सम्मान पेंशन सहायता।"
+  },
+  "documents_required": [
+    "Freedom Fighter Recognition / PPO Order",
+    "Aadhaar & Delhi Residence Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Details on delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "GNCTD GAD / DM Office.",
+    "facilitation_center": "DM Office / GNCTD GAD / CFC"
+  },
+  "apply_url": "https://delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

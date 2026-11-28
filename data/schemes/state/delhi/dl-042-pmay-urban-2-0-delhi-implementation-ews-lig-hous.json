@@ -1,0 +1,84 @@
+{
+  "id": "dl-042-pmay-urban-2-0-delhi-implementation-ews-lig-hous",
+  "scheme_code": "DL-042",
+  "jurisdiction": "delhi",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "Urban Dev / DUSIB / DDA with MoHUA",
+  "name": {
+    "hi": "प्रधानमंत्री आवास योजना-शहरी 2.0 (दिल्ली कार्यान्वयन)",
+    "en": "PMAY-Urban 2.0 (Delhi Implementation — EWS/LIG Housing Subsidy)"
+  },
+  "bilingual_title": {
+    "en": "PMAY-Urban 2.0 (Delhi Implementation — EWS/LIG Housing Subsidy)",
+    "hi": "प्रधानमंत्री आवास योजना-शहरी 2.0 (दिल्ली कार्यान्वयन)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pmaymis.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 900000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "owns_pucca_house",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) urban household; Haryana/UP NCR use respective state PMAY-U portals.",
+    "age_range": "Adult family head (18+)",
+    "income_cap": "EWS <=₹3L, LIG <=₹6L, MIG (ISS) <=₹9L [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "EWS / LIG / MIG households without pucca home.",
+    "academic_or_work_rules": "Zero existing pucca house anywhere in India.",
+    "exclusions": "Families already owning a pucca house or earlier PMAY beneficiaries."
+  },
+  "benefit": {
+    "summary_hi": "पात्र दिल्ली शहरी गरीब व मध्यम वर्ग परिवारों को पक्के घर निर्माण, खरीद या होम लोन ब्याज सब्सिडी सहायता।",
+    "summary_en": "Housing subsidy / interest subsidy under PMAY-U 2.0 verticals (BLC, AHP, ARH, ISS) for eligible urban families [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Housing subsidy / interest subsidy under PMAY-U 2.0 verticals (BLC, AHP, ARH, ISS) for eligible urban families [VERIFY LATEST NOTIFICATION].",
+    "hi": "पात्र दिल्ली शहरी गरीब व मध्यम वर्ग परिवारों को पक्के घर निर्माण, खरीद या होम लोन ब्याज सब्सिडी सहायता।"
+  },
+  "documents_required": [
+    "Family Aadhaar Cards",
+    "Income/EWS Proof & Delhi Residence Proof",
+    "Bank Passbook",
+    "Non-Ownership Affidavit"
+  ],
+  "application_steps": {
+    "online": "Apply via pmaymis.gov.in (PMAY-U 2.0 unified portal).",
+    "offline": "Municipal / DUSIB / DDA / CFC helpdesk.",
+    "facilitation_center": "Municipal / DUSIB / DDA / CFC"
+  },
+  "apply_url": "https://pmaymis.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

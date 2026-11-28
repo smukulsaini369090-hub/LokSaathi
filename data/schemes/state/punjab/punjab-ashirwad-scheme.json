@@ -1,20 +1,52 @@
 {
   "id": "punjab-ashirwad-scheme",
+  "scheme_code": "PB-020",
+  "jurisdiction": "punjab",
+  "category": "Women & Girl Child",
+  "scale": "Major",
+  "department": "Social Justice, Empowerment & Minorities Dept, Punjab",
   "name": {
     "hi": "पंजाब आशीर्वाद योजना (शगुन योजना)",
     "en": "Punjab Ashirwad Scheme (Shagun Scheme)"
   },
+  "bilingual_title": {
+    "en": "Punjab Ashirwad Scheme (Shagun Scheme)",
+    "hi": "पंजाब आशीर्वाद योजना (शगुन योजना)"
+  },
   "last_verified": "2026-11-24",
   "source_url": "https://welfare.punjab.gov.in",
-  "state": "punjab",
   "eligibility": {
     "must_match_all": [
-      { "field": "state", "operator": "eq", "value": "punjab" },
-      { "field": "gender", "operator": "eq", "value": "female" },
-      { "field": "age", "operator": "gte", "value": 18 },
-      { "field": "annual_income_inr", "operator": "lte", "value": 32790 }
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 32790
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Women & Girl Child",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "अनुसूचित जाति, पिछड़ा वर्ग और आर्थिक रूप से कमजोर परिवारों की बेटियों के विवाह हेतु ₹51,000 की एकमुश्त वित्तीय सहायता",
@@ -22,6 +54,10 @@
     "amount_inr": 51000,
     "frequency": "one_time",
     "mode": "Direct Benefit Transfer (DBT)"
+  },
+  "benefit_summary": {
+    "en": "One-time financial grant of ₹51,000 for marriage of daughters from SC, BC, and EWS families in Punjab",
+    "hi": "अनुसूचित जाति, पिछड़ा वर्ग और आर्थिक रूप से कमजोर परिवारों की बेटियों के विवाह हेतु ₹51,000 की एकमुश्त वित्तीय सहायता"
   },
   "documents_required": [
     "दुल्हन का आधार कार्ड",
@@ -31,7 +67,23 @@
     "पारिवारिक आय प्रमाण पत्र",
     "बैंक खाता पासबुक"
   ],
+  "application_steps": {
+    "online": "Apply via official portal (ashirwad.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
   "apply_url": "https://ashirwad.punjab.gov.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

@@ -1,0 +1,83 @@
+{
+  "id": "dl-075-dsfdc-concessional-self-employment-loan-for-divy",
+  "scheme_code": "DL-075",
+  "jurisdiction": "delhi",
+  "category": "Divyangjan Welfare",
+  "scale": "Minor",
+  "department": "DSFDC with NHFDC",
+  "name": {
+    "hi": "दिव्यांगजन रियायती स्वरोजगार ऋण योजना (डीएसएफडीसी)",
+    "en": "DSFDC Concessional Self-Employment Loan for Divyangjan (NHFDC Channelised)"
+  },
+  "bilingual_title": {
+    "en": "DSFDC Concessional Self-Employment Loan for Divyangjan (NHFDC Channelised)",
+    "hi": "दिव्यांगजन रियायती स्वरोजगार ऋण योजना (डीएसएफडीसी)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dsfdc.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Resident of Delhi (NCT); Haryana/UP NCR excluded.",
+    "age_range": "18 years and above",
+    "income_cap": "Per DSFDC/NHFDC norms",
+    "category_rules": "Certified disability >=40%.",
+    "academic_or_work_rules": "Viable business/education plan.",
+    "exclusions": "Loan defaulters & non-Delhi residents."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के दिव्यांग नागरिकों को व्यापार, वाहन और शिक्षा हेतु डीएसएफडीसी द्वारा रियायती ब्याज पर ऋण।",
+    "summary_en": "Low-interest self-employment, shop, vehicle & education loans for Delhi Divyangjan [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Low-interest self-employment, shop, vehicle & education loans for Delhi Divyangjan [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के दिव्यांग नागरिकों को व्यापार, वाहन और शिक्षा हेतु डीएसएफडीसी द्वारा रियायती ब्याज पर ऋण।"
+  },
+  "documents_required": [
+    "UDID / Disability Certificate",
+    "Aadhaar, PAN & Delhi Domicile",
+    "Income Certificate",
+    "Project/Quotation & Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply on dsfdc.delhigovt.nic.in / edistrict.delhigovt.nic.in.",
+    "offline": "DSFDC Office / CFC.",
+    "facilitation_center": "DSFDC Office / CFC"
+  },
+  "apply_url": "https://dsfdc.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 application fee",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

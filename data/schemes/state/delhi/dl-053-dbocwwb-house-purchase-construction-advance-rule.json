@@ -1,0 +1,82 @@
+{
+  "id": "dl-053-dbocwwb-house-purchase-construction-advance-rule",
+  "scheme_code": "DL-053",
+  "jurisdiction": "delhi",
+  "category": "Labour & BOCW",
+  "scale": "Minor",
+  "department": "DBOCWWB, Labour Dept, GNCTD",
+  "name": {
+    "hi": "निर्माण श्रमिक आवास क्रय/निर्माण अग्रिम योजना",
+    "en": "DBOCWWB House Purchase / Construction Advance (Rule 274 — ₹3–5 Lakh)"
+  },
+  "bilingual_title": {
+    "en": "DBOCWWB House Purchase / Construction Advance (Rule 274 — ₹3–5 Lakh)",
+    "hi": "निर्माण श्रमिक आवास क्रय/निर्माण अग्रिम योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "construction_worker",
+          "laborer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Registered DBOCWWB worker in Delhi (NCT); non-NCT excluded.",
+    "age_range": "21–55 years",
+    "income_cap": "Active registered worker",
+    "category_rules": "Eligible DBOCWWB members.",
+    "academic_or_work_rules": "Minimum board membership duration & repayment terms under Rule 274.",
+    "exclusions": "Unrenewed members."
+  },
+  "benefit": {
+    "summary_hi": "पात्र पंजीकृत निर्माण श्रमिकों को मकान खरीदने या बनवाने हेतु ₹3 से ₹5 लाख तक आवास अग्रिम सहायता।",
+    "summary_en": "Housing advance/loan up to ₹3,00,000–₹5,00,000 per Rule 274 rules/amendments [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Housing advance/loan up to ₹3,00,000–₹5,00,000 per Rule 274 rules/amendments [VERIFY LATEST NOTIFICATION].",
+    "hi": "पात्र पंजीकृत निर्माण श्रमिकों को मकान खरीदने या बनवाने हेतु ₹3 से ₹5 लाख तक आवास अग्रिम सहायता।"
+  },
+  "documents_required": [
+    "DBOCWWB Card",
+    "Property/Plot Documents & Cost Estimate",
+    "Aadhaar",
+    "Delhi Residence Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Check labour.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "DBOCWWB / CFC.",
+    "facilitation_center": "CFC / DBOCWWB Office"
+  },
+  "apply_url": "https://labour.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

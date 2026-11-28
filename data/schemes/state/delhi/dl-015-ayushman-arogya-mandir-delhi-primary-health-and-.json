@@ -1,0 +1,68 @@
+{
+  "id": "dl-015-ayushman-arogya-mandir-delhi-primary-health-and-",
+  "scheme_code": "DL-015",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Major",
+  "department": "Health & Family Welfare Dept, GNCTD",
+  "name": {
+    "hi": "आयुष्मान आरोग्य मंदिर दिल्ली (प्राथमिक स्वास्थ्य एवं निःशुल्क जांच)",
+    "en": "Ayushman Arogya Mandir Delhi (Primary Health & Free Diagnostics)"
+  },
+  "bilingual_title": {
+    "en": "Ayushman Arogya Mandir Delhi (Primary Health & Free Diagnostics)",
+    "hi": "आयुष्मान आरोग्य मंदिर दिल्ली (प्राथमिक स्वास्थ्य एवं निःशुल्क जांच)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://health.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Walk-in primary care open across Delhi (NCT); non-NCT NCR residents use home state for domicile-linked schemes/referrals.",
+    "age_range": "All ages",
+    "income_cap": "Universal / Free",
+    "category_rules": "Open to all citizens visiting centres.",
+    "academic_or_work_rules": "Walk-in OPD.",
+    "exclusions": "None for primary OPD."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के मोहल्ला/आरोग्य केंद्रों पर निःशुल्क प्राथमिक डॉक्टर परामर्श, आवश्यक दवाएं, मातृ-शिशु देखभाल और लैब जांच।",
+    "summary_en": "Free primary OPD consultations, essential medicines, maternal/child care, NCD screening & diagnostics at neighbourhood centres across Delhi."
+  },
+  "benefit_summary": {
+    "en": "Free primary OPD consultations, essential medicines, maternal/child care, NCD screening & diagnostics at neighbourhood centres across Delhi.",
+    "hi": "दिल्ली के मोहल्ला/आरोग्य केंद्रों पर निःशुल्क प्राथमिक डॉक्टर परामर्श, आवश्यक दवाएं, मातृ-शिशु देखभाल और लैब जांच।"
+  },
+  "documents_required": [
+    "ABHA ID / Aadhaar (helpful)",
+    "Mobile Number",
+    "Prior Medical Reports (if any)"
+  ],
+  "application_steps": {
+    "online": "Create optional ABHA ID on abha.abdm.gov.in.",
+    "offline": "Walk in directly to nearest Ayushman Arogya Mandir Delhi.",
+    "facilitation_center": "Nearest Ayushman Arogya Mandir / CFC"
+  },
+  "apply_url": "https://health.delhi.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -149,12 +149,14 @@ export function resolveAntiDalalInfo(
   if (language === "hi") {
     officialFeeLabel =
       custom.fee_label_hi ||
+      custom.official_fee ||
       (custom.official_fee_inr !== undefined && custom.official_fee_inr > 0
         ? `₹${custom.official_fee_inr} (आधिकारिक सरकारी शुल्क)`
         : "₹0 (निःशुल्क सरकारी पोर्टल आवेदन)");
   } else {
     officialFeeLabel =
       custom.fee_label_en ||
+      custom.official_fee ||
       (custom.official_fee_inr !== undefined && custom.official_fee_inr > 0
         ? `₹${custom.official_fee_inr} (Official government fee)`
         : "₹0 (Free on official government portal)");
@@ -173,6 +175,7 @@ export function resolveAntiDalalInfo(
   // 4. Receipt (Acknowledgement Slip) Rule
   const receiptRule =
     (language === "hi" ? custom.receipt_rule_hi : custom.receipt_rule_en) ||
+    custom.receipt_rule ||
     (language === "hi"
       ? "आवेदन के बाद ऑपरेटर से पक्की रसीद (Acknowledgement Slip) व संदर्भ संख्या (Application ID) ज़रूर लें — बिना रसीद ₹1 भी न दें!"
       : "Always collect your official acknowledgement slip and application reference number after submission — never pay without a receipt!");
@@ -180,6 +183,7 @@ export function resolveAntiDalalInfo(
   // 5. Anti-Dalal Warning
   const antiDalalWarning =
     (language === "hi" ? custom.anti_dalal_warning_hi : custom.anti_dalal_warning_en) ||
+    custom.middleman_warning ||
     (language === "hi"
       ? "दलालों से सावधान: कोई भी एजेंट 'पैसे लेकर गारंटी से योजना पास कराने' या 'सर्वर डाउन' का झांसा दे तो पैसे न दें। योजना केवल पात्रता पर स्वीकृत होती है।"
       : "Anti-Dalal Alert: Never pay middlemen claiming 'guaranteed fast approval' or 'server setting'. Welfare schemes are approved strictly on factual eligibility.");

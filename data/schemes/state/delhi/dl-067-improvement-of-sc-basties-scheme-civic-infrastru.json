@@ -1,0 +1,78 @@
+{
+  "id": "dl-067-improvement-of-sc-basties-scheme-civic-infrastru",
+  "scheme_code": "DL-067",
+  "jurisdiction": "delhi",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "अनुसूचित जाति बस्ती सुधार योजना",
+    "en": "Improvement of SC Basties Scheme (Civic Infrastructure in SC Habitations)"
+  },
+  "bilingual_title": {
+    "en": "Improvement of SC Basties Scheme (Civic Infrastructure in SC Habitations)",
+    "hi": "अनुसूचित जाति बस्ती सुधार योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scstwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Identified SC basties within NCT of Delhi; outside Delhi NCT excluded.",
+    "age_range": "Locality/community infrastructure",
+    "income_cap": "Habitat-based",
+    "category_rules": "Identified SC habitations in Delhi.",
+    "academic_or_work_rules": "Agency / RWA locality proposal.",
+    "exclusions": "Unauthorised non-eligible sites."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की चिन्हित अनुसूचित जाति बस्तियों में पक्की गलियां, नाली, सामुदायिक भवन, प्रकाश एवं स्वच्छता सुधार कार्य।",
+    "summary_en": "Civic infrastructure works (lanes, drains, chaupals/community halls, sanitation, streetlights) in identified SC basties in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Civic infrastructure works (lanes, drains, chaupals/community halls, sanitation, streetlights) in identified SC basties in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली की चिन्हित अनुसूचित जाति बस्तियों में पक्की गलियां, नाली, सामुदायिक भवन, प्रकाश एवं स्वच्छता सुधार कार्य।"
+  },
+  "documents_required": [
+    "RWA / Locality Proposal",
+    "SC Basti Site Verification"
+  ],
+  "application_steps": {
+    "online": "Info via scstwelfare.delhi.gov.in.",
+    "offline": "Department / Executing Agency / CFC.",
+    "facilitation_center": "SC/ST/OBC Welfare Dept / CFC"
+  },
+  "apply_url": "https://scstwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

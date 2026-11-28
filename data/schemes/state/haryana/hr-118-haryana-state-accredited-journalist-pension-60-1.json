@@ -1,0 +1,80 @@
+{
+  "id": "hr-118-haryana-state-accredited-journalist-pension-60-1",
+  "scheme_code": "HR-118",
+  "jurisdiction": "haryana",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Information & Public Relations Dept, Haryana",
+  "name": {
+    "hi": "हरियाणा राज्य मान्यता प्राप्त पत्रकार पेंशन योजना (₹15,000/माह)",
+    "en": "Haryana State Accredited Journalist Pension (60+ — ₹15,000/month)"
+  },
+  "bilingual_title": {
+    "en": "Haryana State Accredited Journalist Pension (60+ — ₹15,000/month)",
+    "hi": "हरियाणा राज्य मान्यता प्राप्त पत्रकार पेंशन योजना (₹15,000/माह)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://prharyana.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "20 वर्ष अनुभव वाले 60+ आयु के हरियाणा मान्यता प्राप्त पत्रकारों को ₹15,000/माह पेंशन व स्वास्थ्य सुविधा।",
+    "summary_en": "₹15,000/month lifetime pension + cashless health cover for accredited Haryana journalists aged 60+ with 20 years experience."
+  },
+  "benefit_summary": {
+    "en": "₹15,000/month lifetime pension + cashless health cover for accredited Haryana journalists aged 60+ with 20 years experience.",
+    "hi": "20 वर्ष अनुभव वाले 60+ आयु के हरियाणा मान्यता प्राप्त पत्रकारों को ₹15,000/माह पेंशन व स्वास्थ्य सुविधा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (prharyana.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://prharyana.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

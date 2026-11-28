@@ -14,6 +14,7 @@ import {
   ExternalLink,
   ArrowRight,
   Clock,
+  AlertTriangle,
 } from "lucide-react";
 import { useVoiceRecorder } from "@/hooks/useVoiceRecorder";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
@@ -21,6 +22,7 @@ import { getStoredApiKey } from "@/lib/client-api-key";
 import { ApiKeyModal } from "@/components/ApiKeyModal";
 import type { UserProfile, SchemeMatch } from "@/lib/scheme-matcher";
 import type { EligibilityAuditResult } from "@/lib/eligibility-evaluator";
+import type { SchemeRedirectEntry } from "@/lib/scheme-redirects";
 import {
   getStoredUserProfile,
   saveStoredUserProfile,
@@ -31,6 +33,7 @@ interface Message {
   role: "user" | "model";
   text: string;
   auditResult?: EligibilityAuditResult;
+  schemeRedirect?: SchemeRedirectEntry;
 }
 
 interface VoiceInterviewProps {
@@ -267,6 +270,8 @@ export function VoiceInterview({
 
     const auditResult: EligibilityAuditResult | undefined =
       data.eligibility_audit || undefined;
+    const schemeRedirect: SchemeRedirectEntry | undefined =
+      data.scheme_redirect || undefined;
 
     // Append model message first so user always sees acknowledgement/verdict
     setMessages((prev) => [
@@ -275,6 +280,7 @@ export function VoiceInterview({
         role: "model",
         text: nextQuestion,
         auditResult,
+        schemeRedirect,
       },
     ]);
 
@@ -663,6 +669,43 @@ export function VoiceInterview({
                   </button>
                 )}
               </div>
+
+              {/* Inline Scheme Redirect / Fake Alert Card */}
+              {msg.schemeRedirect && (
+                <div className="mt-3 p-3.5 bg-amber-50 border border-amber-300 rounded-xl space-y-2 text-xs text-amber-950">
+                  <div className="flex items-start gap-2">
+                    <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold text-amber-900">
+                        {language === "hi"
+                          ? msg.schemeRedirect.alert_title_hi
+                          : msg.schemeRedirect.alert_title_en}
+                      </p>
+                      <p className="text-[11px] text-amber-800 mt-0.5 leading-relaxed">
+                        {language === "hi"
+                          ? msg.schemeRedirect.alert_message_hi
+                          : msg.schemeRedirect.alert_message_en}
+                      </p>
+                    </div>
+                  </div>
+                  {msg.schemeRedirect.replacement_codes.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {msg.schemeRedirect.replacement_codes.map((code) => (
+                        <Link
+                          key={code}
+                          href={`/schemes/${code}`}
+                          className="inline-flex items-center gap-1 bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 rounded-lg px-2.5 py-1 font-bold text-[11px] transition-colors"
+                        >
+                          <span>
+                            {language === "hi" ? `सक्रिय योजना देखें: ${code}` : `View Active: ${code}`}
+                          </span>
+                          <ExternalLink className="w-3 h-3" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Inline Eligibility Verdict Card */}
               {msg.auditResult && (

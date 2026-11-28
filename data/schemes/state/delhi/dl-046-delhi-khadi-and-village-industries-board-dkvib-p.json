@@ -1,0 +1,88 @@
+{
+  "id": "dl-046-delhi-khadi-and-village-industries-board-dkvib-p",
+  "scheme_code": "DL-046",
+  "jurisdiction": "delhi",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "Delhi Khadi & Village Industries Board (DKVIB), Industries Dept",
+  "name": {
+    "hi": "दिल्ली खादी एवं ग्रामोद्योग बोर्ड उद्यमिता ऋण योजना",
+    "en": "Delhi Khadi & Village Industries Board (DKVIB) — PMEGP & Artisan Enterprise Credit"
+  },
+  "bilingual_title": {
+    "en": "Delhi Khadi & Village Industries Board (DKVIB) — PMEGP & Artisan Enterprise Credit",
+    "hi": "दिल्ली खादी एवं ग्रामोद्योग बोर्ड उद्यमिता ऋण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://industries.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "business",
+          "artisan",
+          "unemployed"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Enterprise unit inside Delhi (NCT) + Delhi ID; Haryana/UP NCR excluded.",
+    "age_range": "18 years and above",
+    "income_cap": "No upper income cap for standard PMEGP",
+    "category_rules": "15%–35% margin money subsidy based on category (Special/SC/ST/OBC/Women higher slab).",
+    "academic_or_work_rules": "Class 8 pass required for mfg >₹10L or service >₹5L [VERIFY LATEST NOTIFICATION].",
+    "exclusions": "Existing units already subsidized under Govt credit schemes."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के कारीगरों और नए सूक्ष्म उद्योगों को PMEGP/DKVIB के तहत सब्सिडी युक्त उद्यम ऋण और प्रशिक्षण सुविधा।",
+    "summary_en": "Margin money subsidy & micro-enterprise credit facilitation for manufacturing/service units & artisans in Delhi under PMEGP/DKVIB [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Margin money subsidy & micro-enterprise credit facilitation for manufacturing/service units & artisans in Delhi under PMEGP/DKVIB [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के कारीगरों और नए सूक्ष्म उद्योगों को PMEGP/DKVIB के तहत सब्सिडी युक्त उद्यम ऋण और प्रशिक्षण सुविधा।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Residence Proof",
+    "Qualification & Category Cert",
+    "Project Report (DPR)",
+    "Site Proof & Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply via kviconline.gov.in/pmegpeportal (selecting Delhi DKVIB).",
+    "offline": "DKVIB Office / Industries Dept / CFC.",
+    "facilitation_center": "DKVIB Office / Citizen Facilitation Centre (CFC)"
+  },
+  "apply_url": "https://www.kviconline.gov.in/pmegpeportal/",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

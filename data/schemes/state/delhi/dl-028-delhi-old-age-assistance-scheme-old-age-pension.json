@@ -1,0 +1,94 @@
+{
+  "id": "dl-028-delhi-old-age-assistance-scheme-old-age-pension",
+  "scheme_code": "DL-028",
+  "jurisdiction": "delhi",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Department of Social Welfare, GNCTD",
+  "name": {
+    "hi": "दिल्ली वृद्धावस्था सहायता (पेंशन) योजना",
+    "en": "Delhi Old Age Assistance Scheme (Old Age Pension)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Old Age Assistance Scheme (Old Age Pension)",
+    "hi": "दिल्ली वृद्धावस्था सहायता (पेंशन) योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 100000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Resident of Delhi (NCT) for >=5 years; Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "60 years and above",
+    "income_cap": "Annual family income < ₹1,00,000 [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "All categories; higher slab for 70+ / SC / ST / Minority per notification.",
+    "academic_or_work_rules": "5-year continuous Delhi residence.",
+    "exclusions": "Overlapping govt pension recipients & non-Delhi residents."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के वरिष्ठ नागरिकों (60–69 वर्ष ₹2,500/माह; 70+ व SC/ST/अल्पसंख्यक ₹3,000/माह [नोटिस जांचें]) को मासिक पेंशन।",
+    "summary_en": "Monthly DBT pension (typically ₹2,500/month for ages 60–69 & ₹3,000/month for 70+ or SC/ST/Minority seniors [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Monthly DBT pension (typically ₹2,500/month for ages 60–69 & ₹3,000/month for 70+ or SC/ST/Minority seniors [VERIFY LATEST NOTIFICATION]).",
+    "hi": "दिल्ली के वरिष्ठ नागरिकों (60–69 वर्ष ₹2,500/माह; 70+ व SC/ST/अल्पसंख्यक ₹3,000/माह [नोटिस जांचें]) को मासिक पेंशन।"
+  },
+  "documents_required": [
+    "Aadhaar & Age Proof (60+)",
+    "5-Year Delhi Residence Proof",
+    "Delhi Income Certificate",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "District Social Welfare Office / CFC.",
+    "facilitation_center": "CFC / District Social Welfare Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

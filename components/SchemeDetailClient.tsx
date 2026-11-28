@@ -124,21 +124,57 @@ export function SchemeDetailClient({
       <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-6">
         <div>
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <EligibilityBadge
-              confidence={scheme.confidence}
-              language={language}
-            />
-            {scheme.state && (
-              <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                {STATE_BADGES[scheme.state]?.[language] || scheme.state.toUpperCase()}
-              </span>
-            )}
+            <div className="flex flex-wrap items-center gap-2">
+              {scheme.scheme_code && (
+                <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-800 border border-slate-200">
+                  {scheme.scheme_code}
+                </span>
+              )}
+              <EligibilityBadge
+                confidence={scheme.confidence}
+                verificationStatus={scheme.verification_status}
+                language={language}
+              />
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              {scheme.category && (
+                <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  {scheme.category}
+                </span>
+              )}
+              {scheme.state && (
+                <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                  {STATE_BADGES[scheme.state]?.[language] || scheme.state.toUpperCase()}
+                </span>
+              )}
+            </div>
           </div>
 
           <h1 className="text-xl sm:text-2xl font-black text-gray-900 mb-1.5 leading-snug">
             {title}
           </h1>
-          <p className="text-sm text-gray-500 mb-4 font-medium">{subTitle}</p>
+          <p className="text-sm text-gray-500 mb-1 font-medium">{subTitle}</p>
+          {scheme.department && (
+            <p className="text-xs text-slate-500 mb-4">
+              {language === "hi" ? "विभाग:" : "Department:"} {scheme.department}
+            </p>
+          )}
+
+          {scheme.verification_status === "verify_latest_notification" && (
+            <div className="mb-4 p-3.5 bg-amber-50 border border-amber-300 rounded-2xl text-xs text-amber-950 leading-relaxed">
+              <p className="font-bold text-amber-900 mb-0.5">
+                {language === "hi"
+                  ? "⚠️ नवीनतम अधिसूचना सत्यापित करें [VERIFY LATEST NOTIFICATION]"
+                  : "⚠️ Verify Latest Notification [VERIFY LATEST NOTIFICATION]"}
+              </p>
+              <p>
+                {scheme.verification_note?.[language] ||
+                  (language === "hi"
+                    ? "वर्तमान 2026–27 सक्रिय आवेदन विंडो, राशि स्लैब और नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।"
+                    : "Always check active 2026–27 application window, exact slab, and official circular on the portal before applying.")}
+              </p>
+            </div>
+          )}
 
           {/* Benefit Box */}
           <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4">
@@ -150,6 +186,32 @@ export function SchemeDetailClient({
             </p>
             <p className="text-xs text-emerald-700 mt-1">{benefitSecondary}</p>
           </div>
+
+          {scheme.eligibility_criteria && (
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
+              <div>
+                <p className="font-bold text-slate-700">
+                  {language === "hi" ? "निवास / NCR नियम:" : "Domicile & NCR Rule:"}
+                </p>
+                <p className="text-slate-600 mt-0.5">
+                  {scheme.eligibility_criteria.domicile_ncr_rule}
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-slate-700">
+                  {language === "hi" ? "आय सीमा व सुविधा केंद्र:" : "Income Cap & Facilitation:"}
+                </p>
+                <p className="text-slate-600 mt-0.5">
+                  {scheme.eligibility_criteria.income_cap}
+                </p>
+                {scheme.application_steps?.facilitation_center && (
+                  <p className="text-blue-700 font-medium mt-1">
+                    {scheme.application_steps.facilitation_center}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Verification Metadata Strip */}

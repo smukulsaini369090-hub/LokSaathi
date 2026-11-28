@@ -1,0 +1,62 @@
+{
+  "id": "in-092-jal-jeevan-mission-har-ghar-jal-and-swachh-bhara",
+  "scheme_code": "IN-092",
+  "jurisdiction": "central",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Ministry of Jal Shakti",
+  "name": {
+    "hi": "जल जीवन मिशन (हर घर नल से जल) एवं स्वच्छ भारत मिशन (₹12,000 शौचालय सहायता)",
+    "en": "Jal Jeevan Mission (Har Ghar Jal) & Swachh Bharat Mission (₹12,000 IHHL Toilet)"
+  },
+  "bilingual_title": {
+    "en": "Jal Jeevan Mission (Har Ghar Jal) & Swachh Bharat Mission (₹12,000 IHHL Toilet)",
+    "hi": "जल जीवन मिशन (हर घर नल से जल) एवं स्वच्छ भारत मिशन (₹12,000 शौचालय सहायता)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://sbm.gov.in",
+  "eligibility": {
+    "must_match_all": [],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Utility Subsidies & Food",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "प्रत्येक ग्रामीण घर में नल से शुद्ध पेयजल कनेक्शन तथा पात्र परिवारों को शौचालय निर्माण हेतु ₹12,000 प्रोत्साहन सहायता।",
+    "summary_en": "Functional household tap drinking water connection in every rural home + ₹12,000 incentive for constructing household sanitary toilet (IHHL)."
+  },
+  "benefit_summary": {
+    "en": "Functional household tap drinking water connection in every rural home + ₹12,000 incentive for constructing household sanitary toilet (IHHL).",
+    "hi": "प्रत्येक ग्रामीण घर में नल से शुद्ध पेयजल कनेक्शन तथा पात्र परिवारों को शौचालय निर्माण हेतु ₹12,000 प्रोत्साहन सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "बिजली बिल / मकान का पता प्रमाण",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (sbm.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://sbm.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

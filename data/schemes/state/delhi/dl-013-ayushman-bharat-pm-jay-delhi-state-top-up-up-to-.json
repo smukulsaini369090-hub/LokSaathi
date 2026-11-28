@@ -1,0 +1,78 @@
+{
+  "id": "dl-013-ayushman-bharat-pm-jay-delhi-state-top-up-up-to-",
+  "scheme_code": "DL-013",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Major",
+  "department": "Health & Family Welfare Dept, GNCTD with National Health Authority",
+  "name": {
+    "hi": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना (दिल्ली राज्य टॉप-अप)",
+    "en": "Ayushman Bharat PM-JAY Delhi State Top-Up (Up to ₹10 Lakh Cashless Cover)"
+  },
+  "bilingual_title": {
+    "en": "Ayushman Bharat PM-JAY Delhi State Top-Up (Up to ₹10 Lakh Cashless Cover)",
+    "hi": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना (दिल्ली राज्य टॉप-अप)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://health.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Eligible Delhi (NCT) beneficiary household; Haryana/UP NCR must use respective state/PM-JAY rolls.",
+    "age_range": "All ages (family floater)",
+    "income_cap": "Eligible NFSA / priority / notified Delhi household [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Eligible Delhi beneficiary rolls.",
+    "academic_or_work_rules": "e-KYC card activation required.",
+    "exclusions": "Ineligible non-priority households & non-NCT NCR residents."
+  },
+  "benefit": {
+    "summary_hi": "पात्र दिल्ली परिवारों को ₹10 लाख तक (₹5 लाख केंद्रीय + ₹5 लाख दिल्ली राज्य टॉप-अप) कैशलेस अस्पताल इलाज।",
+    "summary_en": "Up to ₹10,00,000/family/year cashless hospitalisation cover (₹5L PM-JAY + ₹5L Delhi top-up [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Up to ₹10,00,000/family/year cashless hospitalisation cover (₹5L PM-JAY + ₹5L Delhi top-up [VERIFY LATEST NOTIFICATION]).",
+    "hi": "पात्र दिल्ली परिवारों को ₹10 लाख तक (₹5 लाख केंद्रीय + ₹5 लाख दिल्ली राज्य टॉप-अप) कैशलेस अस्पताल इलाज।"
+  },
+  "documents_required": [
+    "Aadhaar Card",
+    "Ration Card / NFSA Proof",
+    "Aadhaar-linked Mobile Number"
+  ],
+  "application_steps": {
+    "online": "Verify eligibility on beneficiary.nha.gov.in / health.delhi.gov.in.",
+    "offline": "Visit Ayushman Mitra desk at empanelled hospital or CFC/CSC.",
+    "facilitation_center": "Empanelled Hospital Ayushman Desk / CFC / CSC"
+  },
+  "apply_url": "https://beneficiary.nha.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

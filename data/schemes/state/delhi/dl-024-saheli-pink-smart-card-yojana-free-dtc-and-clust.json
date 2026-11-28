@@ -1,0 +1,79 @@
+{
+  "id": "dl-024-saheli-pink-smart-card-yojana-free-dtc-and-clust",
+  "scheme_code": "DL-024",
+  "jurisdiction": "delhi",
+  "category": "Women & Girl Child",
+  "scale": "Major",
+  "department": "Transport Department / DTC & DIMTS, GNCTD",
+  "name": {
+    "hi": "सहेली पिंक स्मार्ट कार्ड योजना (निःशुल्क बस यात्रा)",
+    "en": "Saheli Pink Smart Card Yojana (Free DTC & Cluster Bus Travel for Women & Transgender Persons)"
+  },
+  "bilingual_title": {
+    "en": "Saheli Pink Smart Card Yojana (Free DTC & Cluster Bus Travel for Women & Transgender Persons)",
+    "hi": "सहेली पिंक स्मार्ट कार्ड योजना (निःशुल्क बस यात्रा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://transport.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "includes",
+        "value": [
+          "female",
+          "other"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Women & transgender passengers on eligible Delhi buses per smart card/residence rules [VERIFY LATEST NOTIFICATION].",
+    "age_range": "All eligible women & transgender passengers",
+    "income_cap": "Universal / Free",
+    "category_rules": "Female & Transgender commuters.",
+    "academic_or_work_rules": "Smart card issuance per circular.",
+    "exclusions": "Non-eligible categories."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की डीटीसी व क्लस्टर बसों में महिलाओं एवं ट्रांसजेंडर नागरिकों हेतु सहेली पिंक स्मार्ट कार्ड से निःशुल्क बस यात्रा।",
+    "summary_en": "Free travel on DTC & Cluster buses in Delhi via Saheli Pink Smart Card [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free travel on DTC & Cluster buses in Delhi via Saheli Pink Smart Card [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली की डीटीसी व क्लस्टर बसों में महिलाओं एवं ट्रांसजेंडर नागरिकों हेतु सहेली पिंक स्मार्ट कार्ड से निःशुल्क बस यात्रा।"
+  },
+  "documents_required": [
+    "Aadhaar Card / Valid ID",
+    "Active Mobile Number"
+  ],
+  "application_steps": {
+    "online": "Check registration instructions on transport.delhi.gov.in.",
+    "offline": "Issue via designated DTC counter / CFC.",
+    "facilitation_center": "DTC Counter / Citizen Facilitation Centre (CFC)"
+  },
+  "apply_url": "https://transport.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 / waived as notified [VERIFY LATEST NOTIFICATION]",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "in-037-pradhan-mantri-jeevan-jyoti-bima-yojana-pmjjby-2",
+  "scheme_code": "IN-037",
+  "jurisdiction": "central",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Department of Financial Services, MoF",
+  "name": {
+    "hi": "प्रधानमंत्री जीवन ज्योति बीमा योजना (₹436/वर्ष में ₹2 लाख जीवन बीमा)",
+    "en": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY — ₹2 Lakh Life @ ₹436/yr)"
+  },
+  "bilingual_title": {
+    "en": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY — ₹2 Lakh Life @ ₹436/yr)",
+    "hi": "प्रधानमंत्री जीवन ज्योति बीमा योजना (₹436/वर्ष में ₹2 लाख जीवन बीमा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://jansuraksha.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 50
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "18–50 वर्ष के बैंक खाताधारकों को मात्र ₹436 वार्षिक प्रीमियम पर किसी भी कारण मृत्यु होने पर ₹2 लाख का जीवन बीमा।",
+    "summary_en": "₹2,00,000 life insurance cover (any cause of death) at ₹436/year auto-debit premium for Indian bank account holders aged 18–50 (cover till 55)."
+  },
+  "benefit_summary": {
+    "en": "₹2,00,000 life insurance cover (any cause of death) at ₹436/year auto-debit premium for Indian bank account holders aged 18–50 (cover till 55).",
+    "hi": "18–50 वर्ष के बैंक खाताधारकों को मात्र ₹436 वार्षिक प्रीमियम पर किसी भी कारण मृत्यु होने पर ₹2 लाख का जीवन बीमा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र",
+    "निवास प्रमाण पत्र",
+    "बैंक पासबुक (आधार एनपीसीआई लिंक)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (jansuraksha.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://jansuraksha.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

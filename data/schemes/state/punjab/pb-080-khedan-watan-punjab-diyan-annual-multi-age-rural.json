@@ -1,0 +1,74 @@
+{
+  "id": "pb-080-khedan-watan-punjab-diyan-annual-multi-age-rural",
+  "scheme_code": "PB-080",
+  "jurisdiction": "punjab",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Sports Dept, Punjab",
+  "name": {
+    "hi": "खेड़ां वतन पंजाब दियां (वार्षिक ब्लॉक से राज्य स्तरीय खेल महाकुंभ)",
+    "en": "Khedan Watan Punjab Diyan (Annual Multi-Age Rural & State Sports Games)"
+  },
+  "bilingual_title": {
+    "en": "Khedan Watan Punjab Diyan (Annual Multi-Age Rural & State Sports Games)",
+    "hi": "खेड़ां वतन पंजाब दियां (वार्षिक ब्लॉक से राज्य स्तरीय खेल महाकुंभ)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pbsports.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "अंडर-14 से 60+ आयु वर्ग तक पंजाब भर में खेल प्रतियोगिताएं व विजेता खिलाड़ियों को नकद पुरस्कार।",
+    "summary_en": "Block-to-state sports tournaments across U-14 to 60+ age categories with crores in state medal cash prizes & talent scouting."
+  },
+  "benefit_summary": {
+    "en": "Block-to-state sports tournaments across U-14 to 60+ age categories with crores in state medal cash prizes & talent scouting.",
+    "hi": "अंडर-14 से 60+ आयु वर्ग तक पंजाब भर में खेल प्रतियोगिताएं व विजेता खिलाड़ियों को नकद पुरस्कार।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pbsports.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://pbsports.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

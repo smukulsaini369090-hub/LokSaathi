@@ -1,0 +1,90 @@
+{
+  "id": "hr-033-haryana-widow-and-destitute-women-pension",
+  "scheme_code": "HR-033",
+  "jurisdiction": "haryana",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Social Justice & Empowerment Dept, Haryana",
+  "name": {
+    "hi": "हरियाणा विधवा एवं निराश्रित महिला पेंशन योजना",
+    "en": "Haryana Widow & Destitute Women Pension"
+  },
+  "bilingual_title": {
+    "en": "Haryana Widow & Destitute Women Pension",
+    "hi": "हरियाणा विधवा एवं निराश्रित महिला पेंशन योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://saralharyana.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 300000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Up to ₹3,00,000/year per notified scheme norms",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "हरियाणा की 18+ विधवा व निराश्रित महिलाओं (PPP पात्र आय) को मासिक सामाजिक सुरक्षा पेंशन सहायता।",
+    "summary_en": "Monthly pension support (₹3,000/month) via PPP/SARAL for widows and destitute women aged 18+ in Haryana."
+  },
+  "benefit_summary": {
+    "en": "Monthly pension support (₹3,000/month) via PPP/SARAL for widows and destitute women aged 18+ in Haryana.",
+    "hi": "हरियाणा की 18+ विधवा व निराश्रित महिलाओं (PPP पात्र आय) को मासिक सामाजिक सुरक्षा पेंशन सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र",
+    "निवास प्रमाण पत्र",
+    "बैंक पासबुक (आधार एनपीसीआई लिंक)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (saralharyana.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://saralharyana.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

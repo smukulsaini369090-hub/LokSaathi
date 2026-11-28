@@ -1,0 +1,62 @@
+{
+  "id": "in-100-morth-rah-veer-good-samaritan-5-000-and-hit-and-",
+  "scheme_code": "IN-100",
+  "jurisdiction": "central",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Ministry of Road Transport & Highways (MoRTH / GIC)",
+  "name": {
+    "hi": "सड़क दुर्घटना 'गुड सेमेरिटन' (₹5,000) व हिट एंड रन मुआवजा (₹2 लाख मृत्यु / ₹50,000 घायल)",
+    "en": "MoRTH Rah-Veer / Good Samaritan (₹5,000) & Hit-and-Run Compensation (₹2L Death)"
+  },
+  "bilingual_title": {
+    "en": "MoRTH Rah-Veer / Good Samaritan (₹5,000) & Hit-and-Run Compensation (₹2L Death)",
+    "hi": "सड़क दुर्घटना 'गुड सेमेरिटन' (₹5,000) व हिट एंड रन मुआवजा (₹2 लाख मृत्यु / ₹50,000 घायल)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://morth.nic.in",
+  "eligibility": {
+    "must_match_all": [],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "दुर्घटना घायल को गोल्डन ऑवर में अस्पताल पहुंचाने पर ₹5,000 इनाम तथा अज्ञात वाहन हिट एंड रन में मृत्यु पर ₹2 लाख मुआवजा।",
+    "summary_en": "₹5,000 cash award (+ certificate) for helping fatal accident victims reach hospital in golden hour; ₹2,00,000 death / ₹50,000 grievous injury in untraced hit-and-run."
+  },
+  "benefit_summary": {
+    "en": "₹5,000 cash award (+ certificate) for helping fatal accident victims reach hospital in golden hour; ₹2,00,000 death / ₹50,000 grievous injury in untraced hit-and-run.",
+    "hi": "दुर्घटना घायल को गोल्डन ऑवर में अस्पताल पहुंचाने पर ₹5,000 इनाम तथा अज्ञात वाहन हिट एंड रन में मृत्यु पर ₹2 लाख मुआवजा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (morth.nic.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://morth.nic.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

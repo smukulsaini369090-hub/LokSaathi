@@ -1,0 +1,79 @@
+{
+  "id": "hr-076-hbocwwb-kanyadaan-51-000-daughter-marriage-assis",
+  "scheme_code": "HR-076",
+  "jurisdiction": "haryana",
+  "category": "Labour & BOCW",
+  "scale": "Major",
+  "department": "Haryana Building & Other Construction Workers Welfare Board (HBOCWWB)",
+  "name": {
+    "hi": "हरियाणा श्रमिक बोर्ड कन्यादान व विवाह सहायता (कुल ₹1,01,000)",
+    "en": "HBOCWWB Kanyadaan (₹51,000) + Daughter Marriage Assistance (₹50,000; Total ₹1,01,000)"
+  },
+  "bilingual_title": {
+    "en": "HBOCWWB Kanyadaan (₹51,000) + Daughter Marriage Assistance (₹50,000; Total ₹1,01,000)",
+    "hi": "हरियाणा श्रमिक बोर्ड कन्यादान व विवाह सहायता (कुल ₹1,01,000)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://hrylabour.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Labour & BOCW",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत हरियाणा निर्माण श्रमिक की पुत्री के विवाह पर कन्यादान व विवाह अनुदान सहित कुल ₹1,01,000 की सहायता।",
+    "summary_en": "₹51,000 Kanyadaan + ₹50,000 financial aid (₹1,01,000 combined) on wedding of registered construction worker's daughter/self."
+  },
+  "benefit_summary": {
+    "en": "₹51,000 Kanyadaan + ₹50,000 financial aid (₹1,01,000 combined) on wedding of registered construction worker's daughter/self.",
+    "hi": "पंजीकृत हरियाणा निर्माण श्रमिक की पुत्री के विवाह पर कन्यादान व विवाह अनुदान सहित कुल ₹1,01,000 की सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "ई-श्रम यूएएन / श्रमिक बोर्ड पंजीकरण कार्ड",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (hrylabour.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://hrylabour.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

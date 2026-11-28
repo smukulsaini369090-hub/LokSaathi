@@ -1,0 +1,78 @@
+{
+  "id": "dl-072-free-dtc-bus-pass-for-persons-with-disabilities-",
+  "scheme_code": "DL-072",
+  "jurisdiction": "delhi",
+  "category": "Divyangjan Welfare",
+  "scale": "Major",
+  "department": "Social Welfare & Transport / DTC, GNCTD",
+  "name": {
+    "hi": "दिव्यांगजन निःशुल्क डीटीसी बस पास योजना",
+    "en": "Free DTC Bus Pass for Persons with Disabilities (with Escort Concession)"
+  },
+  "bilingual_title": {
+    "en": "Free DTC Bus Pass for Persons with Disabilities (with Escort Concession)",
+    "hi": "दिव्यांगजन निःशुल्क डीटीसी बस पास योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dtc.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residence for state-issued pass; benchmark disability typically >=40%.",
+    "age_range": "All ages",
+    "income_cap": "Not income-capped for pass",
+    "category_rules": "Persons with benchmark disability >=40%.",
+    "academic_or_work_rules": "UDID / Disability certificate verification.",
+    "exclusions": "<40% disability."
+  },
+  "benefit": {
+    "summary_hi": "प्रमाणित दिव्यांगजनों को दिल्ली डीटीसी बसों में निःशुल्क पास व पात्रतानुसार सहायक (Escort) छूट।",
+    "summary_en": "Free DTC / city bus pass for certified Divyangjan + escort travel concession where eligible [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free DTC / city bus pass for certified Divyangjan + escort travel concession where eligible [VERIFY LATEST NOTIFICATION].",
+    "hi": "प्रमाणित दिव्यांगजनों को दिल्ली डीटीसी बसों में निःशुल्क पास व पात्रतानुसार सहायक (Escort) छूट।"
+  },
+  "documents_required": [
+    "UDID / Disability Certificate",
+    "Aadhaar",
+    "Delhi Address Proof",
+    "Photo"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in / dtc.delhi.gov.in.",
+    "offline": "DTC Pass Counter / CFC.",
+    "facilitation_center": "DTC Pass Counter / CFC"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 where free",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

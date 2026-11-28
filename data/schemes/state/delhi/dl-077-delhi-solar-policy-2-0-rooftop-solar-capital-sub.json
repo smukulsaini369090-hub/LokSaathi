@@ -1,0 +1,72 @@
+{
+  "id": "dl-077-delhi-solar-policy-2-0-rooftop-solar-capital-sub",
+  "scheme_code": "DL-077",
+  "jurisdiction": "delhi",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Power Department / IPGCL & Discoms, GNCTD",
+  "name": {
+    "hi": "दिल्ली सोलर नीति 2.0 (रूफटॉप सोलर सब्सिडी एवं जीबीआई प्रोत्साहन)",
+    "en": "Delhi Solar Policy 2.0 — Rooftop Solar Capital Subsidy & Generation-Based Incentive (GBI)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Solar Policy 2.0 — Rooftop Solar Capital Subsidy & Generation-Based Incentive (GBI)",
+    "hi": "दिल्ली सोलर नीति 2.0 (रूफटॉप सोलर सब्सिडी एवं जीबीआई प्रोत्साहन)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pmsuryaghar.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Eligible metered buildings inside NCT of Delhi; Haryana/UP NCR excluded.",
+    "age_range": "Building/consumer owners (18+)",
+    "income_cap": "No income ceiling",
+    "category_rules": "Residential / notified building consumers.",
+    "academic_or_work_rules": "Discom net-metering & empaneled vendor install.",
+    "exclusions": "Premises outside Delhi Discom area."
+  },
+  "benefit": {
+    "summary_hi": "छत पर सोलर पैनल लगाने पर पीएम सूर्य घर के अतिरिक्त दिल्ली राज्य पूंजीगत सब्सिडी व मासिक GBI प्रोत्साहन।",
+    "summary_en": "Delhi state rooftop solar capital subsidy & monthly Generation-Based Incentive (GBI) complementing PM Surya Ghar [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Delhi state rooftop solar capital subsidy & monthly Generation-Based Incentive (GBI) complementing PM Surya Ghar [VERIFY LATEST NOTIFICATION].",
+    "hi": "छत पर सोलर पैनल लगाने पर पीएम सूर्य घर के अतिरिक्त दिल्ली राज्य पूंजीगत सब्सिडी व मासिक GBI प्रोत्साहन।"
+  },
+  "documents_required": [
+    "Delhi Electricity Bill / CA No.",
+    "Property Ownership/NOC & Aadhaar",
+    "Bank Passbook & Vendor Technical Docs"
+  ],
+  "application_steps": {
+    "online": "Apply via power.delhi.gov.in / pmsuryaghar.gov.in.",
+    "offline": "Discom Solar Cell / CFC.",
+    "facilitation_center": "Discom Solar Cell / CFC"
+  },
+  "apply_url": "https://power.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 portal registration",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

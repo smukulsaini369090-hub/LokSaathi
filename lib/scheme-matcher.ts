@@ -39,8 +39,14 @@ const OCCUPATION_SYNONYMS: Record<string, string[]> = {
   worker: ["worker", "laborer", "construction_worker"],
   laborer: ["laborer", "worker", "construction_worker"],
   construction_worker: ["construction_worker", "laborer", "worker"],
-  business: ["business", "self_employed"],
-  self_employed: ["self_employed", "business"],
+  business: ["business", "self_employed", "entrepreneur"],
+  self_employed: ["self_employed", "business", "entrepreneur"],
+  entrepreneur: ["entrepreneur", "business", "self_employed"],
+  athlete: ["athlete", "sports"],
+  advocate: ["advocate"],
+  journalist: ["journalist"],
+  artist: ["artist"],
+  fisher: ["fisher"],
 };
 
 /**
@@ -179,6 +185,13 @@ const GENERIC_FALLBACK_IDS = new Set([
   "pm-jan-dhan",
   "mudra-loan",
   "pmegp",
+  "e-shram",
+]);
+
+const SPECIALIZED_PREREQUISITE_GATES = new Set([
+  "is_disabled",
+  "is_capf_ward",
+  "is_phd_scholar",
 ]);
 
 function computeRelevanceScore(
@@ -189,6 +202,18 @@ function computeRelevanceScore(
   confidence: "high" | "medium"
 ): number {
   let score = confidence === "high" ? 1000 : 100;
+
+  if (scheme.scale === "Major") {
+    score += 180;
+  }
+
+  if (scheme.verification_status !== "verify_latest_notification") {
+    score += 120;
+  }
+
+  if (scheme.id === "national-scholarship-portal" && matchedFields.has("occupation")) {
+    score += 140;
+  }
 
   if (scheme.state && profile.state && scheme.state === profile.state) {
     score += 300;
@@ -257,6 +282,18 @@ export function matchSchemes(
       : [];
 
     for (const rule of mustMatchAll) {
+      // Avoid flooding general discovery results with niche disability/CAPF/PhD schemes
+      // unless the citizen explicitly indicated that prerequisite attribute.
+      if (
+        SPECIALIZED_PREREQUISITE_GATES.has(rule.field) &&
+        rule.operator === "eq" &&
+        rule.value === true &&
+        (safeProfile as Record<string, any>)[rule.field] !== true
+      ) {
+        disqualified = true;
+        break;
+      }
+
       const result = evaluateSingleRule(rule, safeProfile);
       if (result === "fail") {
         disqualified = true;

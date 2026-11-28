@@ -14,6 +14,7 @@ import {
   type SchemeMatch,
 } from "@/lib/scheme-matcher";
 import { getDocumentGuide, type DocumentAcquisitionGuide } from "@/lib/document-guides";
+import { detectSchemeRedirect } from "@/lib/scheme-redirects";
 
 export type CriterionGapType = "hard_disqualifier" | "fixable_gap";
 
@@ -514,6 +515,11 @@ export function evaluateSchemeEligibility(
     summary_en = `A few additional details are required to confirm eligibility (${missingArr.join(", ")}). Please complete the details below.`;
   }
 
+  if (scheme.verification_status === "verify_latest_notification" || scheme.confidence === "needs-verification") {
+    summary_hi += " (नोट: 2026–27 के सटीक स्लैब/तारीख हेतु नवीनतम आधिकारिक अधिसूचना अवश्य जांचें।)";
+    summary_en += " (Note: Verify latest 2026–27 official notification for exact caps/active window.)";
+  }
+
   return {
     schemeId: scheme.id,
     schemeName: scheme.name,
@@ -535,53 +541,79 @@ export function detectTargetScheme(message: string, allSchemes: Scheme[]): Schem
   if (!message || !allSchemes || allSchemes.length === 0) return null;
   const text = message.toLowerCase().trim();
 
-  // Keyword dictionary mapping common nicknames to scheme IDs
-  const KEYWORD_MAP: Array<{ keywords: string[]; schemeId: string }> = [
+  // Keyword dictionary mapping common nicknames / scheme codes to scheme IDs or codes
+  const KEYWORD_MAP: Array<{ keywords: string[]; schemeId: string; code?: string }> = [
     // Central schemes
-    { keywords: ["pm kisan", "pmkisan", "pm-kisan", "पीएम किसान", "पीएम-किसान", "किसान सम्मान निधि", "kisan samman nidhi", "kisan 6000"], schemeId: "pm-kisan" },
-    { keywords: ["ayushman", "ayushman bharat", "आयुष्मान", "pm-jay", "pmjay", "5 lakh health"], schemeId: "ayushman-bharat" },
-    { keywords: ["e-shram", "eshram", "ई-श्रम", "shramik card", "ई श्रम"], schemeId: "e-shram" },
-    { keywords: ["mudra", "mudra loan", "मुद्रा", "shishu kishor tarun"], schemeId: "mudra-loan" },
-    { keywords: ["fasal bima", "pmfby", "फसल बीमा", "crop insurance"], schemeId: "pm-fasal-bima" },
-    { keywords: ["jan dhan", "pmjdy", "जन धन", "zero balance account"], schemeId: "pm-jan-dhan" },
-    { keywords: ["ujjwala", "उज्ज्वला", "free gas cylinder", "lpg gas"], schemeId: "pm-ujjwala" },
-    { keywords: ["sukanya", "sukanya samriddhi", "सुकन्या", "beti account"], schemeId: "sukanya-samriddhi" },
-    { keywords: ["pm awas gramin", "pmay-g", "pmayg", "आवास ग्रामीण"], schemeId: "pm-awas-yojana-gramin" },
-    { keywords: ["pm awas urban", "pmay-u", "pmayu", "आवास शहरी"], schemeId: "pm-awas-yojana-urban" },
-    { keywords: ["street vendor", "svanidhi", "पीएम स्वनिधि", "rehdi patri"], schemeId: "pm-street-vendor-loan" },
-    { keywords: ["matru vandana", "pmmvy", "मातृ वंदना", "pregnancy assistance"], schemeId: "pm-matru-vandana" },
-    { keywords: ["pmegp", "पीएमईजीपी", "employment generation programme"], schemeId: "pmegp" },
-    { keywords: ["national scholarship", "nsp", "छात्रवृत्ति पोर्टल"], schemeId: "national-scholarship-portal" },
-    { keywords: ["social assistance", "nsap", "राष्ट्रीय सामाजिक सहायता"], schemeId: "national-social-assistance" },
-    { keywords: ["kisan maan dhan", "kisan pension", "किसान मान-धन"], schemeId: "pm-kisan-maan-dhan" },
-    { keywords: ["anganwadi", "आंगनवाड़ी"], schemeId: "anganwadi-services" },
-    { keywords: ["poshan abhiyaan", "पोषण अभियान"], schemeId: "poshan-abhiyaan" },
-    // Punjab schemes
-    { keywords: ["sarbat sehat", "mukh mantri sehat", "sehat bima", "सेहत बीमा", "punjab health"], schemeId: "punjab-mukh-mantri-sehat-bima" },
-    { keywords: ["ashirwad", "shagun scheme", "punjab ashirwad", "आशीर्वाद योजना", "ashirwad scheme"], schemeId: "punjab-ashirwad-scheme" },
-    { keywords: ["mai bhago", "mai bhago vidya", "माई भागो", "cycle scheme"], schemeId: "punjab-mai-bhago-vidya" },
-    { keywords: ["smart ration card", "punjab ration", "स्मार्ट राशन कार्ड"], schemeId: "punjab-smart-ration-card" },
-    { keywords: ["punjab old age", "old age pension punjab", "पंजाब वृद्धावस्था पेंशन"], schemeId: "punjab-old-age-pension" },
-    // State schemes
-    { keywords: ["ladli", "लाडली"], schemeId: "delhi-ladli-scheme" },
-    { keywords: ["kanya sumangala", "कन्या सुमंगला"], schemeId: "up-kanya-sumangala" },
-    { keywords: ["shadi anudan", "शादी अनुदान"], schemeId: "up-shadi-anudan" },
-    { keywords: ["kisan pension up", "वृद्धावस्था पेंशन यूपी"], schemeId: "up-old-age-pension" },
-    { keywords: ["chhatravritti haryana", "post matric haryana"], schemeId: "haryana-post-matric-scholarship" },
+    { keywords: ["pm kisan", "pmkisan", "pm-kisan", "पीएम किसान", "पीएम-किसान", "किसान सम्मान निधि", "kisan samman nidhi", "kisan 6000"], schemeId: "pm-kisan", code: "IN-041" },
+    { keywords: ["ayushman vaya vandana", "vaya vandana card", "वय वंदना"], schemeId: "in-016-ayushman-vaya-vandana-card", code: "IN-016" },
+    { keywords: ["ayushman", "ayushman bharat", "आयुष्मान", "pm-jay", "pmjay", "5 lakh health"], schemeId: "ayushman-bharat", code: "IN-015" },
+    { keywords: ["e-shram", "eshram", "ई-श्रम", "shramik card", "ई श्रम"], schemeId: "e-shram", code: "IN-069" },
+    { keywords: ["mudra", "mudra loan", "मुद्रा", "shishu kishor tarun"], schemeId: "mudra-loan", code: "IN-060" },
+    { keywords: ["fasal bima", "pmfby", "फसल बीमा", "crop insurance"], schemeId: "pm-fasal-bima", code: "IN-042" },
+    { keywords: ["surya ghar", "muft bijli", "सूर्य घर", "मुफ्त बिजली"], schemeId: "in-088-pm-surya-ghar-muft-bijli", code: "IN-088" },
+    { keywords: ["pm e-drive", "pm edrive", "e-drive"], schemeId: "in-091-pm-e-drive", code: "IN-091" },
+    { keywords: ["pm vishwakarma", "पीएम विश्वकर्मा", "vishwakarma"], schemeId: "in-070-pm-vishwakarma", code: "IN-070" },
+    { keywords: ["ujjwala", "उज्ज्वला", "free gas cylinder", "lpg gas"], schemeId: "pm-ujjwala", code: "IN-089" },
+    { keywords: ["sukanya", "sukanya samriddhi", "सुकन्या", "beti account"], schemeId: "sukanya-samriddhi", code: "IN-027" },
+    { keywords: ["pm awas gramin", "pmay-g", "pmayg", "आवास ग्रामीण"], schemeId: "pm-awas-yojana-gramin", code: "IN-054" },
+    { keywords: ["pm awas urban", "pmay-u", "pmayu", "आवास शहरी"], schemeId: "pm-awas-yojana-urban", code: "IN-055" },
+    { keywords: ["street vendor", "svanidhi", "पीएम स्वनिधि", "rehdi patri"], schemeId: "pm-street-vendor-loan", code: "IN-071" },
+    { keywords: ["matru vandana", "pmmvy", "मातृ वंदना", "pregnancy assistance"], schemeId: "pm-matru-vandana", code: "IN-017" },
+    { keywords: ["pmegp", "पीएमईजीपी", "employment generation programme"], schemeId: "pmegp", code: "IN-061" },
+    { keywords: ["national scholarship", "nsp", "छात्रवृत्ति पोर्टल"], schemeId: "national-scholarship-portal", code: "IN-006" },
+    { keywords: ["social assistance", "nsap", "राष्ट्रीय सामाजिक सहायता"], schemeId: "national-social-assistance", code: "IN-034" },
+    { keywords: ["kisan maan dhan", "kisan pension", "किसान मान-धन"], schemeId: "pm-kisan-maan-dhan", code: "IN-045" },
+    // Delhi active schemes
+    { keywords: ["lakhpati bitiya", "लखपति बिटिया"], schemeId: "dl-022-delhi-lakhpati-bitiya-scheme", code: "DL-022" },
+    { keywords: ["delhi lakshmi", "mahila samriddhi", "दिल्ली लक्ष्मी", "महिला समृद्धि"], schemeId: "dl-021-delhi-lakshmi-yojana", code: "DL-021" },
+    { keywords: ["ayushman arogya mandir", "आयुष्मान आरोग्य मंदिर"], schemeId: "dl-015-ayushman-arogya-mandir-delhi", code: "DL-015" },
+    // Haryana active schemes
+    { keywords: ["lado lakshmi", "लाड़ो लक्ष्मी", "deen dayal lado"], schemeId: "hr-023-deen-dayal-lado-lakshmi", code: "HR-023" },
+    { keywords: ["hkrn", "kaushal rozgar"], schemeId: "haryana-kaushal-rozgar", code: "HR-068" },
+    { keywords: ["chirayu", "चिरायु हरियाणा"], schemeId: "hr-015-chirayu-haryana", code: "HR-015" },
+    // Punjab active schemes
+    { keywords: ["sarbat sehat", "mukh mantri sehat", "sehat bima", "सेहत बीमा", "punjab health"], schemeId: "punjab-mukh-mantri-sehat-bima", code: "PB-011" },
+    { keywords: ["ashirwad", "punjab ashirwad", "आशीर्वाद योजना", "ashirwad scheme"], schemeId: "punjab-ashirwad-scheme", code: "PB-020" },
+    { keywords: ["mai bhago", "mai bhago vidya", "माई भागो"], schemeId: "punjab-mai-bhago-vidya", code: "PB-006" },
+    { keywords: ["smart ration card", "punjab ration", "स्मार्ट राशन कार्ड"], schemeId: "punjab-smart-ration-card", code: "PB-074" },
+    { keywords: ["punjab old age", "old age pension punjab", "पंजाब वृद्धावस्था पेंशन"], schemeId: "punjab-old-age-pension", code: "PB-026" },
+    // UP schemes
+    { keywords: ["kanya sumangala", "कन्या सुमंगला"], schemeId: "up-kanya-sumangala", code: "UP-022" },
+    { keywords: ["shadi anudan", "शादी अनुदान"], schemeId: "up-shadi-anudan", code: "UP-024" },
+    { keywords: ["vridha pension up", "वृद्धावस्था पेंशन यूपी"], schemeId: "up-vridha-pension", code: "UP-031" },
+    { keywords: ["haryana ladli social security", "ladli social security"], schemeId: "haryana-ladli-scheme", code: "HR-034" },
   ];
 
-  // 1. Direct keyword match
+  // 0. Check if query mentions a discontinued / merged / viral-fake scheme first -> resolve replacement scheme
+  const redirect = detectSchemeRedirect(text);
+  if (redirect && redirect.replacement_codes.length > 0) {
+    for (const code of redirect.replacement_codes) {
+      const target = allSchemes.find(
+        (s) => s.scheme_code?.toLowerCase() === code.toLowerCase() || s.id.toLowerCase() === code.toLowerCase()
+      );
+      if (target) return target;
+    }
+  }
+
+  // 1. Direct keyword / scheme_code match
   for (const entry of KEYWORD_MAP) {
     if (entry.keywords.some((kw) => text.includes(kw))) {
-      const match = allSchemes.find((s) => s.id === entry.schemeId);
+      const match = allSchemes.find(
+        (s) =>
+          s.id === entry.schemeId ||
+          (entry.code && s.scheme_code?.toLowerCase() === entry.code.toLowerCase())
+      );
       if (match) return match;
     }
   }
 
-  // 2. Exact or substring match against Scheme ID
+  // 2. Exact or substring match against Scheme ID or scheme_code (e.g., "DL-022", "HR-023")
   for (const s of allSchemes) {
     const sId = s.id.toLowerCase();
-    if (text.includes(sId)) return s;
+    const sCode = s.scheme_code?.toLowerCase();
+    if (text.includes(sId) || (sCode && new RegExp(`\\b${sCode}\\b`, "i").test(text))) {
+      return s;
+    }
   }
 
   // 3. Name match in Hindi or English

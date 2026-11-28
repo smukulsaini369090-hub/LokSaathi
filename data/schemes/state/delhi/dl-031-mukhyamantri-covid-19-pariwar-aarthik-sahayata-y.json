@@ -1,0 +1,73 @@
+{
+  "id": "dl-031-mukhyamantri-covid-19-pariwar-aarthik-sahayata-y",
+  "scheme_code": "DL-031",
+  "jurisdiction": "delhi",
+  "category": "Pensions & Seniors",
+  "scale": "Minor",
+  "department": "Social Welfare / Revenue Dept, GNCTD",
+  "name": {
+    "hi": "मुख्यमंत्री कोविड-19 परिवार आर्थिक सहायता योजना",
+    "en": "Mukhyamantri COVID-19 Pariwar Aarthik Sahayata Yojana (Ongoing Monthly Pension)"
+  },
+  "bilingual_title": {
+    "en": "Mukhyamantri COVID-19 Pariwar Aarthik Sahayata Yojana (Ongoing Monthly Pension)",
+    "hi": "मुख्यमंत्री कोविड-19 परिवार आर्थिक सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residency [VERIFY LATEST NOTIFICATION]; Haryana/UP NCR excluded.",
+    "age_range": "Eligible dependents",
+    "income_cap": "Per continuation/renewal rules [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Registered / eligible COVID-19 victim families.",
+    "academic_or_work_rules": "COVID-19 casualty & dependency proof.",
+    "exclusions": "Non-Delhi families."
+  },
+  "benefit": {
+    "summary_hi": "कोविड-19 से दिवंगत दिल्ली नागरिकों के पात्र आश्रित परिवारों को मासिक ₹2,500 पेंशन निरंतरता/नवीनीकरण लाभ।",
+    "summary_en": "Monthly DBT aid (historically ₹2,500/month [VERIFY LATEST NOTIFICATION]) for eligible family members of COVID-19 deceased."
+  },
+  "benefit_summary": {
+    "en": "Monthly DBT aid (historically ₹2,500/month [VERIFY LATEST NOTIFICATION]) for eligible family members of COVID-19 deceased.",
+    "hi": "कोविड-19 से दिवंगत दिल्ली नागरिकों के पात्र आश्रित परिवारों को मासिक ₹2,500 पेंशन निरंतरता/नवीनीकरण लाभ।"
+  },
+  "documents_required": [
+    "Deceased's Death Certificate & COVID-19 Record",
+    "Beneficiary Aadhaar & Delhi Residence Proof",
+    "Dependency Proof",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply / renew via edistrict.delhigovt.nic.in.",
+    "offline": "DSWO / CFC.",
+    "facilitation_center": "CFC / District Social Welfare Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

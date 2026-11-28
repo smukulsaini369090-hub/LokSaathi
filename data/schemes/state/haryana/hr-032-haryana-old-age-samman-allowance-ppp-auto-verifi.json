@@ -1,0 +1,90 @@
+{
+  "id": "hr-032-haryana-old-age-samman-allowance-ppp-auto-verifi",
+  "scheme_code": "HR-032",
+  "jurisdiction": "haryana",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Social Justice & Empowerment Dept, Haryana (CRID / PPP)",
+  "name": {
+    "hi": "हरियाणा वृद्धावस्था सम्मान भत्ता (PPP स्वचालित पेंशन)",
+    "en": "Haryana Old Age Samman Allowance (PPP Auto-Verified Pension)"
+  },
+  "bilingual_title": {
+    "en": "Haryana Old Age Samman Allowance (PPP Auto-Verified Pension)",
+    "hi": "हरियाणा वृद्धावस्था सम्मान भत्ता (PPP स्वचालित पेंशन)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pension.socialjusticehry.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 300000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Up to ₹3,00,000/year per notified scheme norms",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "60+ आयु व ₹3 लाख से कम PPP परिवार आय वाले हरियाणा बुजुर्गों को बिना चक्कर काटे स्वचालित मासिक सम्मान भत्ता।",
+    "summary_en": "Monthly old-age pension (₹3,000/month) auto-initiated via Parivar Pehchan Patra (PPP) verification for eligible seniors 60+."
+  },
+  "benefit_summary": {
+    "en": "Monthly old-age pension (₹3,000/month) auto-initiated via Parivar Pehchan Patra (PPP) verification for eligible seniors 60+.",
+    "hi": "60+ आयु व ₹3 लाख से कम PPP परिवार आय वाले हरियाणा बुजुर्गों को बिना चक्कर काटे स्वचालित मासिक सम्मान भत्ता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र",
+    "निवास प्रमाण पत्र",
+    "बैंक पासबुक (आधार एनपीसीआई लिंक)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pension.socialjusticehry.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://pension.socialjusticehry.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

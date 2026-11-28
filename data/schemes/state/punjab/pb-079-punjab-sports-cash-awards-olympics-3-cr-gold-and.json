@@ -1,0 +1,69 @@
+{
+  "id": "pb-079-punjab-sports-cash-awards-olympics-3-cr-gold-and",
+  "scheme_code": "PB-079",
+  "jurisdiction": "punjab",
+  "category": "Sports, Legal & Niche",
+  "scale": "Major",
+  "department": "Sports & Youth Services Dept, Punjab",
+  "name": {
+    "hi": "पंजाब खिलाड़ी नकद पुरस्कार (ओलंपिक ₹3 करोड़ स्वर्ण व तैयारी भत्ता)",
+    "en": "Punjab Sports Cash Awards (Olympics ₹3 Cr Gold) & Preparation Allowance"
+  },
+  "bilingual_title": {
+    "en": "Punjab Sports Cash Awards (Olympics ₹3 Cr Gold) & Preparation Allowance",
+    "hi": "पंजाब खिलाड़ी नकद पुरस्कार (ओलंपिक ₹3 करोड़ स्वर्ण व तैयारी भत्ता)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pbsports.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "ओलंपिक पदक पर ₹3 करोड़ तक पुरस्कार, तैयारी के लिए ₹15 लाख अग्रिम व एशियाई/राष्ट्रमंडल पदक नकद सम्मान।",
+    "summary_en": "₹3 Cr Olympic Gold, ₹2 Cr Silver, ₹1 Cr Bronze + ₹15L Olympic prep advance + Asian/CWG/Para rewards + state jobs."
+  },
+  "benefit_summary": {
+    "en": "₹3 Cr Olympic Gold, ₹2 Cr Silver, ₹1 Cr Bronze + ₹15L Olympic prep advance + Asian/CWG/Para rewards + state jobs.",
+    "hi": "ओलंपिक पदक पर ₹3 करोड़ तक पुरस्कार, तैयारी के लिए ₹15 लाख अग्रिम व एशियाई/राष्ट्रमंडल पदक नकद सम्मान।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pbsports.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://pbsports.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

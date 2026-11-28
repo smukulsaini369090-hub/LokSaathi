@@ -1,0 +1,81 @@
+{
+  "id": "hr-100-scholarship-for-students-with-disabilities-class",
+  "scheme_code": "HR-100",
+  "jurisdiction": "haryana",
+  "category": "Divyangjan Welfare",
+  "scale": "Minor",
+  "department": "Social Justice & Empowerment Dept, Haryana",
+  "name": {
+    "hi": "दिव्यांग विद्यार्थी छात्रवृत्ति योजना (कक्षा 1 से पीजी — हरियाणा)",
+    "en": "Scholarship for Students with Disabilities (Class 1–PG, Haryana)"
+  },
+  "bilingual_title": {
+    "en": "Scholarship for Students with Disabilities (Class 1–PG, Haryana)",
+    "hi": "दिव्यांग विद्यार्थी छात्रवृत्ति योजना (कक्षा 1 से पीजी — हरियाणा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://saralharyana.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Divyangjan Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "हरियाणा में कक्षा 1 से स्नातकोत्तर तक अध्ययनरत 40%+ दिव्यांग विद्यार्थियों को मासिक छात्रवृत्ति।",
+    "summary_en": "Monthly stipend, reader allowance & book grant for students with >=40% disability studying in Haryana Class 1 through PG."
+  },
+  "benefit_summary": {
+    "en": "Monthly stipend, reader allowance & book grant for students with >=40% disability studying in Haryana Class 1 through PG.",
+    "hi": "हरियाणा में कक्षा 1 से स्नातकोत्तर तक अध्ययनरत 40%+ दिव्यांग विद्यार्थियों को मासिक छात्रवृत्ति।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "सीएमओ (मुख्य चिकित्सा अधिकारी) द्वारा जारी दिव्यांगता प्रमाण पत्र (न्यूनतम 40%)",
+    "निवास प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (saralharyana.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://saralharyana.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

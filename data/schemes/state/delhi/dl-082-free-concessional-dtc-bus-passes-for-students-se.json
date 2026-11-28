@@ -1,0 +1,72 @@
+{
+  "id": "dl-082-free-concessional-dtc-bus-passes-for-students-se",
+  "scheme_code": "DL-082",
+  "jurisdiction": "delhi",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "DTC / Transport Department, GNCTD",
+  "name": {
+    "hi": "छात्र, वरिष्ठ नागरिक एवं स्वतंत्रता सेनानी रियायती डीटीसी बस पास योजना",
+    "en": "Free / Concessional DTC Bus Passes for Students, Senior Citizens & Freedom Fighters"
+  },
+  "bilingual_title": {
+    "en": "Free / Concessional DTC Bus Passes for Students, Senior Citizens & Freedom Fighters",
+    "hi": "छात्र, वरिष्ठ नागरिक एवं स्वतंत्रता सेनानी रियायती डीटीसी बस पास योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://transport.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) institution / residence rules [VERIFY LATEST NOTIFICATION].",
+    "age_range": "Students, Senior Citizens (60+), Freedom Fighters",
+    "income_cap": "Category-based",
+    "category_rules": "Students, Seniors, Freedom Fighters.",
+    "academic_or_work_rules": "Student bonafide / age / freedom fighter proof.",
+    "exclusions": "Unverified applicants."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के छात्र-छात्राओं, वरिष्ठ नागरिकों व स्वतंत्रता सेनानियों को डीटीसी बसों हेतु निःशुल्क या रियायती बस पास।",
+    "summary_en": "Free / deeply subsidised DTC bus passes for eligible students, seniors, freedom fighters & notified categories in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free / deeply subsidised DTC bus passes for eligible students, seniors, freedom fighters & notified categories in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के छात्र-छात्राओं, वरिष्ठ नागरिकों व स्वतंत्रता सेनानियों को डीटीसी बसों हेतु निःशुल्क या रियायती बस पास।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Address Proof",
+    "Student ID / Senior Age Proof / Freedom Fighter Cert",
+    "Photo"
+  ],
+  "application_steps": {
+    "online": "Apply on dtc.delhi.gov.in / transport.delhi.gov.in.",
+    "offline": "DTC Pass Counter / Depot / CFC.",
+    "facilitation_center": "DTC Pass Depot / CFC"
+  },
+  "apply_url": "https://dtc.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 where free or notified pass fee",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "in-102-journalist-welfare-scheme-jws-up-to-5-lakh-ex-gr",
+  "scheme_code": "IN-102",
+  "jurisdiction": "central",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Ministry of Information & Broadcasting (PIB)",
+  "name": {
+    "hi": "पत्रकार कल्याण योजना (JWS — गंभीर बीमारी व असामयिक मृत्यु पर ₹5 लाख सहायता)",
+    "en": "Journalist Welfare Scheme (JWS — Up to ₹5 Lakh Ex-Gratia Aid)"
+  },
+  "bilingual_title": {
+    "en": "Journalist Welfare Scheme (JWS — Up to ₹5 Lakh Ex-Gratia Aid)",
+    "hi": "पत्रकार कल्याण योजना (JWS — गंभीर बीमारी व असामयिक मृत्यु पर ₹5 लाख सहायता)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://accreditation.pib.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "कार्यरत पत्रकारों की आकस्मिक मृत्यु, स्थायी दिव्यांगता या गंभीर बीमारी के इलाज हेतु परिवार को ₹5 लाख तक अनुग्रह सहायता।",
+    "summary_en": "Up to ₹5,00,000 one-time ex-gratia relief for families on journalist's death/permanent disability or up to ₹3L–₹5L for serious medical treatment."
+  },
+  "benefit_summary": {
+    "en": "Up to ₹5,00,000 one-time ex-gratia relief for families on journalist's death/permanent disability or up to ₹3L–₹5L for serious medical treatment.",
+    "hi": "कार्यरत पत्रकारों की आकस्मिक मृत्यु, स्थायी दिव्यांगता या गंभीर बीमारी के इलाज हेतु परिवार को ₹5 लाख तक अनुग्रह सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (accreditation.pib.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://accreditation.pib.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

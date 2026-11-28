@@ -1,0 +1,91 @@
+{
+  "id": "dl-004-dr-b-r-ambedkar-state-topper-award-sc-st-obc-min",
+  "scheme_code": "DL-004",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Minor",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "डॉ. बी.आर. अंबेडकर राज्य टॉपर पुरस्कार योजना",
+    "en": "Dr. B.R. Ambedkar State Topper Award (SC/ST/OBC/Minority)"
+  },
+  "bilingual_title": {
+    "en": "Dr. B.R. Ambedkar State Topper Award (SC/ST/OBC/Minority)",
+    "hi": "डॉ. बी.आर. अंबेडकर राज्य टॉपर पुरस्कार योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) domicile + Class 10 & Class 12 passed from Delhi; NCR satellite schooling excluded.",
+    "age_range": "Graduating university discipline toppers",
+    "income_cap": "Per notified award norms [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "SC/ST/OBC/Minority university discipline topper.",
+    "academic_or_work_rules": "University degree completion topper endorsement.",
+    "exclusions": "Students who completed Class 10/12 outside Delhi NCT."
+  },
+  "benefit": {
+    "summary_hi": "विश्वविद्यालय में डिग्री पूरी करने वाले अनुशासन टॉपर छात्र को एकमुश्त ₹25,000 नकद पुरस्कार (नियमानुसार)।",
+    "summary_en": "One-time ₹25,000 cash award per scheme norms [VERIFY LATEST NOTIFICATION] for discipline topper completing degree in a university."
+  },
+  "benefit_summary": {
+    "en": "One-time ₹25,000 cash award per scheme norms [VERIFY LATEST NOTIFICATION] for discipline topper completing degree in a university.",
+    "hi": "विश्वविद्यालय में डिग्री पूरी करने वाले अनुशासन टॉपर छात्र को एकमुश्त ₹25,000 नकद पुरस्कार (नियमानुसार)।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Domicile",
+    "Class 10 & 12 Marksheets from Delhi",
+    "Degree Marksheet & Topper Certificate",
+    "Caste Certificate",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "Submit with university endorsement at CFC.",
+    "facilitation_center": "CFC / University Endorsement Desk"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

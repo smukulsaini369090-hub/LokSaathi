@@ -1,49 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readdirSync, readFileSync, statSync, existsSync } from "fs";
-import { join } from "path";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { matchSchemes } from "@/lib/scheme-matcher";
 import { evaluateSchemeEligibility, detectTargetScheme } from "@/lib/eligibility-evaluator";
+import { loadAllSchemes, findSchemeByIdOrCode } from "@/lib/schemes-loader";
+import { detectSchemeRedirect } from "@/lib/scheme-redirects";
 import {
   validateProfilePayload,
   sanitizeUntrustedInput,
   detectPromptInjectionAttack,
 } from "@/lib/security";
 import type { Scheme } from "@/lib/scheme-types";
-
-// Cache in-memory scheme files list so we don't hit disk on every call
-let cachedSchemes: Scheme[] | null = null;
-
-function loadAllSchemes(): Scheme[] {
-  if (cachedSchemes && cachedSchemes.length > 0) {
-    return cachedSchemes;
-  }
-
-  const baseDir = join(process.cwd(), "data/schemes");
-  const schemes: Scheme[] = [];
-
-  function walk(dir: string) {
-    if (!existsSync(dir)) return;
-    const entries = readdirSync(dir);
-    for (const entry of entries) {
-      const fullPath = join(dir, entry);
-      if (statSync(fullPath).isDirectory()) {
-        walk(fullPath);
-      } else if (entry.endsWith(".json")) {
-        try {
-          const content = readFileSync(fullPath, "utf-8");
-          schemes.push(JSON.parse(content));
-        } catch (err) {
-          console.error(`Failed to load scheme at ${fullPath}:`, err);
-        }
-      }
-    }
-  }
-
-  walk(baseDir);
-  cachedSchemes = schemes;
-  return schemes;
-}
 
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -106,9 +72,16 @@ export async function POST(request: NextRequest) {
   const allSchemes = loadAllSchemes();
   const matched_schemes = matchSchemes(userProfile, allSchemes);
 
+  const schemeRedirect =
+    queryText && !queryBlocked
+      ? detectSchemeRedirect(queryText)
+      : targetSchemeId
+      ? detectSchemeRedirect(targetSchemeId)
+      : null;
+
   let targetScheme: Scheme | null = null;
   if (targetSchemeId) {
-    targetScheme = allSchemes.find((s) => s.id === targetSchemeId) || null;
+    targetScheme = findSchemeByIdOrCode(targetSchemeId, allSchemes) || null;
   } else if (queryText && !queryBlocked) {
     targetScheme = detectTargetScheme(queryText, allSchemes);
   }
@@ -137,7 +110,10 @@ export async function POST(request: NextRequest) {
     missing_fields: Array.from(missingFieldsSet),
     language_detected: language,
     total_matched: matched_schemes.length,
-    target_scheme: targetScheme ? { id: targetScheme.id, name: targetScheme.name } : null,
+    target_scheme: targetScheme
+      ? { id: targetScheme.id, scheme_code: targetScheme.scheme_code, name: targetScheme.name }
+      : null,
+    scheme_redirect: schemeRedirect,
     eligibility_audit: eligibilityAudit,
   });
 }

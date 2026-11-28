@@ -1,0 +1,69 @@
+{
+  "id": "up-064-up-msme-promotion-policy-capital-and-stamp-incen",
+  "scheme_code": "UP-064",
+  "jurisdiction": "up",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "MSME & Export Promotion Dept, UP",
+  "name": {
+    "hi": "यूपी एमएसएमई प्रोत्साहन नीति (पूंजी व स्टाम्प छूट)",
+    "en": "UP MSME Promotion Policy Capital & Stamp Incentives"
+  },
+  "bilingual_title": {
+    "en": "UP MSME Promotion Policy Capital & Stamp Incentives",
+    "hi": "यूपी एमएसएमई प्रोत्साहन नीति (पूंजी व स्टाम्प छूट)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://msme.up.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "उत्तर प्रदेश में नए MSME उद्योग लगाने पर 10%–25% पूंजी सब्सिडी, स्टाम्प शुल्क छूट व ब्याज सहायता।",
+    "summary_en": "10%–25% capital subsidy, 50%–100% stamp duty exemption & interest subsidy for new MSME manufacturing/export units in UP."
+  },
+  "benefit_summary": {
+    "en": "10%–25% capital subsidy, 50%–100% stamp duty exemption & interest subsidy for new MSME manufacturing/export units in UP.",
+    "hi": "उत्तर प्रदेश में नए MSME उद्योग लगाने पर 10%–25% पूंजी सब्सिडी, स्टाम्प शुल्क छूट व ब्याज सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (msme.up.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://msme.up.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

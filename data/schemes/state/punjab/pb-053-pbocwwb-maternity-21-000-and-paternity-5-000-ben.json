@@ -1,0 +1,79 @@
+{
+  "id": "pb-053-pbocwwb-maternity-21-000-and-paternity-5-000-ben",
+  "scheme_code": "PB-053",
+  "jurisdiction": "punjab",
+  "category": "Labour & BOCW",
+  "scale": "Minor",
+  "department": "PBOCWWB",
+  "name": {
+    "hi": "पंजाब निर्माण श्रमिक मातृत्व (₹21,000) एवं पितृत्व (₹5,000) लाभ",
+    "en": "PBOCWWB Maternity (₹21,000) & Paternity (₹5,000) Benefit"
+  },
+  "bilingual_title": {
+    "en": "PBOCWWB Maternity (₹21,000) & Paternity (₹5,000) Benefit",
+    "hi": "पंजाब निर्माण श्रमिक मातृत्व (₹21,000) एवं पितृत्व (₹5,000) लाभ"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://bocw.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Labour & BOCW",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत महिला श्रमिक को प्रसव पर ₹21,000 तथा पुरुष श्रमिक की पत्नी के प्रसव पर ₹5,000 पितृत्व सहायता।",
+    "summary_en": "₹21,000 maternity grant to registered women workers (or ₹5,000 paternity grant to registered male workers on spouse delivery, up to 2 children)."
+  },
+  "benefit_summary": {
+    "en": "₹21,000 maternity grant to registered women workers (or ₹5,000 paternity grant to registered male workers on spouse delivery, up to 2 children).",
+    "hi": "पंजीकृत महिला श्रमिक को प्रसव पर ₹21,000 तथा पुरुष श्रमिक की पत्नी के प्रसव पर ₹5,000 पितृत्व सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "ई-श्रम यूएएन / श्रमिक बोर्ड पंजीकरण कार्ड",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (bocw.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://bocw.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

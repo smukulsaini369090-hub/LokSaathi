@@ -1,0 +1,79 @@
+{
+  "id": "up-052-pmay-gramin-and-pmay-urban-2-0-up-implementation",
+  "scheme_code": "UP-052",
+  "jurisdiction": "up",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "SUDA / Rural Development Dept, UP",
+  "name": {
+    "hi": "पीएम आवास योजना ग्रामीण एवं शहरी 2.0 (उत्तर प्रदेश कार्यान्वयन)",
+    "en": "PMAY-Gramin & PMAY-Urban 2.0 (UP Implementation)"
+  },
+  "bilingual_title": {
+    "en": "PMAY-Gramin & PMAY-Urban 2.0 (UP Implementation)",
+    "hi": "पीएम आवास योजना ग्रामीण एवं शहरी 2.0 (उत्तर प्रदेश कार्यान्वयन)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://sudaup.org",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Housing & Shelter",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "उत्तर प्रदेश के ग्रामीण व शहरी बेघर/कच्चे मकान वाले EWS/LIG परिवारों को पक्का घर निर्माण व ब्याज सब्सिडी सहायता।",
+    "summary_en": "Pucca house construction grant / ₹2.50 lakh urban BLC subsidy / ISS interest subsidy implemented across UP districts via SUDA & Gram Panchayats."
+  },
+  "benefit_summary": {
+    "en": "Pucca house construction grant / ₹2.50 lakh urban BLC subsidy / ISS interest subsidy implemented across UP districts via SUDA & Gram Panchayats.",
+    "hi": "उत्तर प्रदेश के ग्रामीण व शहरी बेघर/कच्चे मकान वाले EWS/LIG परिवारों को पक्का घर निर्माण व ब्याज सब्सिडी सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (sudaup.org)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://sudaup.org",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

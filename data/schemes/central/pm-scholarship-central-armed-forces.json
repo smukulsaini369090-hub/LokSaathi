@@ -1,17 +1,44 @@
 {
   "id": "pm-scholarship-central-armed-forces",
+  "scheme_code": "IN-096",
+  "jurisdiction": "central",
+  "category": "Sports, Legal & Niche",
+  "scale": "Major",
+  "department": "Kendriya Sainik Board (MoD) / WARB (MHA)",
   "name": {
     "hi": "प्रधानमंत्री छात्रवृत्ति योजना (सीएपीएफ एवं असम राइफल्स)",
     "en": "Prime Minister's Scholarship Scheme (CAPFs & Assam Rifles)"
+  },
+  "bilingual_title": {
+    "en": "Prime Minister's Scholarship Scheme (CAPFs & Assam Rifles)",
+    "hi": "प्रधानमंत्री छात्रवृत्ति योजना (सीएपीएफ एवं असम राइफल्स)"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://www.warb-mha.gov.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "occupation", "operator": "includes", "value": ["student"] },
-      { "field": "is_capf_ward", "operator": "eq", "value": true }
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "is_capf_ward",
+        "operator": "eq",
+        "value": true
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "सशस्त्र बलों के शहीदों/पूर्व सैनिकों के बच्चों को बालकों हेतु ₹3,000/माह एवं बालिकाओं हेतु ₹3,600/माह की छात्रवृत्ति",
@@ -20,13 +47,32 @@
     "frequency": "annual",
     "mode": "DBT"
   },
+  "benefit_summary": {
+    "en": "Monthly scholarship of ₹3,000 (boys) and ₹3,600 (girls) for wards of CAPF personnel",
+    "hi": "सशस्त्र बलों के शहीदों/पूर्व सैनिकों के बच्चों को बालकों हेतु ₹3,000/माह एवं बालिकाओं हेतु ₹3,600/माह की छात्रवृत्ति"
+  },
   "documents_required": [
     "विद्यार्थी का आधार कार्ड",
     "माता/पिता का सेवा प्रमाण पत्र (WARB/Discharge Certificate)",
     "12वीं की मार्कशीट",
     "बैंक खाता पासबुक"
   ],
-  "apply_url": "https://scholarships.gov.in",
+  "application_steps": {
+    "online": "Apply via official portal (ksb.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://ksb.gov.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

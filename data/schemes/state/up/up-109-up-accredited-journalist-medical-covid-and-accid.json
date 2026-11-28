@@ -1,0 +1,69 @@
+{
+  "id": "up-109-up-accredited-journalist-medical-covid-and-accid",
+  "scheme_code": "UP-109",
+  "jurisdiction": "up",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Information & Public Relations Dept (UPDIPR)",
+  "name": {
+    "hi": "यूपी मान्यता प्राप्त पत्रकार कल्याण एवं चिकित्सा सहायता योजना",
+    "en": "UP Accredited Journalist Medical, COVID & Accidental Welfare Scheme"
+  },
+  "bilingual_title": {
+    "en": "UP Accredited Journalist Medical, COVID & Accidental Welfare Scheme",
+    "hi": "यूपी मान्यता प्राप्त पत्रकार कल्याण एवं चिकित्सा सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://information.up.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "उत्तर प्रदेश के मान्यता प्राप्त व कार्यरत पत्रकारों व उनके आश्रितों को चिकित्सा बीमा एवं असामयिक मृत्यु पर आर्थिक सुरक्षा।",
+    "summary_en": "Cashless health insurance, ₹5L–₹10L financial relief to families on accidental/untimely demise & housing allotment preference for UP journalists."
+  },
+  "benefit_summary": {
+    "en": "Cashless health insurance, ₹5L–₹10L financial relief to families on accidental/untimely demise & housing allotment preference for UP journalists.",
+    "hi": "उत्तर प्रदेश के मान्यता प्राप्त व कार्यरत पत्रकारों व उनके आश्रितों को चिकित्सा बीमा एवं असामयिक मृत्यु पर आर्थिक सुरक्षा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (information.up.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://information.up.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

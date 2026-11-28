@@ -1,0 +1,77 @@
+{
+  "id": "dl-070-delhi-wakf-board-widow-pension-and-minority-welf",
+  "scheme_code": "DL-070",
+  "jurisdiction": "delhi",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "Delhi Wakf Board / Minority Welfare, GNCTD",
+  "name": {
+    "hi": "दिल्ली वक्फ बोर्ड विधवा पेंशन एवं अल्पसंख्यक सहायता योजना",
+    "en": "Delhi Wakf Board Widow Pension & Minority Welfare Grants"
+  },
+  "bilingual_title": {
+    "en": "Delhi Wakf Board Widow Pension & Minority Welfare Grants",
+    "hi": "दिल्ली वक्फ बोर्ड विधवा पेंशन एवं अल्पसंख्यक सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scstwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residency/scheme rules; non-NCT NCR excluded.",
+    "age_range": "Adults / Widows 18+",
+    "income_cap": "Low-income/destitute criteria [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Eligible Minority beneficiaries / widows.",
+    "academic_or_work_rules": "Board verification.",
+    "exclusions": "Overlapping pension recipients."
+  },
+  "benefit": {
+    "summary_hi": "पात्र अल्पसंख्यक विधवाओं को पेंशन व अल्पसंख्यक कल्याण सहायता अनुदान ([2026–27 सक्रिय परिपत्र सत्यापित करें])।",
+    "summary_en": "Monthly widow pension & minority welfare educational/distress grants per active 2026–27 notifications [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Monthly widow pension & minority welfare educational/distress grants per active 2026–27 notifications [VERIFY LATEST NOTIFICATION].",
+    "hi": "पात्र अल्पसंख्यक विधवाओं को पेंशन व अल्पसंख्यक कल्याण सहायता अनुदान ([2026–27 सक्रिय परिपत्र सत्यापित करें])।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Residence Proof",
+    "Husband's Death Certificate / Income Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Check GNCTD / Delhi Wakf Board updates.",
+    "offline": "Delhi Wakf Board Office / CFC.",
+    "facilitation_center": "Delhi Wakf Board / CFC"
+  },
+  "apply_url": "https://scstwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

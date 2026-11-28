@@ -1,0 +1,73 @@
+{
+  "id": "in-084-adip-scheme-free-modern-assistive-devices-and-co",
+  "scheme_code": "IN-084",
+  "jurisdiction": "central",
+  "category": "Divyangjan Welfare",
+  "scale": "Major",
+  "department": "DEPwD / ALIMCO",
+  "name": {
+    "hi": "एडिप (ADIP) योजना (दिव्यांगजनों को मुफ्त कृत्रिम अंग, ट्राईसाइकिल व कॉक्लियर इम्प्लांट)",
+    "en": "ADIP Scheme (Free Modern Assistive Devices & Cochlear Implants up to ₹7L)"
+  },
+  "bilingual_title": {
+    "en": "ADIP Scheme (Free Modern Assistive Devices & Cochlear Implants up to ₹7L)",
+    "hi": "एडिप (ADIP) योजना (दिव्यांगजनों को मुफ्त कृत्रिम अंग, ट्राईसाइकिल व कॉक्लियर इम्प्लांट)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://disabilityaffairs.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 360000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Up to ₹3,60,000/year per notified scheme norms",
+    "category_rules": "Divyangjan Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पात्र दिव्यांगजनों को निःशुल्क आधुनिक कृत्रिम अंग, मोटराइज्ड ट्राईसाइकिल, डिजिटल उपकरण व बच्चों को कॉक्लियर इम्प्लांट सर्जरी।",
+    "summary_en": "Free/subsidised modern aids (motorised tricycles, smart phones/tablets for blind, hearing aids, prosthetics & ₹6L–₹7L cochlear implants for <5 yrs) if income <=₹22.5k–₹30k/mo."
+  },
+  "benefit_summary": {
+    "en": "Free/subsidised modern aids (motorised tricycles, smart phones/tablets for blind, hearing aids, prosthetics & ₹6L–₹7L cochlear implants for <5 yrs) if income <=₹22.5k–₹30k/mo.",
+    "hi": "पात्र दिव्यांगजनों को निःशुल्क आधुनिक कृत्रिम अंग, मोटराइज्ड ट्राईसाइकिल, डिजिटल उपकरण व बच्चों को कॉक्लियर इम्प्लांट सर्जरी।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "सीएमओ (मुख्य चिकित्सा अधिकारी) द्वारा जारी दिव्यांगता प्रमाण पत्र (न्यूनतम 40%)",
+    "निवास प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (disabilityaffairs.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://disabilityaffairs.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

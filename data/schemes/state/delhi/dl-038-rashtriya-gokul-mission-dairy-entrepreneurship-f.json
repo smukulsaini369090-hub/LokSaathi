@@ -1,0 +1,81 @@
+{
+  "id": "dl-038-rashtriya-gokul-mission-dairy-entrepreneurship-f",
+  "scheme_code": "DL-038",
+  "jurisdiction": "delhi",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Animal Husbandry Unit, GNCTD with DAHD",
+  "name": {
+    "hi": "राष्ट्रीय गोकुल मिशन एवं डेयरी विकास सहायता (दिल्ली ग्रामीण क्षेत्र)",
+    "en": "Rashtriya Gokul Mission / Dairy Entrepreneurship Facilitation (Delhi Rural Belt)"
+  },
+  "bilingual_title": {
+    "en": "Rashtriya Gokul Mission / Dairy Entrepreneurship Facilitation (Delhi Rural Belt)",
+    "hi": "राष्ट्रीय गोकुल मिशन एवं डेयरी विकास सहायता (दिल्ली ग्रामीण क्षेत्र)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dahd.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer",
+          "business"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Dairy farmers/entrepreneurs in Delhi (NCT); Haryana/UP NCR use respective state channels.",
+    "age_range": "18+ dairy farmers",
+    "income_cap": "Per DAHD/GNCTD dairy scheme rules",
+    "category_rules": "Dairy livestock farmers.",
+    "academic_or_work_rules": "Livestock ownership / project plan.",
+    "exclusions": "Non-Delhi dairy units."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के ग्रामीण व डेयरी पशुपालकों को नस्ल सुधार, कृत्रिम गर्भाधान एवं डेयरी उद्यम सहायता।",
+    "summary_en": "Indigenous breed improvement, AI fertility support & dairy enterprise facilitation in Delhi rural villages [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Indigenous breed improvement, AI fertility support & dairy enterprise facilitation in Delhi rural villages [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के ग्रामीण व डेयरी पशुपालकों को नस्ल सुधार, कृत्रिम गर्भाधान एवं डेयरी उद्यम सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Residence/Land Proof",
+    "Livestock/Dairy Unit Details",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Check development.delhi.gov.in / myscheme.gov.in.",
+    "offline": "BDO / Veterinary Officer / CFC.",
+    "facilitation_center": "BDO / Veterinary Office / CFC"
+  },
+  "apply_url": "https://development.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

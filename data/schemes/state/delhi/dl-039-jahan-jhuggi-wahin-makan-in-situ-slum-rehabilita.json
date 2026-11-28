@@ -1,0 +1,84 @@
+{
+  "id": "dl-039-jahan-jhuggi-wahin-makan-in-situ-slum-rehabilita",
+  "scheme_code": "DL-039",
+  "jurisdiction": "delhi",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "DDA & Delhi Urban Shelter Improvement Board (DUSIB)",
+  "name": {
+    "hi": "जहाँ झुग्गी वहीं मकान (स्लम पुनर्वास योजना)",
+    "en": "Jahan Jhuggi Wahin Makan (In-Situ Slum Rehabilitation — DDA / DUSIB)"
+  },
+  "bilingual_title": {
+    "en": "Jahan Jhuggi Wahin Makan (In-Situ Slum Rehabilitation — DDA / DUSIB)",
+    "hi": "जहाँ झुग्गी वहीं मकान (स्लम पुनर्वास योजना)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhishelterboard.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 300000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "owns_pucca_house",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Notified JJ/slum cluster households inside NCT of Delhi; Haryana/UP NCR excluded.",
+    "age_range": "Adult head of household",
+    "income_cap": "Notified EWS income & slum survey cut-off criteria [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Verified JJ cluster residents.",
+    "academic_or_work_rules": "Continuous cluster survey listing.",
+    "exclusions": "Post-cutoff occupants or families owning other Delhi housing."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की चिन्हित झुग्गी बस्तियों के पात्र परिवारों को पक्का ईडब्ल्यूएस (EWS) फ्लैट आवंटन।",
+    "summary_en": "Pucca EWS flat allotment in redevelopment projects built at/near existing Delhi slum clusters [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Pucca EWS flat allotment in redevelopment projects built at/near existing Delhi slum clusters [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली की चिन्हित झुग्गी बस्तियों के पात्र परिवारों को पक्का ईडब्ल्यूएस (EWS) फ्लैट आवंटन।"
+  },
+  "documents_required": [
+    "Slum Survey / Household Proof & Delhi Residence Proof",
+    "Aadhaar & Voter ID",
+    "Income/EWS Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Check dda.gov.in / delhishelterboard.in.",
+    "offline": "DDA / DUSIB project verification camp / CFC.",
+    "facilitation_center": "DDA / DUSIB Rehabilitation Camp / CFC"
+  },
+  "apply_url": "https://dda.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "Official DDA/DUSIB challans only",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

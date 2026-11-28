@@ -1,0 +1,62 @@
+{
+  "id": "in-024-rashtriya-bal-swasthya-karyakram-rbsk-free-0-18-",
+  "scheme_code": "IN-024",
+  "jurisdiction": "central",
+  "category": "Health",
+  "scale": "Minor",
+  "department": "NHM, MoHFW",
+  "name": {
+    "hi": "राष्ट्रीय बाल स्वास्थ्य कार्यक्रम (RBSK — 0–18 वर्ष शिशु-किशोर स्वास्थ्य जांच)",
+    "en": "Rashtriya Bal Swasthya Karyakram (RBSK — Free 0–18 Child Screening & Surgery)"
+  },
+  "bilingual_title": {
+    "en": "Rashtriya Bal Swasthya Karyakram (RBSK — Free 0–18 Child Screening & Surgery)",
+    "hi": "राष्ट्रीय बाल स्वास्थ्य कार्यक्रम (RBSK — 0–18 वर्ष शिशु-किशोर स्वास्थ्य जांच)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://rbsk.mohfw.gov.in",
+  "eligibility": {
+    "must_match_all": [],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Health",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "जन्म से 18 वर्ष के बच्चों में 30+ जन्मजात रोगों की आंगनवाड़ी/स्कूल स्तर पर जांच एवं पूर्णतः निःशुल्क सर्जरी।",
+    "summary_en": "Early identification and completely free surgical/medical intervention for 4Ds (birth defects, deficiencies, diseases, developmental delays) in children 0–18."
+  },
+  "benefit_summary": {
+    "en": "Early identification and completely free surgical/medical intervention for 4Ds (birth defects, deficiencies, diseases, developmental delays) in children 0–18.",
+    "hi": "जन्म से 18 वर्ष के बच्चों में 30+ जन्मजात रोगों की आंगनवाड़ी/स्कूल स्तर पर जांच एवं पूर्णतः निःशुल्क सर्जरी।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "मोबाइल नंबर",
+    "अस्पताल/चिकित्सा पर्ची"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (rbsk.mohfw.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://rbsk.mohfw.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

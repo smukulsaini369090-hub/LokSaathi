@@ -1,0 +1,80 @@
+{
+  "id": "dl-066-relief-and-rehabilitation-for-sc-st-victims-of-a",
+  "scheme_code": "DL-066",
+  "jurisdiction": "delhi",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "अनुसूचित जाति/जनजाति अत्याचार पीड़ित राहत एवं पुनर्वास योजना",
+    "en": "Relief & Rehabilitation for SC/ST Victims of Atrocities (PoA Act, 1989)"
+  },
+  "bilingual_title": {
+    "en": "Relief & Rehabilitation for SC/ST Victims of Atrocities (PoA Act, 1989)",
+    "hi": "अनुसूचित जाति/जनजाति अत्याचार पीड़ित राहत एवं पुनर्वास योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scstwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Case registered within NCT of Delhi; Haryana/UP handle cases in respective states.",
+    "age_range": "All ages",
+    "income_cap": "No income ceiling",
+    "category_rules": "SC/ST victims & dependents.",
+    "academic_or_work_rules": "FIR / Charge-sheet / Medical / Court record under PoA Act.",
+    "exclusions": "Cases outside Delhi."
+  },
+  "benefit": {
+    "summary_hi": "SC/ST अत्याचार निवारण अधिनियम 1989 के अंतर्गत पीड़ितों व आश्रितों को त्वरित मुआवजा, कानूनी सहायता व पुनर्वास लाभ।",
+    "summary_en": "Statutory financial relief, legal/travel/maintenance & rehabilitation support per PoA Act 1989 & Rules 1995 [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Statutory financial relief, legal/travel/maintenance & rehabilitation support per PoA Act 1989 & Rules 1995 [VERIFY LATEST NOTIFICATION].",
+    "hi": "SC/ST अत्याचार निवारण अधिनियम 1989 के अंतर्गत पीड़ितों व आश्रितों को त्वरित मुआवजा, कानूनी सहायता व पुनर्वास लाभ।"
+  },
+  "documents_required": [
+    "Victim SC/ST Caste Certificate & Aadhaar",
+    "FIR / Charge Sheet / Medical or Post-Mortem Record",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Instructions at scstwelfare.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "DM/SDM / Police / Welfare Nodal Officer.",
+    "facilitation_center": "DM / SDM / SC-ST Welfare Nodal Office / CFC"
+  },
+  "apply_url": "https://scstwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

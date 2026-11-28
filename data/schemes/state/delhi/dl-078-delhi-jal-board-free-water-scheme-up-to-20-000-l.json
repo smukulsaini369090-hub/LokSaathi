@@ -1,0 +1,72 @@
+{
+  "id": "dl-078-delhi-jal-board-free-water-scheme-up-to-20-000-l",
+  "scheme_code": "DL-078",
+  "jurisdiction": "delhi",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Delhi Jal Board (DJB), GNCTD",
+  "name": {
+    "hi": "दिल्ली जल बोर्ड निःशुल्क पेयजल योजना (20,000 लीटर/माह)",
+    "en": "Delhi Jal Board Free Water Scheme (Up to 20,000 Litres/Month)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Jal Board Free Water Scheme (Up to 20,000 Litres/Month)",
+    "hi": "दिल्ली जल बोर्ड निःशुल्क पेयजल योजना (20,000 लीटर/माह)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://djb.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Domestic water connection in NCT of Delhi served by DJB; Haryana/UP NCR excluded.",
+    "age_range": "Metered household consumers",
+    "income_cap": "Consumption-based (up to 20 KL/month)",
+    "category_rules": "Functional domestic DJB metered households.",
+    "academic_or_work_rules": "Working DJB meter & domestic category.",
+    "exclusions": "Commercial connections or consumption >20,000 L/month."
+  },
+  "benefit": {
+    "summary_hi": "सही पानी मीटर वाले दिल्ली घरेलू उपभोक्ताओं को प्रति माह 20,000 लीटर तक निःशुल्क पेयजल सुविधा।",
+    "summary_en": "Free domestic piped water up to 20,000 litres/month for functional metered domestic households in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free domestic piped water up to 20,000 litres/month for functional metered domestic households in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "सही पानी मीटर वाले दिल्ली घरेलू उपभोक्ताओं को प्रति माह 20,000 लीटर तक निःशुल्क पेयजल सुविधा।"
+  },
+  "documents_required": [
+    "DJB KNO / Water Bill",
+    "Consumer Aadhaar & Delhi Address Proof",
+    "Mobile Number"
+  ],
+  "application_steps": {
+    "online": "Verify meter/billing on djb.gov.in.",
+    "offline": "DJB Zonal Revenue Office / CFC.",
+    "facilitation_center": "DJB Zonal Revenue Office / CFC"
+  },
+  "apply_url": "https://djb.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,21 +1,53 @@
 {
   "id": "up-vridha-pension",
+  "scheme_code": "UP-031",
+  "jurisdiction": "up",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Social Welfare Dept, UP",
   "name": {
     "hi": "वृद्धावस्था पेंशन योजना (उत्तर प्रदेश)",
     "en": "Old Age Pension Scheme (Uttar Pradesh)"
   },
+  "bilingual_title": {
+    "en": "Old Age Pension Scheme (Uttar Pradesh)",
+    "hi": "वृद्धावस्था पेंशन योजना (उत्तर प्रदेश)"
+  },
   "last_verified": "2026-11-24",
   "source_url": "https://sspy-up.gov.in",
-  "state": "up",
   "eligibility": {
     "must_match_all": [
-      { "field": "state", "operator": "eq", "value": "up" },
-      { "field": "age", "operator": "gte", "value": 60 },
-      { "field": "annual_income_inr", "operator": "lte", "value": 56460 }
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 56460
+      }
     ],
     "must_match_none": [
-      { "field": "has_other_pension", "operator": "eq", "value": true }
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      }
     ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "60 वर्ष या उससे अधिक आयु के पात्र वृद्धजनों को ₹1,000 प्रति माह (त्रैमासिक ₹3,000) सीधे बैंक खाते में",
@@ -24,15 +56,26 @@
     "frequency": "annual",
     "mode": "Quarterly DBT"
   },
+  "benefit_summary": {
+    "en": "Monthly pension of ₹1,000 (disbursed quarterly as ₹3,000) directly to bank account",
+    "hi": "60 वर्ष या उससे अधिक आयु के पात्र वृद्धजनों को ₹1,000 प्रति माह (त्रैमासिक ₹3,000) सीधे बैंक खाते में"
+  },
   "documents_required": [
     "आधार कार्ड",
     "आयु प्रमाण पत्र / वोटर कार्ड",
     "तहसीलदार द्वारा जारी आय प्रमाण पत्र (ग्रामीण: ₹46,080 / शहरी: ₹56,460 से कम)",
     "बैंक पासबुक (आधार एनपीसीआई लिंक)"
   ],
-  "apply_url": "https://sspy-up.gov.in/HindiPages/oldage_h.aspx",
+  "application_steps": {
+    "online": "Apply via official portal (sspy-up.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://sspy-up.gov.in",
   "deadline": null,
   "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
   "anti_dalal": {
     "official_fee_inr": 0,
     "fee_label_hi": "₹0 (उत्तर प्रदेश समाज कल्याण पोर्टल पर आवेदन निःशुल्क)",
@@ -44,6 +87,9 @@
     "timeline_en": "21 to 30 working days (Under e-District Citizen Charter)",
     "receipt_rule_hi": "जन सेवा केंद्र पर फॉर्म सबमिट कराकर कंप्यूटर जनरेटेड पावती रसीद व आवेदन क्रमांक ज़रूर लें। बिना रसीद अतिरिक्त पैसे न दें।",
     "receipt_rule_en": "Collect computer-generated acknowledgement receipt with application reference ID from CSC.",
-    "helpline": "1076"
+    "helpline": "1076",
+    "official_fee": "₹0 (Free application on UP Social Welfare portal)",
+    "receipt_rule": "Collect computer-generated acknowledgement receipt with application reference ID from CSC.",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
   }
 }

@@ -1,0 +1,89 @@
+{
+  "id": "dl-071-financial-assistance-to-persons-with-special-nee",
+  "scheme_code": "DL-071",
+  "jurisdiction": "delhi",
+  "category": "Divyangjan Welfare",
+  "scale": "Major",
+  "department": "Department of Social Welfare, GNCTD",
+  "name": {
+    "hi": "विशेष आवश्यकता वाले व्यक्तियों हेतु वित्तीय सहायता (दिल्ली दिव्यांगजन पेंशन योजना)",
+    "en": "Financial Assistance to Persons with Special Needs (Delhi Disability Pension)"
+  },
+  "bilingual_title": {
+    "en": "Financial Assistance to Persons with Special Needs (Delhi Disability Pension)",
+    "hi": "विशेष आवश्यकता वाले व्यक्तियों हेतु वित्तीय सहायता (दिल्ली दिव्यांगजन पेंशन योजना)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 100000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident for >=5 years; Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "All ages",
+    "income_cap": "Annual family income < ₹1,00,000 [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Benchmark disability >=40% under RPwD Act.",
+    "academic_or_work_rules": "UDID / Disability Certificate.",
+    "exclusions": "Overlapping govt pension or <40% disability."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के दिव्यांगजनों (40%+) को ₹2,500–₹3,000/माह (तथा उच्च सहायता श्रेणी में ₹5,000/माह तक) मासिक पेंशन।",
+    "summary_en": "Monthly DBT pension (typically ₹2,500–₹3,000/month; high-support ₹5,000/month per notifications [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Monthly DBT pension (typically ₹2,500–₹3,000/month; high-support ₹5,000/month per notifications [VERIFY LATEST NOTIFICATION]).",
+    "hi": "दिल्ली के दिव्यांगजनों (40%+) को ₹2,500–₹3,000/माह (तथा उच्च सहायता श्रेणी में ₹5,000/माह तक) मासिक पेंशन।"
+  },
+  "documents_required": [
+    "UDID Card / Disability Certificate (>=40%)",
+    "5-Year Delhi Residence Proof",
+    "Aadhaar & Delhi Income Certificate",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "District Social Welfare Office / CFC.",
+    "facilitation_center": "CFC / District Social Welfare Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

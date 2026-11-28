@@ -1,0 +1,88 @@
+{
+  "id": "pb-001-dr-b-r-ambedkar-post-matric-sc-scholarship-schem",
+  "scheme_code": "PB-001",
+  "jurisdiction": "punjab",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Social Justice, Empowerment & Minorities Dept, Punjab",
+  "name": {
+    "hi": "डॉ. बी.आर. अंबेडकर पोस्ट-मैट्रिक एससी छात्रवृत्ति योजना (पंजाब)",
+    "en": "Dr. B.R. Ambedkar Post-Matric SC Scholarship Scheme (Punjab)"
+  },
+  "bilingual_title": {
+    "en": "Dr. B.R. Ambedkar Post-Matric SC Scholarship Scheme (Punjab)",
+    "hi": "डॉ. बी.आर. अंबेडकर पोस्ट-मैट्रिक एससी छात्रवृत्ति योजना (पंजाब)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scholarships.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc"
+        ]
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 250000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Up to ₹2,50,000/year per notified scheme norms",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "₹2.50 लाख तक आय वाले पंजाब के अनुसूचित जाति छात्रों को कॉलेज/उच्च शिक्षा में शत-प्रतिशत ट्यूशन फीस व रखरखाव भत्ता।",
+    "summary_en": "100% non-refundable tuition fee waiver + academic maintenance allowance via scholarships.punjab.gov.in for Punjab SC students (income <=₹2.50L)."
+  },
+  "benefit_summary": {
+    "en": "100% non-refundable tuition fee waiver + academic maintenance allowance via scholarships.punjab.gov.in for Punjab SC students (income <=₹2.50L).",
+    "hi": "₹2.50 लाख तक आय वाले पंजाब के अनुसूचित जाति छात्रों को कॉलेज/उच्च शिक्षा में शत-प्रतिशत ट्यूशन फीस व रखरखाव भत्ता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (scholarships.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://scholarships.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

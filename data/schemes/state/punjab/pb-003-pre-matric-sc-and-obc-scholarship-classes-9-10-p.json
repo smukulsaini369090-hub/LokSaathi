@@ -1,0 +1,76 @@
+{
+  "id": "pb-003-pre-matric-sc-and-obc-scholarship-classes-9-10-p",
+  "scheme_code": "PB-003",
+  "jurisdiction": "punjab",
+  "category": "Education",
+  "scale": "Minor",
+  "department": "School Education / Social Justice Dept, Punjab",
+  "name": {
+    "hi": "प्री-मैट्रिक एससी एवं ओबीसी छात्रवृत्ति (कक्षा 9–10, पंजाब)",
+    "en": "Pre-Matric SC & OBC Scholarship (Classes 9–10, Punjab)"
+  },
+  "bilingual_title": {
+    "en": "Pre-Matric SC & OBC Scholarship (Classes 9–10, Punjab)",
+    "hi": "प्री-मैट्रिक एससी एवं ओबीसी छात्रवृत्ति (कक्षा 9–10, पंजाब)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scholarships.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के कम आय वाले अनुसूचित जाति व पिछड़ा वर्ग के कक्षा 9–10 विद्यार्थियों को वार्षिक प्री-मैट्रिक छात्रवृत्ति।",
+    "summary_en": "Annual scholarship & book grant (₹3,500–₹7,000/yr) for Class 9–10 SC & OBC students from low-income Punjab families."
+  },
+  "benefit_summary": {
+    "en": "Annual scholarship & book grant (₹3,500–₹7,000/yr) for Class 9–10 SC & OBC students from low-income Punjab families.",
+    "hi": "पंजाब के कम आय वाले अनुसूचित जाति व पिछड़ा वर्ग के कक्षा 9–10 विद्यार्थियों को वार्षिक प्री-मैट्रिक छात्रवृत्ति।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (scholarships.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://scholarships.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

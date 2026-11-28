@@ -8,6 +8,8 @@ import {
   Sparkles,
   RefreshCw,
   AlertCircle,
+  AlertTriangle,
+  ArrowRight,
   Search,
   Filter,
   Layers,
@@ -21,6 +23,7 @@ import {
 import Link from "next/link";
 import type { UserProfile, SchemeMatch } from "@/lib/scheme-matcher";
 import type { Scheme } from "@/lib/scheme-types";
+import { detectSchemeRedirect } from "@/lib/scheme-redirects";
 
 export default function SchemesPage() {
   const { language } = useLanguage();
@@ -35,7 +38,17 @@ export default function SchemesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedState, setSelectedState] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [visibleCount, setVisibleCount] = useState(24);
   const [isLoadingCatalog, setIsLoadingCatalog] = useState(false);
+
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [selectedState, selectedCategory, searchQuery]);
+
+  const matchedRedirect = useMemo(() => {
+    if (!searchQuery.trim()) return null;
+    return detectSchemeRedirect(searchQuery);
+  }, [searchQuery]);
 
   // Fetch all schemes on mount or when switching to catalog
   useEffect(() => {
@@ -88,87 +101,20 @@ export default function SchemesPage() {
         }
       }
 
-      // 2. Category filter
+      // 2. Category filter (all 12 Master Index categories + legacy aliases)
       if (selectedCategory !== "all") {
-        const textToSearch = (
-          scheme.name.hi +
-          " " +
-          scheme.name.en +
-          " " +
-          scheme.benefit.summary_hi +
-          " " +
-          scheme.benefit.summary_en +
-          " " +
-          JSON.stringify(scheme.eligibility)
-        ).toLowerCase();
-
-        switch (selectedCategory) {
-          case "kisan":
-            if (
-              !textToSearch.includes("किसान") &&
-              !textToSearch.includes("farmer") &&
-              !textToSearch.includes("kisan") &&
-              !textToSearch.includes("खेती")
-            )
-              return false;
-            break;
-          case "student":
-            if (
-              !textToSearch.includes("छात्र") &&
-              !textToSearch.includes("विद्यार्थी") &&
-              !textToSearch.includes("student") &&
-              !textToSearch.includes("scholarship") &&
-              !textToSearch.includes("साइकिल")
-            )
-              return false;
-            break;
-          case "women":
-            if (
-              !textToSearch.includes("महिला") &&
-              !textToSearch.includes("बालिका") &&
-              !textToSearch.includes("female") &&
-              !textToSearch.includes("kanya") &&
-              !textToSearch.includes("ladli") &&
-              !textToSearch.includes("बेटी")
-            )
-              return false;
-            break;
-          case "health":
-            if (
-              !textToSearch.includes("स्वास्थ्य") &&
-              !textToSearch.includes("health") &&
-              !textToSearch.includes("sehat") &&
-              !textToSearch.includes("इलाज") &&
-              !textToSearch.includes("bima")
-            )
-              return false;
-            break;
-          case "pension":
-            if (
-              !textToSearch.includes("पेंशन") &&
-              !textToSearch.includes("pension") &&
-              !textToSearch.includes("वृद्धावस्था") &&
-              !textToSearch.includes("senior")
-            )
-              return false;
-            break;
-          case "housing":
-            if (
-              !textToSearch.includes("आवास") &&
-              !textToSearch.includes("awas") &&
-              !textToSearch.includes("घर") &&
-              !textToSearch.includes("मकान") &&
-              !textToSearch.includes("labour") &&
-              !textToSearch.includes("श्रमिक")
-            )
-              return false;
-            break;
+        if (scheme.category) {
+          if (scheme.category !== selectedCategory) return false;
+        } else {
+          return false;
         }
       }
 
-      // 3. Keyword Search
+      // 3. Keyword / Scheme Code Search
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
+        const matchesCode = scheme.scheme_code?.toLowerCase().includes(query);
+        const matchesDept = scheme.department?.toLowerCase().includes(query);
         const matchesName =
           scheme.name.hi.toLowerCase().includes(query) ||
           scheme.name.en.toLowerCase().includes(query);
@@ -178,7 +124,7 @@ export default function SchemesPage() {
         const matchesDoc = scheme.documents_required?.some((d) =>
           d.toLowerCase().includes(query)
         );
-        return matchesName || matchesBenefit || matchesDoc;
+        return Boolean(matchesCode || matchesDept || matchesName || matchesBenefit || matchesDoc);
       }
 
       return true;
@@ -363,20 +309,26 @@ export default function SchemesPage() {
             </div>
           </div>
 
-          {/* Category Filter Chips */}
+          {/* Category Filter Chips (All 12 Master Index Categories) */}
           <div>
             <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
-              {language === "hi" ? "श्रेणी चुनें:" : "Filter by Category:"}
+              {language === "hi" ? "श्रेणी चुनें (12 वर्ग):" : "Filter by Category (12 Sectors):"}
             </p>
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
               {[
                 { id: "all", hi: "सभी श्रेणियां", en: "All Categories" },
-                { id: "kisan", hi: "🚜 किसान", en: "Farmers" },
-                { id: "student", hi: "🎓 विद्यार्थी / छात्र", en: "Students" },
-                { id: "women", hi: "👩 महिला एवं बालिका", en: "Women & Girls" },
-                { id: "health", hi: "🏥 स्वास्थ्य / इलाज", en: "Health" },
-                { id: "pension", hi: "👴 पेंशन", en: "Pension" },
-                { id: "housing", hi: "🏠 आवास एवं श्रमिक", en: "Housing & Labour" },
+                { id: "Education", hi: "🎓 शिक्षा / छात्रवृत्ति", en: "Education" },
+                { id: "Health", hi: "🏥 स्वास्थ्य / इलाज", en: "Health" },
+                { id: "Women & Girl Child", hi: "👩 महिला एवं बालिका", en: "Women & Girl Child" },
+                { id: "Pensions & Seniors", hi: "👴 पेंशन एवं वरिष्ठजन", en: "Pensions & Seniors" },
+                { id: "Agriculture & Animal Husbandry", hi: "🚜 कृषि एवं पशुपालन", en: "Agriculture & Dairy" },
+                { id: "Housing & Shelter", hi: "🏠 आवास एवं आश्रय", en: "Housing & Shelter" },
+                { id: "Employment, Skill & MSME", hi: "💼 रोजगार, कौशल व MSME", en: "Jobs, Skill & MSME" },
+                { id: "Labour & BOCW", hi: "👷 श्रमिक / BOCW / गिग", en: "Labour & BOCW" },
+                { id: "SC/ST/OBC/Minority Welfare", hi: "⚖️ SC/ST/OBC/अल्पसंख्यक", en: "SC/ST/OBC/Minority" },
+                { id: "Divyangjan Welfare", hi: "♿ दिव्यांगजन कल्याण", en: "Divyangjan" },
+                { id: "Utility Subsidies & Food", hi: "⚡ बिजली, पानी व राशन", en: "Utilities & Food" },
+                { id: "Sports, Legal & Niche", hi: "🏅 खेल, कानूनी व विशेष", en: "Sports, Legal & Niche" },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -394,12 +346,52 @@ export default function SchemesPage() {
             </div>
           </div>
 
+          {/* Discontinued / Merged / Fake Scheme Alert Card */}
+          {matchedRedirect && (
+            <div className="bg-amber-50 border border-amber-300 rounded-2xl p-4 space-y-2.5">
+              <div className="flex items-start gap-2.5">
+                <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-bold text-amber-950">
+                    {language === "hi"
+                      ? matchedRedirect.alert_title_hi
+                      : matchedRedirect.alert_title_en}
+                  </p>
+                  <p className="text-xs text-amber-900 mt-1 leading-relaxed">
+                    {language === "hi"
+                      ? matchedRedirect.alert_message_hi
+                      : matchedRedirect.alert_message_en}
+                  </p>
+                </div>
+              </div>
+              {matchedRedirect.replacement_codes.length > 0 && (
+                <div className="flex flex-wrap gap-2 pl-7">
+                  {matchedRedirect.replacement_codes.map((code) => {
+                    const rep = allSchemes.find((s) => s.scheme_code === code);
+                    if (!rep) return null;
+                    return (
+                      <Link
+                        key={rep.id}
+                        href={`/schemes/${rep.id}`}
+                        className="inline-flex items-center gap-1.5 bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 rounded-xl px-3 py-1.5 text-xs font-bold shadow-2xs transition-colors"
+                      >
+                        <span className="font-mono text-[11px] text-blue-800">{code}</span>
+                        <span>{language === "hi" ? rep.name.hi : rep.name.en}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Schemes Results Counter */}
           <div className="flex items-center justify-between text-xs text-gray-500 pt-1">
             <span>
               {language === "hi"
-                ? `कुल ${allSchemes.length} में से ${filteredSchemes.length} योजनाएं उपलब्ध हैं`
-                : `Showing ${filteredSchemes.length} of ${allSchemes.length} schemes`}
+                ? `कुल ${allSchemes.length} में से ${filteredSchemes.length} योजनाएं मिलीं (${Math.min(visibleCount, filteredSchemes.length)} प्रदर्शित)`
+                : `Showing ${Math.min(visibleCount, filteredSchemes.length)} of ${filteredSchemes.length} matched (${allSchemes.length} total)`}
             </span>
             {(selectedState !== "all" ||
               selectedCategory !== "all" ||
@@ -448,7 +440,7 @@ export default function SchemesPage() {
             </div>
           ) : (
             <div className="space-y-4">
-              {filteredSchemes.map((scheme) => {
+              {filteredSchemes.slice(0, visibleCount).map((scheme) => {
                 const fakeMatch: SchemeMatch = {
                   scheme,
                   match_confidence: "high",
@@ -468,6 +460,22 @@ export default function SchemesPage() {
                   />
                 );
               })}
+
+              {visibleCount < filteredSchemes.length && (
+                <div className="pt-2 text-center">
+                  <button
+                    type="button"
+                    onClick={() => setVisibleCount((prev) => prev + 24)}
+                    className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-xs transition-colors"
+                  >
+                    <span>
+                      {language === "hi"
+                        ? `और योजनाएं दिखाएं (${filteredSchemes.length - visibleCount} शेष)`
+                        : `Load More Schemes (${filteredSchemes.length - visibleCount} remaining)`}
+                    </span>
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

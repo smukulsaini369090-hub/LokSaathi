@@ -1,0 +1,69 @@
+{
+  "id": "pb-046-punjab-skill-development-mission-psdm-free-youth",
+  "scheme_code": "PB-046",
+  "jurisdiction": "punjab",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "Punjab Skill Development Mission (PSDM)",
+  "name": {
+    "hi": "पंजाब कौशल विकास मिशन (PSDM) निःशुल्क रोजगार प्रशिक्षण",
+    "en": "Punjab Skill Development Mission (PSDM) Free Youth Training"
+  },
+  "bilingual_title": {
+    "en": "Punjab Skill Development Mission (PSDM) Free Youth Training",
+    "hi": "पंजाब कौशल विकास मिशन (PSDM) निःशुल्क रोजगार प्रशिक्षण"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://psdm.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के बेरोजगार युवाओं को निःशुल्क व्यावसायिक कौशल प्रशिक्षण, प्रमाणपत्र व प्लेसमेंट सहायता।",
+    "summary_en": "Free NSQF-aligned industry courses with residential support & placement linkage across urban/rural Punjab through PSDM partners."
+  },
+  "benefit_summary": {
+    "en": "Free NSQF-aligned industry courses with residential support & placement linkage across urban/rural Punjab through PSDM partners.",
+    "hi": "पंजाब के बेरोजगार युवाओं को निःशुल्क व्यावसायिक कौशल प्रशिक्षण, प्रमाणपत्र व प्लेसमेंट सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (psdm.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://psdm.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

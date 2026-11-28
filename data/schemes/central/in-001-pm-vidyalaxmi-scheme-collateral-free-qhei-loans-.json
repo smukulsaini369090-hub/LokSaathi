@@ -1,0 +1,70 @@
+{
+  "id": "in-001-pm-vidyalaxmi-scheme-collateral-free-qhei-loans-",
+  "scheme_code": "IN-001",
+  "jurisdiction": "central",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Dept of Higher Education, MoE (Central)",
+  "name": {
+    "hi": "पीएम-विद्यालक्ष्मी योजना (शीर्ष कॉलेजों में बिना गारंटी ऋण व 3% ब्याज छूट)",
+    "en": "PM-Vidyalaxmi Scheme (Collateral-Free QHEI Loans + 3% Interest Subvention)"
+  },
+  "bilingual_title": {
+    "en": "PM-Vidyalaxmi Scheme (Collateral-Free QHEI Loans + 3% Interest Subvention)",
+    "hi": "पीएम-विद्यालक्ष्मी योजना (शीर्ष कॉलेजों में बिना गारंटी ऋण व 3% ब्याज छूट)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pmvidyalaxmi.co.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "देश के शीर्ष 860 NIRF संस्थानों में प्रवेश पर बिना गारंटी शिक्षा ऋण व ₹8 लाख तक आय पर 3% ब्याज सब्सिडी।",
+    "summary_en": "Collateral-free, guarantor-free education loans for top 860 NIRF Quality Higher Education Institutions + 3% interest subvention (up to ₹8L income; full 100% under PM-USP <=₹4.5L)."
+  },
+  "benefit_summary": {
+    "en": "Collateral-free, guarantor-free education loans for top 860 NIRF Quality Higher Education Institutions + 3% interest subvention (up to ₹8L income; full 100% under PM-USP <=₹4.5L).",
+    "hi": "देश के शीर्ष 860 NIRF संस्थानों में प्रवेश पर बिना गारंटी शिक्षा ऋण व ₹8 लाख तक आय पर 3% ब्याज सब्सिडी।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "पिछली कक्षा की अंकतालिका (मार्कशीट)",
+    "संस्थान का बोनाफाइड प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pmvidyalaxmi.co.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://pmvidyalaxmi.co.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

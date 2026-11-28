@@ -1,0 +1,69 @@
+{
+  "id": "up-058-odop-one-district-one-product-margin-money-toolk",
+  "scheme_code": "UP-058",
+  "jurisdiction": "up",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "MSME & Export Promotion Dept, UP",
+  "name": {
+    "hi": "एक जिला एक उत्पाद (ODOP) मार्जिन मनी, टूलकिट व विपणन सहायता",
+    "en": "ODOP (One District One Product) Margin Money, Toolkit & MDA"
+  },
+  "bilingual_title": {
+    "en": "ODOP (One District One Product) Margin Money, Toolkit & MDA",
+    "hi": "एक जिला एक उत्पाद (ODOP) मार्जिन मनी, टूलकिट व विपणन सहायता"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://odopup.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "प्रत्येक जिले के विशेष उत्पाद से जुड़े कारीगरों व उद्यमियों को ऋण पर 25% तक मार्जिन सब्सिडी, मुफ्त टूलकिट व प्रदर्शनी सहायता।",
+    "summary_en": "Up to 25% margin money subsidy on projects, free modern artisan toolkits & Marketing Development Assistance for district craft/MSME clusters."
+  },
+  "benefit_summary": {
+    "en": "Up to 25% margin money subsidy on projects, free modern artisan toolkits & Marketing Development Assistance for district craft/MSME clusters.",
+    "hi": "प्रत्येक जिले के विशेष उत्पाद से जुड़े कारीगरों व उद्यमियों को ऋण पर 25% तक मार्जिन सब्सिडी, मुफ्त टूलकिट व प्रदर्शनी सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (odopup.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://odopup.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

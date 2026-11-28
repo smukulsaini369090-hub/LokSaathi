@@ -17,6 +17,7 @@ import { EligibilityBadge } from "@/components/EligibilityBadge";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 import { isSchemeSaved, saveScheme, removeScheme } from "@/lib/offline";
 import { ensureSafeHttpUrl } from "@/lib/anti-dalal";
+import { translateDocumentName } from "@/lib/document-guides";
 import type { SchemeMatch } from "@/lib/scheme-matcher";
 
 interface SchemeCardProps {
@@ -85,8 +86,14 @@ export function SchemeCard({
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex-1">
             <div className="mb-1.5 flex flex-wrap items-center gap-2">
+              {scheme.scheme_code && (
+                <span className="text-[11px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded-md">
+                  {scheme.scheme_code}
+                </span>
+              )}
               <EligibilityBadge
                 confidence={scheme.confidence}
+                verificationStatus={scheme.verification_status}
                 language={language}
               />
               <Link
@@ -185,7 +192,7 @@ export function SchemeCard({
                   key={idx}
                   className="text-xs bg-gray-100 text-gray-700 px-2.5 py-1 rounded-md border border-gray-200 font-normal"
                 >
-                  {doc}
+                  {translateDocumentName(doc, language)}
                 </span>
               ))}
             </div>

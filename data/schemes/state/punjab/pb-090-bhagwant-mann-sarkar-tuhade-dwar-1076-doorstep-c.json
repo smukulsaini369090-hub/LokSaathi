@@ -1,0 +1,75 @@
+{
+  "id": "pb-090-bhagwant-mann-sarkar-tuhade-dwar-1076-doorstep-c",
+  "scheme_code": "PB-090",
+  "jurisdiction": "punjab",
+  "category": "Sports, Legal & Niche",
+  "scale": "Major",
+  "department": "Department of Governance Reforms, Punjab",
+  "name": {
+    "hi": "भगवंत मान सरकार तुहाडे द्वार (1076 डोरस्टेप सरकारी सेवा योजना)",
+    "en": "Bhagwant Mann Sarkar Tuhade Dwar (1076 Doorstep Citizen Service Delivery)"
+  },
+  "bilingual_title": {
+    "en": "Bhagwant Mann Sarkar Tuhade Dwar (1076 Doorstep Citizen Service Delivery)",
+    "hi": "भगवंत मान सरकार तुहाडे द्वार (1076 डोरस्टेप सरकारी सेवा योजना)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://esewa.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "1076 पर कॉल करके आय, जाति, निवास, पेंशन व राशन कार्ड सहित 43+ सरकारी सेवाएं मात्र ₹120 शुल्क पर घर बैठे प्राप्त करें।",
+    "summary_en": "Dial 1076 to avail 43+ government certificates (income, caste, residence, birth/death, pension, ration, etc.) at your doorstep via Sewa Sahayaks."
+  },
+  "benefit_summary": {
+    "en": "Dial 1076 to avail 43+ government certificates (income, caste, residence, birth/death, pension, ration, etc.) at your doorstep via Sewa Sahayaks.",
+    "hi": "1076 पर कॉल करके आय, जाति, निवास, पेंशन व राशन कार्ड सहित 43+ सरकारी सेवाएं मात्र ₹120 शुल्क पर घर बैठे प्राप्त करें।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (esewa.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://esewa.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 120,
+    "official_fee": "₹120 standard doorstep Sewa Sahayak visit charge (+ statutory RTS fee; official printed receipt mandatory)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

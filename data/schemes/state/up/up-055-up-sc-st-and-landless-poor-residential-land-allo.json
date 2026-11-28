@@ -1,0 +1,83 @@
+{
+  "id": "up-055-up-sc-st-and-landless-poor-residential-land-allo",
+  "scheme_code": "UP-055",
+  "jurisdiction": "up",
+  "category": "Housing & Shelter",
+  "scale": "Minor",
+  "department": "Revenue Dept, UP",
+  "name": {
+    "hi": "उत्तर प्रदेश भूमिहीन SC/ST व गरीब आवास पट्टा आवंटन योजना",
+    "en": "UP SC/ST & Landless Poor Residential Land Allotment (Awas Patta)"
+  },
+  "bilingual_title": {
+    "en": "UP SC/ST & Landless Poor Residential Land Allotment (Awas Patta)",
+    "hi": "उत्तर प्रदेश भूमिहीन SC/ST व गरीब आवास पट्टा आवंटन योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://vaad.up.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st"
+        ]
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Housing & Shelter",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "तहसील व ग्राम सभा के माध्यम से भूमिहीन SC/ST व खेतिहर मजदूर परिवारों को घर बनाने हेतु आवासीय पट्टा आवंटन।",
+    "summary_en": "Priority Gram Sabha residential plot allotment (Patta) to landless SC/ST/agricultural labourer households via Tehsil/SDM verification."
+  },
+  "benefit_summary": {
+    "en": "Priority Gram Sabha residential plot allotment (Patta) to landless SC/ST/agricultural labourer households via Tehsil/SDM verification.",
+    "hi": "तहसील व ग्राम सभा के माध्यम से भूमिहीन SC/ST व खेतिहर मजदूर परिवारों को घर बनाने हेतु आवासीय पट्टा आवंटन।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (vaad.up.nic.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://vaad.up.nic.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

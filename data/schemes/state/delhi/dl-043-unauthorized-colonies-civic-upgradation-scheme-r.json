@@ -1,0 +1,71 @@
+{
+  "id": "dl-043-unauthorized-colonies-civic-upgradation-scheme-r",
+  "scheme_code": "DL-043",
+  "jurisdiction": "delhi",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "Urban Development / PWD / DJB / MCD, GNCTD",
+  "name": {
+    "hi": "अनधिकृत कॉलोनी नागरिक सुविधा उन्नयन योजना",
+    "en": "Unauthorized Colonies Civic Upgradation Scheme (Roads, Drains & Piped Water)"
+  },
+  "bilingual_title": {
+    "en": "Unauthorized Colonies Civic Upgradation Scheme (Roads, Drains & Piped Water)",
+    "hi": "अनधिकृत कॉलोनी नागरिक सुविधा उन्नयन योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Notified unauthorised colonies within NCT of Delhi; non-NCT NCR excluded.",
+    "age_range": "Community-wide locality benefit",
+    "income_cap": "Locality-based",
+    "category_rules": "Residents/RWAs of notified colonies.",
+    "academic_or_work_rules": "Community RWA / engineering feasibility.",
+    "exclusions": "Private affluent pockets outside notified list."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की चिन्हित अनधिकृत कॉलोनियों में पक्की सड़कें, नालियां, सीवर, स्ट्रीटलाइट व पेयजल पाइपलाइन विकास कार्य।",
+    "summary_en": "Paved roads, storm/sewer drains, streetlights & piped water lines in notified unauthorised colonies of Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Paved roads, storm/sewer drains, streetlights & piped water lines in notified unauthorised colonies of Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली की चिन्हित अनधिकृत कॉलोनियों में पक्की सड़कें, नालियां, सीवर, स्ट्रीटलाइट व पेयजल पाइपलाइन विकास कार्य।"
+  },
+  "documents_required": [
+    "RWA / Locality Proposal",
+    "Residence Proof in Notified Colony"
+  ],
+  "application_steps": {
+    "online": "Details via ud.delhi.gov.in / delhi.gov.in.",
+    "offline": "Submit via local RWA / PWD / MCD / DJB office.",
+    "facilitation_center": "PWD / MCD / DJB Zonal Office / CFC"
+  },
+  "apply_url": "https://ud.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

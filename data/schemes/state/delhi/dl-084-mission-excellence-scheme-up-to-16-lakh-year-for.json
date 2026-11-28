@@ -1,0 +1,80 @@
+{
+  "id": "dl-084-mission-excellence-scheme-up-to-16-lakh-year-for",
+  "scheme_code": "DL-084",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Sports Wing, Directorate of Education (DoE), GNCTD",
+  "name": {
+    "hi": "मिशन एक्सीलेंस खिलाड़ी सहायता योजना",
+    "en": "Mission Excellence Scheme (Up to ₹16 Lakh/year for Elite Delhi Athletes)"
+  },
+  "bilingual_title": {
+    "en": "Mission Excellence Scheme (Up to ₹16 Lakh/year for Elite Delhi Athletes)",
+    "hi": "मिशन एक्सीलेंस खिलाड़ी सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edudel.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "athlete"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) domicile/representation rules; Haryana/UP athletes excluded.",
+    "age_range": "Elite athletes",
+    "income_cap": "Merit-based",
+    "category_rules": "Medalists / national-international ranked athletes.",
+    "academic_or_work_rules": "Federation endorsement & performance criteria.",
+    "exclusions": "Non-Delhi representation."
+  },
+  "benefit": {
+    "summary_hi": "राष्ट्रीय/अंतरराष्ट्रीय स्तर के उत्कृष्ट दिल्ली खिलाड़ियों को कोचिंग, यात्रा व खेल विज्ञान हेतु ₹16 लाख/वर्ष तक सहायता।",
+    "summary_en": "Elite athlete financial support (historically up to ₹16,00,000/year [VERIFY LATEST NOTIFICATION]) for coaching, travel, nutrition & sports science."
+  },
+  "benefit_summary": {
+    "en": "Elite athlete financial support (historically up to ₹16,00,000/year [VERIFY LATEST NOTIFICATION]) for coaching, travel, nutrition & sports science.",
+    "hi": "राष्ट्रीय/अंतरराष्ट्रीय स्तर के उत्कृष्ट दिल्ली खिलाड़ियों को कोचिंग, यात्रा व खेल विज्ञान हेतु ₹16 लाख/वर्ष तक सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Domicile",
+    "National/International Medal Certificates",
+    "Federation Endorsement",
+    "Expense Plan & Bank Account"
+  ],
+  "application_steps": {
+    "online": "Check edudel.nic.in / delhi.gov.in.",
+    "offline": "Sports Wing / CFC.",
+    "facilitation_center": "DoE Sports Wing / CFC"
+  },
+  "apply_url": "https://edudel.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

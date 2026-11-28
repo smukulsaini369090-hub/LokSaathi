@@ -1,0 +1,77 @@
+{
+  "id": "dl-073-aids-and-appliances-distribution-scheme-tricycle",
+  "scheme_code": "DL-073",
+  "jurisdiction": "delhi",
+  "category": "Divyangjan Welfare",
+  "scale": "Minor",
+  "department": "Department of Social Welfare, GNCTD",
+  "name": {
+    "hi": "दिव्यांगजन सहायक उपकरण वितरण योजना",
+    "en": "Aids & Appliances Distribution Scheme (Tricycles, Wheelchairs, Hearing Aids)"
+  },
+  "bilingual_title": {
+    "en": "Aids & Appliances Distribution Scheme (Tricycles, Wheelchairs, Hearing Aids)",
+    "hi": "दिव्यांगजन सहायक उपकरण वितरण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residency + certified disability >=40%; Haryana/UP NCR use respective camps.",
+    "age_range": "All ages",
+    "income_cap": "Notified income limit [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Persons with certified disability >=40%.",
+    "academic_or_work_rules": "Medical specialist recommendation.",
+    "exclusions": "Repeat appliance claim within cooling period."
+  },
+  "benefit": {
+    "summary_hi": "पात्र दिव्यांगजनों को निःशुल्क ट्राईसाइकिल, व्हीलचेयर, बैसाखी, श्रवण यंत्र एवं दृष्टि सहायक उपकरण वितरण।",
+    "summary_en": "Free tricycles, wheelchairs, crutches, hearing aids or visual assistive devices per camps/rules [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free tricycles, wheelchairs, crutches, hearing aids or visual assistive devices per camps/rules [VERIFY LATEST NOTIFICATION].",
+    "hi": "पात्र दिव्यांगजनों को निःशुल्क ट्राईसाइकिल, व्हीलचेयर, बैसाखी, श्रवण यंत्र एवं दृष्टि सहायक उपकरण वितरण।"
+  },
+  "documents_required": [
+    "UDID / Disability Certificate",
+    "Aadhaar & Delhi Residence/Income Proof",
+    "Photo"
+  ],
+  "application_steps": {
+    "online": "Details on socialwelfare.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "DSWO / assessment camp / CFC.",
+    "facilitation_center": "DSWO Assessment Camp / CFC"
+  },
+  "apply_url": "https://socialwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

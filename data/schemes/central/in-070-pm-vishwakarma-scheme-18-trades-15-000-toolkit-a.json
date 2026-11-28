@@ -1,0 +1,73 @@
+{
+  "id": "in-070-pm-vishwakarma-scheme-18-trades-15-000-toolkit-a",
+  "scheme_code": "IN-070",
+  "jurisdiction": "central",
+  "category": "Labour & BOCW",
+  "scale": "Major",
+  "department": "MSME / MSDE / MoF (pmvishwakarma.gov.in)",
+  "name": {
+    "hi": "पीएम विश्वकर्मा योजना (18 पारंपरिक कारीगर — ₹15,000 टूलकिट व 5% पर ₹3 लाख ऋण)",
+    "en": "PM Vishwakarma Scheme (18 Trades, ₹15,000 Toolkit & ₹3L Loan @ 5%)"
+  },
+  "bilingual_title": {
+    "en": "PM Vishwakarma Scheme (18 Trades, ₹15,000 Toolkit & ₹3L Loan @ 5%)",
+    "hi": "पीएम विश्वकर्मा योजना (18 पारंपरिक कारीगर — ₹15,000 टूलकिट व 5% पर ₹3 लाख ऋण)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pmvishwakarma.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Labour & BOCW",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "बढ़ई, लोहार, सुनार, कुम्हार, दर्जी, नाई, राजमिस्त्री आदि 18 पारंपरिक कारीगरों को ₹500/दिन प्रशिक्षण भत्ता, ₹15,000 टूलकिट व 5% पर ₹3 लाख ऋण।",
+    "summary_en": "Certificate & PM Vishwakarma ID, ₹500/day training stipend, ₹15,000 e-voucher toolkit + ₹1L & ₹2L collateral-free credit at 5% interest for 18 artisan trades."
+  },
+  "benefit_summary": {
+    "en": "Certificate & PM Vishwakarma ID, ₹500/day training stipend, ₹15,000 e-voucher toolkit + ₹1L & ₹2L collateral-free credit at 5% interest for 18 artisan trades.",
+    "hi": "बढ़ई, लोहार, सुनार, कुम्हार, दर्जी, नाई, राजमिस्त्री आदि 18 पारंपरिक कारीगरों को ₹500/दिन प्रशिक्षण भत्ता, ₹15,000 टूलकिट व 5% पर ₹3 लाख ऋण।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "ई-श्रम यूएएन / श्रमिक बोर्ड पंजीकरण कार्ड",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pmvishwakarma.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://pmvishwakarma.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-267-7777",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

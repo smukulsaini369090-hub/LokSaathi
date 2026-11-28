@@ -1,0 +1,72 @@
+{
+  "id": "dl-019-free-cataract-and-corneal-blindness-treatment-un",
+  "scheme_code": "DL-019",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Minor",
+  "department": "DGHS NPCBVI Cell, GNCTD",
+  "name": {
+    "hi": "राष्ट्रीय अंधता नियंत्रण निःशुल्क मोतियाबिंद उपचार योजना (दिल्ली)",
+    "en": "Free Cataract & Corneal Blindness Treatment under NPCBVI Delhi"
+  },
+  "bilingual_title": {
+    "en": "Free Cataract & Corneal Blindness Treatment under NPCBVI Delhi",
+    "hi": "राष्ट्रीय अंधता नियंत्रण निःशुल्क मोतियाबिंद उपचार योजना (दिल्ली)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dgehs.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Screened/referred under Delhi NPCBVI; state-specific grants require Delhi (NCT) residency.",
+    "age_range": "All ages (primarily seniors & school eye-screening cases)",
+    "income_cap": "Free for screened patients",
+    "category_rules": "Patients diagnosed with cataract/visual impairment.",
+    "academic_or_work_rules": "Ophthalmology OPD evaluation.",
+    "exclusions": "Cosmetic elective procedures."
+  },
+  "benefit": {
+    "summary_hi": "सरकारी व सूचीबद्ध अस्पतालों में निःशुल्क मोतियाबिंद ऑपरेशन (लेंस सहित), आंखों की जांच और चश्मा सहायता।",
+    "summary_en": "Free cataract surgery (with IOL lens), eye screening, spectacles/corneal support via govt/empanelled eye centres in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free cataract surgery (with IOL lens), eye screening, spectacles/corneal support via govt/empanelled eye centres in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "सरकारी व सूचीबद्ध अस्पतालों में निःशुल्क मोतियाबिंद ऑपरेशन (लेंस सहित), आंखों की जांच और चश्मा सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar / ID",
+    "Eye Screening / OPD Slip",
+    "Mobile Number"
+  ],
+  "application_steps": {
+    "online": "Information on dgehs.delhi.gov.in / health.delhi.gov.in.",
+    "offline": "Walk in to Delhi Govt Hospital Ophthalmology OPD / eye camp.",
+    "facilitation_center": "Delhi Govt Hospital Eye OPD / CFC"
+  },
+  "apply_url": "https://dgehs.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,17 +1,42 @@
 {
   "id": "national-social-assistance",
+  "scheme_code": "IN-034",
+  "jurisdiction": "central",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Ministry of Rural Development (NSAP)",
   "name": {
     "hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम - इंदिरा गांधी वृद्धावस्था पेंशन",
     "en": "National Social Assistance Programme - IGNOAPS"
+  },
+  "bilingual_title": {
+    "en": "National Social Assistance Programme - IGNOAPS",
+    "hi": "राष्ट्रीय सामाजिक सहायता कार्यक्रम - इंदिरा गांधी वृद्धावस्था पेंशन"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://nsap.nic.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "age", "operator": "gte", "value": 60 },
-      { "field": "is_bpl", "operator": "eq", "value": true }
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      },
+      {
+        "field": "is_bpl",
+        "operator": "eq",
+        "value": true
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "बीपीएल वृद्धजनों को ₹1,000 से ₹1,500 प्रति माह की सामाजिक पेंशन (केंद्र व राज्य का संयुक्त अंश)",
@@ -20,13 +45,32 @@
     "frequency": "annual",
     "mode": "Monthly DBT"
   },
+  "benefit_summary": {
+    "en": "Monthly old age pension of ₹1,000 to ₹1,500 for senior citizens below poverty line",
+    "hi": "बीपीएल वृद्धजनों को ₹1,000 से ₹1,500 प्रति माह की सामाजिक पेंशन (केंद्र व राज्य का संयुक्त अंश)"
+  },
   "documents_required": [
     "आधार कार्ड",
     "आयु प्रमाण पत्र",
     "बीपीएल राशन कार्ड",
     "बैंक खाता पासबुक"
   ],
+  "application_steps": {
+    "online": "Apply via official portal (nsap.nic.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
   "apply_url": "https://nsap.nic.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

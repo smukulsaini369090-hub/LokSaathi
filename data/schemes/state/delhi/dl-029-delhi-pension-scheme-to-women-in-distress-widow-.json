@@ -1,0 +1,95 @@
+{
+  "id": "dl-029-delhi-pension-scheme-to-women-in-distress-widow-",
+  "scheme_code": "DL-029",
+  "jurisdiction": "delhi",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Social Welfare / WCD Dept, GNCTD",
+  "name": {
+    "hi": "दिल्ली संकटग्रस्त महिला पेंशन योजना (विधवा / परित्यक्ता पेंशन)",
+    "en": "Delhi Pension Scheme to Women in Distress (Widow / Divorced / Separated / Destitute)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Pension Scheme to Women in Distress (Widow / Divorced / Separated / Destitute)",
+    "hi": "दिल्ली संकटग्रस्त महिला पेंशन योजना (विधवा / परित्यक्ता पेंशन)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 100000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident for >=5 years; Haryana/UP NCR excluded.",
+    "age_range": "18 years and above [VERIFY LATEST NOTIFICATION]",
+    "income_cap": "Annual family income < ₹1,00,000 [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Widow, divorced, separated, or destitute women in distress.",
+    "academic_or_work_rules": "5-year Delhi residence.",
+    "exclusions": "Overlapping pension recipients."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की विधवा, तलाकशुदा या परित्यक्त संकटग्रस्त महिलाओं को ₹2,500/माह (अधिसूचना अनुसार) मासिक पेंशन।",
+    "summary_en": "Monthly DBT pension (typically ₹2,500/month [VERIFY LATEST NOTIFICATION]) for widows & destitute women."
+  },
+  "benefit_summary": {
+    "en": "Monthly DBT pension (typically ₹2,500/month [VERIFY LATEST NOTIFICATION]) for widows & destitute women.",
+    "hi": "दिल्ली की विधवा, तलाकशुदा या परित्यक्त संकटग्रस्त महिलाओं को ₹2,500/माह (अधिसूचना अनुसार) मासिक पेंशन।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "5-Year Delhi Residence Proof",
+    "Husband's Death Certificate / Divorce or Separation Proof",
+    "Delhi Income Certificate",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "District Office / CFC.",
+    "facilitation_center": "CFC / District Social Welfare Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

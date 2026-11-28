@@ -1,0 +1,73 @@
+{
+  "id": "dl-095-delhi-1984-anti-sikh-riot-victims-enhanced-pensi",
+  "scheme_code": "DL-095",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Revenue Department Relief Branch, GNCTD",
+  "name": {
+    "hi": "1984 दंगा पीड़ित परिवार पेंशन एवं पुनर्वास योजना",
+    "en": "Delhi 1984 Anti-Sikh Riot Victims Enhanced Pension & Rehabilitation Assistance"
+  },
+  "bilingual_title": {
+    "en": "Delhi 1984 Anti-Sikh Riot Victims Enhanced Pension & Rehabilitation Assistance",
+    "hi": "1984 दंगा पीड़ित परिवार पेंशन एवं पुनर्वास योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://revenue.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Registered/verified 1984 riot-affected family/widow on GNCTD Relief Branch records residing in Delhi (NCT).",
+    "age_range": "Registered family/widow beneficiaries",
+    "income_cap": "Per GNCTD Relief Branch norms",
+    "category_rules": "Verified 1984 riot-affected families/widows.",
+    "academic_or_work_rules": "Official Relief ID / Sanction record.",
+    "exclusions": "Unverified or duplicated non-Delhi claims."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली में 1984 दंगा पीड़ित सत्यापित परिवारों और विधवाओं को ₹20,000/माह (अधिसूचना अनुसार) मासिक बढ़ी हुई पेंशन व पुनर्वास।",
+    "summary_en": "Monthly enhanced pension (historically ₹20,000/month per eligible family [VERIFY LATEST NOTIFICATION]) for verified 1984 riot-affected families/widows in Delhi."
+  },
+  "benefit_summary": {
+    "en": "Monthly enhanced pension (historically ₹20,000/month per eligible family [VERIFY LATEST NOTIFICATION]) for verified 1984 riot-affected families/widows in Delhi.",
+    "hi": "दिल्ली में 1984 दंगा पीड़ित सत्यापित परिवारों और विधवाओं को ₹20,000/माह (अधिसूचना अनुसार) मासिक बढ़ी हुई पेंशन व पुनर्वास।"
+  },
+  "documents_required": [
+    "1984 Riot Victim Relief ID / Sanction Order",
+    "Aadhaar & Delhi Residence Proof",
+    "Life/Dependency Certificate",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Info on revenue.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "Revenue Dept Relief Branch / DM Office.",
+    "facilitation_center": "Revenue Dept Relief Branch / CFC"
+  },
+  "apply_url": "https://revenue.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

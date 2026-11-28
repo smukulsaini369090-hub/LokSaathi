@@ -1,0 +1,101 @@
+{
+  "id": "dl-001-mukhyamantri-vidyarthi-pratibha-yojana-mvpy",
+  "scheme_code": "DL-001",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "मुख्यमंत्री विद्यार्थी प्रतिभा योजना",
+    "en": "Mukhyamantri Vidyarthi Pratibha Yojana (MVPY)"
+  },
+  "bilingual_title": {
+    "en": "Mukhyamantri Vidyarthi Pratibha Yojana (MVPY)",
+    "hi": "मुख्यमंत्री विद्यार्थी प्रतिभा योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 19
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ]
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 800000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident studying in recognised Delhi school (DoE/MCD/NDMC/KV); Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "School students in Classes IX–XII (typically 13–19 years)",
+    "income_cap": "Up to ₹8,00,000/year (waived if >=75% marks in previous class [VERIFY LATEST NOTIFICATION])",
+    "category_rules": "SC/ST/OBC with >=50% marks in previous class (IX–X) or >=60% marks (XI–XII).",
+    "academic_or_work_rules": "Enrolled in Classes IX–XII at a recognised Delhi school.",
+    "exclusions": "Outside Delhi NCT schools/residents and repeaters."
+  },
+  "benefit": {
+    "summary_hi": "कक्षा 9–10 के लिए ₹5,000/वर्ष और कक्षा 11–12 के लिए ₹10,000/वर्ष की डीबीटी छात्रवृत्ति सहायता।",
+    "summary_en": "₹5,000/year (Classes IX–X) and ₹10,000/year (Classes XI–XII) via DBT."
+  },
+  "benefit_summary": {
+    "en": "₹5,000/year (Classes IX–X) and ₹10,000/year (Classes XI–XII) via DBT.",
+    "hi": "कक्षा 9–10 के लिए ₹5,000/वर्ष और कक्षा 11–12 के लिए ₹10,000/वर्ष की डीबीटी छात्रवृत्ति सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Domicile/School Proof",
+    "Delhi SC/ST/OBC Certificate",
+    "Delhi Income Certificate (if applicable)",
+    "Previous Class Marksheet",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in through school verification.",
+    "offline": "Submit verified application at recognised school nodal desk or Citizen Facilitation Centre (CFC).",
+    "facilitation_center": "Citizen Facilitation Centre (CFC) / School Nodal Desk"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

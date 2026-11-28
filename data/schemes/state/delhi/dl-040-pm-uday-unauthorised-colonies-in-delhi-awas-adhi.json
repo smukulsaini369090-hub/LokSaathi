@@ -1,0 +1,72 @@
+{
+  "id": "dl-040-pm-uday-unauthorised-colonies-in-delhi-awas-adhi",
+  "scheme_code": "DL-040",
+  "jurisdiction": "delhi",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "Delhi Development Authority (DDA) with MoHUA",
+  "name": {
+    "hi": "पीएम-उदय योजना (अनधिकृत कॉलोनी आवास अधिकार योजना)",
+    "en": "PM-UDAY (Unauthorised Colonies in Delhi Awas Adhikar Yojana — Ownership Rights)"
+  },
+  "bilingual_title": {
+    "en": "PM-UDAY (Unauthorised Colonies in Delhi Awas Adhikar Yojana — Ownership Rights)",
+    "hi": "पीएम-उदय योजना (अनधिकृत कॉलोनी आवास अधिकार योजना)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dda.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Properties inside notified unauthorised colonies in NCT of Delhi (excl. excluded/affluent colonies); Noida/Ghaziabad/Gurugram/Faridabad excluded.",
+    "age_range": "Adult property owners (18+)",
+    "income_cap": "No income ceiling",
+    "category_rules": "Occupants with unbroken title/possession chain.",
+    "academic_or_work_rules": "Property GIS/document verification.",
+    "exclusions": "Affluent excluded colonies & properties outside Delhi NCT."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की चिन्हित अनधिकृत कॉलोनियों के निवासियों को मालिकाना हक (कन्वेयंस डीड व ऑथराइजेशन स्लिप) प्रदान करने की योजना।",
+    "summary_en": "Conveyance Deed & Authorisation Slip conferring legal property ownership/transfer rights in notified Delhi Unauthorised Colonies [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Conveyance Deed & Authorisation Slip conferring legal property ownership/transfer rights in notified Delhi Unauthorised Colonies [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली की चिन्हित अनधिकृत कॉलोनियों के निवासियों को मालिकाना हक (कन्वेयंस डीड व ऑथराइजेशन स्लिप) प्रदान करने की योजना।"
+  },
+  "documents_required": [
+    "Possession/Title Chain (GPA, Sale Agreement, Will, Payment Receipt)",
+    "Aadhaar & Photo",
+    "Electricity/Property Tax Bill"
+  ],
+  "application_steps": {
+    "online": "Apply on pmuday.dda.org.in / dda.gov.in.",
+    "offline": "Visit nearest DDA PM-UDAY Processing Cell / camp.",
+    "facilitation_center": "DDA PM-UDAY Camp / CFC"
+  },
+  "apply_url": "https://pmuday.dda.org.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "Official notified registration charges only",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

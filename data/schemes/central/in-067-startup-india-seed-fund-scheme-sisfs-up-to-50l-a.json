@@ -1,0 +1,70 @@
+{
+  "id": "in-067-startup-india-seed-fund-scheme-sisfs-up-to-50l-a",
+  "scheme_code": "IN-067",
+  "jurisdiction": "central",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "DPIIT, Ministry of Commerce & Industry",
+  "name": {
+    "hi": "स्टार्टअप इंडिया सीड फंड (SISFS — ₹50 लाख तक) एवं क्रेडिट गारंटी (CGSS)",
+    "en": "Startup India Seed Fund Scheme (SISFS — Up to ₹50L) & Credit Guarantee (CGSS)"
+  },
+  "bilingual_title": {
+    "en": "Startup India Seed Fund Scheme (SISFS — Up to ₹50L) & Credit Guarantee (CGSS)",
+    "hi": "स्टार्टअप इंडिया सीड फंड (SISFS — ₹50 लाख तक) एवं क्रेडिट गारंटी (CGSS)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://seedfund.startupindia.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "DPIIT मान्यता प्राप्त स्टार्टअप्स को प्रोटोटाइप हेतु ₹20 लाख अनुदान व कमर्शियल स्केलिंग हेतु ₹50 लाख तक सीड निवेश।",
+    "summary_en": "Up to ₹20 lakh grant for prototype validation + up to ₹50 lakh convertible/debt investment through incubators + CGSS collateral-free startup credit."
+  },
+  "benefit_summary": {
+    "en": "Up to ₹20 lakh grant for prototype validation + up to ₹50 lakh convertible/debt investment through incubators + CGSS collateral-free startup credit.",
+    "hi": "DPIIT मान्यता प्राप्त स्टार्टअप्स को प्रोटोटाइप हेतु ₹20 लाख अनुदान व कमर्शियल स्केलिंग हेतु ₹50 लाख तक सीड निवेश।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (seedfund.startupindia.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://seedfund.startupindia.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

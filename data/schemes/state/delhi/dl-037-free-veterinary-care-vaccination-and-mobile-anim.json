@@ -1,0 +1,71 @@
+{
+  "id": "dl-037-free-veterinary-care-vaccination-and-mobile-anim",
+  "scheme_code": "DL-037",
+  "jurisdiction": "delhi",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Animal Husbandry Unit, Development Dept, GNCTD",
+  "name": {
+    "hi": "निःशुल्क पशु चिकित्सा एवं टीकाकरण योजना (दिल्ली)",
+    "en": "Free Veterinary Care, Vaccination & Mobile Animal Clinics (Delhi)"
+  },
+  "bilingual_title": {
+    "en": "Free Veterinary Care, Vaccination & Mobile Animal Clinics (Delhi)",
+    "hi": "निःशुल्क पशु चिकित्सा एवं टीकाकरण योजना (दिल्ली)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://development.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Cattle, buffalo, goat, sheep & animal owners at Delhi veterinary hospitals/camps.",
+    "age_range": "All animal owners",
+    "income_cap": "Universal / Free",
+    "category_rules": "Livestock & pet owners.",
+    "academic_or_work_rules": "Walk-in veterinary OPD.",
+    "exclusions": "Unauthorised commercial procedures."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली सरकारी पशु चिकित्सालयों व मोबाइल क्लीनिकों में पशुओं का निःशुल्क इलाज एवं टीकाकरण।",
+    "summary_en": "Free veterinary treatment, vaccination camps & mobile animal clinics for livestock & pets in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free veterinary treatment, vaccination camps & mobile animal clinics for livestock & pets in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली सरकारी पशु चिकित्सालयों व मोबाइल क्लीनिकों में पशुओं का निःशुल्क इलाज एवं टीकाकरण।"
+  },
+  "documents_required": [
+    "Owner Aadhaar/ID & Address",
+    "Animal Health Card (if issued)"
+  ],
+  "application_steps": {
+    "online": "Hospital list on development.delhi.gov.in.",
+    "offline": "Visit nearest Delhi Govt Veterinary Hospital or camp.",
+    "facilitation_center": "Delhi Govt Veterinary Hospital / CFC"
+  },
+  "apply_url": "https://development.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

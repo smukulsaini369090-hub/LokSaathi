@@ -1,0 +1,74 @@
+{
+  "id": "up-065-cm-micro-entrepreneur-accident-insurance-scheme-",
+  "scheme_code": "UP-065",
+  "jurisdiction": "up",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "MSME / Institutional Finance Dept, UP",
+  "name": {
+    "hi": "मुख्यमंत्री सूक्ष्म उद्यमी दुर्घटना बीमा योजना (₹5 लाख कवर — यूपी)",
+    "en": "CM Micro-Entrepreneur Accident Insurance Scheme (₹5 Lakh)"
+  },
+  "bilingual_title": {
+    "en": "CM Micro-Entrepreneur Accident Insurance Scheme (₹5 Lakh)",
+    "hi": "मुख्यमंत्री सूक्ष्म उद्यमी दुर्घटना बीमा योजना (₹5 लाख कवर — यूपी)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://diupmsme.upsdc.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "यूपी के पंजीकृत सूक्ष्म उद्यमियों (18–60 वर्ष) को दुर्घटना में मृत्यु या स्थायी दिव्यांगता पर ₹5 लाख बीमा सुरक्षा।",
+    "summary_en": "₹5,00,000 accidental death/disability insurance protection free for small traders & micro-entrepreneurs registered via Udyam/MSME portal in UP."
+  },
+  "benefit_summary": {
+    "en": "₹5,00,000 accidental death/disability insurance protection free for small traders & micro-entrepreneurs registered via Udyam/MSME portal in UP.",
+    "hi": "यूपी के पंजीकृत सूक्ष्म उद्यमियों (18–60 वर्ष) को दुर्घटना में मृत्यु या स्थायी दिव्यांगता पर ₹5 लाख बीमा सुरक्षा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (diupmsme.upsdc.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://diupmsme.upsdc.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

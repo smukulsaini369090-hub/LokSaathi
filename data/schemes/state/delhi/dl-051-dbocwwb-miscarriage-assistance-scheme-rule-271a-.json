@@ -1,0 +1,91 @@
+{
+  "id": "dl-051-dbocwwb-miscarriage-assistance-scheme-rule-271a-",
+  "scheme_code": "DL-051",
+  "jurisdiction": "delhi",
+  "category": "Labour & BOCW",
+  "scale": "Minor",
+  "department": "DBOCWWB, Labour Dept, GNCTD",
+  "name": {
+    "hi": "निर्माण श्रमिक गर्भपात सहायता योजना (₹3,000)",
+    "en": "DBOCWWB Miscarriage Assistance Scheme (Rule 271A — ₹3,000)"
+  },
+  "bilingual_title": {
+    "en": "DBOCWWB Miscarriage Assistance Scheme (Rule 271A — ₹3,000)",
+    "hi": "निर्माण श्रमिक गर्भपात सहायता योजना (₹3,000)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://labour.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 60
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "construction_worker",
+          "laborer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Registered with DBOCWWB in Delhi (NCT); Haryana/UP boards excluded.",
+    "age_range": "18–60 years",
+    "income_cap": "Active DBOCWWB worker",
+    "category_rules": "Registered female worker / spouse.",
+    "academic_or_work_rules": "Valid hospital medical certificate under Rule 271A.",
+    "exclusions": "Unregistered workers."
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत महिला श्रमिक या श्रमिक की पत्नी को गर्भपात की स्थिति में ₹3,000 वित्तीय सहायता।",
+    "summary_en": "₹3,000 medical/financial assistance for miscarriage/abortion under Rule 271A [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "₹3,000 medical/financial assistance for miscarriage/abortion under Rule 271A [VERIFY LATEST NOTIFICATION].",
+    "hi": "पंजीकृत महिला श्रमिक या श्रमिक की पत्नी को गर्भपात की स्थिति में ₹3,000 वित्तीय सहायता।"
+  },
+  "documents_required": [
+    "DBOCWWB Card",
+    "Hospital Medical Certificate of Miscarriage",
+    "Aadhaar",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "CFC / DBOCWWB office.",
+    "facilitation_center": "CFC / DBOCWWB Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

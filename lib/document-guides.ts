@@ -739,6 +739,49 @@ export const DOCUMENT_TRANSLATIONS_EN: Record<string, string> = {
   "स्कूल प्रवेश प्रमाण पत्र": "School Admission Certificate",
   "स्कूल/कॉलेज प्रवेश रसीद": "School / College Admission Fee Receipt",
   "स्व-प्रमाणित स्वास्थ्य प्रमाण पत्र (Medical Fitness)": "Self-Attested Medical Fitness Certificate",
+  "डीबीओसीडब्ल्यूडब्ल्यूबी कार्ड (DBOCWWB Worker ID)": "DBOCWWB Registration Card",
+  "दिल्ली पीडब्ल्यूडी यूडीआईडी कार्ड / दिव्यांगता प्रमाण पत्र": "UDID Card / Disability Certificate",
+  "दिल्ली मतदाता पहचान पत्र / 10 वर्ष निवास प्रमाण": "Delhi Voter ID / 10-Year Delhi Residence Proof",
+  "अधिवक्ता बार काउंसिल पंजीकरण प्रमाण पत्र": "Bar Council of Delhi Enrolment Certificate",
+  "बिजली बिल / सीए नंबर (CA Number)": "Electricity Bill / CA Number",
+  "दिल्ली जल बोर्ड बिल / केएनओ (KNO Number)": "Delhi Jal Board Water Bill / KNO",
+  "शहीद सैनिक / कर्मी लाइन-ऑफ-ड्यूटी प्रमाण पत्र": "Official Line-of-Duty Casualty Certificate",
+  "अस्पताल डिस्चार्ज समरी एवं मेडिकल बिल": "Hospital Discharge Summary & Medical Bills",
+  "एफआईआर (FIR) / पुलिस या आपदा रिपोर्ट": "FIR / Police / Revenue Incident Report",
+  "खेल उपलब्धि / पदक प्रमाण पत्र": "Sports Merit / Medal Certificate",
+  "ड्राइविंग लाइसेंस (कमर्शियल/ऑटो)": "Valid Commercial / Auto Driving Licence",
+  "वित्तीय / आयकर व 4-पहिया न होने की घोषणा": "Non-IT/GST & No 4-Wheeler Self-Declaration",
+  "अल्पसंख्यक समुदाय प्रमाण पत्र": "Minority Community Certificate",
+  "यूपी फैमिली आईडी (एक परिवार एक पहचान)": "UP Family ID (Ek Parivar Ek Pahchan)",
+  "मेरी फसल मेरा ब्यौरा (MFMB) पंजीकरण": "Meri Fasal Mera Byora (MFMB) Registration",
+  "ई-श्रम यूएएन (e-Shram UAN Card)": "e-Shram UAN Card",
+};
+
+const DOCUMENT_TRANSLATIONS_HI: Record<string, string> = Object.fromEntries(
+  Object.entries(DOCUMENT_TRANSLATIONS_EN).map(([hi, en]) => [en.toLowerCase(), hi])
+);
+
+const ENGLISH_TO_HINDI_EXTRA: Record<string, string> = {
+  aadhaar: "आधार कार्ड",
+  "aadhaar card": "आधार कार्ड",
+  "aadhaar-seeded bank passbook": "आधार से लिंक बैंक खाता पासबुक",
+  "bank passbook": "बैंक खाता पासबुक",
+  "bank account": "बैंक खाता पासबुक",
+  "bank details": "बैंक खाता विवरण",
+  "delhi domicile": "दिल्ली मूल निवास प्रमाण पत्र",
+  "delhi residence proof": "दिल्ली निवास प्रमाण पत्र",
+  "delhi income certificate": "दिल्ली आय प्रमाण पत्र",
+  "income certificate": "आय प्रमाण पत्र",
+  "caste certificate": "जाति प्रमाण पत्र",
+  "birth certificate": "जन्म प्रमाण पत्र",
+  "death certificate": "मृत्यु प्रमाण पत्र",
+  "marriage certificate": "विवाह प्रमाण पत्र",
+  "ration card": "राशन कार्ड",
+  "udid card": "यूडीआईडी (दिव्यांगता) कार्ड",
+  "disability certificate": "दिव्यांगता प्रमाण पत्र",
+  "mobile number": "मोबाइल नंबर",
+  "photo": "पासपोर्ट साइज फोटो",
+  "passport photograph": "पासपोर्ट साइज फोटो",
 };
 
 /**
@@ -747,7 +790,23 @@ export const DOCUMENT_TRANSLATIONS_EN: Record<string, string> = {
 export function translateDocumentName(docString: string, language: "hi" | "en" = "hi"): string {
   const clean = (docString || "").trim();
   if (!clean) return "";
-  if (language === "hi") return clean;
+
+  if (language === "hi") {
+    const lower = clean.toLowerCase();
+    if (DOCUMENT_TRANSLATIONS_HI[lower]) return DOCUMENT_TRANSLATIONS_HI[lower];
+    if (ENGLISH_TO_HINDI_EXTRA[lower]) return ENGLISH_TO_HINDI_EXTRA[lower];
+    // If string contains ASCII only (English stored), apply smart keyword Hindi hints while preserving clarity
+    if (/^[\x00-\x7F\u20B9]+$/.test(clean)) {
+      if (lower.includes("aadhaar")) return `आधार कार्ड (${clean})`;
+      if (lower.includes("domicile") || lower.includes("residence")) return `निवास प्रमाण पत्र (${clean})`;
+      if (lower.includes("income")) return `आय प्रमाण पत्र (${clean})`;
+      if (lower.includes("caste") || /\bsc\b|\bst\b|\bobc\b/.test(lower)) return `जाति प्रमाण पत्र (${clean})`;
+      if (lower.includes("bank") || lower.includes("passbook")) return `बैंक खाता पासबुक (${clean})`;
+      if (lower.includes("udid") || lower.includes("disability")) return `यूडीआईडी / दिव्यांगता प्रमाण (${clean})`;
+      if (lower.includes("dbocwwb")) return `निर्माण श्रमिक बोर्ड कार्ड (${clean})`;
+    }
+    return clean;
+  }
 
   if (DOCUMENT_TRANSLATIONS_EN[clean]) {
     return DOCUMENT_TRANSLATIONS_EN[clean];
@@ -767,6 +826,8 @@ export function translateDocumentName(docString: string, language: "hi" | "en" =
   if (norm.includes("फोटो")) return "Passport-Size Photograph";
   if (norm.includes("मार्कशीट") || norm.includes("अंकतालिका")) return "Educational Marksheet";
   if (norm.includes("जन्म प्रमाण")) return "Birth Certificate";
+  if (norm.includes("मृत्यु प्रमाण")) return "Death Certificate";
+  if (norm.includes("विवाह") || norm.includes("शादी")) return "Marriage Proof / Certificate";
   if (norm.includes("पैन")) return "PAN Card";
   if (norm.includes("मोबाइल")) return "Mobile Number";
   return clean;
@@ -774,9 +835,10 @@ export function translateDocumentName(docString: string, language: "hi" | "en" =
 
 export function getGenericDocumentGuide(docName: string): DocumentAcquisitionGuide {
   const cleanEn = translateDocumentName(docName, "en");
+  const cleanHi = translateDocumentName(docName, "hi");
   return {
     id: `generic-${docName.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
-    name: { hi: `${docName} कैसे बनवाएं?`, en: cleanEn },
+    name: { hi: `${cleanHi} कैसे बनवाएं?`, en: cleanEn },
     category: "identity",
     portal_name: { hi: "राष्ट्रीय सरकारी सेवा पोर्टल (India Services)", en: "National Government Services Portal" },
     portal_url: "https://services.india.gov.in",

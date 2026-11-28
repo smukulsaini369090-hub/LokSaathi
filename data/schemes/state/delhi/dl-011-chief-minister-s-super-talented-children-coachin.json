@@ -1,0 +1,84 @@
+{
+  "id": "dl-011-chief-minister-s-super-talented-children-coachin",
+  "scheme_code": "DL-011",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Minor",
+  "department": "DoE / Welfare Dept, GNCTD",
+  "name": {
+    "hi": "मुख्यमंत्री सुपर टैलेंटेड चिल्ड्रन कोचिंग योजना",
+    "en": "Chief Minister's Super Talented Children Coaching Scheme"
+  },
+  "bilingual_title": {
+    "en": "Chief Minister's Super Talented Children Coaching Scheme",
+    "hi": "मुख्यमंत्री सुपर टैलेंटेड चिल्ड्रन कोचिंग योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edudel.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 19
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) school student meeting merit criteria; outside Delhi NCT excluded.",
+    "age_range": "Classes IX–XII students (typically 13–19 years)",
+    "income_cap": "Per notified merit & departmental rules [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Meritorious govt school students.",
+    "academic_or_work_rules": "Screening/merit shortlist.",
+    "exclusions": "Outside Delhi NCT schools."
+  },
+  "benefit": {
+    "summary_hi": "प्रतिभाशाली दिल्ली सरकारी स्कूल छात्रों को प्रतियोगी/प्रवेश परीक्षाओं की निःशुल्क कोचिंग व मार्गदर्शन ([अधिसूचना सत्यापित करें])।",
+    "summary_en": "Free competitive/entrance exam coaching & mentorship for meritorious Delhi govt school students [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free competitive/entrance exam coaching & mentorship for meritorious Delhi govt school students [VERIFY LATEST NOTIFICATION].",
+    "hi": "प्रतिभाशाली दिल्ली सरकारी स्कूल छात्रों को प्रतियोगी/प्रवेश परीक्षाओं की निःशुल्क कोचिंग व मार्गदर्शन ([अधिसूचना सत्यापित करें])।"
+  },
+  "documents_required": [
+    "Delhi School ID & Prev Marksheet",
+    "Aadhaar",
+    "Category/Income Certificate (if applicable)"
+  ],
+  "application_steps": {
+    "online": "Check edudel.nic.in / edistrict.delhigovt.nic.in.",
+    "offline": "School / CFC guidance.",
+    "facilitation_center": "Delhi Govt School / CFC"
+  },
+  "apply_url": "https://edudel.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

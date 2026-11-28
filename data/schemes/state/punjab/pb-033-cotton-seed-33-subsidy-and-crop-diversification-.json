@@ -1,0 +1,76 @@
+{
+  "id": "pb-033-cotton-seed-33-subsidy-and-crop-diversification-",
+  "scheme_code": "PB-033",
+  "jurisdiction": "punjab",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Agriculture & Farmers Welfare Dept, Punjab",
+  "name": {
+    "hi": "पंजाब कपास बीज (33% सब्सिडी) एवं फसल विविधीकरण योजना",
+    "en": "Cotton Seed 33% Subsidy & Crop Diversification Scheme (Punjab)"
+  },
+  "bilingual_title": {
+    "en": "Cotton Seed 33% Subsidy & Crop Diversification Scheme (Punjab)",
+    "hi": "पंजाब कपास बीज (33% सब्सिडी) एवं फसल विविधीकरण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://agri.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब के किसानों को PAU अनुशंसित बीटी कपास बीज पर 33% सब्सिडी व मक्का/दलहन फसल विविधीकरण सहायता।",
+    "summary_en": "33% subsidy on PAU-recommended BG-II Bt cotton seeds (max 5 acres) plus maize/moong/pulse diversification demonstrations in Punjab."
+  },
+  "benefit_summary": {
+    "en": "33% subsidy on PAU-recommended BG-II Bt cotton seeds (max 5 acres) plus maize/moong/pulse diversification demonstrations in Punjab.",
+    "hi": "पंजाब के किसानों को PAU अनुशंसित बीटी कपास बीज पर 33% सब्सिडी व मक्का/दलहन फसल विविधीकरण सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खतौनी/जमाबंदी)",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (agri.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://agri.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

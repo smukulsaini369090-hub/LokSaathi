@@ -1,0 +1,70 @@
+{
+  "id": "in-064-national-apprenticeship-promotion-scheme-naps-2-",
+  "scheme_code": "IN-064",
+  "jurisdiction": "central",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "MSDE & Ministry of Education",
+  "name": {
+    "hi": "राष्ट्रीय शिक्षुता प्रोत्साहन (NAPS-2 व NATS — उद्योग स्टाइपेंड योजना)",
+    "en": "National Apprenticeship Promotion Scheme (NAPS-2) & NATS"
+  },
+  "bilingual_title": {
+    "en": "National Apprenticeship Promotion Scheme (NAPS-2) & NATS",
+    "hi": "राष्ट्रीय शिक्षुता प्रोत्साहन (NAPS-2 व NATS — उद्योग स्टाइपेंड योजना)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://www.apprenticeshipindia.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "औद्योगिक संस्थानों में ऑन-जॉब प्रशिक्षण ले रहे ITI/10+2 (NAPS) व इंजीनियरिंग/स्नातक युवाओं (NATS) को मासिक स्टाइपेंड सहायता।",
+    "summary_en": "25% (max ₹1,500/mo) govt DBT stipend sharing for ITI/school apprentices (NAPS-2) and 50% sharing up to ₹4,500/mo for graduate/diploma engineers (NATS)."
+  },
+  "benefit_summary": {
+    "en": "25% (max ₹1,500/mo) govt DBT stipend sharing for ITI/school apprentices (NAPS-2) and 50% sharing up to ₹4,500/mo for graduate/diploma engineers (NATS).",
+    "hi": "औद्योगिक संस्थानों में ऑन-जॉब प्रशिक्षण ले रहे ITI/10+2 (NAPS) व इंजीनियरिंग/स्नातक युवाओं (NATS) को मासिक स्टाइपेंड सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (www.apprenticeshipindia.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://www.apprenticeshipindia.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "pb-019-free-bus-travel-for-women-in-punjab-prtc-punbus-",
+  "scheme_code": "PB-019",
+  "jurisdiction": "punjab",
+  "category": "Women & Girl Child",
+  "scale": "Major",
+  "department": "Transport Dept, Punjab (PRTC / PUNBUS)",
+  "name": {
+    "hi": "पंजाब महिलाओं हेतु निःशुल्क बस यात्रा योजना (PRTC / रोडवेज)",
+    "en": "Free Bus Travel for Women in Punjab (PRTC / PUNBUS / Punjab Roadways)"
+  },
+  "bilingual_title": {
+    "en": "Free Bus Travel for Women in Punjab (PRTC / PUNBUS / Punjab Roadways)",
+    "hi": "पंजाब महिलाओं हेतु निःशुल्क बस यात्रा योजना (PRTC / रोडवेज)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Women & Girl Child",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब की सभी निवासी महिलाओं को पंजाब राज्य की साधारण PRTC व पंजाब रोडवेज बसों में पूरी तरह मुफ्त यात्रा।",
+    "summary_en": "100% free travel inside Punjab on ordinary PRTC, PUNBUS & Punjab Roadways buses for all Punjab resident women of any age/income."
+  },
+  "benefit_summary": {
+    "en": "100% free travel inside Punjab on ordinary PRTC, PUNBUS & Punjab Roadways buses for all Punjab resident women of any age/income.",
+    "hi": "पंजाब की सभी निवासी महिलाओं को पंजाब राज्य की साधारण PRTC व पंजाब रोडवेज बसों में पूरी तरह मुफ्त यात्रा।"
+  },
+  "documents_required": [
+    "महिला का आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

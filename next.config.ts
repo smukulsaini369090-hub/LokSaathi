@@ -29,6 +29,7 @@ const nextConfig: NextConfig = {
   turbopack: {},
   outputFileTracingIncludes: {
     "/api/**/*": ["./data/**/*"],
+    "/schemes/[id]": ["./data/**/*"],
   },
   async headers() {
     return [

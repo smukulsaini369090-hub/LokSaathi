@@ -1,0 +1,79 @@
+{
+  "id": "up-110-up-street-vendors-protection-of-livelihood-and-s",
+  "scheme_code": "UP-110",
+  "jurisdiction": "up",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Urban Development / SUDA, UP",
+  "name": {
+    "hi": "यूपी पथ विक्रेता आजीविका संरक्षण एवं वेंडिंग जोन कल्याण योजना",
+    "en": "UP Street Vendors Protection of Livelihood & SVANidhi Welfare"
+  },
+  "bilingual_title": {
+    "en": "UP Street Vendors Protection of Livelihood & SVANidhi Welfare",
+    "hi": "यूपी पथ विक्रेता आजीविका संरक्षण एवं वेंडिंग जोन कल्याण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://sudaup.org",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "यूपी के शहरी रेहड़ी-पटरी विक्रेताओं को वेंडिंग सर्टिफिकेट, सुरक्षित स्थान आवंटन व पीएम स्वनिधि कार्यशील ऋण सहायता।",
+    "summary_en": "Municipal Certificate of Vending, regulated urban vending zones & PM SVANidhi collateral-free working capital credit across UP ULBs."
+  },
+  "benefit_summary": {
+    "en": "Municipal Certificate of Vending, regulated urban vending zones & PM SVANidhi collateral-free working capital credit across UP ULBs.",
+    "hi": "यूपी के शहरी रेहड़ी-पटरी विक्रेताओं को वेंडिंग सर्टिफिकेट, सुरक्षित स्थान आवंटन व पीएम स्वनिधि कार्यशील ऋण सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (sudaup.org)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://sudaup.org",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "pb-073-punjab-300-units-month-free-domestic-electricity",
+  "scheme_code": "PB-073",
+  "jurisdiction": "punjab",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Department of Power / PSPCL, Punjab",
+  "name": {
+    "hi": "पंजाब घरेलू 300 यूनिट/माह मुफ्त बिजली योजना (600 यूनिट दो-माही)",
+    "en": "Punjab 300 Units/Month Free Domestic Electricity (600 Units Bi-Monthly)"
+  },
+  "bilingual_title": {
+    "en": "Punjab 300 Units/Month Free Domestic Electricity (600 Units Bi-Monthly)",
+    "hi": "पंजाब घरेलू 300 यूनिट/माह मुफ्त बिजली योजना (600 यूनिट दो-माही)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pspcl.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Utility Subsidies & Food",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "सभी घरेलू उपभोक्ताओं को दो माह में 600 यूनिट (300/माह) तक जीरो बिजली बिल; SC/BC/BPL परिवारों को हर बिल पर 600 यूनिट छूट।",
+    "summary_en": "Zero bill for ALL domestic consumers using <=600 units per bi-monthly cycle; SC/BC/BPL/Freedom Fighter domestic consumers get 600-unit rebate even above 600 units."
+  },
+  "benefit_summary": {
+    "en": "Zero bill for ALL domestic consumers using <=600 units per bi-monthly cycle; SC/BC/BPL/Freedom Fighter domestic consumers get 600-unit rebate even above 600 units.",
+    "hi": "सभी घरेलू उपभोक्ताओं को दो माह में 600 यूनिट (300/माह) तक जीरो बिजली बिल; SC/BC/BPL परिवारों को हर बिल पर 600 यूनिट छूट।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "बिजली बिल / मकान का पता प्रमाण",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pspcl.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://pspcl.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

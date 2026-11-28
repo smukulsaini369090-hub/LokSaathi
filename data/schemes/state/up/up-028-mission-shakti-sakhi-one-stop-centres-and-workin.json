@@ -1,0 +1,74 @@
+{
+  "id": "up-028-mission-shakti-sakhi-one-stop-centres-and-workin",
+  "scheme_code": "UP-028",
+  "jurisdiction": "up",
+  "category": "Women & Girl Child",
+  "scale": "Minor",
+  "department": "Women Welfare Dept / Mission Shakti UP",
+  "name": {
+    "hi": "मिशन शक्ति सखी वन स्टॉप सेंटर एवं कामकाजी महिला छात्रावास (यूपी)",
+    "en": "Mission Shakti Sakhi One Stop Centres & Working Women Hostels (UP)"
+  },
+  "bilingual_title": {
+    "en": "Mission Shakti Sakhi One Stop Centres & Working Women Hostels (UP)",
+    "hi": "मिशन शक्ति सखी वन स्टॉप सेंटर एवं कामकाजी महिला छात्रावास (यूपी)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://mahilakalyan.up.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Women & Girl Child",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "संकटग्रस्त महिलाओं को सभी 75 जिलों में 24 घंटे आपात सहायता, कानूनी मदद व कामकाजी महिलाओं हेतु सुरक्षित छात्रावास।",
+    "summary_en": "24x7 medical, legal, counselling & emergency shelter at Sakhi One Stop Centres across 75 districts + safe working women hostels."
+  },
+  "benefit_summary": {
+    "en": "24x7 medical, legal, counselling & emergency shelter at Sakhi One Stop Centres across 75 districts + safe working women hostels.",
+    "hi": "संकटग्रस्त महिलाओं को सभी 75 जिलों में 24 घंटे आपात सहायता, कानूनी मदद व कामकाजी महिलाओं हेतु सुरक्षित छात्रावास।"
+  },
+  "documents_required": [
+    "महिला का आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (mahilakalyan.up.nic.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://mahilakalyan.up.nic.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "181 / 1090",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

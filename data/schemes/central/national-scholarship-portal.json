@@ -1,17 +1,44 @@
 {
   "id": "national-scholarship-portal",
+  "scheme_code": "IN-006",
+  "jurisdiction": "central",
+  "category": "Education",
+  "scale": "Major",
+  "department": "MoSJE / MoTA / MoMA / MeitY (NSP)",
   "name": {
     "hi": "राष्ट्रीय छात्रवृत्ति पोर्टल - प्री और पोस्ट मैट्रिक छात्रवृत्ति",
     "en": "National Scholarship Portal - Pre & Post Matric Scholarships"
+  },
+  "bilingual_title": {
+    "en": "National Scholarship Portal - Pre & Post Matric Scholarships",
+    "hi": "राष्ट्रीय छात्रवृत्ति पोर्टल - प्री और पोस्ट मैट्रिक छात्रवृत्ति"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://scholarships.gov.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "occupation", "operator": "includes", "value": ["student"] },
-      { "field": "annual_income_inr", "operator": "lte", "value": 250000 }
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 250000
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Education",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "स्कूल और कॉलेज छात्रों को ₹10,000 से ₹20,000 प्रति वर्ष की वित्तीय छात्रवृत्ति",
@@ -20,6 +47,10 @@
     "frequency": "annual",
     "mode": "DBT to Student Account"
   },
+  "benefit_summary": {
+    "en": "Financial scholarship of ₹10,000 to ₹20,000 per year for school and college students",
+    "hi": "स्कूल और कॉलेज छात्रों को ₹10,000 से ₹20,000 प्रति वर्ष की वित्तीय छात्रवृत्ति"
+  },
   "documents_required": [
     "विद्यार्थी का आधार कार्ड",
     "पिछली कक्षा की अंकतालिका (मार्कशीट)",
@@ -27,7 +58,22 @@
     "बैंक खाता पासबुक",
     "संस्थान का बोनाफाइड प्रमाण पत्र"
   ],
+  "application_steps": {
+    "online": "Apply via official portal (scholarships.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
   "apply_url": "https://scholarships.gov.in",
   "deadline": "2026-12-31",
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

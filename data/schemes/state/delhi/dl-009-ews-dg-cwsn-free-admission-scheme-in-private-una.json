@@ -1,0 +1,77 @@
+{
+  "id": "dl-009-ews-dg-cwsn-free-admission-scheme-in-private-una",
+  "scheme_code": "DL-009",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Directorate of Education (DoE), GNCTD",
+  "name": {
+    "hi": "निजी स्कूलों में ईडब्ल्यूएस / वंचित वर्ग / विशेष आवश्यकता वाले बच्चों हेतु निःशुल्क प्रवेश योजना",
+    "en": "EWS / DG / CWSN Free Admission Scheme in Private Unaided Schools (25% RTE Quota)"
+  },
+  "bilingual_title": {
+    "en": "EWS / DG / CWSN Free Admission Scheme in Private Unaided Schools (25% RTE Quota)",
+    "hi": "निजी स्कूलों में ईडब्ल्यूएस / वंचित वर्ग / विशेष आवश्यकता वाले बच्चों हेतु निःशुल्क प्रवेश योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edudel.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 8
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident with valid Delhi residence proof; Haryana/UP NCR excluded.",
+    "age_range": "Entry-level school admission (Nursery / KG / Class I: typically 3–7 years [VERIFY LATEST NOTIFICATION])",
+    "income_cap": "EWS below Delhi EWS ceiling; DG / CWSN per DoE norms [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "EWS, DG (SC/ST/OBC-NCL Delhi list/orphan/transgender), or CWSN.",
+    "academic_or_work_rules": "Allotment through DoE computerised lottery draw.",
+    "exclusions": "Children outside entry-level age band or without Delhi NCT residence proof."
+  },
+  "benefit": {
+    "summary_hi": "निजी गैर-सहायता प्राप्त स्कूलों में 25% आरक्षित सीटों पर 100% मुफ्त शिक्षा, किताबें और वर्दी।",
+    "summary_en": "100% free tuition + free textbooks/notebooks/uniform up to Class VIII (and per DoE norms [VERIFY LATEST NOTIFICATION]) under 25% quota."
+  },
+  "benefit_summary": {
+    "en": "100% free tuition + free textbooks/notebooks/uniform up to Class VIII (and per DoE norms [VERIFY LATEST NOTIFICATION]) under 25% quota.",
+    "hi": "निजी गैर-सहायता प्राप्त स्कूलों में 25% आरक्षित सीटों पर 100% मुफ्त शिक्षा, किताबें और वर्दी।"
+  },
+  "documents_required": [
+    "Delhi Residence Proof",
+    "EWS Income Certificate / Caste Certificate / CWSN Disability Certificate",
+    "Child's Birth Certificate & Photo"
+  ],
+  "application_steps": {
+    "online": "Apply online via edudel.nic.in during admission cycle.",
+    "offline": "DoE Zonal helpdesk or CFC facilitation.",
+    "facilitation_center": "DoE Helpdesk / Citizen Facilitation Centre (CFC)"
+  },
+  "apply_url": "https://edudel.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

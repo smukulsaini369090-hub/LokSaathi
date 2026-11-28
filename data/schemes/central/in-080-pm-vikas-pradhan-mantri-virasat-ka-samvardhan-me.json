@@ -1,0 +1,70 @@
+{
+  "id": "in-080-pm-vikas-pradhan-mantri-virasat-ka-samvardhan-me",
+  "scheme_code": "IN-080",
+  "jurisdiction": "central",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Major",
+  "department": "Ministry of Minority Affairs",
+  "name": {
+    "hi": "पीएम-विकास योजना (अल्पसंख्यक कारीगर कौशल, शिक्षा व उद्यमिता समन्वय)",
+    "en": "PM-VIKAS (Pradhan Mantri Virasat Ka Samvardhan — Merged Minority Skilling)"
+  },
+  "bilingual_title": {
+    "en": "PM-VIKAS (Pradhan Mantri Virasat Ka Samvardhan — Merged Minority Skilling)",
+    "hi": "पीएम-विकास योजना (अल्पसंख्यक कारीगर कौशल, शिक्षा व उद्यमिता समन्वय)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://minorityaffairs.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "SC/ST/OBC/Minority Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पारंपरिक अल्पसंख्यक कारीगरों, युवाओं व महिलाओं को कौशल प्रशिक्षण, ऋण जुड़ाव, नेतृत्व विकास व स्कूल ब्रिज शिक्षा।",
+    "summary_en": "Integrated scheme (consolidating Seekho Aur Kamao, USTTAD, Hamari Dharohar, Nai Roshni & Nai Manzil) providing artisan skilling, women leadership & school bridge."
+  },
+  "benefit_summary": {
+    "en": "Integrated scheme (consolidating Seekho Aur Kamao, USTTAD, Hamari Dharohar, Nai Roshni & Nai Manzil) providing artisan skilling, women leadership & school bridge.",
+    "hi": "पारंपरिक अल्पसंख्यक कारीगरों, युवाओं व महिलाओं को कौशल प्रशिक्षण, ऋण जुड़ाव, नेतृत्व विकास व स्कूल ब्रिज शिक्षा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "जाति प्रमाण पत्र (यदि लागू हो)",
+    "आय प्रमाण पत्र",
+    "निवास प्रमाण पत्र"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (minorityaffairs.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://minorityaffairs.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "dl-022-delhi-lakhpati-bitiya-scheme-dlbs-replacing-ladl",
+  "scheme_code": "DL-022",
+  "jurisdiction": "delhi",
+  "category": "Women & Girl Child",
+  "scale": "Major",
+  "department": "Department of Women & Child Development (WCD), GNCTD",
+  "name": {
+    "hi": "दिल्ली लखपति बिटिया योजना",
+    "en": "Delhi Lakhpati Bitiya Scheme (DLBS — Replacing Ladli Scheme w.e.f. April 2026)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Lakhpati Bitiya Scheme (DLBS — Replacing Ladli Scheme w.e.f. April 2026)",
+    "hi": "दिल्ली लखपति बिटिया योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://wcd.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residency/domicile; Haryana/UP NCR excluded.",
+    "age_range": "Girl children up to school/maturity milestones",
+    "income_cap": "Per notified WCD family income ceiling [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Girl children of eligible Delhi families.",
+    "academic_or_work_rules": "Birth registration & continuous Delhi schooling milestones.",
+    "exclusions": "Non-Delhi NCT families & post-deadline applications (extended window up to 31 Dec 2026 per notice [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit": {
+    "summary_hi": "अप्रैल 2026 से पुरानी लाड़ली योजना के स्थान पर दिल्ली की बेटियों हेतु नई बचत व शिक्षा प्रोत्साहन योजना।",
+    "summary_en": "Girl child financial assistance/savings scheme replacing 2008 Delhi Ladli Scheme for new applications w.e.f. 1 Apr 2026 [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Girl child financial assistance/savings scheme replacing 2008 Delhi Ladli Scheme for new applications w.e.f. 1 Apr 2026 [VERIFY LATEST NOTIFICATION].",
+    "hi": "अप्रैल 2026 से पुरानी लाड़ली योजना के स्थान पर दिल्ली की बेटियों हेतु नई बचत व शिक्षा प्रोत्साहन योजना।"
+  },
+  "documents_required": [
+    "Girl Child Birth Certificate & Aadhaar",
+    "Parents' Aadhaar & Delhi Residence/Domicile",
+    "Income Certificate",
+    "School Enrolment Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply via wcd.delhi.gov.in.",
+    "offline": "Submit via school / WCD district office / CFC.",
+    "facilitation_center": "CFC / WCD District Office / Delhi School"
+  },
+  "apply_url": "https://wcd.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "hr-063-lal-dora-mukt-gram-svamitva-property-card-haryan",
+  "scheme_code": "HR-063",
+  "jurisdiction": "haryana",
+  "category": "Housing & Shelter",
+  "scale": "Major",
+  "department": "Development & Panchayats Dept, Haryana",
+  "name": {
+    "hi": "लाल डोरा मुक्त गांव / स्वामित्व प्रॉपर्टी कार्ड (हरियाणा)",
+    "en": "Lal Dora Mukt Gram / SVAMITVA Property Card Haryana"
+  },
+  "bilingual_title": {
+    "en": "Lal Dora Mukt Gram / SVAMITVA Property Card Haryana",
+    "hi": "लाल डोरा मुक्त गांव / स्वामित्व प्रॉपर्टी कार्ड (हरियाणा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://svamitva.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Housing & Shelter",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "ग्रामीण आबादी (लाल डोरा) में मकानों का कानूनी मालिकाना प्रॉपर्टी कार्ड जिससे बैंक लोन लेना संभव होता है।",
+    "summary_en": "Legal drone-mapped residential property title deeds inside village abadi/Lal Dora enabling bank loans & dispute-free sale."
+  },
+  "benefit_summary": {
+    "en": "Legal drone-mapped residential property title deeds inside village abadi/Lal Dora enabling bank loans & dispute-free sale.",
+    "hi": "ग्रामीण आबादी (लाल डोरा) में मकानों का कानूनी मालिकाना प्रॉपर्टी कार्ड जिससे बैंक लोन लेना संभव होता है।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "आय प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (svamitva.nic.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://svamitva.nic.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

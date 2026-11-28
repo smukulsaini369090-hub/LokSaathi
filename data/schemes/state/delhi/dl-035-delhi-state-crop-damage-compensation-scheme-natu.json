@@ -1,0 +1,81 @@
+{
+  "id": "dl-035-delhi-state-crop-damage-compensation-scheme-natu",
+  "scheme_code": "DL-035",
+  "jurisdiction": "delhi",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Major",
+  "department": "Revenue / Development Dept, GNCTD",
+  "name": {
+    "hi": "दिल्ली फसल क्षति मुआवजा योजना",
+    "en": "Delhi State Crop Damage Compensation Scheme (Natural Calamity / Unseasonal Rain)"
+  },
+  "bilingual_title": {
+    "en": "Delhi State Crop Damage Compensation Scheme (Natural Calamity / Unseasonal Rain)",
+    "hi": "दिल्ली फसल क्षति मुआवजा योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://revenue.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Damaged crops on agricultural land within NCT of Delhi; Haryana/UP use e-Kshatipurti/Rahat.",
+    "age_range": "Farmers (18+)",
+    "income_cap": "Per Revenue calamity norms",
+    "category_rules": "Affected Delhi cultivators.",
+    "academic_or_work_rules": "Patwari Girdawari / loss assessment.",
+    "exclusions": "Unassessed or out-of-Delhi plots."
+  },
+  "benefit": {
+    "summary_hi": "प्राकृतिक आपदा, ओलावृष्टि, बाढ़ या बेमौसम बारिश से फसल नुकसान पर दिल्ली किसानों को प्रति एकड़ मुआवजा।",
+    "summary_en": "Compensation per hectare/acre for verified crop loss due to floods, hailstorm, or unseasonal rain in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Compensation per hectare/acre for verified crop loss due to floods, hailstorm, or unseasonal rain in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "प्राकृतिक आपदा, ओलावृष्टि, बाढ़ या बेमौसम बारिश से फसल नुकसान पर दिल्ली किसानों को प्रति एकड़ मुआवजा।"
+  },
+  "documents_required": [
+    "Khasra-Khatauni / Cultivation Proof",
+    "Aadhaar",
+    "Delhi Residence Proof",
+    "Bank Passbook",
+    "Crop Loss Survey Record"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in / revenue.delhi.gov.in.",
+    "offline": "Report crop loss to Tehsil / Patwari / SDM Office / CFC.",
+    "facilitation_center": "Tehsil / Patwari / SDM / CFC"
+  },
+  "apply_url": "https://revenue.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

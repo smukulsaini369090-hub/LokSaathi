@@ -1,0 +1,96 @@
+{
+  "id": "dl-003-merit-scholarship-for-sc-st-obc-minority-college",
+  "scheme_code": "DL-003",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "कॉलेज एवं व्यावसायिक संस्थान छात्र मेरिट छात्रवृत्ति योजना",
+    "en": "Merit Scholarship for SC/ST/OBC/Minority College & Professional Institution Students"
+  },
+  "bilingual_title": {
+    "en": "Merit Scholarship for SC/ST/OBC/Minority College & Professional Institution Students",
+    "hi": "कॉलेज एवं व्यावसायिक संस्थान छात्र मेरिट छात्रवृत्ति योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scstwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 17
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident enrolled in recognised higher/technical/professional course; outside Delhi NCT excluded.",
+    "age_range": "College / university / professional students (typically 17–30 years)",
+    "income_cap": "As notified by category and course slab [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Eligible SC/ST/OBC/Minority student meeting notified marks & attendance.",
+    "academic_or_work_rules": "Enrolled in recognised higher/technical/professional institution.",
+    "exclusions": "Non-NCT NCR residents and overlapping scholarship recipients."
+  },
+  "benefit": {
+    "summary_hi": "कॉलेज एवं व्यावसायिक पाठ्यक्रमों के लिए श्रेणी और होस्टलर स्थिति अनुसार वार्षिक मेरिट छात्रवृत्ति डीबीटी सहायता।",
+    "summary_en": "Annual DBT merit scholarship (e.g., ₹8,000–₹20,000/year by course group & hosteller/day-scholar status [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Annual DBT merit scholarship (e.g., ₹8,000–₹20,000/year by course group & hosteller/day-scholar status [VERIFY LATEST NOTIFICATION]).",
+    "hi": "कॉलेज एवं व्यावसायिक पाठ्यक्रमों के लिए श्रेणी और होस्टलर स्थिति अनुसार वार्षिक मेरिट छात्रवृत्ति डीबीटी सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Domicile",
+    "Caste/Minority Certificate",
+    "Delhi Income Certificate",
+    "Qualifying Marksheet & Admission/Fee Proof",
+    "Aadhaar-seeded Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in / scholarships.gov.in.",
+    "offline": "Submit via college nodal desk / CFC.",
+    "facilitation_center": "CFC / College Nodal Verification Desk"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

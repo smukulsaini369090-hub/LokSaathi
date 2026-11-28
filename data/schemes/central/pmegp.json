@@ -1,16 +1,37 @@
 {
   "id": "pmegp",
+  "scheme_code": "IN-061",
+  "jurisdiction": "central",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "Ministry of MSME (KVIC)",
   "name": {
     "hi": "प्रधानमंत्री रोजगार सृजन कार्यक्रम (PMEGP)",
     "en": "Prime Minister's Employment Generation Programme (PMEGP)"
+  },
+  "bilingual_title": {
+    "en": "Prime Minister's Employment Generation Programme (PMEGP)",
+    "hi": "प्रधानमंत्री रोजगार सृजन कार्यक्रम (PMEGP)"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://www.kviconline.gov.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "age", "operator": "gte", "value": 18 }
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      }
     ],
     "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "विनिर्माण में ₹50 लाख और सेवा क्षेत्र में ₹20 लाख तक के ऋण पर 15% से 35% तक सरकारी सब्सिडी (मार्जिन मनी)",
@@ -19,6 +40,10 @@
     "frequency": "one_time",
     "mode": "Credit-linked Capital Subsidy"
   },
+  "benefit_summary": {
+    "en": "15% to 35% government subsidy on bank loans up to ₹50 Lakh for starting enterprise",
+    "hi": "विनिर्माण में ₹50 लाख और सेवा क्षेत्र में ₹20 लाख तक के ऋण पर 15% से 35% तक सरकारी सब्सिडी (मार्जिन मनी)"
+  },
   "documents_required": [
     "आधार कार्ड",
     "पैन कार्ड",
@@ -26,7 +51,22 @@
     "शैक्षणिक योग्यता प्रमाण पत्र (8वीं पास यदि परियोजना 10 लाख से अधिक हो)",
     "जाति प्रमाण पत्र (यदि लागू हो)"
   ],
-  "apply_url": "https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp",
+  "application_steps": {
+    "online": "Apply via official portal (www.kviconline.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://www.kviconline.gov.in",
   "deadline": null,
-  "confidence": "verified"
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
 }

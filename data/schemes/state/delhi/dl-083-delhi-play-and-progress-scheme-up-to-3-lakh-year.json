@@ -1,0 +1,86 @@
+{
+  "id": "dl-083-delhi-play-and-progress-scheme-up-to-3-lakh-year",
+  "scheme_code": "DL-083",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Sports Wing, Directorate of Education (DoE), GNCTD",
+  "name": {
+    "hi": "दिल्ली प्ले एंड प्रोग्रेस खेल छात्रवृत्ति योजना",
+    "en": "Delhi Play and Progress Scheme (Up to ₹3 Lakh/year for Under-17 Student-Athletes)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Play and Progress Scheme (Up to ₹3 Lakh/year for Under-17 Student-Athletes)",
+    "hi": "दिल्ली प्ले एंड प्रोग्रेस खेल छात्रवृत्ति योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edudel.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 16
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student",
+          "athlete"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Under-17 student-athlete studying/residing in Delhi (NCT); non-NCT NCR excluded.",
+    "age_range": "Under 17 years",
+    "income_cap": "Merit-based",
+    "category_rules": "Recognised U-17 student athletes.",
+    "academic_or_work_rules": "Notified state/national school sports merit.",
+    "exclusions": "Age 17+ or outside Delhi."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के 17 वर्ष से कम आयु के प्रतिभाशाली स्कूली खिलाड़ियों को प्रशिक्षण व उपकरण हेतु ₹3 लाख/वर्ष तक खेल सहायता।",
+    "summary_en": "Annual sports scholarship/support (historically up to ₹3,00,000/year [VERIFY LATEST NOTIFICATION]) for Under-17 athletes' training, diet & kit."
+  },
+  "benefit_summary": {
+    "en": "Annual sports scholarship/support (historically up to ₹3,00,000/year [VERIFY LATEST NOTIFICATION]) for Under-17 athletes' training, diet & kit.",
+    "hi": "दिल्ली के 17 वर्ष से कम आयु के प्रतिभाशाली स्कूली खिलाड़ियों को प्रशिक्षण व उपकरण हेतु ₹3 लाख/वर्ष तक खेल सहायता।"
+  },
+  "documents_required": [
+    "Birth Certificate & Aadhaar",
+    "Delhi School/Residence Proof",
+    "Sports Merit Certificates",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Check edudel.nic.in.",
+    "offline": "School / DoE Sports Wing / CFC.",
+    "facilitation_center": "DoE Sports Wing / CFC"
+  },
+  "apply_url": "https://edudel.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

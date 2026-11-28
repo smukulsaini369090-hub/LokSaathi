@@ -1,0 +1,111 @@
+{
+  "id": "dl-021-delhi-lakshmi-yojana-dly-mahila-samriddhi-yojana",
+  "scheme_code": "DL-021",
+  "jurisdiction": "delhi",
+  "category": "Women & Girl Child",
+  "scale": "Major",
+  "department": "Department of Women & Child Development (WCD), GNCTD",
+  "name": {
+    "hi": "दिल्ली लक्ष्मी योजना (महिला समृद्धि योजना — ₹2,500/माह)",
+    "en": "Delhi Lakshmi Yojana (DLY / Mahila Samriddhi Yojana — ₹2,500/month)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Lakshmi Yojana (DLY / Mahila Samriddhi Yojana — ₹2,500/month)",
+    "hi": "दिल्ली लक्ष्मी योजना (महिला समृद्धि योजना — ₹2,500/माह)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://wcd.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "gender",
+        "operator": "eq",
+        "value": "female"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 21
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 60
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 250000
+      }
+    ],
+    "must_match_none": [
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "is_income_tax_payer",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      }
+    ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Applicant, husband, or parent resident of Delhi (NCT) >=10 years + applicant is registered Delhi voter; Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "21 to 60 years",
+    "income_cap": "Family annual income <= ₹2,50,000; prior 12-month family electricity <= 2,400 units",
+    "category_rules": "Female aged 21–60 yrs, eldest woman in family (1 beneficiary per family), <=3 children.",
+    "academic_or_work_rules": "CBDC-enabled active bank account + signed MP/MLA endorsement per rules.",
+    "exclusions": "Govt/PSU/local-body employee in family, 4-wheeler owner in family, IT/GST filer, recipient of other govt pension, public office holder or criminal record."
+  },
+  "benefit": {
+    "summary_hi": "पात्र दिल्ली परिवार की सबसे बड़ी महिला सदस्य को प्रति माह ₹2,500 की सीधी वित्तीय सहायता।",
+    "summary_en": "₹2,500/month direct financial assistance for eligible eldest woman in qualifying Delhi households."
+  },
+  "benefit_summary": {
+    "en": "₹2,500/month direct financial assistance for eligible eldest woman in qualifying Delhi households.",
+    "hi": "पात्र दिल्ली परिवार की सबसे बड़ी महिला सदस्य को प्रति माह ₹2,500 की सीधी वित्तीय सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Voter ID / 10-Yr Delhi Residency Proof",
+    "Income Certificate <=₹2.5L",
+    "Family & Children Declaration",
+    "CBDC-Enabled Bank Passbook",
+    "MP/MLA Endorsement"
+  ],
+  "application_steps": {
+    "online": "Apply via dly.delhi.gov.in during notified portal window [VERIFY LATEST NOTIFICATION].",
+    "offline": "Facilitated at WCD / CFC camp with verified endorsement.",
+    "facilitation_center": "CFC / WCD Facilitation Camp"
+  },
+  "apply_url": "https://dly.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

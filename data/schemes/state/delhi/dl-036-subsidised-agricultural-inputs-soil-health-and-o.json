@@ -1,0 +1,79 @@
+{
+  "id": "dl-036-subsidised-agricultural-inputs-soil-health-and-o",
+  "scheme_code": "DL-036",
+  "jurisdiction": "delhi",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Development Department (Agriculture Unit), GNCTD",
+  "name": {
+    "hi": "कृषि आदान, मृदा स्वास्थ्य एवं जैविक खेती सहायता योजना (दिल्ली)",
+    "en": "Subsidised Agricultural Inputs, Soil Health & Organic Farming Support (Delhi)"
+  },
+  "bilingual_title": {
+    "en": "Subsidised Agricultural Inputs, Soil Health & Organic Farming Support (Delhi)",
+    "hi": "कृषि आदान, मृदा स्वास्थ्य एवं जैविक खेती सहायता योजना (दिल्ली)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://development.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Cultivators/farmers in NCT of Delhi; non-NCT NCR covered under Haryana/UP schemes.",
+    "age_range": "18+ farmers",
+    "income_cap": "Small/marginal priority where applicable",
+    "category_rules": "Delhi farmers.",
+    "academic_or_work_rules": "Active cultivation record.",
+    "exclusions": "Non-Delhi farmers."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के किसानों को रियायती बीज, मृदा स्वास्थ्य जांच और जैविक/संधारणीय खेती इनपुट सहायता।",
+    "summary_en": "Subsidised seeds, soil health cards/testing, farm inputs & organic farming aid for Delhi farmers [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Subsidised seeds, soil health cards/testing, farm inputs & organic farming aid for Delhi farmers [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के किसानों को रियायती बीज, मृदा स्वास्थ्य जांच और जैविक/संधारणीय खेती इनपुट सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Farmer / Land Cultivation Proof",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Details on development.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "BDO / Agriculture Extension Desk / CFC.",
+    "facilitation_center": "Delhi Block Development Office (BDO) / CFC"
+  },
+  "apply_url": "https://development.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "Subsidised / ₹0 as notified",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

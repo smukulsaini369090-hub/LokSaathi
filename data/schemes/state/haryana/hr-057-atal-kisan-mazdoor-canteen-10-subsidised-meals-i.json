@@ -1,0 +1,76 @@
+{
+  "id": "hr-057-atal-kisan-mazdoor-canteen-10-subsidised-meals-i",
+  "scheme_code": "HR-057",
+  "jurisdiction": "haryana",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "HSAMB / Haryana",
+  "name": {
+    "hi": "अटल किसान मजदूर कैंटीन (₹10 में भोजन — हरियाणा मंडी)",
+    "en": "Atal Kisan Mazdoor Canteen (₹10 Subsidised Meals in Mandis)"
+  },
+  "bilingual_title": {
+    "en": "Atal Kisan Mazdoor Canteen (₹10 Subsidised Meals in Mandis)",
+    "hi": "अटल किसान मजदूर कैंटीन (₹10 में भोजन — हरियाणा मंडी)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://hsamb.org.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "हरियाणा की अनाज मंडियों में किसानों व मंडी श्रमिकों के लिए मात्र ₹10 में शुद्ध व पौष्टिक भोजन थाली।",
+    "summary_en": "Nutritious freshly cooked meal at ₹10 per plate for farmers and mandi labourers at grain markets across Haryana."
+  },
+  "benefit_summary": {
+    "en": "Nutritious freshly cooked meal at ₹10 per plate for farmers and mandi labourers at grain markets across Haryana.",
+    "hi": "हरियाणा की अनाज मंडियों में किसानों व मंडी श्रमिकों के लिए मात्र ₹10 में शुद्ध व पौष्टिक भोजन थाली।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खतौनी/जमाबंदी)",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (hsamb.org.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://hsamb.org.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

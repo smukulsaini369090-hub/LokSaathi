@@ -1,0 +1,80 @@
+{
+  "id": "dl-093-sahitya-kala-parishad-and-language-academies-sch",
+  "scheme_code": "DL-093",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Art, Culture & Languages Dept & Sahitya Kala Parishad, GNCTD",
+  "name": {
+    "hi": "साहित्य कला परिषद एवं भाषा अकादमी कलाकार/साहित्यकार सहायता योजना",
+    "en": "Sahitya Kala Parishad & Language Academies — Scholarships, Pension & Grants for Indigent Artists/Writers"
+  },
+  "bilingual_title": {
+    "en": "Sahitya Kala Parishad & Language Academies — Scholarships, Pension & Grants for Indigent Artists/Writers",
+    "hi": "साहित्य कला परिषद एवं भाषा अकादमी कलाकार/साहित्यकार सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://artandculture.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "artist"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residency + artistic/literary merit or indigence criteria [VERIFY LATEST NOTIFICATION].",
+    "age_range": "Senior/indigent artists (60+ for senior pension) & youth fellows",
+    "income_cap": "Indigence income limit for artist pension",
+    "category_rules": "Artists, writers & performers.",
+    "academic_or_work_rules": "Proof of recognised artistic/literary contribution.",
+    "exclusions": "Commercial high-income earners for indigent pension."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के वरिष्ठ एवं जरूरतमंद कलाकारों व साहित्यकारों को मासिक पेंशन, फेलोशिप व सांस्कृतिक अनुदान।",
+    "summary_en": "Monthly pension for senior/indigent artists & writers plus fellowships, awards & cultural grants per academy schemes [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Monthly pension for senior/indigent artists & writers plus fellowships, awards & cultural grants per academy schemes [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के वरिष्ठ एवं जरूरतमंद कलाकारों व साहित्यकारों को मासिक पेंशन, फेलोशिप व सांस्कृतिक अनुदान।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Residence Proof",
+    "Proof of Artistic/Literary Contribution",
+    "Age & Income Declaration",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Check artandculture.delhi.gov.in / sahityakalaparishad.delhi.gov.in.",
+    "offline": "Academy Office / CFC.",
+    "facilitation_center": "Sahitya Kala Parishad / Art & Culture Dept / CFC"
+  },
+  "apply_url": "https://artandculture.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

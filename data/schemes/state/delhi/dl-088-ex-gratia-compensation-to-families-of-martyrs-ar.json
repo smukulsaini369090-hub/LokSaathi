@@ -1,0 +1,77 @@
+{
+  "id": "dl-088-ex-gratia-compensation-to-families-of-martyrs-ar",
+  "scheme_code": "DL-088",
+  "jurisdiction": "delhi",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "GAD / Home / Revenue Dept, GNCTD",
+  "name": {
+    "hi": "शहीद सैनिक, पुलिस एवं सिविल डिफेंस परिवार अनुग्रह राशि योजना (₹1 करोड़)",
+    "en": "Ex-Gratia Compensation to Families of Martyrs (Armed Forces, CAPF, Delhi Police & Civil Defence — ₹1 Crore)"
+  },
+  "bilingual_title": {
+    "en": "Ex-Gratia Compensation to Families of Martyrs (Armed Forces, CAPF, Delhi Police & Civil Defence — ₹1 Crore)",
+    "hi": "शहीद सैनिक, पुलिस एवं सिविल डिफेंस परिवार अनुग्रह राशि योजना (₹1 करोड़)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "is_capf_ward",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Armed Forces/CAPF personnel domiciled in Delhi (NCT) OR serving Delhi Police/Civil Defence.",
+    "age_range": "Next-of-kin dependents",
+    "income_cap": "No income cap",
+    "category_rules": "Martyrs' families.",
+    "academic_or_work_rules": "Official line-of-duty casualty declaration.",
+    "exclusions": "Non-eligible casualties."
+  },
+  "benefit": {
+    "summary_hi": "कर्तव्य पालन में शहीद सशस्त्र बल, अर्धसैनिक बल, दिल्ली पुलिस व सिविल डिफेंस कर्मियों के आश्रित परिवार को ₹1 करोड़ अनुग्रह राशि।",
+    "summary_en": "₹1,00,00,000 ex-gratia financial honour to eligible next-of-kin for line-of-duty martyrdom per GNCTD rules [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "₹1,00,00,000 ex-gratia financial honour to eligible next-of-kin for line-of-duty martyrdom per GNCTD rules [VERIFY LATEST NOTIFICATION].",
+    "hi": "कर्तव्य पालन में शहीद सशस्त्र बल, अर्धसैनिक बल, दिल्ली पुलिस व सिविल डिफेंस कर्मियों के आश्रित परिवार को ₹1 करोड़ अनुग्रह राशि।"
+  },
+  "documents_required": [
+    "Official Line-of-Duty Casualty Certificate",
+    "Death Certificate & Delhi Domicile/Service Proof",
+    "Next-of-Kin Aadhaar, Heir Proof & Bank Details"
+  ],
+  "application_steps": {
+    "online": "Guidelines via delhi.gov.in.",
+    "offline": "Rajya Sainik Board / Delhi Police / DM Office.",
+    "facilitation_center": "Rajya Sainik Board / DM Office / CFC"
+  },
+  "apply_url": "https://delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

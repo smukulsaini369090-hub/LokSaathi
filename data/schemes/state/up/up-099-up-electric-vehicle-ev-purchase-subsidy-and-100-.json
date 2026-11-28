@@ -1,0 +1,69 @@
+{
+  "id": "up-099-up-electric-vehicle-ev-purchase-subsidy-and-100-",
+  "scheme_code": "UP-099",
+  "jurisdiction": "up",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Transport Dept / Invest UP",
+  "name": {
+    "hi": "यूपी इलेक्ट्रिक वाहन (EV) सब्सिडी एवं 100% रोड टैक्स व रजिस्ट्रेशन छूट",
+    "en": "UP Electric Vehicle (EV) Purchase Subsidy & 100% Road Tax / Registration Exemption"
+  },
+  "bilingual_title": {
+    "en": "UP Electric Vehicle (EV) Purchase Subsidy & 100% Road Tax / Registration Exemption",
+    "hi": "यूपी इलेक्ट्रिक वाहन (EV) सब्सिडी एवं 100% रोड टैक्स व रजिस्ट्रेशन छूट"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://upevsubsidy.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Utility Subsidies & Food",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "उत्तर प्रदेश में इलेक्ट्रिक दोपहिया/चारपहिया वाहन खरीद पर शत-प्रतिशत रोड टैक्स-पंजीकरण छूट एवं खरीद सब्सिडी।",
+    "summary_en": "100% road tax & registration fee exemption for UP-manufactured/notified EVs plus direct purchase subsidy (₹5k e-2W, ₹1L e-4W) per UP EV Policy."
+  },
+  "benefit_summary": {
+    "en": "100% road tax & registration fee exemption for UP-manufactured/notified EVs plus direct purchase subsidy (₹5k e-2W, ₹1L e-4W) per UP EV Policy.",
+    "hi": "उत्तर प्रदेश में इलेक्ट्रिक दोपहिया/चारपहिया वाहन खरीद पर शत-प्रतिशत रोड टैक्स-पंजीकरण छूट एवं खरीद सब्सिडी।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "बिजली बिल / मकान का पता प्रमाण",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (upevsubsidy.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://upevsubsidy.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

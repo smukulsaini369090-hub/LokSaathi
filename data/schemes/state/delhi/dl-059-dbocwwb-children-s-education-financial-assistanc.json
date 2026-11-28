@@ -1,0 +1,82 @@
+{
+  "id": "dl-059-dbocwwb-children-s-education-financial-assistanc",
+  "scheme_code": "DL-059",
+  "jurisdiction": "delhi",
+  "category": "Labour & BOCW",
+  "scale": "Major",
+  "department": "DBOCWWB, Labour Dept, GNCTD",
+  "name": {
+    "hi": "निर्माण श्रमिक संतान शिक्षा सहायता योजना",
+    "en": "DBOCWWB Children's Education Financial Assistance (Rule 281 — ₹500 to ₹10,000/month)"
+  },
+  "bilingual_title": {
+    "en": "DBOCWWB Children's Education Financial Assistance (Rule 281 — ₹500 to ₹10,000/month)",
+    "hi": "निर्माण श्रमिक संतान शिक्षा सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://labour.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "construction_worker",
+          "laborer",
+          "student"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Registered with DBOCWWB in Delhi (NCT); Haryana/UP excluded.",
+    "age_range": "Children studying in recognised schools/colleges",
+    "income_cap": "Active DBOCWWB member",
+    "category_rules": "Up to 2 children per registered worker.",
+    "academic_or_work_rules": "Passing/attendance proof in recognised school/college.",
+    "exclusions": "More than 2 children or inactive membership."
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत निर्माण श्रमिक के 2 बच्चों तक को स्कूल से उच्च/व्यावसायिक शिक्षा हेतु ₹500 से ₹10,000/माह तक छात्रवृत्ति।",
+    "summary_en": "Education stipend/aid (historically ₹500/mo school up to ₹10,000/mo higher/professional courses under Rule 281 [VERIFY LATEST NOTIFICATION]) for up to 2 children."
+  },
+  "benefit_summary": {
+    "en": "Education stipend/aid (historically ₹500/mo school up to ₹10,000/mo higher/professional courses under Rule 281 [VERIFY LATEST NOTIFICATION]) for up to 2 children.",
+    "hi": "पंजीकृत निर्माण श्रमिक के 2 बच्चों तक को स्कूल से उच्च/व्यावसायिक शिक्षा हेतु ₹500 से ₹10,000/माह तक छात्रवृत्ति।"
+  },
+  "documents_required": [
+    "DBOCWWB Card",
+    "Child Admission/Bonafide & Prev Marksheet",
+    "Worker & Child Aadhaar",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "DBOCWWB / CFC.",
+    "facilitation_center": "CFC / DBOCWWB Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

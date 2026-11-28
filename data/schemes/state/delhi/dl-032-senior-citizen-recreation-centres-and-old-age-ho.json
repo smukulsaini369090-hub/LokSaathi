@@ -1,0 +1,77 @@
+{
+  "id": "dl-032-senior-citizen-recreation-centres-and-old-age-ho",
+  "scheme_code": "DL-032",
+  "jurisdiction": "delhi",
+  "category": "Pensions & Seniors",
+  "scale": "Minor",
+  "department": "Department of Social Welfare, GNCTD",
+  "name": {
+    "hi": "वरिष्ठ नागरिक मनोरंजन केंद्र एवं वृद्धाश्रम योजना",
+    "en": "Senior Citizen Recreation Centres & Old Age Homes (Social Welfare Dept, Delhi)"
+  },
+  "bilingual_title": {
+    "en": "Senior Citizen Recreation Centres & Old Age Homes (Social Welfare Dept, Delhi)",
+    "hi": "वरिष्ठ नागरिक मनोरंजन केंद्र एवं वृद्धाश्रम योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Senior citizen (60+) residing in Delhi (NCT); non-NCT NCR excluded from Delhi residential quota.",
+    "age_range": "60 years and above",
+    "income_cap": "Destitute / neglected / eligible seniors per rules",
+    "category_rules": "Senior citizens aged 60+.",
+    "academic_or_work_rules": "Basic medical fitness.",
+    "exclusions": "Below age 60."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के निराश्रित या बुजुर्ग नागरिकों हेतु सरकारी/अनुदानित वृद्धाश्रम में निवास, भोजन व मनोरंजन केंद्र सुविधा।",
+    "summary_en": "Free/subsidised shelter, meals, recreation & care at Delhi govt senior centres & old age homes (incl. Vayo Anand [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Free/subsidised shelter, meals, recreation & care at Delhi govt senior centres & old age homes (incl. Vayo Anand [VERIFY LATEST NOTIFICATION]).",
+    "hi": "दिल्ली के निराश्रित या बुजुर्ग नागरिकों हेतु सरकारी/अनुदानित वृद्धाश्रम में निवास, भोजन व मनोरंजन केंद्र सुविधा।"
+  },
+  "documents_required": [
+    "60+ Age Proof & Aadhaar",
+    "Delhi Residence Proof",
+    "Medical Fitness Note"
+  ],
+  "application_steps": {
+    "online": "Details on socialwelfare.delhi.gov.in.",
+    "offline": "Apply through District Social Welfare Office / CFC.",
+    "facilitation_center": "DSWO / Citizen Facilitation Centre (CFC)"
+  },
+  "apply_url": "https://socialwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 at free govt homes",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

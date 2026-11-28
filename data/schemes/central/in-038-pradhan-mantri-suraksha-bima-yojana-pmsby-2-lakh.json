@@ -1,0 +1,73 @@
+{
+  "id": "in-038-pradhan-mantri-suraksha-bima-yojana-pmsby-2-lakh",
+  "scheme_code": "IN-038",
+  "jurisdiction": "central",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Department of Financial Services, MoF",
+  "name": {
+    "hi": "प्रधानमंत्री सुरक्षा बीमा योजना (मात्र ₹20/वर्ष में ₹2 लाख दुर्घटना बीमा)",
+    "en": "Pradhan Mantri Suraksha Bima Yojana (PMSBY — ₹2 Lakh Accident @ ₹20/yr)"
+  },
+  "bilingual_title": {
+    "en": "Pradhan Mantri Suraksha Bima Yojana (PMSBY — ₹2 Lakh Accident @ ₹20/yr)",
+    "hi": "प्रधानमंत्री सुरक्षा बीमा योजना (मात्र ₹20/वर्ष में ₹2 लाख दुर्घटना बीमा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://jansuraksha.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 70
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "18–70 वर्ष के नागरिकों को मात्र ₹20 प्रति वर्ष प्रीमियम पर सड़क/कार्य दुर्घटना में मृत्यु या पूर्ण दिव्यांगता पर ₹2 लाख बीमा।",
+    "summary_en": "₹2,00,000 accidental death/full disability insurance (₹1,00,000 partial) at just ₹20/year auto-debit premium for citizens aged 18–70."
+  },
+  "benefit_summary": {
+    "en": "₹2,00,000 accidental death/full disability insurance (₹1,00,000 partial) at just ₹20/year auto-debit premium for citizens aged 18–70.",
+    "hi": "18–70 वर्ष के नागरिकों को मात्र ₹20 प्रति वर्ष प्रीमियम पर सड़क/कार्य दुर्घटना में मृत्यु या पूर्ण दिव्यांगता पर ₹2 लाख बीमा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र",
+    "निवास प्रमाण पत्र",
+    "बैंक पासबुक (आधार एनपीसीआई लिंक)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (jansuraksha.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://jansuraksha.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,22 +1,58 @@
 {
   "id": "punjab-old-age-pension",
+  "scheme_code": "PB-026",
+  "jurisdiction": "punjab",
+  "category": "Pensions & Seniors",
+  "scale": "Major",
+  "department": "Social Security, Women & Child Development Dept, Punjab",
   "name": {
     "hi": "पंजाब वृद्धावस्था पेंशन योजना",
     "en": "Punjab Old Age Pension Scheme"
   },
+  "bilingual_title": {
+    "en": "Punjab Old Age Pension Scheme",
+    "hi": "पंजाब वृद्धावस्था पेंशन योजना"
+  },
   "last_verified": "2026-11-24",
   "source_url": "https://socialsecurity.punjab.gov.in",
-  "state": "punjab",
   "eligibility": {
     "must_match_all": [
-      { "field": "state", "operator": "eq", "value": "punjab" },
-      { "field": "age", "operator": "gte", "value": 58 },
-      { "field": "annual_income_inr", "operator": "lte", "value": 60000 }
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 58
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 60000
+      }
     ],
     "must_match_none": [
-      { "field": "has_other_pension", "operator": "eq", "value": true },
-      { "field": "is_government_employee", "operator": "eq", "value": true }
+      {
+        "field": "has_other_pension",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
     ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "पंजाब के वरिष्ठ नागरिकों (महिलाएं 58+ वर्ष, पुरुष 65+ वर्ष) को प्रतिमाह ₹1,500 की सीधी वित्तीय पेंशन सहायता",
@@ -25,6 +61,10 @@
     "frequency": "monthly",
     "mode": "Direct Benefit Transfer (DBT)"
   },
+  "benefit_summary": {
+    "en": "Monthly financial pension of ₹1,500 deposited directly into bank accounts of eligible senior citizens in Punjab",
+    "hi": "पंजाब के वरिष्ठ नागरिकों (महिलाएं 58+ वर्ष, पुरुष 65+ वर्ष) को प्रतिमाह ₹1,500 की सीधी वित्तीय पेंशन सहायता"
+  },
   "documents_required": [
     "आधार कार्ड या मतदाता पहचान पत्र",
     "उम्र प्रमाण पत्र (आयु 58 वर्ष या अधिक)",
@@ -32,9 +72,16 @@
     "पारिवारिक आय प्रमाण पत्र (वार्षिक ₹60,000 से कम)",
     "बैंक खाता पासबुक"
   ],
-  "apply_url": "https://connect.punjab.gov.in",
+  "application_steps": {
+    "online": "Apply via official portal (esewa.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://esewa.punjab.gov.in",
   "deadline": null,
   "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
   "anti_dalal": {
     "official_fee_inr": 0,
     "fee_label_hi": "₹0 (पंजाब सरकार द्वारा आवेदन पूर्णतः निःशुल्क)",
@@ -46,6 +93,9 @@
     "timeline_en": "30 working days (Under Punjab Right to Service RTS Act)",
     "receipt_rule_hi": "सेवा केंद्र पर आवेदन के तुरंत बाद 16 अंकों की RTS ट्रैकिंग रसीद ज़रूर लें। बिना रसीद कोई अतिरिक्त राशि न दें।",
     "receipt_rule_en": "Collect 16-digit RTS tracking receipt immediately from Sewa Kendra.",
-    "helpline": "1100"
+    "helpline": "1100",
+    "official_fee": "₹0 (Application is completely free by Punjab Government)",
+    "receipt_rule": "Collect 16-digit RTS tracking receipt immediately from Sewa Kendra.",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
   }
 }

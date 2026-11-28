@@ -1,0 +1,84 @@
+{
+  "id": "dl-010-free-uniform-textbook-and-writing-material-subsi",
+  "scheme_code": "DL-010",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Major",
+  "department": "DoE & Municipal Corporation of Delhi (MCD)",
+  "name": {
+    "hi": "सरकारी विद्यालय छात्र वर्दी एवं पाठ्यपुस्तक सहायता योजना",
+    "en": "Free Uniform, Textbook & Writing Material Subsidy (DoE / MCD Schools)"
+  },
+  "bilingual_title": {
+    "en": "Free Uniform, Textbook & Writing Material Subsidy (DoE / MCD Schools)",
+    "hi": "सरकारी विद्यालय छात्र वर्दी एवं पाठ्यपुस्तक सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edudel.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "lte",
+        "value": 18
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Enrolled in Delhi Govt or MCD school in Delhi NCT; outside Delhi NCT excluded.",
+    "age_range": "School students (typically 5–18 years)",
+    "income_cap": "Universal for enrolled students",
+    "category_rules": "All active DoE & MCD school students.",
+    "academic_or_work_rules": "Active enrolment in notified class band.",
+    "exclusions": "Private schools outside government/MCD stream."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली सरकारी व एमसीडी स्कूलों के विद्यार्थियों को निःशुल्क पाठ्यपुस्तकें, वर्दी व लेखन सामग्री सब्सिडी।",
+    "summary_en": "Free textbooks & uniform/stationery assistance/kits for Delhi Govt & MCD school students [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free textbooks & uniform/stationery assistance/kits for Delhi Govt & MCD school students [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली सरकारी व एमसीडी स्कूलों के विद्यार्थियों को निःशुल्क पाठ्यपुस्तकें, वर्दी व लेखन सामग्री सब्सिडी।"
+  },
+  "documents_required": [
+    "School Admission/Roll Proof",
+    "Aadhaar",
+    "Bank Passbook (where DBT used)"
+  ],
+  "application_steps": {
+    "online": "Processed directly by school via DoE/MCD DBT system.",
+    "offline": "Through school class teacher / principal.",
+    "facilitation_center": "DoE / MCD School Office"
+  },
+  "apply_url": "https://edudel.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

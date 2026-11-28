@@ -1,20 +1,55 @@
 {
   "id": "pm-kisan",
+  "scheme_code": "IN-041",
+  "jurisdiction": "central",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Major",
+  "department": "Dept of Agriculture & Farmers Welfare (MoA&FW)",
   "name": {
     "hi": "प्रधानमंत्री किसान सम्मान निधि (पीएम-किसान)",
     "en": "PM Kisan Samman Nidhi (PM-KISAN)"
+  },
+  "bilingual_title": {
+    "en": "PM Kisan Samman Nidhi (PM-KISAN)",
+    "hi": "प्रधानमंत्री किसान सम्मान निधि (पीएम-किसान)"
   },
   "last_verified": "2026-11-24",
   "source_url": "https://pmkisan.gov.in",
   "eligibility": {
     "must_match_all": [
-      { "field": "occupation", "operator": "includes", "value": ["farmer"] },
-      { "field": "land_owned_acres", "operator": "lte", "value": 5 }
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      },
+      {
+        "field": "land_owned_acres",
+        "operator": "lte",
+        "value": 5
+      }
     ],
     "must_match_none": [
-      { "field": "is_income_tax_payer", "operator": "eq", "value": true },
-      { "field": "is_government_employee", "operator": "eq", "value": true }
+      {
+        "field": "is_income_tax_payer",
+        "operator": "eq",
+        "value": true
+      },
+      {
+        "field": "is_government_employee",
+        "operator": "eq",
+        "value": true
+      }
     ]
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
   },
   "benefit": {
     "summary_hi": "₹6,000 प्रति वर्ष (₹2,000 की 3 समान किश्तों में सीधे बैंक खाते में)",
@@ -23,14 +58,24 @@
     "frequency": "annual",
     "mode": "DBT"
   },
+  "benefit_summary": {
+    "en": "₹6,000 per year in 3 equal installments of ₹2,000 via DBT",
+    "hi": "₹6,000 प्रति वर्ष (₹2,000 की 3 समान किश्तों में सीधे बैंक खाते में)"
+  },
   "documents_required": [
     "आधार कार्ड",
     "बैंक खाता पासबुक",
     "भूमि के दस्तावेज (खतौनी/जमाबंदी)"
   ],
-  "apply_url": "https://pmkisan.gov.in/registrationform.aspx",
+  "application_steps": {
+    "online": "Apply via official portal (pmkisan.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://pmkisan.gov.in",
   "deadline": null,
   "confidence": "verified",
+  "verification_status": "verified",
   "anti_dalal": {
     "official_fee_inr": 0,
     "fee_label_hi": "₹0 (निःशुल्क - pmkisan.gov.in पोर्टल पर कोई फीस नहीं)",
@@ -42,6 +87,9 @@
     "timeline_en": "15 to 30 working days (DBT credit in next installment post verification)",
     "receipt_rule_hi": "आवेदन के बाद ऑपरेटर से रजिस्ट्रेशन नंबर युक्त पावती रसीद (Acknowledgement Receipt) अवश्य लें। बिना रसीद किसी को भी पैसे न दें।",
     "receipt_rule_en": "Always collect official acknowledgement slip with Registration ID after submission. Never pay without receipt.",
-    "helpline": "155261"
+    "helpline": "155261 / 1800-11-5526",
+    "official_fee": "₹0 (Free - No fee on official pmkisan.gov.in portal)",
+    "receipt_rule": "Always collect official acknowledgement slip with Registration ID after submission. Never pay without receipt.",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
   }
 }

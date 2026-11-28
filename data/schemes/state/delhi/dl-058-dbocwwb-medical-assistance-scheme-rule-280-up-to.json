@@ -1,0 +1,81 @@
+{
+  "id": "dl-058-dbocwwb-medical-assistance-scheme-rule-280-up-to",
+  "scheme_code": "DL-058",
+  "jurisdiction": "delhi",
+  "category": "Labour & BOCW",
+  "scale": "Minor",
+  "department": "DBOCWWB, Labour Dept, GNCTD",
+  "name": {
+    "hi": "निर्माण श्रमिक चिकित्सा सहायता योजना",
+    "en": "DBOCWWB Medical Assistance Scheme (Rule 280 — up to ₹10,000 for 5+ days hospitalisation)"
+  },
+  "bilingual_title": {
+    "en": "DBOCWWB Medical Assistance Scheme (Rule 280 — up to ₹10,000 for 5+ days hospitalisation)",
+    "hi": "निर्माण श्रमिक चिकित्सा सहायता योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://labour.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "construction_worker",
+          "laborer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Registered DBOCWWB worker in Delhi (NCT); Haryana/UP excluded.",
+    "age_range": "18–60 years",
+    "income_cap": "Active DBOCWWB member",
+    "category_rules": "Worker & covered dependents.",
+    "academic_or_work_rules": "5+ day inpatient admission.",
+    "exclusions": "OPD-only visits."
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत निर्माण श्रमिक या परिवार के सदस्य के 5+ दिन अस्पताल में भर्ती होने पर ₹10,000 तक चिकित्सा सहायता।",
+    "summary_en": "Medical expense support (historically up to ₹10,000 for 5+ days hospitalisation under Rule 280 [VERIFY LATEST NOTIFICATION])."
+  },
+  "benefit_summary": {
+    "en": "Medical expense support (historically up to ₹10,000 for 5+ days hospitalisation under Rule 280 [VERIFY LATEST NOTIFICATION]).",
+    "hi": "पंजीकृत निर्माण श्रमिक या परिवार के सदस्य के 5+ दिन अस्पताल में भर्ती होने पर ₹10,000 तक चिकित्सा सहायता।"
+  },
+  "documents_required": [
+    "DBOCWWB Card",
+    "Hospital Discharge Summary & Medical Bills",
+    "Aadhaar",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "DBOCWWB / CFC.",
+    "facilitation_center": "CFC / DBOCWWB Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

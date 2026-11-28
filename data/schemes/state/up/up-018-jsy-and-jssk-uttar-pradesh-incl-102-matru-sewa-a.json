@@ -1,0 +1,69 @@
+{
+  "id": "up-018-jsy-and-jssk-uttar-pradesh-incl-102-matru-sewa-a",
+  "scheme_code": "UP-018",
+  "jurisdiction": "up",
+  "category": "Health",
+  "scale": "Major",
+  "department": "NHM Uttar Pradesh",
+  "name": {
+    "hi": "जननी सुरक्षा एवं जननी शिशु सुरक्षा कार्यक्रम (यूपी व 102 एम्बुलेंस)",
+    "en": "JSY & JSSK Uttar Pradesh (Incl. 102 Matru Sewa Ambulance & Delivery Incentive)"
+  },
+  "bilingual_title": {
+    "en": "JSY & JSSK Uttar Pradesh (Incl. 102 Matru Sewa Ambulance & Delivery Incentive)",
+    "hi": "जननी सुरक्षा एवं जननी शिशु सुरक्षा कार्यक्रम (यूपी व 102 एम्बुलेंस)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://upnrhm.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Health",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "सरकारी अस्पताल में प्रसव पर ग्रामीण ₹1,400 / शहरी ₹1,000 सहायता, निःशुल्क दवा/जांच/भोजन व 102 एम्बुलेंस सेवा।",
+    "summary_en": "₹1,400 rural / ₹1,000 urban JSY institutional delivery DBT + free delivery, medicines, diagnostics, diet & 102 ambulance drop/pickup in UP."
+  },
+  "benefit_summary": {
+    "en": "₹1,400 rural / ₹1,000 urban JSY institutional delivery DBT + free delivery, medicines, diagnostics, diet & 102 ambulance drop/pickup in UP.",
+    "hi": "सरकारी अस्पताल में प्रसव पर ग्रामीण ₹1,400 / शहरी ₹1,000 सहायता, निःशुल्क दवा/जांच/भोजन व 102 एम्बुलेंस सेवा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "मोबाइल नंबर",
+    "अस्पताल/चिकित्सा पर्ची"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (upnrhm.gov.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://upnrhm.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "102 / 108",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

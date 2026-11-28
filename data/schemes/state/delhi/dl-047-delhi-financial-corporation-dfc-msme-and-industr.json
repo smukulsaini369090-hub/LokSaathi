@@ -1,0 +1,84 @@
+{
+  "id": "dl-047-delhi-financial-corporation-dfc-msme-and-industr",
+  "scheme_code": "DL-047",
+  "jurisdiction": "delhi",
+  "category": "Employment, Skill & MSME",
+  "scale": "Major",
+  "department": "Delhi Financial Corporation (DFC), GNCTD",
+  "name": {
+    "hi": "दिल्ली वित्तीय निगम (डीएफसी) एमएसएमई ऋण योजना",
+    "en": "Delhi Financial Corporation (DFC) MSME & Industrial Term Loan Schemes"
+  },
+  "bilingual_title": {
+    "en": "Delhi Financial Corporation (DFC) MSME & Industrial Term Loan Schemes",
+    "hi": "दिल्ली वित्तीय निगम (डीएफसी) एमएसएमई ऋण योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://industries.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "business"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Enterprise operating in NCT of Delhi; Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "Adult business owners / firms (18+)",
+    "income_cap": "MSME credit norms apply",
+    "category_rules": "Registered MSMEs & commercial operators.",
+    "academic_or_work_rules": "Udyam / business registration & KYC appraisal.",
+    "exclusions": "Bank defaulters & outside-Delhi units."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के सूक्ष्म, लघु और मध्यम उद्यमों को मशीनरी, कार्यशील पूंजी व विस्तार हेतु सावधि ऋण सुविधा।",
+    "summary_en": "Term loans & equipment/working capital finance for MSMEs, manufacturing, services & commercial transport in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Term loans & equipment/working capital finance for MSMEs, manufacturing, services & commercial transport in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के सूक्ष्म, लघु और मध्यम उद्यमों को मशीनरी, कार्यशील पूंजी व विस्तार हेतु सावधि ऋण सुविधा।"
+  },
+  "documents_required": [
+    "Udyam / Firm Registration",
+    "Promoters' Aadhaar, PAN & Delhi Residence",
+    "Bank Statements & Project Quotation"
+  ],
+  "application_steps": {
+    "online": "Apply via dfc.delhigovt.nic.in / industries.delhi.gov.in.",
+    "offline": "DFC Delhi Head Office / CFC.",
+    "facilitation_center": "Delhi Financial Corporation Office / CFC"
+  },
+  "apply_url": "https://dfc.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "Official DFC appraisal charges only",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

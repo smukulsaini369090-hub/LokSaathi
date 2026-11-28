@@ -1,0 +1,76 @@
+{
+  "id": "hr-048-mukhyamantri-pragatisheel-kisan-samman-up-to-5-l",
+  "scheme_code": "HR-048",
+  "jurisdiction": "haryana",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Agriculture Dept, Haryana",
+  "name": {
+    "hi": "मुख्यमंत्री प्रगतिशील किसान सम्मान योजना (₹5 लाख तक पुरस्कार)",
+    "en": "Mukhyamantri Pragatisheel Kisan Samman (Up to ₹5 Lakh Award)"
+  },
+  "bilingual_title": {
+    "en": "Mukhyamantri Pragatisheel Kisan Samman (Up to ₹5 Lakh Award)",
+    "hi": "मुख्यमंत्री प्रगतिशील किसान सम्मान योजना (₹5 लाख तक पुरस्कार)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://agriharyana.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "आधुनिक व प्राकृतिक कृषि नवाचार करने वाले प्रगतिशील हरियाणा किसानों को ₹5 लाख तक राज्य सम्मान पुरस्कार।",
+    "summary_en": "State/district cash awards up to ₹5,00,000 recognising innovative progressive Haryana farmers."
+  },
+  "benefit_summary": {
+    "en": "State/district cash awards up to ₹5,00,000 recognising innovative progressive Haryana farmers.",
+    "hi": "आधुनिक व प्राकृतिक कृषि नवाचार करने वाले प्रगतिशील हरियाणा किसानों को ₹5 लाख तक राज्य सम्मान पुरस्कार।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खतौनी/जमाबंदी)",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (agriharyana.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://agriharyana.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

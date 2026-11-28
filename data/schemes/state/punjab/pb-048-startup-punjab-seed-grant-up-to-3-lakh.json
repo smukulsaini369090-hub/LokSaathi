@@ -1,0 +1,76 @@
+{
+  "id": "pb-048-startup-punjab-seed-grant-up-to-3-lakh",
+  "scheme_code": "PB-048",
+  "jurisdiction": "punjab",
+  "category": "Employment, Skill & MSME",
+  "scale": "Minor",
+  "department": "Startup Punjab Cell (Industries & Commerce)",
+  "name": {
+    "hi": "स्टार्टअप पंजाब सीड फंड सहायता (₹3 लाख तक अनुदान)",
+    "en": "Startup Punjab Seed Grant (Up to ₹3 Lakh)"
+  },
+  "bilingual_title": {
+    "en": "Startup Punjab Seed Grant (Up to ₹3 Lakh)",
+    "hi": "स्टार्टअप पंजाब सीड फंड सहायता (₹3 लाख तक अनुदान)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://startup.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Employment, Skill & MSME",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब में पंजीकृत नवाचारी स्टार्टअप्स को प्रोटोटाइप विकास हेतु ₹3 लाख तक सीड अनुदान एवं पेटेंट सहायता।",
+    "summary_en": "Up to ₹3,00,000 seed grant + lease rental subsidy, patent reimbursement & incubation support for registered Punjab tech/social startups."
+  },
+  "benefit_summary": {
+    "en": "Up to ₹3,00,000 seed grant + lease rental subsidy, patent reimbursement & incubation support for registered Punjab tech/social startups.",
+    "hi": "पंजाब में पंजीकृत नवाचारी स्टार्टअप्स को प्रोटोटाइप विकास हेतु ₹3 लाख तक सीड अनुदान एवं पेटेंट सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "शैक्षणिक एवं कौशल योग्यता प्रमाण पत्र",
+    "बैंक खाता पासबुक",
+    "परियोजना रिपोर्ट (Project Report)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (startup.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://startup.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

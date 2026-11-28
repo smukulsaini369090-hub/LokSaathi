@@ -1,0 +1,70 @@
+{
+  "id": "dl-080-atal-canteen-scheme-delhi-5-fresh-cooked-nutriti",
+  "scheme_code": "DL-080",
+  "jurisdiction": "delhi",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "DUSIB / Urban Development Dept, GNCTD",
+  "name": {
+    "hi": "अटल कैंटीन योजना दिल्ली (₹5 में भरपेट थाली)",
+    "en": "Atal Canteen Scheme Delhi (₹5 Fresh Cooked Nutritious Thali — 100 Canteens)"
+  },
+  "bilingual_title": {
+    "en": "Atal Canteen Scheme Delhi (₹5 Fresh Cooked Nutritious Thali — 100 Canteens)",
+    "hi": "अटल कैंटीन योजना दिल्ली (₹5 में भरपेट थाली)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Walk-in service across active Atal Canteens inside Delhi (NCT).",
+    "age_range": "All ages",
+    "income_cap": "Open / targeted low-cost meal access",
+    "category_rules": "Workers, daily-wage earners, students, commuters & citizens.",
+    "academic_or_work_rules": "Walk-in meal counter.",
+    "exclusions": "Commercial bulk takeaway."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली की 100 अटल कैंटीनों में श्रमिकों, छात्रों व आम नागरिकों को मात्र ₹5 में ताज़ा व पौष्टिक भोजन थाली।",
+    "summary_en": "Freshly cooked nutritious meal/thali at ₹5 at designated Atal Canteens across Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Freshly cooked nutritious meal/thali at ₹5 at designated Atal Canteens across Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली की 100 अटल कैंटीनों में श्रमिकों, छात्रों व आम नागरिकों को मात्र ₹5 में ताज़ा व पौष्टिक भोजन थाली।"
+  },
+  "documents_required": [
+    "Cash/UPI ₹5 token (no complex paperwork)"
+  ],
+  "application_steps": {
+    "online": "Canteen updates on delhishelterboard.in / delhi.gov.in.",
+    "offline": "Walk in directly to active Atal Canteen.",
+    "facilitation_center": "Atal Canteen Counter / DUSIB"
+  },
+  "apply_url": "https://delhishelterboard.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹5 per notified thali",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

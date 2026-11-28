@@ -1,0 +1,88 @@
+{
+  "id": "dl-068-kamla-nehru-girls-hostel-and-nehru-boys-hostel-f",
+  "scheme_code": "DL-068",
+  "jurisdiction": "delhi",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "Department for Welfare of SC/ST/OBC, GNCTD",
+  "name": {
+    "hi": "कमला नेहरू बालिका छात्रावास एवं नेहरू बालक छात्रावास योजना",
+    "en": "Kamla Nehru Girls Hostel & Nehru Boys Hostel (Free Boarding for SC/ST/OBC Students)"
+  },
+  "bilingual_title": {
+    "en": "Kamla Nehru Girls Hostel & Nehru Boys Hostel (Free Boarding for SC/ST/OBC Students)",
+    "hi": "कमला नेहरू बालिका छात्रावास एवं नेहरू बालक छात्रावास योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://scstwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "category",
+        "operator": "includes",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) student/domicile admission rules [VERIFY LATEST NOTIFICATION].",
+    "age_range": "College/higher-ed students",
+    "income_cap": "Per notified welfare department income cap",
+    "category_rules": "SC/ST/OBC students.",
+    "academic_or_work_rules": "Full-time Delhi school/college bonafide enrolment.",
+    "exclusions": "Non-regular courses."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली में पढ़ने वाले पात्र SC/ST/OBC विद्यार्थियों हेतु छात्रावास आवास व निःशुल्क भोजन (मेस) सहायता।",
+    "summary_en": "Free / subsidised hostel lodging, boarding & mess support for eligible SC/ST/OBC students studying in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Free / subsidised hostel lodging, boarding & mess support for eligible SC/ST/OBC students studying in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली में पढ़ने वाले पात्र SC/ST/OBC विद्यार्थियों हेतु छात्रावास आवास व निःशुल्क भोजन (मेस) सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Domicile",
+    "SC/ST/OBC Certificate & Family Income Certificate",
+    "School/College Bonafide & Photo"
+  ],
+  "application_steps": {
+    "online": "Check scstwelfare.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "Hostel Office / CFC.",
+    "facilitation_center": "Hostel Office / CFC"
+  },
+  "apply_url": "https://scstwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 free boarding where eligible",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "011-23379512",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

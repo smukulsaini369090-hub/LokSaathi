@@ -1,0 +1,77 @@
+{
+  "id": "dl-033-delhi-maintenance-and-welfare-of-parents-and-sen",
+  "scheme_code": "DL-033",
+  "jurisdiction": "delhi",
+  "category": "Pensions & Seniors",
+  "scale": "Minor",
+  "department": "Revenue / Social Welfare Dept, GNCTD (Maintenance Tribunal)",
+  "name": {
+    "hi": "माता-पिता एवं वरिष्ठ नागरिक भरण-पोषण अधिकरण सहायता",
+    "en": "Delhi Maintenance & Welfare of Parents and Senior Citizens Tribunal Relief"
+  },
+  "bilingual_title": {
+    "en": "Delhi Maintenance & Welfare of Parents and Senior Citizens Tribunal Relief",
+    "hi": "माता-पिता एवं वरिष्ठ नागरिक भरण-पोषण अधिकरण सहायता"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://socialwelfare.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) Maintenance Tribunal jurisdiction.",
+    "age_range": "Parents & Senior Citizens aged 60+",
+    "income_cap": "Unable to maintain self from own earnings/property",
+    "category_rules": "Senior citizens / parents.",
+    "academic_or_work_rules": "Summary tribunal petition.",
+    "exclusions": "Disputes outside Delhi NCT."
+  },
+  "benefit": {
+    "summary_hi": "उपेक्षित माता-पिता एवं वरिष्ठ नागरिकों (60+) को संतानों/रिश्तेदारों से भरण-पोषण और आवास सुरक्षा हेतु कानूनी ट्रिब्यूनल राहत।",
+    "summary_en": "Statutory maintenance orders and property/eviction protection relief for parents & senior citizens in Delhi [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Statutory maintenance orders and property/eviction protection relief for parents & senior citizens in Delhi [VERIFY LATEST NOTIFICATION].",
+    "hi": "उपेक्षित माता-पिता एवं वरिष्ठ नागरिकों (60+) को संतानों/रिश्तेदारों से भरण-पोषण और आवास सुरक्षा हेतु कानूनी ट्रिब्यूनल राहत।"
+  },
+  "documents_required": [
+    "60+ Age Proof & Aadhaar",
+    "Delhi Residence Proof",
+    "Details of Children/Relatives & Property Papers"
+  ],
+  "application_steps": {
+    "online": "Check rules on edistrict.delhigovt.nic.in / socialwelfare.delhi.gov.in.",
+    "offline": "File petition before SDM / Maintenance Tribunal Office.",
+    "facilitation_center": "SDM Maintenance Tribunal / CFC"
+  },
+  "apply_url": "https://socialwelfare.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 filing fee",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

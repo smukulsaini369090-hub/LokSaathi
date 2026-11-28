@@ -1,0 +1,69 @@
+{
+  "id": "pb-084-pulsa-free-legal-aid-and-crime-victim-compensati",
+  "scheme_code": "PB-084",
+  "jurisdiction": "punjab",
+  "category": "Sports, Legal & Niche",
+  "scale": "Minor",
+  "department": "Punjab State Legal Services Authority (PULSA)",
+  "name": {
+    "hi": "पुल्सा (PULSA) निःशुल्क कानूनी सहायता एवं पीड़ित मुआवजा योजना (पंजाब)",
+    "en": "PULSA Free Legal Aid & Crime Victim Compensation Scheme"
+  },
+  "bilingual_title": {
+    "en": "PULSA Free Legal Aid & Crime Victim Compensation Scheme",
+    "hi": "पुल्सा (PULSA) निःशुल्क कानूनी सहायता एवं पीड़ित मुआवजा योजना (पंजाब)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pulsa.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पात्र नागरिकों को मुफ्त सरकारी वकील, लोक अदालत समाधान व अपराध/दुर्घटना पीड़ित मुआवजा।",
+    "summary_en": "Free legal advocate, Lok Adalat settlement & monetary victim compensation across District Legal Services Authorities in Punjab."
+  },
+  "benefit_summary": {
+    "en": "Free legal advocate, Lok Adalat settlement & monetary victim compensation across District Legal Services Authorities in Punjab.",
+    "hi": "पात्र नागरिकों को मुफ्त सरकारी वकील, लोक अदालत समाधान व अपराध/दुर्घटना पीड़ित मुआवजा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pulsa.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://pulsa.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "15100 / 1968",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

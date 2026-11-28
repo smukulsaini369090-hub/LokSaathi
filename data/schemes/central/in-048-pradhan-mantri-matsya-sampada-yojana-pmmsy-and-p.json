@@ -1,0 +1,70 @@
+{
+  "id": "in-048-pradhan-mantri-matsya-sampada-yojana-pmmsy-and-p",
+  "scheme_code": "IN-048",
+  "jurisdiction": "central",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Department of Fisheries",
+  "name": {
+    "hi": "प्रधानमंत्री मत्स्य संपदा योजना (PMMSY) एवं PM-MKSSY",
+    "en": "Pradhan Mantri Matsya Sampada Yojana (PMMSY) & PM-MKSSY (Fisheries)"
+  },
+  "bilingual_title": {
+    "en": "Pradhan Mantri Matsya Sampada Yojana (PMMSY) & PM-MKSSY (Fisheries)",
+    "hi": "प्रधानमंत्री मत्स्य संपदा योजना (PMMSY) एवं PM-MKSSY"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pmmsy.dof.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "मछली पालन तालाब, बायोफ्लॉक व कोल्ड चेन स्थापना हेतु सामान्य वर्ग को 40% व SC/ST/महिलाओं को 60% सब्सिडी व ₹5 लाख बीमा।",
+    "summary_en": "40% (General) and 60% (SC/ST/Women) subsidy for fish ponds, RAS/biofloc, fishing vessels, ice plants & fish kiosks + ₹5L fisher insurance."
+  },
+  "benefit_summary": {
+    "en": "40% (General) and 60% (SC/ST/Women) subsidy for fish ponds, RAS/biofloc, fishing vessels, ice plants & fish kiosks + ₹5L fisher insurance.",
+    "hi": "मछली पालन तालाब, बायोफ्लॉक व कोल्ड चेन स्थापना हेतु सामान्य वर्ग को 40% व SC/ST/महिलाओं को 60% सब्सिडी व ₹5 लाख बीमा।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खतौनी/जमाबंदी)",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pmmsy.dof.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://pmmsy.dof.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

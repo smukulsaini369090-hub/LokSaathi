@@ -1,0 +1,70 @@
+{
+  "id": "in-051-paramparagat-krishi-vikas-yojana-pkvy-and-nation",
+  "scheme_code": "IN-051",
+  "jurisdiction": "central",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "MoA&FW",
+  "name": {
+    "hi": "परंपरागत कृषि विकास योजना (PKVY) एवं राष्ट्रीय प्राकृतिक खेती मिशन",
+    "en": "Paramparagat Krishi Vikas Yojana (PKVY) & National Mission on Natural Farming"
+  },
+  "bilingual_title": {
+    "en": "Paramparagat Krishi Vikas Yojana (PKVY) & National Mission on Natural Farming",
+    "hi": "परंपरागत कृषि विकास योजना (PKVY) एवं राष्ट्रीय प्राकृतिक खेती मिशन"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://pgsindia-ncof.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Agriculture & Animal Husbandry",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "जैविक व रासायनिक-मुक्त प्राकृतिक खेती करने वाले किसान समूहों को 3 वर्षों में ₹31,500/हेक्टेयर तक डीबीटी व प्रमाणन सहायता।",
+    "summary_en": "₹31,500/hectare cluster aid over 3 years (incl. ₹15,000 DBT to farmers) for organic farming (PKVY) + ₹4,000/acre/yr natural farming incentive."
+  },
+  "benefit_summary": {
+    "en": "₹31,500/hectare cluster aid over 3 years (incl. ₹15,000 DBT to farmers) for organic farming (PKVY) + ₹4,000/acre/yr natural farming incentive.",
+    "hi": "जैविक व रासायनिक-मुक्त प्राकृतिक खेती करने वाले किसान समूहों को 3 वर्षों में ₹31,500/हेक्टेयर तक डीबीटी व प्रमाणन सहायता।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "भूमि के दस्तावेज (खतौनी/जमाबंदी)",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (pgsindia-ncof.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://pgsindia-ncof.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

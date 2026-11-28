@@ -1,52 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readdirSync, readFileSync, statSync, existsSync } from "fs";
-import { join } from "path";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { extractUserProfile, extractUserProfileFromAudio } from "@/lib/gemini";
 import { runIntakeStateMachine } from "@/lib/intake-state-machine";
+import { loadAllSchemes } from "@/lib/schemes-loader";
 import {
   sanitizeUntrustedInput,
   detectPromptInjectionAttack,
   validateProfilePayload,
   redactSecrets,
 } from "@/lib/security";
-import type { Scheme } from "@/lib/scheme-types";
 
 export const maxDuration = 60;
-
-// Cache schemes in-memory for zero disk overhead
-let cachedSchemes: Scheme[] | null = null;
-
-function loadAllSchemes(): Scheme[] {
-  if (cachedSchemes && cachedSchemes.length > 0) {
-    return cachedSchemes;
-  }
-
-  const baseDir = join(process.cwd(), "data/schemes");
-  const schemes: Scheme[] = [];
-
-  function walk(dir: string) {
-    if (!existsSync(dir)) return;
-    const entries = readdirSync(dir);
-    for (const entry of entries) {
-      const fullPath = join(dir, entry);
-      if (statSync(fullPath).isDirectory()) {
-        walk(fullPath);
-      } else if (entry.endsWith(".json")) {
-        try {
-          const content = readFileSync(fullPath, "utf-8");
-          schemes.push(JSON.parse(content));
-        } catch (err) {
-          console.error(`Failed to load scheme at ${fullPath}:`, err);
-        }
-      }
-    }
-  }
-
-  walk(baseDir);
-  cachedSchemes = schemes;
-  return schemes;
-}
 
 export async function POST(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -251,6 +215,7 @@ export async function POST(request: NextRequest) {
     is_profile_complete: stateOutput.is_profile_complete,
     matched_schemes: stateOutput.is_profile_complete ? stateOutput.matched_schemes : [],
     target_scheme: stateOutput.target_scheme,
+    scheme_redirect: stateOutput.scheme_redirect || null,
     eligibility_audit: stateOutput.eligibility_audit,
   });
 }

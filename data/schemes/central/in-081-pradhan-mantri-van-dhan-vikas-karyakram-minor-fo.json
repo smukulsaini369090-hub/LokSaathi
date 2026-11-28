@@ -1,0 +1,70 @@
+{
+  "id": "in-081-pradhan-mantri-van-dhan-vikas-karyakram-minor-fo",
+  "scheme_code": "IN-081",
+  "jurisdiction": "central",
+  "category": "SC/ST/OBC/Minority Welfare",
+  "scale": "Minor",
+  "department": "TRIFED, Ministry of Tribal Affairs",
+  "name": {
+    "hi": "प्रधानमंत्री वन धन विकास कार्यक्रम (जनजातीय वनोपज मूल्य संवर्धन)",
+    "en": "Pradhan Mantri Van Dhan Vikas Karyakram (Minor Forest Produce Value Addition)"
+  },
+  "bilingual_title": {
+    "en": "Pradhan Mantri Van Dhan Vikas Karyakram (Minor Forest Produce Value Addition)",
+    "hi": "प्रधानमंत्री वन धन विकास कार्यक्रम (जनजातीय वनोपज मूल्य संवर्धन)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://trifed.tribal.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "SC/ST/OBC/Minority Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "वनोपज संग्राहक आदिवासी समूहों को शहद, महुआ, लाख व बांस प्रसंस्करण केंद्र लगाने हेतु ₹15 लाख सहायता व MSP खरीद।",
+    "summary_en": "₹15 lakh seed support per Van Dhan Vikas Kendra (300 tribal gatherers) for processing honey, lac, tamarind, mahua & bamboo under MSP for MFP."
+  },
+  "benefit_summary": {
+    "en": "₹15 lakh seed support per Van Dhan Vikas Kendra (300 tribal gatherers) for processing honey, lac, tamarind, mahua & bamboo under MSP for MFP.",
+    "hi": "वनोपज संग्राहक आदिवासी समूहों को शहद, महुआ, लाख व बांस प्रसंस्करण केंद्र लगाने हेतु ₹15 लाख सहायता व MSP खरीद।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "जाति प्रमाण पत्र (यदि लागू हो)",
+    "आय प्रमाण पत्र",
+    "निवास प्रमाण पत्र"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (trifed.tribal.gov.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://trifed.tribal.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

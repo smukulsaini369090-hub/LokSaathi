@@ -1,0 +1,69 @@
+{
+  "id": "hr-108-haryana-sports-cash-awards-olympics-6-cr-gold-et",
+  "scheme_code": "HR-108",
+  "jurisdiction": "haryana",
+  "category": "Sports, Legal & Niche",
+  "scale": "Major",
+  "department": "Sports Department, Haryana",
+  "name": {
+    "hi": "हरियाणा खिलाड़ी नकद पुरस्कार (ओलंपिक स्वर्ण ₹6 करोड़ व तैयारी अग्रिम)",
+    "en": "Haryana Sports Cash Awards (Olympics ₹6 Cr Gold etc.) & ₹5–15L Prep Advance"
+  },
+  "bilingual_title": {
+    "en": "Haryana Sports Cash Awards (Olympics ₹6 Cr Gold etc.) & ₹5–15L Prep Advance",
+    "hi": "हरियाणा खिलाड़ी नकद पुरस्कार (ओलंपिक स्वर्ण ₹6 करोड़ व तैयारी अग्रिम)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://haryanasports.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "haryana"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Haryana domicile/Parivar Pehchan Patra (PPP Family ID) required across all 22 districts (incl. Haryana NCR: Gurugram, Faridabad, Sonipat, Jhajjar, Rohtak, Panipat, Karnal, Rewari, Palwal, Nuh); Delhi NCT & UP excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per PPP / Antyodaya Saral income band notified under Haryana rules",
+    "category_rules": "Sports, Legal & Niche",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "ओलंपिक, एशियाई व राष्ट्रमंडल विजेता हरियाणा खिलाड़ियों को ₹6 करोड़ तक पुरस्कार व ₹5–15 लाख तैयारी अग्रिम।",
+    "summary_en": "India's highest sports awards (₹6 Cr Olympic Gold, ₹4 Cr Silver, ₹2.5 Cr Bronze; Asian/CWG/Para rewards + ₹5–15L diet/prep advance)."
+  },
+  "benefit_summary": {
+    "en": "India's highest sports awards (₹6 Cr Olympic Gold, ₹4 Cr Silver, ₹2.5 Cr Bronze; Asian/CWG/Para rewards + ₹5–15L diet/prep advance).",
+    "hi": "ओलंपिक, एशियाई व राष्ट्रमंडल विजेता हरियाणा खिलाड़ियों को ₹6 करोड़ तक पुरस्कार व ₹5–15 लाख तैयारी अग्रिम।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "निवास प्रमाण पत्र",
+    "संबंधित श्रेणी / उपलब्धि प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (haryanasports.gov.in)",
+    "offline": "Submit verified documents at nearest Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)",
+    "facilitation_center": "Antyodaya Saral Kendra (saralharyana.gov.in) with Parivar Pehchan Patra (PPP Family ID)"
+  },
+  "apply_url": "https://haryanasports.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "haryana",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "अंत्योदय सरल केंद्र पर केवल ₹30–₹50 निर्धारित सेवा शुल्क लागू; PPP आधार-सत्यापित रसीद अनिवार्य",
+    "csc_fee_note_en": "Saral Kendra nominal fee only (PPP Family ID verified; always take official Saral receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1800-180-2087",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

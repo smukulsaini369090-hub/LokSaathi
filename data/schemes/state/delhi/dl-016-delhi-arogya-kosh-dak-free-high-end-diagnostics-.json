@@ -1,0 +1,74 @@
+{
+  "id": "dl-016-delhi-arogya-kosh-dak-free-high-end-diagnostics-",
+  "scheme_code": "DL-016",
+  "jurisdiction": "delhi",
+  "category": "Health",
+  "scale": "Major",
+  "department": "Directorate General of Health Services (DGHS), GNCTD",
+  "name": {
+    "hi": "दिल्ली आरोग्य कोष योजना",
+    "en": "Delhi Arogya Kosh (DAK) — Free High-End Diagnostics, Surgeries & Critical Care"
+  },
+  "bilingual_title": {
+    "en": "Delhi Arogya Kosh (DAK) — Free High-End Diagnostics, Surgeries & Critical Care",
+    "hi": "दिल्ली आरोग्य कोष योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://dgehs.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 300000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Bona fide Delhi resident for last 3 years; Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "All ages (minor's Birth Certificate + parent domicile accepted)",
+    "income_cap": "Annual family income up to ₹3,00,000 (or <₹1,00,000 for NFSA cardholders)",
+    "category_rules": "Low-income Delhi residents undergoing treatment at a Delhi govt hospital.",
+    "academic_or_work_rules": "Govt hospital referral / medical estimate required.",
+    "exclusions": "Less than 3 years Delhi residency, income >₹3,00,000, or non-NCT NCR residents."
+  },
+  "benefit": {
+    "summary_hi": "पात्र दिल्ली निवासियों को सरकारी अस्पताल उपचार हेतु ₹5 लाख तक वित्तीय सहायता तथा निःशुल्क महंगे टेस्ट, सर्जरी व डायलिसिस।",
+    "summary_en": "Financial aid up to ₹5,00,000 for eligible Delhi govt hospital treatment + free high-end diagnostics, specified surgeries & dialysis per DAK rules."
+  },
+  "benefit_summary": {
+    "en": "Financial aid up to ₹5,00,000 for eligible Delhi govt hospital treatment + free high-end diagnostics, specified surgeries & dialysis per DAK rules.",
+    "hi": "पात्र दिल्ली निवासियों को सरकारी अस्पताल उपचार हेतु ₹5 लाख तक वित्तीय सहायता तथा निःशुल्क महंगे टेस्ट, सर्जरी व डायलिसिस।"
+  },
+  "documents_required": [
+    "Govt Hospital Estimate & Prescription",
+    "SDM Income Certificate (<=₹3L) or NFSA Card",
+    "3-Year Delhi Residency Proof",
+    "Aadhaar Card"
+  ],
+  "application_steps": {
+    "online": "Verify instructions on dgehs.delhi.gov.in / myscheme.gov.in.",
+    "offline": "Submit via treating Govt Hospital Patient Welfare Cell / MS office.",
+    "facilitation_center": "Delhi Govt Hospital Patient Welfare Cell / CFC"
+  },
+  "apply_url": "https://dgehs.delhi.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

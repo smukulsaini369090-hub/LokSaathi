@@ -35,7 +35,7 @@ export const ONBOARDING_CONTENT = {
           "योजनाएं खोजने के दो आसान तरीके हैं। पहला, सीधी खोज सूची जहाँ बिना किसी इंतज़ार के तुरंत सारी योजनाएं फ़िल्टर कर सकते हैं। दूसरा, एआई सहायक जहाँ आप बोलकर अपनी पात्रता जान सकते हैं।",
         card1: {
           title: "1. सभी योजनाएं (सीधी खोज)",
-          desc: "बिना किसी इंतज़ार के तुरंत 35+ केंद्रीय व राज्य योजनाओं की सूची देखें और राज्य या वर्ग के अनुसार फ़िल्टर करें।",
+          desc: "बिना किसी इंतज़ार के तुरंत 519 केंद्रीय व राज्य योजनाओं की सूची देखें और राज्य या वर्ग के अनुसार फ़िल्टर करें।",
           tag: "⚡ 0 सेकंड इंतज़ार • ₹0 डेटा",
         },
         card2: {
@@ -105,10 +105,10 @@ export const ONBOARDING_CONTENT = {
         title: "2 Easy Ways to Find Schemes",
         subtitle: "Choose the method that works best for you:",
         audioText:
-          "You can find schemes in two simple ways. First, the Direct Catalog where you can instantly search and filter over 35 central and state schemes. Second, the AI Assistant where you can speak or type to check your eligibility.",
+          "You can find schemes in two simple ways. First, the Direct Catalog where you can instantly search and filter 519 central and state schemes. Second, the AI Assistant where you can speak or type to check your eligibility.",
         card1: {
           title: "1. Direct Scheme Catalog",
-          desc: "Instantly browse 35+ verified Central & State schemes with zero waiting time. Filter by State or Category.",
+          desc: "Instantly browse 519 verified Central & State schemes with zero waiting time. Filter by State or Category.",
           tag: "⚡ Instant • Zero API wait",
         },
         card2: {

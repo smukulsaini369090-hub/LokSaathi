@@ -1,0 +1,86 @@
+{
+  "id": "dl-007-merit-cum-means-linked-financial-assistance-sche",
+  "scheme_code": "DL-007",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Directorate of Higher Education, GNCTD",
+  "name": {
+    "hi": "मेरिट-कम-मीन्स लिंक्ड वित्तीय सहायता योजना (उच्च शिक्षा)",
+    "en": "Merit-cum-Means Linked Financial Assistance Scheme (Delhi Higher Education Aid Trust)"
+  },
+  "bilingual_title": {
+    "en": "Merit-cum-Means Linked Financial Assistance Scheme (Delhi Higher Education Aid Trust)",
+    "hi": "मेरिट-कम-मीन्स लिंक्ड वित्तीय सहायता योजना (उच्च शिक्षा)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 17
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) resident/domicile studying UG in Delhi; Gurugram/Faridabad/Noida/Ghaziabad excluded.",
+    "age_range": "Undergraduate students (typically 17–26 years)",
+    "income_cap": "Notified EWS / NFSA / low-income slabs [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "All categories fulfilling income & merit percentage norms.",
+    "academic_or_work_rules": "Qualified marks in Class 12 / previous semester + Delhi state university UG enrolment.",
+    "exclusions": "Students outside Delhi NCT universities/domicile."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के राज्य/मान्यता प्राप्त विश्वविद्यालयों में स्नातक छात्रों को आय स्लैब और मेरिट अनुसार ट्यूशन शुल्क सहायता।",
+    "summary_en": "Tuition fee financial assistance / reimbursement percentage by income slabs & marks for UG students in Delhi universities [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Tuition fee financial assistance / reimbursement percentage by income slabs & marks for UG students in Delhi universities [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के राज्य/मान्यता प्राप्त विश्वविद्यालयों में स्नातक छात्रों को आय स्लैब और मेरिट अनुसार ट्यूशन शुल्क सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Domicile",
+    "Class 12 / Prev Semester Marksheet & Fee Receipt",
+    "Delhi Family Income Certificate",
+    "Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "College / University verification + CFC.",
+    "facilitation_center": "CFC / University Aid Cell"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

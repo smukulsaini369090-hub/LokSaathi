@@ -1,0 +1,77 @@
+{
+  "id": "dl-081-delhi-electric-vehicle-ev-policy-2026-subsidies-",
+  "scheme_code": "DL-081",
+  "jurisdiction": "delhi",
+  "category": "Utility Subsidies & Food",
+  "scale": "Major",
+  "department": "Transport Department, GNCTD",
+  "name": {
+    "hi": "दिल्ली इलेक्ट्रिक वाहन (ईवी) नीति 2026 सब्सिडी योजना",
+    "en": "Delhi Electric Vehicle (EV) Policy 2026 Subsidies & Road Tax Exemption"
+  },
+  "bilingual_title": {
+    "en": "Delhi Electric Vehicle (EV) Policy 2026 Subsidies & Road Tax Exemption",
+    "hi": "दिल्ली इलेक्ट्रिक वाहन (ईवी) नीति 2026 सब्सिडी योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://transport.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 18
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Purchased & registered at Delhi (NCT) RTO with Delhi address; Noida/Gurugram follow UP/Haryana EV policies.",
+    "age_range": "18+ vehicle buyers",
+    "income_cap": "No income ceiling",
+    "category_rules": "All Delhi EV buyers per vehicle segment cap.",
+    "academic_or_work_rules": "Eligible FAME/EV 2026 vehicle model registered at Delhi RTO.",
+    "exclusions": "Vehicles registered outside Delhi."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली में पंजीकृत नए इलेक्ट्रिक वाहनों पर खरीद सब्सिडी, रोड टैक्स छूट और पंजीकरण शुल्क माफी।",
+    "summary_en": "EV purchase incentive, road tax exemption & registration fee waiver on eligible electric vehicles registered in Delhi per 2026 policy [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "EV purchase incentive, road tax exemption & registration fee waiver on eligible electric vehicles registered in Delhi per 2026 policy [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली में पंजीकृत नए इलेक्ट्रिक वाहनों पर खरीद सब्सिडी, रोड टैक्स छूट और पंजीकरण शुल्क माफी।"
+  },
+  "documents_required": [
+    "Aadhaar & Delhi Address Proof",
+    "Vehicle Invoice & Insurance",
+    "Delhi RTO Registration & Bank Passbook"
+  ],
+  "application_steps": {
+    "online": "Processed via Dealer & transport.delhi.gov.in.",
+    "offline": "Delhi RTO / EV Dealer desk / CFC.",
+    "facilitation_center": "Delhi RTO / Authorised EV Dealer / CFC"
+  },
+  "apply_url": "https://transport.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "Official RTO charges per EV policy only",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

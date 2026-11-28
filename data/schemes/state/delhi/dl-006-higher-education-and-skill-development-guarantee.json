@@ -1,0 +1,86 @@
+{
+  "id": "dl-006-higher-education-and-skill-development-guarantee",
+  "scheme_code": "DL-006",
+  "jurisdiction": "delhi",
+  "category": "Education",
+  "scale": "Major",
+  "department": "Directorate of Higher Education / DHEAS, GNCTD",
+  "name": {
+    "hi": "उच्च शिक्षा एवं कौशल विकास गारंटी योजना",
+    "en": "Higher Education and Skill Development Guarantee Scheme (Delhi Student Loan Guarantee)"
+  },
+  "bilingual_title": {
+    "en": "Higher Education and Skill Development Guarantee Scheme (Delhi Student Loan Guarantee)",
+    "hi": "उच्च शिक्षा एवं कौशल विकास गारंटी योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://edistrict.delhigovt.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "student"
+        ]
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 17
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) domicile / passed qualifying school exams from Delhi per scheme terms.",
+    "age_range": "Higher & skill education students",
+    "income_cap": "No rigid cap where guarantee applies (subject to lending bank/DHEAS norms [VERIFY LATEST NOTIFICATION])",
+    "category_rules": "Open to all categories meeting qualifying Delhi schooling/admission rules.",
+    "academic_or_work_rules": "Admission in recognised higher education / skill / diploma course.",
+    "exclusions": "Students without Delhi qualifying school/domicile eligibility."
+  },
+  "benefit": {
+    "summary_hi": "उच्च, तकनीकी व कौशल पाठ्यक्रमों के लिए बिना गारंटी शिक्षा ऋण हेतु सरकारी गारंटी सहायता।",
+    "summary_en": "Collateral-free education loan guarantee/facilitation for higher/technical/skill courses [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Collateral-free education loan guarantee/facilitation for higher/technical/skill courses [VERIFY LATEST NOTIFICATION].",
+    "hi": "उच्च, तकनीकी व कौशल पाठ्यक्रमों के लिए बिना गारंटी शिक्षा ऋण हेतु सरकारी गारंटी सहायता।"
+  },
+  "documents_required": [
+    "Aadhaar",
+    "Delhi Domicile/Class 10 & 12 Marksheets",
+    "Admission Letter & Fee Structure",
+    "Family Income Proof",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in / Delhi Higher Ed portal.",
+    "offline": "Apply through participating bank branch / CFC in Delhi.",
+    "facilitation_center": "CFC / Participating Delhi Bank Branch"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 government fee (bank charges as applicable)",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "dl-052-dbocwwb-old-age-pension-scheme-rule-273-3-000-mo",
+  "scheme_code": "DL-052",
+  "jurisdiction": "delhi",
+  "category": "Labour & BOCW",
+  "scale": "Major",
+  "department": "DBOCWWB, Labour Dept, GNCTD",
+  "name": {
+    "hi": "निर्माण श्रमिक वृद्धावस्था पेंशन योजना (₹3,000/माह+)",
+    "en": "DBOCWWB Old Age Pension Scheme (Rule 273 — ₹3,000/month + increments)"
+  },
+  "bilingual_title": {
+    "en": "DBOCWWB Old Age Pension Scheme (Rule 273 — ₹3,000/month + increments)",
+    "hi": "निर्माण श्रमिक वृद्धावस्था पेंशन योजना (₹3,000/माह+)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://labour.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "construction_worker",
+          "laborer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "DBOCWWB-registered worker in Delhi (NCT); Haryana/UP excluded.",
+    "age_range": "60 years and above",
+    "income_cap": "Registered worker completing Rule 273 contribution tenure",
+    "category_rules": "Retired DBOCWWB construction workers.",
+    "academic_or_work_rules": "Qualifying continuous contribution years under Rule 273.",
+    "exclusions": "Insufficient board contribution years."
+  },
+  "benefit": {
+    "summary_hi": "60 वर्ष पूर्ण कर चुके पंजीकृत दिल्ली निर्माण श्रमिकों को ₹3,000/माह व वार्षिक बढ़ोतरी सहित पेंशन सहायता।",
+    "summary_en": "₹3,000/month pension (+ board increments per latest notification [VERIFY LATEST NOTIFICATION]) for retired senior construction workers."
+  },
+  "benefit_summary": {
+    "en": "₹3,000/month pension (+ board increments per latest notification [VERIFY LATEST NOTIFICATION]) for retired senior construction workers.",
+    "hi": "60 वर्ष पूर्ण कर चुके पंजीकृत दिल्ली निर्माण श्रमिकों को ₹3,000/माह व वार्षिक बढ़ोतरी सहित पेंशन सहायता।"
+  },
+  "documents_required": [
+    "DBOCWWB Card & Contribution Record",
+    "60+ Age Proof & Aadhaar",
+    "Delhi Residence Proof",
+    "Aadhaar-seeded Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "CFC / DBOCWWB District Office.",
+    "facilitation_center": "CFC / DBOCWWB Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "pb-014-punjab-farishtey-scheme-free-first-48-hr-road-ac",
+  "scheme_code": "PB-014",
+  "jurisdiction": "punjab",
+  "category": "Health",
+  "scale": "Major",
+  "department": "Health / Police / Transport Dept, Punjab",
+  "name": {
+    "hi": "पंजाब फरिश्ते योजना (सड़क दुर्घटना के पहले 48 घंटे मुफ्त इलाज + ₹2,000)",
+    "en": "Punjab Farishtey Scheme (Free First-48-Hr Road Accident Trauma Care + ₹2,000)"
+  },
+  "bilingual_title": {
+    "en": "Punjab Farishtey Scheme (Free First-48-Hr Road Accident Trauma Care + ₹2,000)",
+    "hi": "पंजाब फरिश्ते योजना (सड़क दुर्घटना के पहले 48 घंटे मुफ्त इलाज + ₹2,000)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://health.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official category / scheme notification criteria",
+    "category_rules": "Health",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजाब में सड़क दुर्घटना घायलों को पहले 48 घंटे में निःशुल्क आपात इलाज व मददगार (फरिश्ता) को ₹2,000 सम्मान राशि।",
+    "summary_en": "Free emergency golden-hour & 48-hr trauma hospitalisation regardless of residency + ₹2,000 appreciation honorarium to the rescuer."
+  },
+  "benefit_summary": {
+    "en": "Free emergency golden-hour & 48-hr trauma hospitalisation regardless of residency + ₹2,000 appreciation honorarium to the rescuer.",
+    "hi": "पंजाब में सड़क दुर्घटना घायलों को पहले 48 घंटे में निःशुल्क आपात इलाज व मददगार (फरिश्ता) को ₹2,000 सम्मान राशि।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "राशन कार्ड या परिवार पहचान दस्तावेज",
+    "मोबाइल नंबर",
+    "अस्पताल/चिकित्सा पर्ची"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (health.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://health.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "112 / 108",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

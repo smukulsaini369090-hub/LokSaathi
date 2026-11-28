@@ -1,0 +1,73 @@
+{
+  "id": "in-039-rashtriya-vayoshri-yojana-rvy-free-assisted-livi",
+  "scheme_code": "IN-039",
+  "jurisdiction": "central",
+  "category": "Pensions & Seniors",
+  "scale": "Minor",
+  "department": "Ministry of Social Justice & Empowerment (ALIMCO)",
+  "name": {
+    "hi": "राष्ट्रीय वयोश्री योजना (BPL वरिष्ठ नागरिकों को मुफ्त श्रवण/चलन/चश्मा उपकरण)",
+    "en": "Rashtriya Vayoshri Yojana (RVY — Free Assisted Living Aids for Seniors 60+)"
+  },
+  "bilingual_title": {
+    "en": "Rashtriya Vayoshri Yojana (RVY — Free Assisted Living Aids for Seniors 60+)",
+    "hi": "राष्ट्रीय वयोश्री योजना (BPL वरिष्ठ नागरिकों को मुफ्त श्रवण/चलन/चश्मा उपकरण)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://www.alimco.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "age",
+        "operator": "gte",
+        "value": 60
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 180000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "All India (Central scheme applicable across Delhi NCT, Haryana, UP, Punjab, and all states/UTs subject to scheme criteria).",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Up to ₹1,80,000/year per notified scheme norms",
+    "category_rules": "Pensions & Seniors",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "60+ आयु के गरीब वरिष्ठ नागरिकों को एलिम्को कैंपों द्वारा निःशुल्क श्रवण यंत्र, चश्मा, छड़ी, व्हीलचेयर व बत्तीसी।",
+    "summary_en": "Free spectacles, hearing aids, walking sticks, wheelchairs, walkers & dentures distributed at ALIMCO camps for BPL/low-income (<=₹15k/mo) seniors 60+."
+  },
+  "benefit_summary": {
+    "en": "Free spectacles, hearing aids, walking sticks, wheelchairs, walkers & dentures distributed at ALIMCO camps for BPL/low-income (<=₹15k/mo) seniors 60+.",
+    "hi": "60+ आयु के गरीब वरिष्ठ नागरिकों को एलिम्को कैंपों द्वारा निःशुल्क श्रवण यंत्र, चश्मा, छड़ी, व्हीलचेयर व बत्तीसी।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "आयु प्रमाण पत्र",
+    "निवास प्रमाण पत्र",
+    "बैंक पासबुक (आधार एनपीसीआई लिंक)"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (www.alimco.in)",
+    "offline": "Submit verified documents at nearest CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth",
+    "facilitation_center": "CSC Common Service Centre / myScheme (myscheme.gov.in) / UMANG / JanSamarth"
+  },
+  "apply_url": "https://www.alimco.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "CSC केंद्र पर केवल सामान्य सेवा शुल्क व रसीद लागू; सरकारी पोर्टल पर ऑनलाइन आवेदन निःशुल्क",
+    "csc_fee_note_en": "Official portal online application is free; CSC operator assistance carries only a nominal statutory fee",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "14599 / 1800-11-1555",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

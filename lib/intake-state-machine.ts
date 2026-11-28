@@ -12,6 +12,7 @@ import {
   evaluateSchemeEligibility,
   type EligibilityAuditResult,
 } from "@/lib/eligibility-evaluator";
+import { detectSchemeRedirect, type SchemeRedirectEntry } from "@/lib/scheme-redirects";
 
 export type CoreIntakeField =
   | "state"
@@ -55,8 +56,9 @@ export interface IntakeStateMachineOutput {
   pending_fields: CoreIntakeField[];
   potential_schemes_count: number;
   matched_schemes: SchemeMatch[];
-  target_scheme: { id: string; name: { hi: string; en: string } } | null;
+  target_scheme: { id: string; name: { hi: string; en: string }; scheme_code?: string } | null;
   eligibility_audit: EligibilityAuditResult | null;
+  scheme_redirect?: SchemeRedirectEntry | null;
 }
 
 /**
@@ -643,10 +645,56 @@ export function runIntakeStateMachine(
     );
   }
 
-  // Check if query targets a specific scheme
-  const targetScheme: Scheme | null = targetSchemeId
-    ? allSchemes.find((s) => s.id === targetSchemeId) || null
+  // Check if query references a discontinued, merged, or viral/fake scheme name
+  const schemeRedirect = targetSchemeId ? null : detectSchemeRedirect(userMessage);
+
+  // Check if query targets a specific scheme (direct target ID, keyword, code, or redirect replacement)
+  let targetScheme: Scheme | null = targetSchemeId
+    ? allSchemes.find(
+        (s) =>
+          s.id === targetSchemeId ||
+          s.scheme_code?.toLowerCase() === targetSchemeId.toLowerCase()
+      ) || null
     : detectTargetScheme(userMessage, allSchemes);
+
+  if (!targetScheme && schemeRedirect && schemeRedirect.replacement_codes.length > 0) {
+    for (const code of schemeRedirect.replacement_codes) {
+      targetScheme =
+        allSchemes.find(
+          (s) =>
+            s.scheme_code?.toLowerCase() === code.toLowerCase() ||
+            s.id.toLowerCase() === code.toLowerCase()
+        ) || null;
+      if (targetScheme) break;
+    }
+  }
+
+  const redirectNoticePrefix = schemeRedirect
+    ? `${language === "hi" ? schemeRedirect.alert_title_hi : schemeRedirect.alert_title_en}\n${
+        language === "hi" ? schemeRedirect.alert_message_hi : schemeRedirect.alert_message_en
+      }\n\n`
+    : "";
+
+  if (schemeRedirect && !targetScheme) {
+    const matched = matchSchemes(mergedProfile, allSchemes);
+    return {
+      extracted_profile_updates: combinedUpdates,
+      merged_profile: mergedProfile,
+      next_question: redirectNoticePrefix.trim(),
+      suggested_chips:
+        language === "hi"
+          ? ["सभी उपयुक्त योजनाएं खोजें", "नई जांच शुरू करें"]
+          : ["Discover all eligible schemes", "Start Fresh"],
+      is_profile_complete: false,
+      needs_state_disambiguation: false,
+      pending_fields: getPendingCoreFields(mergedProfile),
+      potential_schemes_count: matched.length,
+      matched_schemes: matched,
+      target_scheme: null,
+      eligibility_audit: null,
+      scheme_redirect: schemeRedirect,
+    };
+  }
 
   let eligibilityAudit: EligibilityAuditResult | null = null;
   if (targetScheme) {
@@ -670,17 +718,20 @@ export function runIntakeStateMachine(
       return {
         extracted_profile_updates: combinedUpdates,
         merged_profile: mergedProfile,
-        next_question: llmResult?.next_question && !isDelhiNCRAmbiguous(userMessage) && llmResult?.profile_updates
-          ? promptSpec.question
-          : promptSpec.question,
+        next_question: redirectNoticePrefix + promptSpec.question,
         suggested_chips: promptSpec.chips,
         is_profile_complete: false,
         needs_state_disambiguation: needsStateDisambiguation,
         pending_fields: getPendingCoreFields(mergedProfile),
         potential_schemes_count: matched.length,
         matched_schemes: matched,
-        target_scheme: { id: targetScheme.id, name: targetScheme.name },
+        target_scheme: {
+          id: targetScheme.id,
+          scheme_code: targetScheme.scheme_code,
+          name: targetScheme.name,
+        },
         eligibility_audit: eligibilityAudit,
+        scheme_redirect: schemeRedirect,
       };
     }
 
@@ -690,9 +741,10 @@ export function runIntakeStateMachine(
       extracted_profile_updates: combinedUpdates,
       merged_profile: mergedProfile,
       next_question:
-        language === "hi"
+        redirectNoticePrefix +
+        (language === "hi"
           ? eligibilityAudit.summary_hi
-          : eligibilityAudit.summary_en,
+          : eligibilityAudit.summary_en),
       suggested_chips:
         language === "hi"
           ? ["सभी उपयुक्त योजनाएं खोजें", "नई जांच शुरू करें"]
@@ -702,8 +754,13 @@ export function runIntakeStateMachine(
       pending_fields: getPendingCoreFields(mergedProfile),
       potential_schemes_count: matched.length,
       matched_schemes: matched,
-      target_scheme: { id: targetScheme.id, name: targetScheme.name },
+      target_scheme: {
+        id: targetScheme.id,
+        scheme_code: targetScheme.scheme_code,
+        name: targetScheme.name,
+      },
       eligibility_audit: eligibilityAudit,
+      scheme_redirect: schemeRedirect,
     };
   }
 

@@ -1,0 +1,79 @@
+{
+  "id": "up-067-upbocw-matritva-shishu-evam-balika-madad-yojana",
+  "scheme_code": "UP-067",
+  "jurisdiction": "up",
+  "category": "Labour & BOCW",
+  "scale": "Major",
+  "department": "UP Building & Other Construction Workers Welfare Board (UPBOCWWB)",
+  "name": {
+    "hi": "यूपी बीओसीडब्ल्यू मातृत्व, शिशु एवं बालिका मदद योजना",
+    "en": "UPBOCW Matritva, Shishu Evam Balika Madad Yojana"
+  },
+  "bilingual_title": {
+    "en": "UPBOCW Matritva, Shishu Evam Balika Madad Yojana",
+    "hi": "यूपी बीओसीडब्ल्यू मातृत्व, शिशु एवं बालिका मदद योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://upbocw.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "up"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "laborer",
+          "construction_worker",
+          "street_vendor",
+          "artisan"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Uttar Pradesh domicile/UP Family ID (familyid.up.gov.in) required across all 75 districts (incl. UP NCR: Noida/Gautam Buddha Nagar, Ghaziabad, Hapur, Meerut, Bulandshahr, Baghpat); Delhi NCT & Haryana excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Labour & BOCW",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "पंजीकृत निर्माण श्रमिक परिवार में प्रसव व शिशु देखभाल हेतु ₹20,000 (पुत्र) या ₹25,000 (पुत्री FD) व मातृत्व लाभ।",
+    "summary_en": "3-month wage maternity benefit + ₹20,000 (boy) or ₹25,000 (girl FD) plus ₹6,000 paternity benefit for registered UP construction workers (up to 2 children)."
+  },
+  "benefit_summary": {
+    "en": "3-month wage maternity benefit + ₹20,000 (boy) or ₹25,000 (girl FD) plus ₹6,000 paternity benefit for registered UP construction workers (up to 2 children).",
+    "hi": "पंजीकृत निर्माण श्रमिक परिवार में प्रसव व शिशु देखभाल हेतु ₹20,000 (पुत्र) या ₹25,000 (पुत्री FD) व मातृत्व लाभ।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "ई-श्रम यूएएन / श्रमिक बोर्ड पंजीकरण कार्ड",
+    "बैंक खाता पासबुक",
+    "मोबाइल नंबर"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (upbocw.in)",
+    "offline": "Submit verified documents at nearest Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID",
+    "facilitation_center": "Jan Seva Kendra (CSC) / e-Sathi (esathi.up.gov.in) + UP Family ID"
+  },
+  "apply_url": "https://upbocw.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "up",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "जन सेवा केंद्र पर निर्धारित ई-डिस्ट्रिक्ट शुल्क (₹15–₹30) से अधिक न दें व पक्की रसीद लें",
+    "csc_fee_note_en": "Jan Seva Kendra official e-District charge only (always collect Application Tracking Slip)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

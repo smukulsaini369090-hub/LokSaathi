@@ -1,0 +1,74 @@
+{
+  "id": "pb-072-special-schools-braille-library-and-vocational-r",
+  "scheme_code": "PB-072",
+  "jurisdiction": "punjab",
+  "category": "Divyangjan Welfare",
+  "scale": "Minor",
+  "department": "Social Security / School Education Dept, Punjab",
+  "name": {
+    "hi": "पंजाब विशेष विद्यालय, ब्रेल पुस्तकालय एवं व्यावसायिक पुनर्वास केंद्र",
+    "en": "Special Schools, Braille Library & Vocational Rehab for Divyangjan (Punjab)"
+  },
+  "bilingual_title": {
+    "en": "Special Schools, Braille Library & Vocational Rehab for Divyangjan (Punjab)",
+    "hi": "पंजाब विशेष विद्यालय, ब्रेल पुस्तकालय एवं व्यावसायिक पुनर्वास केंद्र"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://sswcd.punjab.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "punjab"
+      },
+      {
+        "field": "is_disabled",
+        "operator": "eq",
+        "value": true
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Punjab permanent residence/domicile required across Punjab districts; non-Punjab residents excluded.",
+    "age_range": "As per scheme rules / age eligibility criteria",
+    "income_cap": "Per official department notification / income slab criteria",
+    "category_rules": "Divyangjan Welfare",
+    "academic_or_work_rules": "As specified in official scheme notification",
+    "exclusions": "Applicants not meeting statutory residency/income/category rules or claiming overlapping benefit"
+  },
+  "benefit": {
+    "summary_hi": "दृष्टिबाधित व श्रवणबाधित बच्चों हेतु पटियाला व अन्य सरकारी विशेष विद्यालयों में मुफ्त आवासीय शिक्षा व कौशल प्रशिक्षण।",
+    "summary_en": "Free residential schooling & vocational skills for visually, hearing and speech impaired students at Patiala, Jamalpur & state centres."
+  },
+  "benefit_summary": {
+    "en": "Free residential schooling & vocational skills for visually, hearing and speech impaired students at Patiala, Jamalpur & state centres.",
+    "hi": "दृष्टिबाधित व श्रवणबाधित बच्चों हेतु पटियाला व अन्य सरकारी विशेष विद्यालयों में मुफ्त आवासीय शिक्षा व कौशल प्रशिक्षण।"
+  },
+  "documents_required": [
+    "आधार कार्ड",
+    "सीएमओ (मुख्य चिकित्सा अधिकारी) द्वारा जारी दिव्यांगता प्रमाण पत्र (न्यूनतम 40%)",
+    "निवास प्रमाण पत्र",
+    "बैंक खाता पासबुक"
+  ],
+  "application_steps": {
+    "online": "Apply via official portal (sswcd.punjab.gov.in)",
+    "offline": "Submit verified documents at nearest Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery",
+    "facilitation_center": "Sewa Kendra / Connect Punjab (esewa.punjab.gov.in) & 1076 Doorstep Delivery"
+  },
+  "apply_url": "https://sswcd.punjab.gov.in",
+  "deadline": null,
+  "confidence": "verified",
+  "verification_status": "verified",
+  "state": "punjab",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0 (Official government portal application is free unless statutory challan is notified)",
+    "csc_fee_note_hi": "पंजाब सेवा केंद्र पर केवल आधिकारिक RTS शुल्क रसीद के साथ दें",
+    "csc_fee_note_en": "Punjab Sewa Kendra statutory RTS facilitation fee with printed acknowledgement slip only",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1100 / 1076",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

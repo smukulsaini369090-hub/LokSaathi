@@ -1,0 +1,80 @@
+{
+  "id": "dl-034-mukhyamantri-kisan-aay-badhotari-solar-yojana-fa",
+  "scheme_code": "DL-034",
+  "jurisdiction": "delhi",
+  "category": "Agriculture & Animal Husbandry",
+  "scale": "Minor",
+  "department": "Development / Power / Revenue Dept, GNCTD",
+  "name": {
+    "hi": "मुख्यमंत्री किसान आय बढ़ोतरी सोलर योजना",
+    "en": "Mukhyamantri Kisan Aay Badhotari Solar Yojana (Farm Solar Leasing)"
+  },
+  "bilingual_title": {
+    "en": "Mukhyamantri Kisan Aay Badhotari Solar Yojana (Farm Solar Leasing)",
+    "hi": "मुख्यमंत्री किसान आय बढ़ोतरी सोलर योजना"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://development.delhi.gov.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "occupation",
+        "operator": "includes",
+        "value": [
+          "farmer"
+        ]
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Agricultural land inside NCT of Delhi; Haryana/UP NCR farmland excluded.",
+    "age_range": "Adult farmers / landowners (18+)",
+    "income_cap": "Landowning farmers",
+    "category_rules": "Agricultural landowners in Delhi.",
+    "academic_or_work_rules": "Active Khatauni land record.",
+    "exclusions": "Farmland outside Delhi NCT."
+  },
+  "benefit": {
+    "summary_hi": "दिल्ली के किसानों की कृषि भूमि के हिस्से पर सौर ऊर्जा पैनल लगाकर अतिरिक्त किराया/आय अर्जन योजना ([नोटिस जांचें])।",
+    "summary_en": "Solar power generation / land leasing income opportunity on Delhi agricultural land per active notification [VERIFY LATEST NOTIFICATION]."
+  },
+  "benefit_summary": {
+    "en": "Solar power generation / land leasing income opportunity on Delhi agricultural land per active notification [VERIFY LATEST NOTIFICATION].",
+    "hi": "दिल्ली के किसानों की कृषि भूमि के हिस्से पर सौर ऊर्जा पैनल लगाकर अतिरिक्त किराया/आय अर्जन योजना ([नोटिस जांचें])।"
+  },
+  "documents_required": [
+    "Agricultural Land Khatauni",
+    "Aadhaar Card",
+    "Delhi Residence Proof",
+    "Bank Passbook & NOC"
+  ],
+  "application_steps": {
+    "online": "Check development.delhi.gov.in / edistrict.delhigovt.nic.in.",
+    "offline": "Contact Block Development Office (BDO) / CFC.",
+    "facilitation_center": "BDO Office / Citizen Facilitation Centre (CFC)"
+  },
+  "apply_url": "https://development.delhi.gov.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}

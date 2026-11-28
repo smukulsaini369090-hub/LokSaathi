@@ -1,0 +1,79 @@
+{
+  "id": "dl-030-delhi-family-benefit-scheme-nfbs-lump-sum-on-bre",
+  "scheme_code": "DL-030",
+  "jurisdiction": "delhi",
+  "category": "Pensions & Seniors",
+  "scale": "Minor",
+  "department": "Social Welfare Dept, GNCTD (with NSAP)",
+  "name": {
+    "hi": "दिल्ली परिवार लाभ योजना (NFBS)",
+    "en": "Delhi Family Benefit Scheme (NFBS — Lump Sum on Breadwinner's Death)"
+  },
+  "bilingual_title": {
+    "en": "Delhi Family Benefit Scheme (NFBS — Lump Sum on Breadwinner's Death)",
+    "hi": "दिल्ली परिवार लाभ योजना (NFBS)"
+  },
+  "last_verified": "2026-11-28",
+  "source_url": "https://nsap.nic.in",
+  "eligibility": {
+    "must_match_all": [
+      {
+        "field": "state",
+        "operator": "eq",
+        "value": "delhi"
+      },
+      {
+        "field": "annual_income_inr",
+        "operator": "lte",
+        "value": 100000
+      }
+    ],
+    "must_match_none": []
+  },
+  "eligibility_criteria": {
+    "domicile_ncr_rule": "Delhi (NCT) residency criteria; Haryana/UP NCR use respective state portals.",
+    "age_range": "Deceased breadwinner aged 18–59/60 years",
+    "income_cap": "Low-income / BPL family norms [VERIFY LATEST NOTIFICATION]",
+    "category_rules": "Bereaved BPL / low-income families.",
+    "academic_or_work_rules": "Primary breadwinner death proof.",
+    "exclusions": "Families exceeding poverty threshold."
+  },
+  "benefit": {
+    "summary_hi": "परिवार के मुख्य कमाऊ सदस्य के निधन पर दिल्ली परिवार को एकमुश्त ₹20,000 (NFBS नियमानुसार) की आर्थिक सहायता।",
+    "summary_en": "One-time lump-sum aid (typically ₹20,000 under NFBS norms [VERIFY LATEST NOTIFICATION]) upon primary breadwinner's death."
+  },
+  "benefit_summary": {
+    "en": "One-time lump-sum aid (typically ₹20,000 under NFBS norms [VERIFY LATEST NOTIFICATION]) upon primary breadwinner's death.",
+    "hi": "परिवार के मुख्य कमाऊ सदस्य के निधन पर दिल्ली परिवार को एकमुश्त ₹20,000 (NFBS नियमानुसार) की आर्थिक सहायता।"
+  },
+  "documents_required": [
+    "Breadwinner's Death Certificate",
+    "Applicant Aadhaar & Relationship Proof",
+    "Delhi Residence Proof",
+    "Income Certificate",
+    "Bank Account"
+  ],
+  "application_steps": {
+    "online": "Apply on edistrict.delhigovt.nic.in.",
+    "offline": "District Social Welfare Office / CFC.",
+    "facilitation_center": "CFC / District Social Welfare Office"
+  },
+  "apply_url": "https://edistrict.delhigovt.nic.in",
+  "deadline": null,
+  "confidence": "needs-verification",
+  "verification_status": "verify_latest_notification",
+  "verification_note": {
+    "hi": "नोट ([VERIFY LATEST NOTIFICATION]): वर्तमान 2026–27 सक्रिय आवेदन विंडो, स्लैब व अंतिम नियम कृपया आधिकारिक सरकारी पोर्टल पर सत्यापित करें।",
+    "en": "Notice ([VERIFY LATEST NOTIFICATION]): Always verify active 2026–27 window, exact slab/amount, and current circular on the official portal before applying."
+  },
+  "state": "delhi",
+  "anti_dalal": {
+    "official_fee_inr": 0,
+    "official_fee": "₹0",
+    "csc_fee_note_hi": "सरकारी CFC या CSC केंद्र पर केवल निर्धारित सेवा शुल्क (₹0–₹50) व पक्की रसीद लागू",
+    "csc_fee_note_en": "Nominal authorized CFC/CSC facilitation fee only (always take printed receipt)",
+    "receipt_rule": "Always collect your official Acknowledgement Slip & Reference Number after submission. Never pay without a printed receipt.",
+    "helpline": "1076 / 1967",
+    "middleman_warning": "Never pay agents/middlemen promising guaranteed approval or faster clearance. Benefits are disbursed strictly via DBT / official portals."
+  }
+}
