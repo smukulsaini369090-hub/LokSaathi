@@ -98,6 +98,7 @@ export function SchemeCard({
               />
               <Link
                 href={`/schemes/${scheme.id}#eligibility-check`}
+                prefetch={false}
                 className="text-[11px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-bold hover:bg-emerald-100 transition-colors inline-flex items-center gap-1 shadow-2xs"
               >
                 <Sparkles className="w-3 h-3 text-emerald-600" />
@@ -109,7 +110,7 @@ export function SchemeCard({
                 </span>
               )}
             </div>
-            <Link href={`/schemes/${scheme.id}`} className="hover:text-blue-600 transition-colors">
+            <Link href={`/schemes/${scheme.id}`} prefetch={false} className="hover:text-blue-600 transition-colors">
               <h3 className="text-lg font-bold text-gray-900 leading-snug">
                 {schemeName}
               </h3>
@@ -213,6 +214,7 @@ export function SchemeCard({
       <div className="pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
         <Link
           href={`/schemes/${scheme.id}#eligibility-check`}
+          prefetch={false}
           className="inline-flex items-center justify-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold py-2.5 px-3 rounded-xl border border-emerald-200 transition-colors shadow-2xs"
           title={language === "hi" ? "पात्रता जांचें" : "Check Eligibility"}
         >

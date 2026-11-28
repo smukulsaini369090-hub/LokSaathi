@@ -36,6 +36,23 @@ interface Message {
   schemeRedirect?: SchemeRedirectEntry;
 }
 
+/**
+ * Safely renders **bold** spans inside chat bubbles as <strong> elements without raw asterisks.
+ */
+function renderFormattedChatText(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, idx) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+      return (
+        <strong key={idx} className="font-bold">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <React.Fragment key={idx}>{part}</React.Fragment>;
+  });
+}
+
 interface VoiceInterviewProps {
   language: "hi" | "en";
   onProfileComplete: (profile: UserProfile, matches: SchemeMatch[]) => void;
@@ -647,7 +664,7 @@ export function VoiceInterview({
             >
               <div className="flex items-start justify-between gap-2.5">
                 <div className="leading-relaxed whitespace-pre-line">
-                  {msg.text}
+                  {renderFormattedChatText(msg.text)}
                 </div>
                 {msg.role === "model" && (
                   <button
@@ -773,6 +790,7 @@ export function VoiceInterview({
                             <Link
                               key={aIdx}
                               href={`/schemes/${alt.scheme.id}`}
+                              prefetch={false}
                               className="text-[11px] font-medium bg-blue-50 text-blue-700 border border-blue-200 rounded-lg px-2 py-0.5 hover:bg-blue-100 transition-colors"
                             >
                               {language === "hi" ? alt.scheme.name.hi : alt.scheme.name.en} →
@@ -785,6 +803,7 @@ export function VoiceInterview({
                   <div className="pt-2 flex items-center justify-between gap-2 border-t border-slate-200">
                     <Link
                       href={`/schemes/${msg.auditResult.schemeId}#eligibility-check`}
+                      prefetch={false}
                       className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 hover:underline"
                     >
                       <span>

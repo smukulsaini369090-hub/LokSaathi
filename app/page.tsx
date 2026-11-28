@@ -44,7 +44,15 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => (isPlaying ? stop() : speak(welcomeText, language))}
-            aria-label={isPlaying ? "रोकें" : "बोलकर सुनें"}
+            aria-label={
+              language === "hi"
+                ? isPlaying
+                  ? "आवाज रोकें"
+                  : "बोलकर सुनें"
+                : isPlaying
+                ? "Stop Voice"
+                : "Listen in Voice"
+            }
             className="inline-flex items-center gap-2 bg-white text-blue-700 hover:bg-blue-50 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm"
           >
             {isPlaying ? (
@@ -55,7 +63,7 @@ export default function HomePage() {
             ) : (
               <>
                 <Volume2 className="w-3.5 h-3.5" />
-                <span>{language === "hi" ? "🔊 बोलकर सुनें" : "🔊 Listen in Voice"}</span>
+                <span>{language === "hi" ? "बोलकर सुनें" : "Listen in Voice"}</span>
               </>
             )}
           </button>

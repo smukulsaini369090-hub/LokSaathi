@@ -449,8 +449,8 @@ function buildPromptAndChipsForField(
       return {
         question:
           language === "hi"
-            ? "दिल्ली-एनसीआर में सरकारी योजनाओं की पात्रता आपके **असली निवास राज्य (राशन कार्ड / आधार के पते)** पर निर्भर करती है। कृपया बताएं आप किस क्षेत्र के निवासी हैं?"
-            : "In Delhi NCR, welfare eligibility depends strictly on your legal **state of residence**. Please select which jurisdiction applies to you:",
+            ? "दिल्ली-एनसीआर में सरकारी योजनाओं की पात्रता आपके असली निवास राज्य (राशन कार्ड / आधार के पते) पर निर्भर करती है। कृपया बताएं आप किस क्षेत्र के निवासी हैं?"
+            : "In Delhi NCR, welfare eligibility depends strictly on your legal state of residence. Please select which jurisdiction applies to you:",
         chips:
           language === "hi"
             ? [

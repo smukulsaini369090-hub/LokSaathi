@@ -236,12 +236,19 @@ export function AntiDalalShield({ scheme, compact = false }: AntiDalalShieldProp
           <PhoneCall className="w-3.5 h-3.5 text-blue-600 shrink-0" />
           <span>
             {language === "hi" ? "शिकायत हेल्पलाइन:" : "Helpline:"}{" "}
-            <a
-              href={`tel:${info.helpline}`}
-              className="font-black text-blue-700 hover:underline"
-            >
-              {info.helpline}
-            </a>
+            {(() => {
+              const dialable = info.helpline.split("/")[0].replace(/[^0-9+]/g, "");
+              return dialable.length >= 3 ? (
+                <a
+                  href={`tel:${dialable}`}
+                  className="font-black text-blue-700 hover:underline"
+                >
+                  {info.helpline}
+                </a>
+              ) : (
+                <span className="font-bold text-slate-800">{info.helpline}</span>
+              );
+            })()}
           </span>
         </div>
       </div>

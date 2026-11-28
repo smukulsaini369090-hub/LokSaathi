@@ -115,6 +115,7 @@ export default async function SchemeDetailPage({
                     <Link
                       key={rep.id}
                       href={`/schemes/${rep.id}`}
+                      prefetch={false}
                       className="flex items-center justify-between gap-3 bg-white hover:bg-blue-50 border border-blue-200 rounded-2xl p-4 transition-colors shadow-xs"
                     >
                       <div className="min-w-0">

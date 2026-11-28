@@ -67,6 +67,7 @@ describe("Phase 1 & 3: Multi-Turn Progressive Intake State Machine & Production 
     expect(body.merged_profile?.state).toBeUndefined();
     expect(body.is_profile_complete).toBe(false);
     expect(body.next_question).toMatch(/NCR|दिल्ली|हरियाणा|यूपी|निवास/i);
+    expect(body.next_question).not.toContain("**");
     expect(body.suggested_chips.some((c: string) => /NCT|दिल्ली/i.test(c))).toBe(true);
     expect(body.suggested_chips.some((c: string) => /हरियाणा|Haryana/i.test(c))).toBe(true);
     expect(body.suggested_chips.some((c: string) => /यूपी|UP/i.test(c))).toBe(true);

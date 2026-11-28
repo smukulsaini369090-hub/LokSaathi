@@ -67,6 +67,20 @@ describe("Discontinued, Merged & Fake Scheme Redirect Registry", () => {
     expect(detectSchemeRedirect("Seekho Aur Kamao minority")?.replacement_codes).toContain("IN-080");
     expect(detectSchemeRedirect("PMAY-U 1.0 CLSS interest subsidy")?.replacement_codes).toContain("IN-055");
     expect(detectSchemeRedirect("PMVVY senior citizen")?.status).toBe("discontinued");
+    expect(detectSchemeRedirect("Jai Bhim Mukhyamantri Pratibha Vikas Yojana")?.status).toBe("verify_latest_notification");
+    expect(detectSchemeRedirect("Farishtey Dilli Ke")?.status).toBe("verify_latest_notification");
+    expect(detectSchemeRedirect("1076 Doorstep Delivery Delhi")?.status).toBe("verify_latest_notification");
+    expect(detectSchemeRedirect("Manual BPL Haryana")?.replacement_codes).toEqual(["HR-032", "HR-104"]);
+    expect(detectSchemeRedirect("Pre-2021 Haryana Scholarship portal")?.replacement_codes).toContain("HR-012");
+    expect(detectSchemeRedirect("Lado Lakshmi split payout")?.replacement_codes).toEqual(["HR-023"]);
+    expect(detectSchemeRedirect("UP Berozgari Bhatta 2012")?.replacement_codes).toEqual(["UP-056", "UP-004", "UP-060"]);
+    expect(detectSchemeRedirect("1000 women punjab")?.status).toBe("verify_latest_notification");
+    expect(detectSchemeRedirect("Padho Pardesh")?.status).toBe("discontinued");
+    expect(detectSchemeRedirect("USTTAD")?.replacement_codes).toContain("IN-080");
+    expect(detectSchemeRedirect("Hamari Dharohar")?.replacement_codes).toContain("IN-080");
+    expect(detectSchemeRedirect("Nai Roshni")?.replacement_codes).toContain("IN-080");
+    expect(detectSchemeRedirect("Nai Manzil")?.replacement_codes).toContain("IN-080");
+    expect(detectSchemeRedirect("MSSC")?.replacement_codes).toContain("IN-027");
   });
 
   it("surfaces scheme_redirect alert inside conversational intake state machine and /api/scheme-match", async () => {

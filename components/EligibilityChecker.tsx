@@ -58,18 +58,26 @@ export function EligibilityChecker({
   const { language } = useLanguage();
   const { speak, stop, isPlaying, prewarmTTS } = useSpeechSynthesis();
 
+  // Initialize identically to SSR ({} unless initialProfile prop passed) to prevent React #418 hydration mismatch
   const [profile, setProfile] = useState<Partial<UserProfile>>(() => {
     return initialProfile && Object.keys(initialProfile).length > 0
       ? initialProfile
-      : getStoredUserProfile();
+      : {};
   });
 
   const [isEditing, setIsEditing] = useState(false);
   const [expandedDocGuide, setExpandedDocGuide] = useState<string | null>(null);
   const [readyDocs, setReadyDocs] = useState<Record<string, boolean>>({});
 
-  // Sync from localStorage and listen to cross-tab/component updates
+  // Load persisted profile after mount (post-hydration) and listen to cross-tab/component updates
   useEffect(() => {
+    if (!initialProfile || Object.keys(initialProfile).length === 0) {
+      const stored = getStoredUserProfile();
+      if (stored && Object.keys(stored).length > 0) {
+        setProfile(stored);
+      }
+    }
+
     const handleProfileUpdate = (e: Event) => {
       const customEvent = e as CustomEvent<Partial<UserProfile>>;
       if (customEvent.detail) {
@@ -81,7 +89,7 @@ export function EligibilityChecker({
 
     window.addEventListener(PROFILE_UPDATED_EVENT, handleProfileUpdate);
     return () => window.removeEventListener(PROFILE_UPDATED_EVENT, handleProfileUpdate);
-  }, []);
+  }, [initialProfile]);
 
   // Compute audit result deterministically
   const audit: EligibilityAuditResult = useMemo(() => {
@@ -739,6 +747,7 @@ export function EligibilityChecker({
               <Link
                 key={idx}
                 href={`/schemes/${alt.scheme.id}`}
+                prefetch={false}
                 className="p-3.5 bg-blue-50/50 hover:bg-blue-50 border border-blue-200/80 rounded-2xl transition-all shadow-2xs group flex flex-col justify-between"
               >
                 <div>

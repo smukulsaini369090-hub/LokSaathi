@@ -145,11 +145,12 @@ export function resolveAntiDalalInfo(
   const custom: AntiDalalRules = scheme.anti_dalal || {};
 
   // 1. Official Application Fee
+  const hasHindi = (s?: string) => Boolean(s && /[\u0900-\u097F]/.test(s));
   let officialFeeLabel: string;
   if (language === "hi") {
     officialFeeLabel =
       custom.fee_label_hi ||
-      custom.official_fee ||
+      (hasHindi(custom.official_fee) ? custom.official_fee : undefined) ||
       (custom.official_fee_inr !== undefined && custom.official_fee_inr > 0
         ? `₹${custom.official_fee_inr} (आधिकारिक सरकारी शुल्क)`
         : "₹0 (निःशुल्क सरकारी पोर्टल आवेदन)");
@@ -175,7 +176,7 @@ export function resolveAntiDalalInfo(
   // 4. Receipt (Acknowledgement Slip) Rule
   const receiptRule =
     (language === "hi" ? custom.receipt_rule_hi : custom.receipt_rule_en) ||
-    custom.receipt_rule ||
+    (language === "en" || hasHindi(custom.receipt_rule) ? custom.receipt_rule : undefined) ||
     (language === "hi"
       ? "आवेदन के बाद ऑपरेटर से पक्की रसीद (Acknowledgement Slip) व संदर्भ संख्या (Application ID) ज़रूर लें — बिना रसीद ₹1 भी न दें!"
       : "Always collect your official acknowledgement slip and application reference number after submission — never pay without a receipt!");
@@ -183,7 +184,7 @@ export function resolveAntiDalalInfo(
   // 5. Anti-Dalal Warning
   const antiDalalWarning =
     (language === "hi" ? custom.anti_dalal_warning_hi : custom.anti_dalal_warning_en) ||
-    custom.middleman_warning ||
+    (language === "en" || hasHindi(custom.middleman_warning) ? custom.middleman_warning : undefined) ||
     (language === "hi"
       ? "दलालों से सावधान: कोई भी एजेंट 'पैसे लेकर गारंटी से योजना पास कराने' या 'सर्वर डाउन' का झांसा दे तो पैसे न दें। योजना केवल पात्रता पर स्वीकृत होती है।"
       : "Anti-Dalal Alert: Never pay middlemen claiming 'guaranteed fast approval' or 'server setting'. Welfare schemes are approved strictly on factual eligibility.");

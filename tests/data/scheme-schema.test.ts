@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readdirSync, readFileSync, statSync, existsSync } from "fs";
 import { join } from "path";
 import type { Scheme, SchemeCategory, SchemeJurisdiction } from "@/lib/scheme-types";
+import { translateDocumentName } from "@/lib/document-guides";
 
 const REQUIRED_FIELDS: (keyof Scheme)[] = [
   "id",
@@ -135,5 +136,27 @@ describe("Scheme JSON schema & 519-scheme catalog validation", () => {
     }
 
     expect(verifyLatestCount).toBe(102);
+  });
+
+  it("ensures 100% bilingual document translation parity (0 Devanagari in EN mode, 0 untranslated ASCII in HI mode)", () => {
+    const devanagariRe = /[\u0900-\u097F]/;
+    const leakedEn: string[] = [];
+    const leakedHi: string[] = [];
+
+    for (const { data } of schemes) {
+      for (const doc of data.documents_required) {
+        const enDoc = translateDocumentName(doc, "en");
+        const hiDoc = translateDocumentName(doc, "hi");
+        if (devanagariRe.test(enDoc)) {
+          leakedEn.push(`${data.scheme_code}: ${doc} -> ${enDoc}`);
+        }
+        if (!devanagariRe.test(hiDoc)) {
+          leakedHi.push(`${data.scheme_code}: ${doc} -> ${hiDoc}`);
+        }
+      }
+    }
+
+    expect(leakedEn, `Devanagari leaked in English mode:\n${leakedEn.slice(0, 10).join("\n")}`).toEqual([]);
+    expect(leakedHi, `English untranslated in Hindi mode:\n${leakedHi.slice(0, 10).join("\n")}`).toEqual([]);
   });
 });

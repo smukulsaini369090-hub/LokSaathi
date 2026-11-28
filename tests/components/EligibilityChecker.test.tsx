@@ -1,4 +1,5 @@
 import React from "react";
+import { renderToString } from "react-dom/server";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { EligibilityChecker } from "@/components/EligibilityChecker";
@@ -154,5 +155,26 @@ describe("EligibilityChecker Component (components/EligibilityChecker.tsx)", () 
     renderComponent();
     expect(await screen.findByText("Am I Eligible for this Scheme?")).toBeInTheDocument();
     expect(screen.getByText(/Exact Eligibility Audit/i)).toBeInTheDocument();
+  });
+
+  it("matches SSR HTML on initial pass even when localStorage already has a saved profile (no React #418 hydration mismatch)", () => {
+    const emptyRender = renderToString(
+      <LanguageProvider>
+        <EligibilityChecker scheme={mockScheme} allSchemes={[mockScheme, mockAlternativeScheme]} />
+      </LanguageProvider>
+    );
+
+    localStorage.setItem(
+      USER_PROFILE_STORAGE_KEY,
+      JSON.stringify({ state: "delhi", occupation: ["farmer"], land_owned_acres: 2 })
+    );
+
+    const populatedFirstPassRender = renderToString(
+      <LanguageProvider>
+        <EligibilityChecker scheme={mockScheme} allSchemes={[mockScheme, mockAlternativeScheme]} />
+      </LanguageProvider>
+    );
+
+    expect(populatedFirstPassRender).toBe(emptyRender);
   });
 });

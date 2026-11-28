@@ -107,13 +107,13 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ## Testing & Verification
 
-LokSaathi is verified by a **137-test automated suite across 28 test files** (including 519-scheme schema validation, redirect tests, multi-turn intake state-machine integration tests, and security red-team tests):
+LokSaathi is verified by a **139-test automated suite across 28 test files** (including 519-scheme schema validation, redirect tests, multi-turn intake state-machine integration tests, and security red-team tests):
 
 ```bash
 # Run TypeScript type verification
 npx tsc --noEmit
 
-# Run all 137 unit, integration & security tests
+# Run all 139 unit, integration & security tests
 npx vitest run
 
 # Build production bundle

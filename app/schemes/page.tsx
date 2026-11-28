@@ -373,6 +373,7 @@ export default function SchemesPage() {
                       <Link
                         key={rep.id}
                         href={`/schemes/${rep.id}`}
+                        prefetch={false}
                         className="inline-flex items-center gap-1.5 bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 rounded-xl px-3 py-1.5 text-xs font-bold shadow-2xs transition-colors"
                       >
                         <span className="font-mono text-[11px] text-blue-800">{code}</span>
