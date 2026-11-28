@@ -1,117 +1,121 @@
-# 🇮🇳 लोकसाथी (LokSaathi) — AI Citizen Welfare Companion
+# LokSaathi (लोकसाथी) 🇮🇳
 
-> **Empowering 1.4 Billion Citizens to Discover, Understand, and Claim Government Welfare Schemes.**  
-> Built with Next.js 16, Gemini Flash, DPDP Act 2023 on-device privacy redaction, and offline PWA support.
+**Zero-Guesswork, Anti-Dalal Civic Welfare & Government Scheme Assistant for Bharat — Built at ₹0 Infrastructure Cost.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Next.js-16.4-black)](https://nextjs.org/)
-[![PWA](https://img.shields.io/badge/PWA-Ready-green)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
-[![Tests](https://img.shields.io/badge/Tests-139%20Passed-brightgreen)](https://vitest.dev)
-[![Architecture](https://img.shields.io/badge/Budget-%E2%82%B90%20Zero%20Cost-orange)](https://github.com)
+[![Live App](https://img.shields.io/badge/Live-lok--saathi.vercel.app-0F766E?style=for-the-badge)](https://lok-saathi.vercel.app)
+[![Schemes Indexed](https://img.shields.io/badge/Verified_Index-519_Schemes-1D4ED8?style=for-the-badge)](#jurisdiction--scheme-coverage)
+[![Cost](https://img.shields.io/badge/Operating_Cost-%E2%82%B90-15803D?style=for-the-badge)](#architecture--zero-cost-engineering)
+[![Security Hardened](https://img.shields.io/badge/Security-CSP_%7C_PII_Scrub_%7C_Red--Teamed-B91C1C?style=for-the-badge)](#security--privacy-architecture)
 
 ---
 
-## 🌟 Key Features
+## Why LokSaathi?
 
-- 🗣️ **Universal Dual-Engine Voice Assistant**: 100% natural speech-to-text and text-to-speech supporting **Hindi (हिंदी)** and **English**. Universal compatibility across Chrome, Brave, Edge, Safari, and Firefox.
-- 📜 **30+ Verified Central & State Welfare Schemes**: Direct links to official `.gov.in` application portals (PM-KISAN, Ayushman Bharat, PM Awas, Ladli Behna, etc.) with zero hallucinated URLs.
-- 🛡️ **DPDP Act 2023 Compliant On-Device Redaction**: Aadhaar (12-digit UID) and PAN numbers are automatically blurred in-browser via HTML5 Canvas before image compression. Zero server-side image storage.
-- 📱 **Universal Progressive Web App (PWA)**: Works offline, installs on Android, iOS, Windows, macOS, and Linux with 1-tap home-screen access.
-- 🔑 **Bring Your Own Key (BYOK) Support**: Anyone using LokSaathi can plug in their own free Google Gemini API key via the in-app 🔑 modal. Keys are saved 100% locally in browser localStorage with zero server storage, granting unlimited personal usage.
-- 💰 **₹0 / Free-Tier Architecture**: Powered entirely by Gemini Flash free tier, Vercel free hosting, and client-side IndexedDB.
+Millions of eligible citizens lose welfare benefits or fall prey to middlemen (*dalals*) because government scheme rules are scattered across portals, confused across NCR state borders, or mixed up with discontinued and viral fake schemes.
+
+**LokSaathi** replaces generic LLM guesswork with a **deterministic, bilingual (Hindi + English), offline-first civic assistant**:
+
+- **0% AI Hallucination on Rules:** Statutory eligibility (`Pass / Fail / Missing`), `hard_disqualifier` vs. `fixable_gap` classification, and top alternatives run on a deterministic rules engine over verified structured data.
+- **Delhi NCR Jurisdiction Disambiguation:** Prevents cross-border rejection by separating **Delhi (NCT)** (`CFC / e-District`), **Haryana NCR** (`Antyodaya Saral Kendra + PPP`), and **Uttar Pradesh NCR** (`Jan Seva Kendra / e-Sathi + Family ID`).
+- **Discontinued & Viral Fake-Scheme Redirect Shield:** Detects outdated or misleading queries (e.g., *"Delhi Ladli Behna Yojana"*, *Ladli 2008 → Lakhpati Bitiya*, *FAME-II → PM E-DRIVE*, *PMVVY vs. Ayushman Vaya Vandana*) and redirects citizens to active official schemes.
+- **Anti-Dalal Citizen Shield:** Displays official portal fee (`₹0` / statutory fee), nominal kiosk facilitation norms, expected SLA timelines, official helplines, and a 3-point acknowledgement receipt checklist on every scheme.
+- **Bilingual Document Acquisition Guides:** Interactive readiness checklist with step-by-step `"How to Get It?" / "कैसे बनवाएं?"` portals and local center guidance.
+- **Client-Side Finger-Blur Privacy Redaction (`/document`):** Citizens can redact sensitive ID numbers on document photos directly in the browser before sharing—zero server upload.
+- **Bring Your Own Key (BYOK) + Offline Deterministic Fallback:** Works offline or without a paid key using the built-in deterministic rules engine, while letting citizens optionally supply their own Gemini API key locally in browser `localStorage`.
 
 ---
 
-## 🚀 Quick Start (Run Locally)
+## Jurisdiction & Scheme Coverage
 
-### Prerequisites
-- Node.js 20 or higher
-- A free Google Gemini API Key from [Google AI Studio](https://aistudio.google.com/)
+LokSaathi indexes **519 schemes across 12 welfare categories** (including **95 full deep-dive specifications for Delhi NCT**):
 
-### 1. Clone & Install
+| Jurisdiction | Schemes Indexed | Local Facilitation Ecosystem |
+| :--- | :---: | :--- |
+| **Delhi (NCT)** | **95** (`DL-001` – `DL-095`, Deep-Dive Complete) | Citizen Facilitation Centre (CFC) / e-District Delhi |
+| **Haryana** *(incl. Haryana NCR)* | **119** (`HR-001` – `HR-119`) | Antyodaya Saral Kendra + Parivar Pehchan Patra (PPP) |
+| **Uttar Pradesh** *(incl. UP NCR)* | **112** (`UP-001` – `UP-112`) | Jan Seva Kendra / e-Sathi + UP Family ID |
+| **Punjab** | **90** (`PB-001` – `PB-090`) | Sewa Kendra / Connect Punjab + 1076 Doorstep |
+| **Central Government (All India)** | **103** (`IN-001` – `IN-103`) | Common Service Centre (CSC) / myScheme / UMANG |
+| **Total** | **519 Schemes** | **12 Categories • 32 Discontinued/Fake Redirect Rules** |
+
+---
+
+## Architecture & Zero-Cost Engineering
+
+- **Framework:** Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS with native `system-ui` font stacks (zero external font blocking, fast on low-bandwidth mobile connections).
+- **Deterministic Core (`lib/`):**
+  - `schemes-loader.ts` — Cached, deduplicated index loader for all 519 Central & State schemes.
+  - `intake-state-machine.ts` — Multi-turn guided intake with NCR disambiguation.
+  - `eligibility-evaluator.ts` & `scheme-matcher.ts` — Rule-based statutory audit and gap remediation.
+  - `scheme-redirects.ts` — Discontinued, merged, and viral fake-scheme interception (32 rules).
+  - `document-guides.ts` & `anti-dalal.ts` — Bilingual document acquisition steps and transparency metadata.
+- **PWA / Offline Support:** Serwist service worker, `/offline` fallback, `/saved` offline bookmarking via IndexedDB, and 1-tap Home Screen install on Android, iOS, and desktop browsers.
+
+---
+
+## Security & Privacy Architecture
+
+- **Zero PII Server Storage:** LokSaathi never asks for or stores Aadhaar, PAN, or bank account numbers on any backend.
+- **Hardened HTTP Headers (`next.config.ts`):** Strict Content-Security-Policy (CSP), HSTS, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, and strict `Referrer-Policy`.
+- **Input & Prompt Defense (`lib/security.ts` & `tests/security/`):** Prompt-injection filtering, homoglyph normalization, PII log scrubbing, and automated Vitest security & prompt red-team tests.
+
+---
+
+## Local Development
+
+### 1. Clone & Install (Node.js 20+)
+
 ```bash
-git clone https://github.com/your-username/LokSaathi.git
+git clone https://github.com/smukulsaini369090-hub/LokSaathi.git
 cd LokSaathi
-npm install --legacy-peer-deps
+npm install
 ```
 
-### 2. Configure Environment
-Create a `.env.local` file in the root directory:
+### 2. Optional Environment Configuration
+
+Create a `.env.local` file in the root directory if you want server-side Gemini Vision/Voice extraction or Upstash rate-limiting (the deterministic rules engine and 519-scheme catalog work with zero keys configured):
+
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-2.0-flash
+GEMINI_MODEL=gemini-3.5-flash-lite
 UPSTASH_REDIS_REST_URL=
 UPSTASH_REDIS_REST_TOKEN=
-DATABASE_URL=
 ```
 
 ### 3. Run Development Server
+
 ```bash
 npm run dev
 ```
+
 Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 🌐 Deploy to Production (100% Free on Vercel)
+## Docker & Mobile PWA
 
-The fastest and easiest way to make LokSaathi live for the entire world:
-
-1. Push your repository to **GitHub**:
-   ```bash
-   git add .
-   git commit -m "feat: production release"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/LokSaathi.git
-   git push -u origin main
-   ```
-2. Go to **[vercel.com](https://vercel.com)** and sign in with GitHub.
-3. Click **"Add New"** > **"Project"** and import `LokSaathi`.
-4. In the **Environment Variables** section, add:
-   - `GEMINI_API_KEY`: *(your Gemini API key)*
-   - `GEMINI_MODEL`: `gemini-2.0-flash`
-5. Click **"Deploy"**. Within ~60 seconds, your site is live with a global HTTPS URL (e.g., `https://loksaathi.vercel.app`)!
+- **Self-Host with Docker:**
+  ```bash
+  docker compose up -d --build
+  ```
+- **Mobile Installation (PWA):**
+  - **Android (Chrome / Brave / Edge):** Open browser menu (`⋮`) → **Install app** / **Add to Home Screen**.
+  - **iPhone / iPad (Safari):** Tap **Share** (`⎋`) → **Add to Home Screen** (`+`).
+  - **Desktop (Chrome / Edge):** Click the install icon in the address bar (`⊕`).
 
 ---
 
-## 🐳 Self-Hosting with Docker
+## Testing & Verification
 
-Run LokSaathi on any operating system (Windows, Linux, macOS, Ubuntu VPS) using Docker:
+LokSaathi is verified by a **137-test automated suite across 28 test files** (including 519-scheme schema validation, redirect tests, multi-turn intake state-machine integration tests, and security red-team tests):
 
 ```bash
-# Build and run with docker compose
-docker compose up -d --build
-```
-Your instance will be accessible at `http://localhost:3000`.
-
----
-
-## 📱 Mobile Installation (PWA)
-
-LokSaathi installs directly onto smartphones without an app store:
-
-- **Android (Chrome / Brave / Edge)**: Tap the three dots menu (⋮) > Tap **"Install app"** or **"Add to Home Screen"**.
-- **iPhone / iPad (Safari)**: Tap the Share button (⎋) > Tap **"Add to Home Screen"** (+).
-- **Windows / macOS (Chrome / Edge)**: Click the install icon in the URL bar (⊕) > Click **"Install"**.
-
----
-
-## 🧪 Testing & Verification
-
-LokSaathi is backed by a rigorous 139-test verification suite:
-
-```bash
-# Run all unit and integration tests
-npx vitest run
-
 # Run TypeScript type verification
 npx tsc --noEmit
 
-# Test production build
+# Run all 137 unit, integration & security tests
+npx vitest run
+
+# Build production bundle
 npm run build
 ```
-
----
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
