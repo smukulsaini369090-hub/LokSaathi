@@ -1,9 +1,14 @@
 {
+  "id": "/",
   "name": "LokSaathi — सरकारी योजना सहायक",
   "short_name": "LokSaathi",
-  "description": "सरकारी योजनाओं की जानकारी और दस्तावेज़ सहायक",
+  "description": "सरकारी योजनाओं की जानकारी, पात्रता जांच और दस्तावेज़ सहायक (₹0, दलाल-मुक्त)",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "categories": ["government", "utilities"],
   "background_color": "#ffffff",
   "theme_color": "#1a56db",
   "lang": "hi",
@@ -11,18 +16,37 @@
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icons/icon-512-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "योजना खोजें / Find Schemes",
+      "url": "/schemes",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "दस्तावेज़ स्कैन / Scan Document",
+      "url": "/document",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "सहेजी गई / Saved Schemes",
+      "url": "/saved",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }

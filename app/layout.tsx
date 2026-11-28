@@ -8,9 +8,15 @@ import { OnboardingGuide } from "@/components/OnboardingGuide";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lok-saathi.vercel.app"),
-  title: "LokSaathi — सरकारी योजना एवं दस्तावेज़ सहायक",
+  title: {
+    default: "LokSaathi — सरकारी योजना एवं दस्तावेज़ सहायक",
+    template: "%s",
+  },
   description:
     "अपनी स्थानीय भाषा में बोलकर जानिए सरकारी योजनाओं की पात्रता, असली शुल्क व दस्तावेज़ों का सरल अर्थ।",
+  alternates: {
+    canonical: "/",
+  },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -58,9 +64,15 @@ export default function RootLayout({
   return (
     <html lang="hi" suppressHydrationWarning>
       <body className="min-h-screen bg-slate-50 text-gray-900 font-sans antialiased pb-20 selection:bg-blue-100 selection:text-blue-900">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-xl focus:bg-blue-700 focus:text-white focus:text-sm focus:font-bold focus:shadow-lg"
+        >
+          मुख्य सामग्री पर जाएं / Skip to main content
+        </a>
         <LanguageProvider>
           <Header />
-          <main className="max-w-2xl mx-auto min-h-[calc(100vh-3.5rem)]">
+          <main id="main-content" tabIndex={-1} className="max-w-2xl mx-auto min-h-[calc(100vh-3.5rem)] focus:outline-none">
             {children}
           </main>
           <Footer />

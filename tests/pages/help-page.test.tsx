@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import HelpCenterPage from "@/app/help/page";
 import { LanguageProvider } from "@/components/LanguageContext";
@@ -81,5 +81,24 @@ describe("Help & Device Diagnostics Page (/help)", () => {
     const detailsEl = container.querySelector("details");
     expect(detailsEl).toBeInTheDocument();
     expect(detailsEl?.hasAttribute("open")).toBe(false);
+  });
+
+  it("renders strictly ONE onboarding dialog even when RootLayout OnboardingGuide + HelpCenterPage mount with unacknowledged storage", async () => {
+    vi.useFakeTimers();
+    localStorage.clear();
+    const { OnboardingGuide } = await import("@/components/OnboardingGuide");
+
+    renderWithLanguage(
+      <>
+        <HelpCenterPage />
+        <OnboardingGuide />
+      </>
+    );
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1000);
+    });
+    expect(screen.getAllByRole("dialog")).toHaveLength(1);
+    vi.useRealTimers();
   });
 });

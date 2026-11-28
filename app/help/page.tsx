@@ -29,6 +29,7 @@ import { getDeviceInfo, type OperatingSystem, type DeviceInfo } from "@/lib/devi
 import { HELP_CONTENT, OS_SETUP_GUIDES } from "@/lib/i18n";
 import { ApiKeyModal } from "@/components/ApiKeyModal";
 import { OnboardingGuide, ONBOARDING_STORAGE_KEY } from "@/components/OnboardingGuide";
+import { PermissionsPreferencesPanel } from "@/components/PermissionsPreferencesPanel";
 
 export default function HelpCenterPage() {
   const { language } = useLanguage();
@@ -309,7 +310,42 @@ export default function HelpCenterPage() {
         </div>
       </div>
 
-      {/* Panel 2: Cross-OS Setup Tabs */}
+      {/* Panel 2: Permissions & Privacy Preferences Manager */}
+      <section
+        id="permissions"
+        aria-labelledby="permissions-panel-heading"
+        className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4"
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 id="permissions-panel-heading" className="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-emerald-600" />
+              <span>
+                {language === "hi"
+                  ? "अनुमतियाँ और गोपनीयता सेटिंग्स"
+                  : "Permissions & Privacy Preferences"}
+              </span>
+            </h2>
+            <p className="text-xs text-slate-600 mt-0.5">
+              {language === "hi"
+                ? "माइक, लोकेशन और ऑफ़लाइन ऑडियो विकल्प आपकी मर्ज़ी से कभी भी बदलें या रीसेट करें:"
+                : "Manage or reset Microphone, Nearby Center Location, and Offline Audio choices anytime:"}
+            </p>
+          </div>
+          <div className="flex items-center gap-3 text-xs font-bold">
+            <Link href="/terms" className="text-blue-700 hover:underline min-h-[44px] inline-flex items-center">
+              {language === "hi" ? "नियम" : "Terms"}
+            </Link>
+            <Link href="/privacy" className="text-blue-700 hover:underline min-h-[44px] inline-flex items-center">
+              {language === "hi" ? "गोपनीयता (DPDP)" : "Privacy"}
+            </Link>
+          </div>
+        </div>
+
+        <PermissionsPreferencesPanel showResetControls={true} />
+      </section>
+
+      {/* Panel 3: Cross-OS Setup Tabs */}
       <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
         <div>
           <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
@@ -491,8 +527,12 @@ export default function HelpCenterPage() {
       {/* Floating API Key Modal */}
       <ApiKeyModal isOpen={isKeyModalOpen} onClose={() => setIsKeyModalOpen(false)} />
 
-      {/* Onboarding Guide Modal */}
-      <OnboardingGuide forceOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
+      {/* Onboarding Guide Modal (manual replay only; root layout handles first-visit auto-open) */}
+      <OnboardingGuide
+        autoOpen={false}
+        forceOpen={isOnboardingOpen}
+        onClose={() => setIsOnboardingOpen(false)}
+      />
     </div>
   );
 }

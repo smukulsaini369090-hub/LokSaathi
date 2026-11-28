@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import {
   Sparkles,
@@ -8,35 +8,41 @@ import {
   VolumeX,
   X,
   ArrowRight,
-  ArrowLeft,
   CheckCircle2,
   Search,
   Bot,
   FileText,
   ShieldCheck,
   Smartphone,
-  ExternalLink,
-  HelpCircle,
 } from "lucide-react";
 import { useLanguage } from "@/components/LanguageContext";
 import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 import { ONBOARDING_CONTENT } from "@/lib/i18n";
 import { getDeviceInfo } from "@/lib/device-detect";
+import { PermissionsPreferencesPanel } from "@/components/PermissionsPreferencesPanel";
+import { savePreferenceUpdate } from "@/lib/preferences";
 
 export const ONBOARDING_STORAGE_KEY = "loksaathi_onboarding_v1_done";
 
 interface OnboardingGuideProps {
   forceOpen?: boolean;
+  autoOpen?: boolean;
   onClose?: () => void;
 }
 
-export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideProps) {
+export function OnboardingGuide({
+  forceOpen = false,
+  autoOpen = true,
+  onClose,
+}: OnboardingGuideProps) {
   const { language, setLanguage } = useLanguage();
   const { speak, stop, isPlaying, isSupported, prewarmTTS } = useSpeechSynthesis();
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [deviceInfo, setDeviceInfo] = useState<any>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const content = ONBOARDING_CONTENT[language];
   const steps = content.steps;
@@ -53,6 +59,8 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
       return;
     }
 
+    if (!autoOpen) return;
+
     let hasCompleted = false;
     try {
       hasCompleted = localStorage.getItem(ONBOARDING_STORAGE_KEY) === "true";
@@ -66,30 +74,92 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
       }, 800);
       return () => clearTimeout(timer);
     }
-  }, [forceOpen]);
+  }, [forceOpen, autoOpen]);
 
-  // Listen for global custom event to replay tour from anywhere
+  // Listen for global custom events only on the primary global (autoOpen) instance
   useEffect(() => {
+    if (!autoOpen) return;
+
     const handleReplay = () => {
       setCurrentStep(0);
       setIsOpen(true);
     };
+    const handleOpenPermissions = () => {
+      setCurrentStep(3);
+      setIsOpen(true);
+    };
     window.addEventListener("loksaathi_open_onboarding", handleReplay);
-    return () => window.removeEventListener("loksaathi_open_onboarding", handleReplay);
-  }, []);
+    window.addEventListener("loksaathi_open_permissions", handleOpenPermissions);
+    return () => {
+      window.removeEventListener("loksaathi_open_onboarding", handleReplay);
+      window.removeEventListener("loksaathi_open_permissions", handleOpenPermissions);
+    };
+  }, [autoOpen]);
+
+  // WCAG Modal focus entry + focus restoration on close
+  useEffect(() => {
+    if (isOpen) {
+      previousFocusRef.current = document.activeElement as HTMLElement | null;
+      dialogRef.current?.focus();
+    } else if (previousFocusRef.current && typeof previousFocusRef.current.focus === "function") {
+      previousFocusRef.current.focus();
+      previousFocusRef.current = null;
+    }
+  }, [isOpen]);
 
   // Stop speech synthesis when step changes or modal closes
   useEffect(() => {
     stop();
   }, [currentStep, isOpen, stop]);
 
-  // Handle keyboard navigation (Escape, ArrowLeft, ArrowRight)
+  const handleComplete = useCallback(() => {
+    stop();
+    try {
+      localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
+    } catch {}
+    savePreferenceUpdate({ legal_acknowledged: true });
+    setIsOpen(false);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("loksaathi_onboarding_completed"));
+    }
+    if (onClose) onClose();
+  }, [stop, onClose]);
+
+  const handleSkip = useCallback(() => {
+    stop();
+    try {
+      localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
+    } catch {}
+    savePreferenceUpdate({ legal_acknowledged: true });
+    setIsOpen(false);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("loksaathi_onboarding_completed"));
+    }
+    if (onClose) onClose();
+  }, [stop, onClose]);
+
+  // Handle keyboard navigation (Escape, Tab focus trap, ArrowLeft/Right)
   useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         handleSkip();
+      } else if (e.key === "Tab" && dialogRef.current) {
+        const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length > 0) {
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
       } else if (e.key === "ArrowRight") {
         if (currentStep < steps.length - 1) {
           setCurrentStep((prev) => prev + 1);
@@ -103,7 +173,7 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, currentStep, steps.length]);
+  }, [isOpen, currentStep, steps.length, handleSkip]);
 
   const handleAudioToggle = () => {
     prewarmTTS();
@@ -128,61 +198,39 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
     }
   };
 
-  const handleComplete = useCallback(() => {
-    stop();
-    try {
-      localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
-    } catch {}
-    setIsOpen(false);
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("loksaathi_onboarding_completed"));
-    }
-    if (onClose) onClose();
-  }, [stop, onClose]);
-
-  const handleSkip = useCallback(() => {
-    stop();
-    try {
-      localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
-    } catch {}
-    setIsOpen(false);
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("loksaathi_onboarding_completed"));
-    }
-    if (onClose) onClose();
-  }, [stop, onClose]);
-
   if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
+      ref={dialogRef}
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200 focus:outline-none"
       role="dialog"
       aria-modal="true"
       aria-labelledby="onboarding-step-title"
     >
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col max-h-[92vh]">
         {/* Top Header Bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 bg-slate-50/70">
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-slate-100 bg-slate-50/70">
           <div className="flex items-center gap-2">
             <span className="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
               लो
             </span>
             <span className="text-xs font-bold text-slate-800">
-              {language === "hi" ? "मार्गदर्शिका (Quick Guide)" : "LokSaathi Guide"}
+              {language === "hi" ? "मार्गदर्शिका व अनुमतियाँ" : "Setup & Permissions"}
             </span>
-            <span className="text-[11px] font-semibold text-slate-400">
+            <span className="text-[11px] font-semibold text-slate-500">
               • {content.stepCount} {currentStep + 1} / {steps.length}
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             {/* Audio "Suno" button */}
             {isSupported && (
               <button
                 type="button"
                 onClick={handleAudioToggle}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                className={`min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   isPlaying
                     ? "bg-amber-100 text-amber-900 border border-amber-300 animate-pulse"
                     : "bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200"
@@ -195,14 +243,15 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
               </button>
             )}
 
-            {/* Skip Button */}
+            {/* Clear Non-Blocking Skip Button (min 44px touch target) */}
             <button
               type="button"
               onClick={handleSkip}
-              className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 rounded-full transition-colors ml-1"
-              aria-label={content.skip}
+              className="min-h-[44px] inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-full transition-colors cursor-pointer"
+              aria-label={language === "hi" ? "अभी छोड़ें" : "Skip for Now"}
             >
-              <X className="w-4 h-4" />
+              <span>{language === "hi" ? "छोड़ें" : "Skip"}</span>
+              <X className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
@@ -256,16 +305,23 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
             <div className="space-y-3 pt-2">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-4 space-y-2.5">
                 {currentStepData.bulletPoints?.map((pt: string, idx: number) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 font-medium">
+                  <div key={idx} className="flex items-start gap-2.5 text-sm text-slate-800 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>{pt}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-slate-500 italic text-center">
+              <p className="text-xs text-slate-600 text-center leading-relaxed bg-slate-50 border border-slate-200 rounded-xl p-2.5">
                 {language === "hi"
-                  ? "👉 'आगे बढ़ें' पर क्लिक करें या ऊपर 'सुनें' दबाकर ऑडियो में सुनें।"
-                  : "👉 Tap 'Next' to continue or tap 'Listen' to hear this walkthrough."}
+                  ? "लोकसाथी एक स्वतंत्र नागरिक सहायता मंच है (सरकारी विभाग नहीं)।"
+                  : "LokSaathi is an independent citizen helper (not a government department)."}{" "}
+                <Link href="/terms" onClick={handleSkip} className="font-bold text-blue-700 hover:underline">
+                  {language === "hi" ? "नियम" : "Terms"}
+                </Link>{" "}
+                •{" "}
+                <Link href="/privacy" onClick={handleSkip} className="font-bold text-blue-700 hover:underline">
+                  {language === "hi" ? "गोपनीयता (DPDP)" : "Privacy"}
+                </Link>
               </p>
             </div>
           )}
@@ -338,22 +394,10 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
             </div>
           )}
 
-          {/* Step 4: Device Readiness Body */}
+          {/* Step 4: Non-Blocking Device Permissions & Preferences Setup */}
           {currentStep === 3 && (
             <div className="space-y-3 pt-1">
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 space-y-2.5">
-                {currentStepData.checks?.map((chk: any, idx: number) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-800">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
-                      {idx + 1}
-                    </div>
-                    <div>
-                      <strong className="block text-slate-900 font-bold">{chk.label}</strong>
-                      <span className="text-slate-600 text-[11px]">{chk.desc}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <PermissionsPreferencesPanel compact />
 
               {deviceInfo && (
                 <div className="flex items-center justify-between px-3 py-2 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-900">
@@ -367,10 +411,23 @@ export function OnboardingGuide({ forceOpen = false, onClose }: OnboardingGuideP
                 </div>
               )}
 
+              <p className="text-[11px] text-slate-600 text-center leading-relaxed">
+                {language === "hi"
+                  ? "आप कभी भी नीचे से सेटिंग बदल सकते हैं। विवरण:"
+                  : "Change anytime in Footer or Help. Read:"}{" "}
+                <Link href="/terms" onClick={handleComplete} className="font-bold text-blue-700 hover:underline">
+                  {language === "hi" ? "नियम एवं शर्तें" : "Terms"}
+                </Link>{" "}
+                •{" "}
+                <Link href="/privacy" onClick={handleComplete} className="font-bold text-blue-700 hover:underline">
+                  {language === "hi" ? "गोपनीयता सूचना" : "Privacy"}
+                </Link>
+              </p>
+
               <Link
                 href="/help"
                 onClick={handleComplete}
-                className="inline-flex items-center justify-center gap-1 w-full py-2.5 px-4 text-xs font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition-colors"
+                className="min-h-[44px] inline-flex items-center justify-center gap-1 w-full py-2.5 px-4 text-xs font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition-colors"
               >
                 <span>{currentStepData.helpLinkText}</span>
               </Link>
